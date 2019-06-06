@@ -1,0 +1,1 @@
+../../../HZPhotoBrowser/HZPhotoBrowser/photoBrowser/ptotoBrowser/HZPhotoBrowserConfig.h

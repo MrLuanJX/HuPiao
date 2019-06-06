@@ -7,6 +7,104 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		008207F1229D359800EBEF4C /* HP_InsertBGView.m in Sources */ = {isa = PBXBuildFile; fileRef = 008207F0229D359800EBEF4C /* HP_InsertBGView.m */; };
+		0082086422A10B5300EBEF4C /* HP_HomeDetailOwnHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0082086322A10B5300EBEF4C /* HP_HomeDetailOwnHeadView.m */; };
+		0082086A22A1102300EBEF4C /* HP_DyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0082086922A1102300EBEF4C /* HP_DyViewController.m */; };
+		0082086D22A1160A00EBEF4C /* HP_DyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0082086C22A1160A00EBEF4C /* HP_DyCell.m */; };
+		0082087322A1189A00EBEF4C /* HP_ImageListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0082087222A1189A00EBEF4C /* HP_ImageListView.m */; };
+		0082087622A11BAB00EBEF4C /* HP_Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 0082087522A11BAB00EBEF4C /* HP_Utility.m */; };
+		0082089F22A1243100EBEF4C /* HP_Label.m in Sources */ = {isa = PBXBuildFile; fileRef = 0082089E22A1243100EBEF4C /* HP_Label.m */; };
+		008208A222A1281400EBEF4C /* HP_ImagePreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 008208A122A1281400EBEF4C /* HP_ImagePreviewView.m */; };
+		008208BF22A4BB1000EBEF4C /* HPDivisableTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 008208BE22A4BB1000EBEF4C /* HPDivisableTool.m */; };
+		008208C222A4C2AA00EBEF4C /* HP_DyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 008208C122A4C2AA00EBEF4C /* HP_DyModel.m */; };
+		008208C522A4F35500EBEF4C /* HP_TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 008208C422A4F35500EBEF4C /* HP_TableView.m */; };
+		008208C922A4F3C600EBEF4C /* HP_MessageListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008208C822A4F3C600EBEF4C /* HP_MessageListViewController.m */; };
+		008208CF22A4F4B300EBEF4C /* JKDBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 008208CB22A4F4B300EBEF4C /* JKDBModel.m */; };
+		008208D022A4F4B300EBEF4C /* JKDBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 008208CC22A4F4B300EBEF4C /* JKDBHelper.m */; };
+		008208D322A4F4CA00EBEF4C /* HP_Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 008208D222A4F4CA00EBEF4C /* HP_Message.m */; };
+		008208D622A4F64800EBEF4C /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008208D522A4F64800EBEF4C /* SearchResultViewController.m */; };
+		008208D922A4F7D500EBEF4C /* MomentUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 008208D722A4F7D500EBEF4C /* MomentUtil.m */; };
+		008208DC22A4F83C00EBEF4C /* MUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 008208DB22A4F83C00EBEF4C /* MUser.m */; };
+		008208DF22A4F86C00EBEF4C /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 008208DE22A4F86B00EBEF4C /* Comment.m */; };
+		008208E422A4F89100EBEF4C /* MLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 008208E222A4F89000EBEF4C /* MLocation.m */; };
+		008208E522A4F89100EBEF4C /* MPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = 008208E322A4F89000EBEF4C /* MPicture.m */; };
+		008208E822A4F89900EBEF4C /* Moment.m in Sources */ = {isa = PBXBuildFile; fileRef = 008208E622A4F89800EBEF4C /* Moment.m */; };
+		008208EF22A4F9A000EBEF4C /* HP_ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008208EE22A4F9A000EBEF4C /* HP_ContactsViewController.m */; };
+		008208F222A4FBBD00EBEF4C /* NSString+Letter.m in Sources */ = {isa = PBXBuildFile; fileRef = 008208F022A4FBBD00EBEF4C /* NSString+Letter.m */; };
+		008208F522A4FBD900EBEF4C /* JPinYinUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 008208F422A4FBD900EBEF4C /* JPinYinUtil.m */; };
+		0082090522A5316200EBEF4C /* UIView+BorderLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0082090422A5316200EBEF4C /* UIView+BorderLine.m */; };
+		0082090822A6023500EBEF4C /* GXUpvoteButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0082090722A6023500EBEF4C /* GXUpvoteButton.m */; };
+		0082090B22A65DF900EBEF4C /* HP_MineHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0082090A22A65DF900EBEF4C /* HP_MineHeadView.m */; };
+		0082091122A6788900EBEF4C /* bgView.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0082091022A6788900EBEF4C /* bgView.jpg */; };
+		00B9511422929C9F008D9411 /* HP_HomeBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B9511322929C9F008D9411 /* HP_HomeBaseViewController.m */; };
+		00B9511722929DA7008D9411 /* HP_HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B9511622929DA7008D9411 /* HP_HomeCell.m */; };
+		00B9512E2292AAE2008D9411 /* gfrz.png in Resources */ = {isa = PBXBuildFile; fileRef = 00B9512D2292AAE2008D9411 /* gfrz.png */; };
+		00B9513422939696008D9411 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00B9513322939696008D9411 /* 1.jpg */; };
+		00B9516C22963925008D9411 /* HJDefaultTabViewBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B9515B22963925008D9411 /* HJDefaultTabViewBar.m */; };
+		00B9516D22963925008D9411 /* HJTabViewControllerPlugin_HeaderScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B9516322963925008D9411 /* HJTabViewControllerPlugin_HeaderScroll.m */; };
+		00B9516E22963925008D9411 /* HJTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B9516422963925008D9411 /* HJTabViewController.m */; };
+		00B9516F22963925008D9411 /* HJTabViewController+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B9516522963925008D9411 /* HJTabViewController+ViewController.m */; };
+		00B9517022963925008D9411 /* HJTabViewControllerPlugin_TabViewBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B9516722963925008D9411 /* HJTabViewControllerPlugin_TabViewBar.m */; };
+		00B9517122963925008D9411 /* HJTabViewControllerPlugin_BottomInset.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B9516822963925008D9411 /* HJTabViewControllerPlugin_BottomInset.m */; };
+		00B9517222963925008D9411 /* HJTabViewControllerPlugin_Base.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B9516922963925008D9411 /* HJTabViewControllerPlugin_Base.m */; };
+		00B9517322963925008D9411 /* HJTabViewBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B9516A22963925008D9411 /* HJTabViewBar.m */; };
+		00B9517822963A40008D9411 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 00B9517722963A40008D9411 /* 2.png */; };
+		00B9517A22963A47008D9411 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 00B9517922963A47008D9411 /* 3.png */; };
+		00B9519422964DCF008D9411 /* cn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00B9518522964DCF008D9411 /* cn.jpg */; };
+		00B9519522964DCF008D9411 /* xingzuo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00B9518622964DCF008D9411 /* xingzuo.jpg */; };
+		00B9519622964DCF008D9411 /* shuangzi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00B9518722964DCF008D9411 /* shuangzi.jpg */; };
+		00B9519722964DCF008D9411 /* timg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00B9518822964DCF008D9411 /* timg.jpg */; };
+		00B9519822964DCF008D9411 /* tc.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00B9518922964DCF008D9411 /* tc.jpg */; };
+		00B9519922964DCF008D9411 /* by.png in Resources */ = {isa = PBXBuildFile; fileRef = 00B9518A22964DCF008D9411 /* by.png */; };
+		00B9519A22964DCF008D9411 /* sp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00B9518B22964DCF008D9411 /* sp.jpg */; };
+		00B9519B22964DCF008D9411 /* ss.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00B9518C22964DCF008D9411 /* ss.jpg */; };
+		00B9519C22964DCF008D9411 /* sy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00B9518D22964DCF008D9411 /* sy.jpg */; };
+		00B9519D22964DCF008D9411 /* jn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00B9518E22964DCF008D9411 /* jn.jpg */; };
+		00B9519E22964DCF008D9411 /* sz.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00B9518F22964DCF008D9411 /* sz.jpg */; };
+		00B9519F22964DCF008D9411 /* jx.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00B9519022964DCF008D9411 /* jx.jpg */; };
+		00B951A022964DCF008D9411 /* tx.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00B9519122964DCF008D9411 /* tx.jpg */; };
+		00B951A122964DCF008D9411 /* xzys.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00B9519222964DCF008D9411 /* xzys.jpg */; };
+		00B951A222964DCF008D9411 /* mj.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00B9519322964DCF008D9411 /* mj.jpg */; };
+		00B951A622965A78008D9411 /* HP_DynamicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B951A522965A78008D9411 /* HP_DynamicViewController.m */; };
+		00B951B322967405008D9411 /* HP_HomeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B951B122967405008D9411 /* HP_HomeDetailViewController.m */; };
+		00B951B922967435008D9411 /* HP_BaseAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B951B522967433008D9411 /* HP_BaseAlbumViewController.m */; };
+		00B951BA22967435008D9411 /* HP_BaseInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B951B622967434008D9411 /* HP_BaseInformationViewController.m */; };
+		00B951BD22967450008D9411 /* XZ_CollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B951BC22967450008D9411 /* XZ_CollectionCell.m */; };
+		00B951C322967CDC008D9411 /* HP_HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B951C222967CDC008D9411 /* HP_HomeViewController.m */; };
+		00B951C722968A20008D9411 /* HP_HomeDetailNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B951C622968A20008D9411 /* HP_HomeDetailNewViewController.m */; };
+		00B951CA22968AEA008D9411 /* HP_OwnDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B951C922968AEA008D9411 /* HP_OwnDetailViewController.m */; };
+		00B951CD22968AFF008D9411 /* HP_PhotoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B951CC22968AFF008D9411 /* HP_PhotoDetailViewController.m */; };
+		00D2EFD622A75FE8008D52D9 /* INMRefreshGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2EFC522A75FE6008D52D9 /* INMRefreshGifHeader.m */; };
+		00D2EFD722A75FE8008D52D9 /* INMHomeRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2EFC622A75FE6008D52D9 /* INMHomeRefreshHeader.m */; };
+		00D2EFD822A75FE8008D52D9 /* INMRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2EFC922A75FE6008D52D9 /* INMRefreshHeader.m */; };
+		00D2EFD922A75FE8008D52D9 /* INMUpdateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2EFCC22A75FE7008D52D9 /* INMUpdateView.m */; };
+		00D2EFDA22A75FE8008D52D9 /* INMUpdateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2EFCD22A75FE7008D52D9 /* INMUpdateModel.m */; };
+		00D2EFDB22A75FE8008D52D9 /* INMLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2EFD122A75FE7008D52D9 /* INMLoadingView.m */; };
+		00D2EFDC22A75FE8008D52D9 /* INMAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2EFD422A75FE8008D52D9 /* INMAlertView.m */; };
+		00D2EFE222A794A9008D52D9 /* HP_OwnMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2EFE122A794A9008D52D9 /* HP_OwnMessageViewController.m */; };
+		00D2EFE522A794BE008D52D9 /* HP_NormalOwnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2EFE422A794BE008D52D9 /* HP_NormalOwnView.m */; };
+		00D2EFE822A794D1008D52D9 /* HP_AuthOwnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2EFE722A794D1008D52D9 /* HP_AuthOwnView.m */; };
+		00D2EFEB22A7A82F008D52D9 /* HP_AuthMessageHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2EFEA22A7A82F008D52D9 /* HP_AuthMessageHeadView.m */; };
+		00D2EFEE22A8B1DB008D52D9 /* HP_SeleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2EFED22A8B1DB008D52D9 /* HP_SeleteViewController.m */; };
+		00D2EFF122A8E885008D52D9 /* HP_SignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2EFF022A8E885008D52D9 /* HP_SignViewController.m */; };
+		00D2EFF422A8ECC5008D52D9 /* HP_UpdateNickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2EFF322A8ECC5008D52D9 /* HP_UpdateNickNameViewController.m */; };
+		00D2EFF722A8F04F008D52D9 /* NSString+trim.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2EFF622A8F04F008D52D9 /* NSString+trim.m */; };
+		00D2EFFB22A8FC67008D52D9 /* HP_CeIdcardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2EFFA22A8FC67008D52D9 /* HP_CeIdcardViewController.m */; };
+		00D2EFFE22A8FD2B008D52D9 /* HP_CerIdcardTabCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2EFFD22A8FD2B008D52D9 /* HP_CerIdcardTabCell.m */; };
+		00D2F08922A9020E008D52D9 /* libexidcardios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D2F07522A9020E008D52D9 /* libexidcardios.a */; };
+		00D2F08A22A9020E008D52D9 /* zocr0.lib in Resources */ = {isa = PBXBuildFile; fileRef = 00D2F07722A9020E008D52D9 /* zocr0.lib */; };
+		00D2F08B22A9020E008D52D9 /* JQIDCardScaningView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2F07C22A9020E008D52D9 /* JQIDCardScaningView.m */; };
+		00D2F08C22A9020E008D52D9 /* IDInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2F07D22A9020E008D52D9 /* IDInfo.m */; };
+		00D2F08D22A9020E008D52D9 /* AVCaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2F07E22A9020E008D52D9 /* AVCaptureViewController.m */; };
+		00D2F08E22A9020E008D52D9 /* UIAlertController+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2F07F22A9020E008D52D9 /* UIAlertController+Extend.m */; };
+		00D2F08F22A9020E008D52D9 /* LHSIDCardScaningView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2F08022A9020E008D52D9 /* LHSIDCardScaningView.m */; };
+		00D2F09022A9020E008D52D9 /* JQAVCaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2F08122A9020E008D52D9 /* JQAVCaptureViewController.m */; };
+		00D2F09122A9020E008D52D9 /* RectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2F08222A9020E008D52D9 /* RectManager.m */; };
+		00D2F09522A90262008D52D9 /* AlertViewTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2F09422A90262008D52D9 /* AlertViewTool.m */; };
+		00D2F09822A90508008D52D9 /* Lyy_ImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2F09622A90508008D52D9 /* Lyy_ImagePickerController.m */; };
+		00D2F09C22A91480008D52D9 /* HP_FollowAndFansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2F09B22A91480008D52D9 /* HP_FollowAndFansViewController.m */; };
+		00D2F0A022A91CA3008D52D9 /* HP_WalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2F09F22A91CA3008D52D9 /* HP_WalletViewController.m */; };
+		6FA88AE52053FD530287571A /* libPods-HuPiao.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1F0D25849DB2562E24DED4 /* libPods-HuPiao.a */; };
 		DDFE70DE2290F4270029C425 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFE70DD2290F4270029C425 /* AppDelegate.m */; };
 		DDFE70E12290F4270029C425 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFE70E02290F4270029C425 /* ViewController.m */; };
 		DDFE70E42290F4270029C425 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDFE70E22290F4270029C425 /* Main.storyboard */; };
@@ -15,6 +113,17 @@
 		DDFE70EC2290F42A0029C425 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFE70EB2290F42A0029C425 /* main.m */; };
 		DDFE70F62290F42A0029C425 /* HuPiaoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFE70F52290F42A0029C425 /* HuPiaoTests.m */; };
 		DDFE71012290F42A0029C425 /* HuPiaoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFE71002290F42A0029C425 /* HuPiaoUITests.m */; };
+		DDFE71122290F53A0029C425 /* HP_BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFE71112290F53A0029C425 /* HP_BaseViewController.m */; };
+		DDFE71152290F5540029C425 /* HP_TabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFE71142290F5540029C425 /* HP_TabbarViewController.m */; };
+		DDFE71182290F5690029C425 /* HP_NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFE71172290F5690029C425 /* HP_NavigationViewController.m */; };
+		DDFE71272291065A0029C425 /* HP_MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFE71262291065A0029C425 /* HP_MessageViewController.m */; };
+		DDFE712A229106660029C425 /* HP_MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFE7129229106660029C425 /* HP_MineViewController.m */; };
+		DDFE712D22910C000029C425 /* KLTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFE712B22910BFF0029C425 /* KLTNavigationController.m */; };
+		DDFE713322910D1C0029C425 /* AnimationContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFE713222910D1C0029C425 /* AnimationContoller.m */; };
+		DDFE713D229115AF0029C425 /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFE7135229115AD0029C425 /* UIButton+Extension.m */; };
+		DDFE713E229115AF0029C425 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFE7136229115AE0029C425 /* UIView+Extension.m */; };
+		DDFE713F229115AF0029C425 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFE713A229115AF0029C425 /* UIBarButtonItem+Extension.m */; };
+		DDFE7140229115AF0029C425 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFE713C229115AF0029C425 /* UIImage+Extension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +144,183 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		008207EF229D359800EBEF4C /* HP_InsertBGView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_InsertBGView.h; sourceTree = "<group>"; };
+		008207F0229D359800EBEF4C /* HP_InsertBGView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_InsertBGView.m; sourceTree = "<group>"; };
+		0082086222A10B5300EBEF4C /* HP_HomeDetailOwnHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_HomeDetailOwnHeadView.h; sourceTree = "<group>"; };
+		0082086322A10B5300EBEF4C /* HP_HomeDetailOwnHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_HomeDetailOwnHeadView.m; sourceTree = "<group>"; };
+		0082086822A1102300EBEF4C /* HP_DyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_DyViewController.h; sourceTree = "<group>"; };
+		0082086922A1102300EBEF4C /* HP_DyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_DyViewController.m; sourceTree = "<group>"; };
+		0082086B22A1160A00EBEF4C /* HP_DyCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_DyCell.h; sourceTree = "<group>"; };
+		0082086C22A1160A00EBEF4C /* HP_DyCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_DyCell.m; sourceTree = "<group>"; };
+		0082087122A1189A00EBEF4C /* HP_ImageListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_ImageListView.h; sourceTree = "<group>"; };
+		0082087222A1189A00EBEF4C /* HP_ImageListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_ImageListView.m; sourceTree = "<group>"; };
+		0082087422A11BAB00EBEF4C /* HP_Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HP_Utility.h; sourceTree = "<group>"; };
+		0082087522A11BAB00EBEF4C /* HP_Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HP_Utility.m; sourceTree = "<group>"; };
+		0082089D22A1243100EBEF4C /* HP_Label.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_Label.h; sourceTree = "<group>"; };
+		0082089E22A1243100EBEF4C /* HP_Label.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_Label.m; sourceTree = "<group>"; };
+		008208A022A1281400EBEF4C /* HP_ImagePreviewView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_ImagePreviewView.h; sourceTree = "<group>"; };
+		008208A122A1281400EBEF4C /* HP_ImagePreviewView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_ImagePreviewView.m; sourceTree = "<group>"; };
+		008208BD22A4BB1000EBEF4C /* HPDivisableTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HPDivisableTool.h; sourceTree = "<group>"; };
+		008208BE22A4BB1000EBEF4C /* HPDivisableTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HPDivisableTool.m; sourceTree = "<group>"; };
+		008208C022A4C2AA00EBEF4C /* HP_DyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_DyModel.h; sourceTree = "<group>"; };
+		008208C122A4C2AA00EBEF4C /* HP_DyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_DyModel.m; sourceTree = "<group>"; };
+		008208C322A4F35500EBEF4C /* HP_TableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_TableView.h; sourceTree = "<group>"; };
+		008208C422A4F35500EBEF4C /* HP_TableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_TableView.m; sourceTree = "<group>"; };
+		008208C722A4F3C600EBEF4C /* HP_MessageListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_MessageListViewController.h; sourceTree = "<group>"; };
+		008208C822A4F3C600EBEF4C /* HP_MessageListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_MessageListViewController.m; sourceTree = "<group>"; };
+		008208CB22A4F4B300EBEF4C /* JKDBModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKDBModel.m; sourceTree = "<group>"; };
+		008208CC22A4F4B300EBEF4C /* JKDBHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKDBHelper.m; sourceTree = "<group>"; };
+		008208CD22A4F4B300EBEF4C /* JKDBModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKDBModel.h; sourceTree = "<group>"; };
+		008208CE22A4F4B300EBEF4C /* JKDBHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKDBHelper.h; sourceTree = "<group>"; };
+		008208D122A4F4CA00EBEF4C /* HP_Message.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_Message.h; sourceTree = "<group>"; };
+		008208D222A4F4CA00EBEF4C /* HP_Message.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_Message.m; sourceTree = "<group>"; };
+		008208D422A4F64800EBEF4C /* SearchResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchResultViewController.h; sourceTree = "<group>"; };
+		008208D522A4F64800EBEF4C /* SearchResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchResultViewController.m; sourceTree = "<group>"; };
+		008208D722A4F7D500EBEF4C /* MomentUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentUtil.m; sourceTree = "<group>"; };
+		008208D822A4F7D500EBEF4C /* MomentUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentUtil.h; sourceTree = "<group>"; };
+		008208DA22A4F83C00EBEF4C /* MUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUser.h; sourceTree = "<group>"; };
+		008208DB22A4F83C00EBEF4C /* MUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUser.m; sourceTree = "<group>"; };
+		008208DD22A4F86B00EBEF4C /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		008208DE22A4F86B00EBEF4C /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		008208E022A4F88F00EBEF4C /* MPicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPicture.h; sourceTree = "<group>"; };
+		008208E122A4F89000EBEF4C /* MLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLocation.h; sourceTree = "<group>"; };
+		008208E222A4F89000EBEF4C /* MLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLocation.m; sourceTree = "<group>"; };
+		008208E322A4F89000EBEF4C /* MPicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPicture.m; sourceTree = "<group>"; };
+		008208E622A4F89800EBEF4C /* Moment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Moment.m; sourceTree = "<group>"; };
+		008208E722A4F89900EBEF4C /* Moment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Moment.h; sourceTree = "<group>"; };
+		008208ED22A4F9A000EBEF4C /* HP_ContactsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_ContactsViewController.h; sourceTree = "<group>"; };
+		008208EE22A4F9A000EBEF4C /* HP_ContactsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_ContactsViewController.m; sourceTree = "<group>"; };
+		008208F022A4FBBD00EBEF4C /* NSString+Letter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Letter.m"; sourceTree = "<group>"; };
+		008208F122A4FBBD00EBEF4C /* NSString+Letter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Letter.h"; sourceTree = "<group>"; };
+		008208F322A4FBD900EBEF4C /* JPinYinUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPinYinUtil.h; sourceTree = "<group>"; };
+		008208F422A4FBD900EBEF4C /* JPinYinUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPinYinUtil.m; sourceTree = "<group>"; };
+		0082090322A5316200EBEF4C /* UIView+BorderLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BorderLine.h"; sourceTree = "<group>"; };
+		0082090422A5316200EBEF4C /* UIView+BorderLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BorderLine.m"; sourceTree = "<group>"; };
+		0082090622A6023500EBEF4C /* GXUpvoteButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GXUpvoteButton.h; sourceTree = "<group>"; };
+		0082090722A6023500EBEF4C /* GXUpvoteButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GXUpvoteButton.m; sourceTree = "<group>"; };
+		0082090922A65DF900EBEF4C /* HP_MineHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_MineHeadView.h; sourceTree = "<group>"; };
+		0082090A22A65DF900EBEF4C /* HP_MineHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_MineHeadView.m; sourceTree = "<group>"; };
+		0082091022A6788900EBEF4C /* bgView.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bgView.jpg; sourceTree = "<group>"; };
+		00B9511222929C9F008D9411 /* HP_HomeBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_HomeBaseViewController.h; sourceTree = "<group>"; };
+		00B9511322929C9F008D9411 /* HP_HomeBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_HomeBaseViewController.m; sourceTree = "<group>"; };
+		00B9511522929DA7008D9411 /* HP_HomeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_HomeCell.h; sourceTree = "<group>"; };
+		00B9511622929DA7008D9411 /* HP_HomeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_HomeCell.m; sourceTree = "<group>"; };
+		00B9512D2292AAE2008D9411 /* gfrz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gfrz.png; sourceTree = "<group>"; };
+		00B9513322939696008D9411 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		00B9515A22963925008D9411 /* HJDefaultTabViewBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJDefaultTabViewBar.h; sourceTree = "<group>"; };
+		00B9515B22963925008D9411 /* HJDefaultTabViewBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJDefaultTabViewBar.m; sourceTree = "<group>"; };
+		00B9515D22963925008D9411 /* HJTabViewController+ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HJTabViewController+ViewController.h"; sourceTree = "<group>"; };
+		00B9515E22963925008D9411 /* HJTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJTabViewController.h; sourceTree = "<group>"; };
+		00B9515F22963925008D9411 /* HJTabViewControllerPlugin_TabViewBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJTabViewControllerPlugin_TabViewBar.h; sourceTree = "<group>"; };
+		00B9516022963925008D9411 /* HJTabViewBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJTabViewBar.h; sourceTree = "<group>"; };
+		00B9516122963925008D9411 /* HJTabViewControllerPlugin_Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJTabViewControllerPlugin_Base.h; sourceTree = "<group>"; };
+		00B9516222963925008D9411 /* HJTabViewControllerPlugin_BottomInset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJTabViewControllerPlugin_BottomInset.h; sourceTree = "<group>"; };
+		00B9516322963925008D9411 /* HJTabViewControllerPlugin_HeaderScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJTabViewControllerPlugin_HeaderScroll.m; sourceTree = "<group>"; };
+		00B9516422963925008D9411 /* HJTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJTabViewController.m; sourceTree = "<group>"; };
+		00B9516522963925008D9411 /* HJTabViewController+ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HJTabViewController+ViewController.m"; sourceTree = "<group>"; };
+		00B9516622963925008D9411 /* HJTabViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HJTabViewController+Private.h"; sourceTree = "<group>"; };
+		00B9516722963925008D9411 /* HJTabViewControllerPlugin_TabViewBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJTabViewControllerPlugin_TabViewBar.m; sourceTree = "<group>"; };
+		00B9516822963925008D9411 /* HJTabViewControllerPlugin_BottomInset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJTabViewControllerPlugin_BottomInset.m; sourceTree = "<group>"; };
+		00B9516922963925008D9411 /* HJTabViewControllerPlugin_Base.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJTabViewControllerPlugin_Base.m; sourceTree = "<group>"; };
+		00B9516A22963925008D9411 /* HJTabViewBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJTabViewBar.m; sourceTree = "<group>"; };
+		00B9516B22963925008D9411 /* HJTabViewControllerPlugin_HeaderScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJTabViewControllerPlugin_HeaderScroll.h; sourceTree = "<group>"; };
+		00B9517722963A40008D9411 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		00B9517922963A47008D9411 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		00B9518522964DCF008D9411 /* cn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cn.jpg; sourceTree = "<group>"; };
+		00B9518622964DCF008D9411 /* xingzuo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = xingzuo.jpg; sourceTree = "<group>"; };
+		00B9518722964DCF008D9411 /* shuangzi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = shuangzi.jpg; sourceTree = "<group>"; };
+		00B9518822964DCF008D9411 /* timg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = timg.jpg; sourceTree = "<group>"; };
+		00B9518922964DCF008D9411 /* tc.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tc.jpg; sourceTree = "<group>"; };
+		00B9518A22964DCF008D9411 /* by.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = by.png; sourceTree = "<group>"; };
+		00B9518B22964DCF008D9411 /* sp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sp.jpg; sourceTree = "<group>"; };
+		00B9518C22964DCF008D9411 /* ss.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ss.jpg; sourceTree = "<group>"; };
+		00B9518D22964DCF008D9411 /* sy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sy.jpg; sourceTree = "<group>"; };
+		00B9518E22964DCF008D9411 /* jn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = jn.jpg; sourceTree = "<group>"; };
+		00B9518F22964DCF008D9411 /* sz.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sz.jpg; sourceTree = "<group>"; };
+		00B9519022964DCF008D9411 /* jx.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = jx.jpg; sourceTree = "<group>"; };
+		00B9519122964DCF008D9411 /* tx.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tx.jpg; sourceTree = "<group>"; };
+		00B9519222964DCF008D9411 /* xzys.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = xzys.jpg; sourceTree = "<group>"; };
+		00B9519322964DCF008D9411 /* mj.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mj.jpg; sourceTree = "<group>"; };
+		00B951A422965A78008D9411 /* HP_DynamicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_DynamicViewController.h; sourceTree = "<group>"; };
+		00B951A522965A78008D9411 /* HP_DynamicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_DynamicViewController.m; sourceTree = "<group>"; };
+		00B951B122967405008D9411 /* HP_HomeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HP_HomeDetailViewController.m; sourceTree = "<group>"; };
+		00B951B222967405008D9411 /* HP_HomeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HP_HomeDetailViewController.h; sourceTree = "<group>"; };
+		00B951B522967433008D9411 /* HP_BaseAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HP_BaseAlbumViewController.m; sourceTree = "<group>"; };
+		00B951B622967434008D9411 /* HP_BaseInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HP_BaseInformationViewController.m; sourceTree = "<group>"; };
+		00B951B722967434008D9411 /* HP_BaseAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HP_BaseAlbumViewController.h; sourceTree = "<group>"; };
+		00B951B822967435008D9411 /* HP_BaseInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HP_BaseInformationViewController.h; sourceTree = "<group>"; };
+		00B951BB2296744F008D9411 /* XZ_CollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZ_CollectionCell.h; sourceTree = "<group>"; };
+		00B951BC22967450008D9411 /* XZ_CollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZ_CollectionCell.m; sourceTree = "<group>"; };
+		00B951C122967CDC008D9411 /* HP_HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_HomeViewController.h; sourceTree = "<group>"; };
+		00B951C222967CDC008D9411 /* HP_HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_HomeViewController.m; sourceTree = "<group>"; };
+		00B951C522968A20008D9411 /* HP_HomeDetailNewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_HomeDetailNewViewController.h; sourceTree = "<group>"; };
+		00B951C622968A20008D9411 /* HP_HomeDetailNewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_HomeDetailNewViewController.m; sourceTree = "<group>"; };
+		00B951C822968AEA008D9411 /* HP_OwnDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_OwnDetailViewController.h; sourceTree = "<group>"; };
+		00B951C922968AEA008D9411 /* HP_OwnDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_OwnDetailViewController.m; sourceTree = "<group>"; };
+		00B951CB22968AFF008D9411 /* HP_PhotoDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_PhotoDetailViewController.h; sourceTree = "<group>"; };
+		00B951CC22968AFF008D9411 /* HP_PhotoDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_PhotoDetailViewController.m; sourceTree = "<group>"; };
+		00D2EFC522A75FE6008D52D9 /* INMRefreshGifHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INMRefreshGifHeader.m; sourceTree = "<group>"; };
+		00D2EFC622A75FE6008D52D9 /* INMHomeRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INMHomeRefreshHeader.m; sourceTree = "<group>"; };
+		00D2EFC722A75FE6008D52D9 /* INMRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INMRefreshHeader.h; sourceTree = "<group>"; };
+		00D2EFC822A75FE6008D52D9 /* INMRefreshGifHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INMRefreshGifHeader.h; sourceTree = "<group>"; };
+		00D2EFC922A75FE6008D52D9 /* INMRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INMRefreshHeader.m; sourceTree = "<group>"; };
+		00D2EFCA22A75FE6008D52D9 /* INMHomeRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INMHomeRefreshHeader.h; sourceTree = "<group>"; };
+		00D2EFCC22A75FE7008D52D9 /* INMUpdateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INMUpdateView.m; sourceTree = "<group>"; };
+		00D2EFCD22A75FE7008D52D9 /* INMUpdateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INMUpdateModel.m; sourceTree = "<group>"; };
+		00D2EFCE22A75FE7008D52D9 /* INMUpdateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INMUpdateView.h; sourceTree = "<group>"; };
+		00D2EFCF22A75FE7008D52D9 /* INMUpdateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INMUpdateModel.h; sourceTree = "<group>"; };
+		00D2EFD122A75FE7008D52D9 /* INMLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INMLoadingView.m; sourceTree = "<group>"; };
+		00D2EFD222A75FE7008D52D9 /* INMLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INMLoadingView.h; sourceTree = "<group>"; };
+		00D2EFD422A75FE8008D52D9 /* INMAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INMAlertView.m; sourceTree = "<group>"; };
+		00D2EFD522A75FE8008D52D9 /* INMAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INMAlertView.h; sourceTree = "<group>"; };
+		00D2EFE022A794A9008D52D9 /* HP_OwnMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_OwnMessageViewController.h; sourceTree = "<group>"; };
+		00D2EFE122A794A9008D52D9 /* HP_OwnMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_OwnMessageViewController.m; sourceTree = "<group>"; };
+		00D2EFE322A794BE008D52D9 /* HP_NormalOwnView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_NormalOwnView.h; sourceTree = "<group>"; };
+		00D2EFE422A794BE008D52D9 /* HP_NormalOwnView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_NormalOwnView.m; sourceTree = "<group>"; };
+		00D2EFE622A794D1008D52D9 /* HP_AuthOwnView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_AuthOwnView.h; sourceTree = "<group>"; };
+		00D2EFE722A794D1008D52D9 /* HP_AuthOwnView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_AuthOwnView.m; sourceTree = "<group>"; };
+		00D2EFE922A7A82F008D52D9 /* HP_AuthMessageHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_AuthMessageHeadView.h; sourceTree = "<group>"; };
+		00D2EFEA22A7A82F008D52D9 /* HP_AuthMessageHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_AuthMessageHeadView.m; sourceTree = "<group>"; };
+		00D2EFEC22A8B1DB008D52D9 /* HP_SeleteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_SeleteViewController.h; sourceTree = "<group>"; };
+		00D2EFED22A8B1DB008D52D9 /* HP_SeleteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_SeleteViewController.m; sourceTree = "<group>"; };
+		00D2EFEF22A8E885008D52D9 /* HP_SignViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_SignViewController.h; sourceTree = "<group>"; };
+		00D2EFF022A8E885008D52D9 /* HP_SignViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_SignViewController.m; sourceTree = "<group>"; };
+		00D2EFF222A8ECC5008D52D9 /* HP_UpdateNickNameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_UpdateNickNameViewController.h; sourceTree = "<group>"; };
+		00D2EFF322A8ECC5008D52D9 /* HP_UpdateNickNameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_UpdateNickNameViewController.m; sourceTree = "<group>"; };
+		00D2EFF522A8F04F008D52D9 /* NSString+trim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+trim.h"; sourceTree = "<group>"; };
+		00D2EFF622A8F04F008D52D9 /* NSString+trim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+trim.m"; sourceTree = "<group>"; };
+		00D2EFF922A8FC67008D52D9 /* HP_CeIdcardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_CeIdcardViewController.h; sourceTree = "<group>"; };
+		00D2EFFA22A8FC67008D52D9 /* HP_CeIdcardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_CeIdcardViewController.m; sourceTree = "<group>"; };
+		00D2EFFC22A8FD2B008D52D9 /* HP_CerIdcardTabCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_CerIdcardTabCell.h; sourceTree = "<group>"; };
+		00D2EFFD22A8FD2B008D52D9 /* HP_CerIdcardTabCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_CerIdcardTabCell.m; sourceTree = "<group>"; };
+		00D2F07522A9020E008D52D9 /* libexidcardios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libexidcardios.a; sourceTree = "<group>"; };
+		00D2F07722A9020E008D52D9 /* zocr0.lib */ = {isa = PBXFileReference; lastKnownFileType = file; path = zocr0.lib; sourceTree = "<group>"; };
+		00D2F07822A9020E008D52D9 /* commondef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commondef.h; sourceTree = "<group>"; };
+		00D2F07922A9020E008D52D9 /* excards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = excards.h; sourceTree = "<group>"; };
+		00D2F07B22A9020E008D52D9 /* RectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectManager.h; sourceTree = "<group>"; };
+		00D2F07C22A9020E008D52D9 /* JQIDCardScaningView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQIDCardScaningView.m; sourceTree = "<group>"; };
+		00D2F07D22A9020E008D52D9 /* IDInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDInfo.m; sourceTree = "<group>"; };
+		00D2F07E22A9020E008D52D9 /* AVCaptureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCaptureViewController.m; sourceTree = "<group>"; };
+		00D2F07F22A9020E008D52D9 /* UIAlertController+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Extend.m"; sourceTree = "<group>"; };
+		00D2F08022A9020E008D52D9 /* LHSIDCardScaningView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHSIDCardScaningView.m; sourceTree = "<group>"; };
+		00D2F08122A9020E008D52D9 /* JQAVCaptureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQAVCaptureViewController.m; sourceTree = "<group>"; };
+		00D2F08222A9020E008D52D9 /* RectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RectManager.m; sourceTree = "<group>"; };
+		00D2F08322A9020E008D52D9 /* IDInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDInfo.h; sourceTree = "<group>"; };
+		00D2F08422A9020E008D52D9 /* JQIDCardScaningView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQIDCardScaningView.h; sourceTree = "<group>"; };
+		00D2F08522A9020E008D52D9 /* UIAlertController+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Extend.h"; sourceTree = "<group>"; };
+		00D2F08622A9020E008D52D9 /* AVCaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCaptureViewController.h; sourceTree = "<group>"; };
+		00D2F08722A9020E008D52D9 /* JQAVCaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQAVCaptureViewController.h; sourceTree = "<group>"; };
+		00D2F08822A9020E008D52D9 /* LHSIDCardScaningView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHSIDCardScaningView.h; sourceTree = "<group>"; };
+		00D2F09322A90262008D52D9 /* AlertViewTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewTool.h; sourceTree = "<group>"; };
+		00D2F09422A90262008D52D9 /* AlertViewTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewTool.m; sourceTree = "<group>"; };
+		00D2F09622A90508008D52D9 /* Lyy_ImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lyy_ImagePickerController.m; sourceTree = "<group>"; };
+		00D2F09722A90508008D52D9 /* Lyy_ImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lyy_ImagePickerController.h; sourceTree = "<group>"; };
+		00D2F09A22A91480008D52D9 /* HP_FollowAndFansViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_FollowAndFansViewController.h; sourceTree = "<group>"; };
+		00D2F09B22A91480008D52D9 /* HP_FollowAndFansViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_FollowAndFansViewController.m; sourceTree = "<group>"; };
+		00D2F09E22A91CA3008D52D9 /* HP_WalletViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_WalletViewController.h; sourceTree = "<group>"; };
+		00D2F09F22A91CA3008D52D9 /* HP_WalletViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_WalletViewController.m; sourceTree = "<group>"; };
+		7A1F0D25849DB2562E24DED4 /* libPods-HuPiao.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HuPiao.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDBCA537C9F607AC2A70D980 /* Pods-HuPiao.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuPiao.release.xcconfig"; path = "Target Support Files/Pods-HuPiao/Pods-HuPiao.release.xcconfig"; sourceTree = "<group>"; };
 		DDFE70D92290F4270029C425 /* HuPiao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HuPiao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDFE70DC2290F4270029C425 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DDFE70DD2290F4270029C425 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -51,6 +337,31 @@
 		DDFE70FC2290F42A0029C425 /* HuPiaoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HuPiaoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDFE71002290F42A0029C425 /* HuPiaoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HuPiaoUITests.m; sourceTree = "<group>"; };
 		DDFE71022290F42A0029C425 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDFE71102290F53A0029C425 /* HP_BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_BaseViewController.h; sourceTree = "<group>"; };
+		DDFE71112290F53A0029C425 /* HP_BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_BaseViewController.m; sourceTree = "<group>"; };
+		DDFE71132290F5540029C425 /* HP_TabbarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_TabbarViewController.h; sourceTree = "<group>"; };
+		DDFE71142290F5540029C425 /* HP_TabbarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_TabbarViewController.m; sourceTree = "<group>"; };
+		DDFE71162290F5690029C425 /* HP_NavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_NavigationViewController.h; sourceTree = "<group>"; };
+		DDFE71172290F5690029C425 /* HP_NavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_NavigationViewController.m; sourceTree = "<group>"; };
+		DDFE71192290F5960029C425 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		DDFE71252291065A0029C425 /* HP_MessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_MessageViewController.h; sourceTree = "<group>"; };
+		DDFE71262291065A0029C425 /* HP_MessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_MessageViewController.m; sourceTree = "<group>"; };
+		DDFE7128229106660029C425 /* HP_MineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_MineViewController.h; sourceTree = "<group>"; };
+		DDFE7129229106660029C425 /* HP_MineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_MineViewController.m; sourceTree = "<group>"; };
+		DDFE712B22910BFF0029C425 /* KLTNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLTNavigationController.m; sourceTree = "<group>"; };
+		DDFE712C22910C000029C425 /* KLTNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLTNavigationController.h; sourceTree = "<group>"; };
+		DDFE713122910D1B0029C425 /* AnimationContoller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationContoller.h; sourceTree = "<group>"; };
+		DDFE713222910D1C0029C425 /* AnimationContoller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationContoller.m; sourceTree = "<group>"; };
+		DDFE7134229111230029C425 /* DefineFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DefineFile.h; sourceTree = "<group>"; };
+		DDFE7135229115AD0029C425 /* UIButton+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extension.m"; sourceTree = "<group>"; };
+		DDFE7136229115AE0029C425 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		DDFE7137229115AE0029C425 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
+		DDFE7138229115AE0029C425 /* UIButton+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extension.h"; sourceTree = "<group>"; };
+		DDFE7139229115AE0029C425 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		DDFE713A229115AF0029C425 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
+		DDFE713B229115AF0029C425 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
+		DDFE713C229115AF0029C425 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
+		F1F14D77EC8D00089509BD59 /* Pods-HuPiao.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuPiao.debug.xcconfig"; path = "Target Support Files/Pods-HuPiao/Pods-HuPiao.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +369,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FA88AE52053FD530287571A /* libPods-HuPiao.a in Frameworks */,
+				00D2F08922A9020E008D52D9 /* libexidcardios.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +391,360 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		008208C622A4F3AE00EBEF4C /* HP_MessageController */ = {
+			isa = PBXGroup;
+			children = (
+				008208C722A4F3C600EBEF4C /* HP_MessageListViewController.h */,
+				008208C822A4F3C600EBEF4C /* HP_MessageListViewController.m */,
+				008208D122A4F4CA00EBEF4C /* HP_Message.h */,
+				008208D222A4F4CA00EBEF4C /* HP_Message.m */,
+			);
+			path = HP_MessageController;
+			sourceTree = "<group>";
+		};
+		008208CA22A4F4B300EBEF4C /* JKDBModel */ = {
+			isa = PBXGroup;
+			children = (
+				008208CB22A4F4B300EBEF4C /* JKDBModel.m */,
+				008208CC22A4F4B300EBEF4C /* JKDBHelper.m */,
+				008208CD22A4F4B300EBEF4C /* JKDBModel.h */,
+				008208CE22A4F4B300EBEF4C /* JKDBHelper.h */,
+			);
+			path = JKDBModel;
+			sourceTree = "<group>";
+		};
+		008208EC22A4F99700EBEF4C /* HP_ContactsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				008208ED22A4F9A000EBEF4C /* HP_ContactsViewController.h */,
+				008208EE22A4F9A000EBEF4C /* HP_ContactsViewController.m */,
+			);
+			path = HP_ContactsViewController;
+			sourceTree = "<group>";
+		};
+		00B951182292A3EE008D9411 /* HP_Tool */ = {
+			isa = PBXGroup;
+			children = (
+				00D2EFD322A75FE8008D52D9 /* INMAlertView */,
+				00D2EFC422A75FE6008D52D9 /* INMCustomRefresh */,
+				00D2EFD022A75FE7008D52D9 /* INMLoadingView */,
+				00D2EFCB22A75FE7008D52D9 /* INMUpdateView */,
+				0082090622A6023500EBEF4C /* GXUpvoteButton.h */,
+				0082090722A6023500EBEF4C /* GXUpvoteButton.m */,
+				008208E722A4F89900EBEF4C /* Moment.h */,
+				008208E622A4F89800EBEF4C /* Moment.m */,
+				008208E122A4F89000EBEF4C /* MLocation.h */,
+				008208E222A4F89000EBEF4C /* MLocation.m */,
+				008208E022A4F88F00EBEF4C /* MPicture.h */,
+				008208E322A4F89000EBEF4C /* MPicture.m */,
+				008208DD22A4F86B00EBEF4C /* Comment.h */,
+				008208DE22A4F86B00EBEF4C /* Comment.m */,
+				008208DA22A4F83C00EBEF4C /* MUser.h */,
+				008208DB22A4F83C00EBEF4C /* MUser.m */,
+				008208D822A4F7D500EBEF4C /* MomentUtil.h */,
+				008208D722A4F7D500EBEF4C /* MomentUtil.m */,
+				008208CA22A4F4B300EBEF4C /* JKDBModel */,
+				0082087422A11BAB00EBEF4C /* HP_Utility.h */,
+				0082087522A11BAB00EBEF4C /* HP_Utility.m */,
+				008207EF229D359800EBEF4C /* HP_InsertBGView.h */,
+				008207F0229D359800EBEF4C /* HP_InsertBGView.m */,
+				0082087122A1189A00EBEF4C /* HP_ImageListView.h */,
+				0082087222A1189A00EBEF4C /* HP_ImageListView.m */,
+				008208A022A1281400EBEF4C /* HP_ImagePreviewView.h */,
+				008208A122A1281400EBEF4C /* HP_ImagePreviewView.m */,
+				008208BD22A4BB1000EBEF4C /* HPDivisableTool.h */,
+				008208BE22A4BB1000EBEF4C /* HPDivisableTool.m */,
+				008208C322A4F35500EBEF4C /* HP_TableView.h */,
+				008208C422A4F35500EBEF4C /* HP_TableView.m */,
+				008208D422A4F64800EBEF4C /* SearchResultViewController.h */,
+				008208D522A4F64800EBEF4C /* SearchResultViewController.m */,
+				008208F122A4FBBD00EBEF4C /* NSString+Letter.h */,
+				008208F022A4FBBD00EBEF4C /* NSString+Letter.m */,
+				008208F322A4FBD900EBEF4C /* JPinYinUtil.h */,
+				008208F422A4FBD900EBEF4C /* JPinYinUtil.m */,
+			);
+			path = HP_Tool;
+			sourceTree = "<group>";
+		};
+		00B951582296390F008D9411 /* HP_Command */ = {
+			isa = PBXGroup;
+			children = (
+				00D2F09722A90508008D52D9 /* Lyy_ImagePickerController.h */,
+				00D2F09622A90508008D52D9 /* Lyy_ImagePickerController.m */,
+				00D2F09222A90262008D52D9 /* AlertTool(弹框) */,
+				00D2F07322A9020E008D52D9 /* Third */,
+				00B9518422964DCF008D9411 /* Source */,
+				00B9515922963925008D9411 /* HJTabViewBar */,
+				00B9515C22963925008D9411 /* HJTabViewController */,
+			);
+			path = HP_Command;
+			sourceTree = "<group>";
+		};
+		00B9515922963925008D9411 /* HJTabViewBar */ = {
+			isa = PBXGroup;
+			children = (
+				00B9515A22963925008D9411 /* HJDefaultTabViewBar.h */,
+				00B9515B22963925008D9411 /* HJDefaultTabViewBar.m */,
+			);
+			path = HJTabViewBar;
+			sourceTree = "<group>";
+		};
+		00B9515C22963925008D9411 /* HJTabViewController */ = {
+			isa = PBXGroup;
+			children = (
+				00B9515E22963925008D9411 /* HJTabViewController.h */,
+				00B9516422963925008D9411 /* HJTabViewController.m */,
+				00B9515D22963925008D9411 /* HJTabViewController+ViewController.h */,
+				00B9516522963925008D9411 /* HJTabViewController+ViewController.m */,
+				00B9515F22963925008D9411 /* HJTabViewControllerPlugin_TabViewBar.h */,
+				00B9516722963925008D9411 /* HJTabViewControllerPlugin_TabViewBar.m */,
+				00B9516022963925008D9411 /* HJTabViewBar.h */,
+				00B9516A22963925008D9411 /* HJTabViewBar.m */,
+				00B9516122963925008D9411 /* HJTabViewControllerPlugin_Base.h */,
+				00B9516922963925008D9411 /* HJTabViewControllerPlugin_Base.m */,
+				00B9516222963925008D9411 /* HJTabViewControllerPlugin_BottomInset.h */,
+				00B9516822963925008D9411 /* HJTabViewControllerPlugin_BottomInset.m */,
+				00B9516B22963925008D9411 /* HJTabViewControllerPlugin_HeaderScroll.h */,
+				00B9516322963925008D9411 /* HJTabViewControllerPlugin_HeaderScroll.m */,
+				00B9516622963925008D9411 /* HJTabViewController+Private.h */,
+			);
+			path = HJTabViewController;
+			sourceTree = "<group>";
+		};
+		00B9518422964DCF008D9411 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				00B9518522964DCF008D9411 /* cn.jpg */,
+				00B9518622964DCF008D9411 /* xingzuo.jpg */,
+				00B9518722964DCF008D9411 /* shuangzi.jpg */,
+				00B9518822964DCF008D9411 /* timg.jpg */,
+				00B9518922964DCF008D9411 /* tc.jpg */,
+				00B9518A22964DCF008D9411 /* by.png */,
+				00B9518B22964DCF008D9411 /* sp.jpg */,
+				00B9518C22964DCF008D9411 /* ss.jpg */,
+				00B9518D22964DCF008D9411 /* sy.jpg */,
+				00B9518E22964DCF008D9411 /* jn.jpg */,
+				00B9518F22964DCF008D9411 /* sz.jpg */,
+				00B9519022964DCF008D9411 /* jx.jpg */,
+				00B9519122964DCF008D9411 /* tx.jpg */,
+				00B9519222964DCF008D9411 /* xzys.jpg */,
+				00B9519322964DCF008D9411 /* mj.jpg */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		00B951A322965A67008D9411 /* HP_Dynamic */ = {
+			isa = PBXGroup;
+			children = (
+				00B951A422965A78008D9411 /* HP_DynamicViewController.h */,
+				00B951A522965A78008D9411 /* HP_DynamicViewController.m */,
+			);
+			path = HP_Dynamic;
+			sourceTree = "<group>";
+		};
+		00B951B42296740E008D9411 /* HP_HomeDetail */ = {
+			isa = PBXGroup;
+			children = (
+				00B951B222967405008D9411 /* HP_HomeDetailViewController.h */,
+				00B951B122967405008D9411 /* HP_HomeDetailViewController.m */,
+				00B951B822967435008D9411 /* HP_BaseInformationViewController.h */,
+				00B951B622967434008D9411 /* HP_BaseInformationViewController.m */,
+				00B951B722967434008D9411 /* HP_BaseAlbumViewController.h */,
+				00B951B522967433008D9411 /* HP_BaseAlbumViewController.m */,
+				00B951BB2296744F008D9411 /* XZ_CollectionCell.h */,
+				00B951BC22967450008D9411 /* XZ_CollectionCell.m */,
+			);
+			path = HP_HomeDetail;
+			sourceTree = "<group>";
+		};
+		00B951C422968A10008D9411 /* HP_HomeDetailNew */ = {
+			isa = PBXGroup;
+			children = (
+				00B951C522968A20008D9411 /* HP_HomeDetailNewViewController.h */,
+				00B951C622968A20008D9411 /* HP_HomeDetailNewViewController.m */,
+				00B951C822968AEA008D9411 /* HP_OwnDetailViewController.h */,
+				00B951C922968AEA008D9411 /* HP_OwnDetailViewController.m */,
+				0082086222A10B5300EBEF4C /* HP_HomeDetailOwnHeadView.h */,
+				0082086322A10B5300EBEF4C /* HP_HomeDetailOwnHeadView.m */,
+				00B951CB22968AFF008D9411 /* HP_PhotoDetailViewController.h */,
+				00B951CC22968AFF008D9411 /* HP_PhotoDetailViewController.m */,
+				0082086822A1102300EBEF4C /* HP_DyViewController.h */,
+				0082086922A1102300EBEF4C /* HP_DyViewController.m */,
+				0082086B22A1160A00EBEF4C /* HP_DyCell.h */,
+				0082086C22A1160A00EBEF4C /* HP_DyCell.m */,
+				008208C022A4C2AA00EBEF4C /* HP_DyModel.h */,
+				008208C122A4C2AA00EBEF4C /* HP_DyModel.m */,
+			);
+			path = HP_HomeDetailNew;
+			sourceTree = "<group>";
+		};
+		00D2EFC422A75FE6008D52D9 /* INMCustomRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				00D2EFC522A75FE6008D52D9 /* INMRefreshGifHeader.m */,
+				00D2EFC622A75FE6008D52D9 /* INMHomeRefreshHeader.m */,
+				00D2EFC722A75FE6008D52D9 /* INMRefreshHeader.h */,
+				00D2EFC822A75FE6008D52D9 /* INMRefreshGifHeader.h */,
+				00D2EFC922A75FE6008D52D9 /* INMRefreshHeader.m */,
+				00D2EFCA22A75FE6008D52D9 /* INMHomeRefreshHeader.h */,
+			);
+			path = INMCustomRefresh;
+			sourceTree = "<group>";
+		};
+		00D2EFCB22A75FE7008D52D9 /* INMUpdateView */ = {
+			isa = PBXGroup;
+			children = (
+				00D2EFCC22A75FE7008D52D9 /* INMUpdateView.m */,
+				00D2EFCD22A75FE7008D52D9 /* INMUpdateModel.m */,
+				00D2EFCE22A75FE7008D52D9 /* INMUpdateView.h */,
+				00D2EFCF22A75FE7008D52D9 /* INMUpdateModel.h */,
+			);
+			path = INMUpdateView;
+			sourceTree = "<group>";
+		};
+		00D2EFD022A75FE7008D52D9 /* INMLoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				00D2EFD122A75FE7008D52D9 /* INMLoadingView.m */,
+				00D2EFD222A75FE7008D52D9 /* INMLoadingView.h */,
+			);
+			path = INMLoadingView;
+			sourceTree = "<group>";
+		};
+		00D2EFD322A75FE8008D52D9 /* INMAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				00D2EFD522A75FE8008D52D9 /* INMAlertView.h */,
+				00D2EFD422A75FE8008D52D9 /* INMAlertView.m */,
+			);
+			path = INMAlertView;
+			sourceTree = "<group>";
+		};
+		00D2EFDF22A7945F008D52D9 /* HP_OwnMessage */ = {
+			isa = PBXGroup;
+			children = (
+				00D2EFE022A794A9008D52D9 /* HP_OwnMessageViewController.h */,
+				00D2EFE122A794A9008D52D9 /* HP_OwnMessageViewController.m */,
+				00D2EFE322A794BE008D52D9 /* HP_NormalOwnView.h */,
+				00D2EFE422A794BE008D52D9 /* HP_NormalOwnView.m */,
+				00D2EFE622A794D1008D52D9 /* HP_AuthOwnView.h */,
+				00D2EFE722A794D1008D52D9 /* HP_AuthOwnView.m */,
+				00D2EFE922A7A82F008D52D9 /* HP_AuthMessageHeadView.h */,
+				00D2EFEA22A7A82F008D52D9 /* HP_AuthMessageHeadView.m */,
+				00D2EFEC22A8B1DB008D52D9 /* HP_SeleteViewController.h */,
+				00D2EFED22A8B1DB008D52D9 /* HP_SeleteViewController.m */,
+				00D2EFEF22A8E885008D52D9 /* HP_SignViewController.h */,
+				00D2EFF022A8E885008D52D9 /* HP_SignViewController.m */,
+				00D2EFF222A8ECC5008D52D9 /* HP_UpdateNickNameViewController.h */,
+				00D2EFF322A8ECC5008D52D9 /* HP_UpdateNickNameViewController.m */,
+			);
+			path = HP_OwnMessage;
+			sourceTree = "<group>";
+		};
+		00D2EFF822A8FC56008D52D9 /* HP_CeIdcard */ = {
+			isa = PBXGroup;
+			children = (
+				00D2EFF922A8FC67008D52D9 /* HP_CeIdcardViewController.h */,
+				00D2EFFA22A8FC67008D52D9 /* HP_CeIdcardViewController.m */,
+				00D2EFFC22A8FD2B008D52D9 /* HP_CerIdcardTabCell.h */,
+				00D2EFFD22A8FD2B008D52D9 /* HP_CerIdcardTabCell.m */,
+			);
+			path = HP_CeIdcard;
+			sourceTree = "<group>";
+		};
+		00D2F07322A9020E008D52D9 /* Third */ = {
+			isa = PBXGroup;
+			children = (
+				00D2F07422A9020E008D52D9 /* libexidcard */,
+				00D2F07A22A9020E008D52D9 /* IDCard */,
+			);
+			path = Third;
+			sourceTree = "<group>";
+		};
+		00D2F07422A9020E008D52D9 /* libexidcard */ = {
+			isa = PBXGroup;
+			children = (
+				00D2F07522A9020E008D52D9 /* libexidcardios.a */,
+				00D2F07622A9020E008D52D9 /* dicts */,
+				00D2F07822A9020E008D52D9 /* commondef.h */,
+				00D2F07922A9020E008D52D9 /* excards.h */,
+			);
+			path = libexidcard;
+			sourceTree = "<group>";
+		};
+		00D2F07622A9020E008D52D9 /* dicts */ = {
+			isa = PBXGroup;
+			children = (
+				00D2F07722A9020E008D52D9 /* zocr0.lib */,
+			);
+			path = dicts;
+			sourceTree = "<group>";
+		};
+		00D2F07A22A9020E008D52D9 /* IDCard */ = {
+			isa = PBXGroup;
+			children = (
+				00D2F07B22A9020E008D52D9 /* RectManager.h */,
+				00D2F07C22A9020E008D52D9 /* JQIDCardScaningView.m */,
+				00D2F07D22A9020E008D52D9 /* IDInfo.m */,
+				00D2F07E22A9020E008D52D9 /* AVCaptureViewController.m */,
+				00D2F07F22A9020E008D52D9 /* UIAlertController+Extend.m */,
+				00D2F08022A9020E008D52D9 /* LHSIDCardScaningView.m */,
+				00D2F08122A9020E008D52D9 /* JQAVCaptureViewController.m */,
+				00D2F08222A9020E008D52D9 /* RectManager.m */,
+				00D2F08322A9020E008D52D9 /* IDInfo.h */,
+				00D2F08422A9020E008D52D9 /* JQIDCardScaningView.h */,
+				00D2F08522A9020E008D52D9 /* UIAlertController+Extend.h */,
+				00D2F08622A9020E008D52D9 /* AVCaptureViewController.h */,
+				00D2F08722A9020E008D52D9 /* JQAVCaptureViewController.h */,
+				00D2F08822A9020E008D52D9 /* LHSIDCardScaningView.h */,
+			);
+			path = IDCard;
+			sourceTree = "<group>";
+		};
+		00D2F09222A90262008D52D9 /* AlertTool(弹框) */ = {
+			isa = PBXGroup;
+			children = (
+				00D2F09322A90262008D52D9 /* AlertViewTool.h */,
+				00D2F09422A90262008D52D9 /* AlertViewTool.m */,
+			);
+			path = "AlertTool(弹框)";
+			sourceTree = "<group>";
+		};
+		00D2F09922A91468008D52D9 /* HP_FollowAndFans */ = {
+			isa = PBXGroup;
+			children = (
+				00D2F09A22A91480008D52D9 /* HP_FollowAndFansViewController.h */,
+				00D2F09B22A91480008D52D9 /* HP_FollowAndFansViewController.m */,
+			);
+			path = HP_FollowAndFans;
+			sourceTree = "<group>";
+		};
+		00D2F09D22A91C8E008D52D9 /* HP_Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				00D2F09E22A91CA3008D52D9 /* HP_WalletViewController.h */,
+				00D2F09F22A91CA3008D52D9 /* HP_WalletViewController.m */,
+			);
+			path = HP_Wallet;
+			sourceTree = "<group>";
+		};
+		20BAD2B593F7BD9618E9A655 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7A1F0D25849DB2562E24DED4 /* libPods-HuPiao.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6CBAB23428CACD76A5CFAE43 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F1F14D77EC8D00089509BD59 /* Pods-HuPiao.debug.xcconfig */,
+				CDBCA537C9F607AC2A70D980 /* Pods-HuPiao.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		DDFE70D02290F4270029C425 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +752,8 @@
 				DDFE70F42290F42A0029C425 /* HuPiaoTests */,
 				DDFE70FF2290F42A0029C425 /* HuPiaoUITests */,
 				DDFE70DA2290F4270029C425 /* Products */,
+				6CBAB23428CACD76A5CFAE43 /* Pods */,
+				20BAD2B593F7BD9618E9A655 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,15 +770,15 @@
 		DDFE70DB2290F4270029C425 /* HuPiao */ = {
 			isa = PBXGroup;
 			children = (
-				DDFE70DC2290F4270029C425 /* AppDelegate.h */,
-				DDFE70DD2290F4270029C425 /* AppDelegate.m */,
-				DDFE70DF2290F4270029C425 /* ViewController.h */,
-				DDFE70E02290F4270029C425 /* ViewController.m */,
-				DDFE70E22290F4270029C425 /* Main.storyboard */,
-				DDFE70E52290F42A0029C425 /* Assets.xcassets */,
-				DDFE70E72290F42A0029C425 /* LaunchScreen.storyboard */,
-				DDFE70EA2290F42A0029C425 /* Info.plist */,
-				DDFE70EB2290F42A0029C425 /* main.m */,
+				DDFE711F229105F40029C425 /* HP_Home */,
+				00B951A322965A67008D9411 /* HP_Dynamic */,
+				DDFE71212291060C0029C425 /* HP_Message */,
+				DDFE7120229106000029C425 /* HP_Mine */,
+				DDFE710E2290F4E50029C425 /* HP_BaseViewController */,
+				00B951182292A3EE008D9411 /* HP_Tool */,
+				00B951582296390F008D9411 /* HP_Command */,
+				DDFE711D2290F9B20029C425 /* Category */,
+				DDFE710F2290F5130029C425 /* Supporting Files */,
 			);
 			path = HuPiao;
 			sourceTree = "<group>";
@@ -132,6 +801,108 @@
 			path = HuPiaoUITests;
 			sourceTree = "<group>";
 		};
+		DDFE710E2290F4E50029C425 /* HP_BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DDFE71102290F53A0029C425 /* HP_BaseViewController.h */,
+				DDFE71112290F53A0029C425 /* HP_BaseViewController.m */,
+				DDFE713122910D1B0029C425 /* AnimationContoller.h */,
+				DDFE713222910D1C0029C425 /* AnimationContoller.m */,
+				DDFE712C22910C000029C425 /* KLTNavigationController.h */,
+				DDFE712B22910BFF0029C425 /* KLTNavigationController.m */,
+				DDFE71162290F5690029C425 /* HP_NavigationViewController.h */,
+				DDFE71172290F5690029C425 /* HP_NavigationViewController.m */,
+				DDFE71132290F5540029C425 /* HP_TabbarViewController.h */,
+				DDFE71142290F5540029C425 /* HP_TabbarViewController.m */,
+			);
+			path = HP_BaseViewController;
+			sourceTree = "<group>";
+		};
+		DDFE710F2290F5130029C425 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0082091022A6788900EBEF4C /* bgView.jpg */,
+				00B9513322939696008D9411 /* 1.jpg */,
+				00B9517722963A40008D9411 /* 2.png */,
+				00B9517922963A47008D9411 /* 3.png */,
+				00B9512D2292AAE2008D9411 /* gfrz.png */,
+				DDFE70DC2290F4270029C425 /* AppDelegate.h */,
+				DDFE70DD2290F4270029C425 /* AppDelegate.m */,
+				DDFE70DF2290F4270029C425 /* ViewController.h */,
+				DDFE70E02290F4270029C425 /* ViewController.m */,
+				DDFE70E22290F4270029C425 /* Main.storyboard */,
+				DDFE70E52290F42A0029C425 /* Assets.xcassets */,
+				DDFE70E72290F42A0029C425 /* LaunchScreen.storyboard */,
+				DDFE70EA2290F42A0029C425 /* Info.plist */,
+				DDFE70EB2290F42A0029C425 /* main.m */,
+				DDFE71192290F5960029C425 /* PrefixHeader.pch */,
+				DDFE7134229111230029C425 /* DefineFile.h */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DDFE711D2290F9B20029C425 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				00D2EFF522A8F04F008D52D9 /* NSString+trim.h */,
+				00D2EFF622A8F04F008D52D9 /* NSString+trim.m */,
+				0082090322A5316200EBEF4C /* UIView+BorderLine.h */,
+				0082090422A5316200EBEF4C /* UIView+BorderLine.m */,
+				DDFE7137229115AE0029C425 /* UIBarButtonItem+Extension.h */,
+				DDFE713A229115AF0029C425 /* UIBarButtonItem+Extension.m */,
+				DDFE7138229115AE0029C425 /* UIButton+Extension.h */,
+				DDFE7135229115AD0029C425 /* UIButton+Extension.m */,
+				DDFE713B229115AF0029C425 /* UIImage+Extension.h */,
+				DDFE713C229115AF0029C425 /* UIImage+Extension.m */,
+				DDFE7139229115AE0029C425 /* UIView+Extension.h */,
+				DDFE7136229115AE0029C425 /* UIView+Extension.m */,
+				0082089D22A1243100EBEF4C /* HP_Label.h */,
+				0082089E22A1243100EBEF4C /* HP_Label.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		DDFE711F229105F40029C425 /* HP_Home */ = {
+			isa = PBXGroup;
+			children = (
+				00B951C422968A10008D9411 /* HP_HomeDetailNew */,
+				00B951B42296740E008D9411 /* HP_HomeDetail */,
+				00B9511222929C9F008D9411 /* HP_HomeBaseViewController.h */,
+				00B9511322929C9F008D9411 /* HP_HomeBaseViewController.m */,
+				00B951C122967CDC008D9411 /* HP_HomeViewController.h */,
+				00B951C222967CDC008D9411 /* HP_HomeViewController.m */,
+				00B9511522929DA7008D9411 /* HP_HomeCell.h */,
+				00B9511622929DA7008D9411 /* HP_HomeCell.m */,
+			);
+			path = HP_Home;
+			sourceTree = "<group>";
+		};
+		DDFE7120229106000029C425 /* HP_Mine */ = {
+			isa = PBXGroup;
+			children = (
+				00D2F09D22A91C8E008D52D9 /* HP_Wallet */,
+				00D2F09922A91468008D52D9 /* HP_FollowAndFans */,
+				00D2EFF822A8FC56008D52D9 /* HP_CeIdcard */,
+				00D2EFDF22A7945F008D52D9 /* HP_OwnMessage */,
+				DDFE7128229106660029C425 /* HP_MineViewController.h */,
+				DDFE7129229106660029C425 /* HP_MineViewController.m */,
+				0082090922A65DF900EBEF4C /* HP_MineHeadView.h */,
+				0082090A22A65DF900EBEF4C /* HP_MineHeadView.m */,
+			);
+			path = HP_Mine;
+			sourceTree = "<group>";
+		};
+		DDFE71212291060C0029C425 /* HP_Message */ = {
+			isa = PBXGroup;
+			children = (
+				008208EC22A4F99700EBEF4C /* HP_ContactsViewController */,
+				008208C622A4F3AE00EBEF4C /* HP_MessageController */,
+				DDFE71252291065A0029C425 /* HP_MessageViewController.h */,
+				DDFE71262291065A0029C425 /* HP_MessageViewController.m */,
+			);
+			path = HP_Message;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,9 +910,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DDFE71052290F42A0029C425 /* Build configuration list for PBXNativeTarget "HuPiao" */;
 			buildPhases = (
+				CF42BC6D55DB4FAD4404DE3C /* [CP] Check Pods Manifest.lock */,
 				DDFE70D52290F4270029C425 /* Sources */,
 				DDFE70D62290F4270029C425 /* Frameworks */,
 				DDFE70D72290F4270029C425 /* Resources */,
+				24D14F8DA8F56F74A60E464B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -235,9 +1008,30 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00B9519E22964DCF008D9411 /* sz.jpg in Resources */,
+				00B9519A22964DCF008D9411 /* sp.jpg in Resources */,
+				00B9519822964DCF008D9411 /* tc.jpg in Resources */,
+				00B951A122964DCF008D9411 /* xzys.jpg in Resources */,
+				00D2F08A22A9020E008D52D9 /* zocr0.lib in Resources */,
+				0082091122A6788900EBEF4C /* bgView.jpg in Resources */,
 				DDFE70E92290F42A0029C425 /* LaunchScreen.storyboard in Resources */,
+				00B9512E2292AAE2008D9411 /* gfrz.png in Resources */,
+				00B951A022964DCF008D9411 /* tx.jpg in Resources */,
+				00B9519522964DCF008D9411 /* xingzuo.jpg in Resources */,
+				00B9519622964DCF008D9411 /* shuangzi.jpg in Resources */,
+				00B9519722964DCF008D9411 /* timg.jpg in Resources */,
+				00B9519922964DCF008D9411 /* by.png in Resources */,
+				00B9517822963A40008D9411 /* 2.png in Resources */,
+				00B9517A22963A47008D9411 /* 3.png in Resources */,
 				DDFE70E62290F42A0029C425 /* Assets.xcassets in Resources */,
+				00B9519B22964DCF008D9411 /* ss.jpg in Resources */,
+				00B9513422939696008D9411 /* 1.jpg in Resources */,
+				00B951A222964DCF008D9411 /* mj.jpg in Resources */,
+				00B9519F22964DCF008D9411 /* jx.jpg in Resources */,
+				00B9519422964DCF008D9411 /* cn.jpg in Resources */,
 				DDFE70E42290F4270029C425 /* Main.storyboard in Resources */,
+				00B9519C22964DCF008D9411 /* sy.jpg in Resources */,
+				00B9519D22964DCF008D9411 /* jn.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,14 +1051,161 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		24D14F8DA8F56F74A60E464B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HuPiao/Pods-HuPiao-resources.sh",
+				"${PODS_ROOT}/BRPickerView/BRPickerView/AddressPickerView/BRPickerView.bundle",
+				"${PODS_ROOT}/HZPhotoBrowser/HZPhotoBrowser/photoBrowser/ptotoBrowser/HZPhotoBrowser.bundle",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/KRVideoPlayer/KRVideoPlayer.bundle",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+				"${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle",
+				"${PODS_ROOT}/YYStarView/YYStarView/YYStarView.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BRPickerView.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/HZPhotoBrowser.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/KRVideoPlayer.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TZImagePickerController.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/YYStarView.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HuPiao/Pods-HuPiao-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF42BC6D55DB4FAD4404DE3C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HuPiao-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DDFE70D52290F4270029C425 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				008208A222A1281400EBEF4C /* HP_ImagePreviewView.m in Sources */,
+				00D2EFF422A8ECC5008D52D9 /* HP_UpdateNickNameViewController.m in Sources */,
+				00D2F08B22A9020E008D52D9 /* JQIDCardScaningView.m in Sources */,
+				0082089F22A1243100EBEF4C /* HP_Label.m in Sources */,
+				008208E522A4F89100EBEF4C /* MPicture.m in Sources */,
+				00D2EFDA22A75FE8008D52D9 /* INMUpdateModel.m in Sources */,
+				008208F222A4FBBD00EBEF4C /* NSString+Letter.m in Sources */,
+				00B951B322967405008D9411 /* HP_HomeDetailViewController.m in Sources */,
+				00B951C322967CDC008D9411 /* HP_HomeViewController.m in Sources */,
+				00D2EFD922A75FE8008D52D9 /* INMUpdateView.m in Sources */,
+				0082087322A1189A00EBEF4C /* HP_ImageListView.m in Sources */,
+				00B9517022963925008D9411 /* HJTabViewControllerPlugin_TabViewBar.m in Sources */,
+				00B9516E22963925008D9411 /* HJTabViewController.m in Sources */,
+				0082090822A6023500EBEF4C /* GXUpvoteButton.m in Sources */,
+				00D2EFE522A794BE008D52D9 /* HP_NormalOwnView.m in Sources */,
+				00D2EFE222A794A9008D52D9 /* HP_OwnMessageViewController.m in Sources */,
+				008208F522A4FBD900EBEF4C /* JPinYinUtil.m in Sources */,
+				DDFE71272291065A0029C425 /* HP_MessageViewController.m in Sources */,
+				00D2EFE822A794D1008D52D9 /* HP_AuthOwnView.m in Sources */,
+				00D2EFD622A75FE8008D52D9 /* INMRefreshGifHeader.m in Sources */,
+				00D2F0A022A91CA3008D52D9 /* HP_WalletViewController.m in Sources */,
+				008208E822A4F89900EBEF4C /* Moment.m in Sources */,
+				008208E422A4F89100EBEF4C /* MLocation.m in Sources */,
+				00D2F09822A90508008D52D9 /* Lyy_ImagePickerController.m in Sources */,
+				008208EF22A4F9A000EBEF4C /* HP_ContactsViewController.m in Sources */,
+				00B951BA22967435008D9411 /* HP_BaseInformationViewController.m in Sources */,
+				0082090B22A65DF900EBEF4C /* HP_MineHeadView.m in Sources */,
+				DDFE712A229106660029C425 /* HP_MineViewController.m in Sources */,
+				0082086A22A1102300EBEF4C /* HP_DyViewController.m in Sources */,
 				DDFE70E12290F4270029C425 /* ViewController.m in Sources */,
+				00B9516C22963925008D9411 /* HJDefaultTabViewBar.m in Sources */,
+				008208C922A4F3C600EBEF4C /* HP_MessageListViewController.m in Sources */,
+				008208BF22A4BB1000EBEF4C /* HPDivisableTool.m in Sources */,
+				00D2F08F22A9020E008D52D9 /* LHSIDCardScaningView.m in Sources */,
 				DDFE70EC2290F42A0029C425 /* main.m in Sources */,
+				00D2F08E22A9020E008D52D9 /* UIAlertController+Extend.m in Sources */,
+				00B951C722968A20008D9411 /* HP_HomeDetailNewViewController.m in Sources */,
+				00D2F09522A90262008D52D9 /* AlertViewTool.m in Sources */,
+				008208C222A4C2AA00EBEF4C /* HP_DyModel.m in Sources */,
+				008208DC22A4F83C00EBEF4C /* MUser.m in Sources */,
+				00D2EFDB22A75FE8008D52D9 /* INMLoadingView.m in Sources */,
+				008208D622A4F64800EBEF4C /* SearchResultViewController.m in Sources */,
+				00D2EFD722A75FE8008D52D9 /* INMHomeRefreshHeader.m in Sources */,
+				DDFE71182290F5690029C425 /* HP_NavigationViewController.m in Sources */,
+				00B951BD22967450008D9411 /* XZ_CollectionCell.m in Sources */,
+				00D2EFEB22A7A82F008D52D9 /* HP_AuthMessageHeadView.m in Sources */,
+				00B9516D22963925008D9411 /* HJTabViewControllerPlugin_HeaderScroll.m in Sources */,
+				0082086D22A1160A00EBEF4C /* HP_DyCell.m in Sources */,
+				008208CF22A4F4B300EBEF4C /* JKDBModel.m in Sources */,
+				00B9516F22963925008D9411 /* HJTabViewController+ViewController.m in Sources */,
+				DDFE712D22910C000029C425 /* KLTNavigationController.m in Sources */,
+				00B951CD22968AFF008D9411 /* HP_PhotoDetailViewController.m in Sources */,
+				0082086422A10B5300EBEF4C /* HP_HomeDetailOwnHeadView.m in Sources */,
+				00B9517322963925008D9411 /* HJTabViewBar.m in Sources */,
+				00B9517122963925008D9411 /* HJTabViewControllerPlugin_BottomInset.m in Sources */,
+				00D2EFEE22A8B1DB008D52D9 /* HP_SeleteViewController.m in Sources */,
+				00D2EFF122A8E885008D52D9 /* HP_SignViewController.m in Sources */,
+				00D2EFD822A75FE8008D52D9 /* INMRefreshHeader.m in Sources */,
+				DDFE7140229115AF0029C425 /* UIImage+Extension.m in Sources */,
+				00B9511422929C9F008D9411 /* HP_HomeBaseViewController.m in Sources */,
+				00D2EFFB22A8FC67008D52D9 /* HP_CeIdcardViewController.m in Sources */,
+				0082087622A11BAB00EBEF4C /* HP_Utility.m in Sources */,
+				00D2EFDC22A75FE8008D52D9 /* INMAlertView.m in Sources */,
+				00B951CA22968AEA008D9411 /* HP_OwnDetailViewController.m in Sources */,
+				00D2EFF722A8F04F008D52D9 /* NSString+trim.m in Sources */,
 				DDFE70DE2290F4270029C425 /* AppDelegate.m in Sources */,
+				00D2F09022A9020E008D52D9 /* JQAVCaptureViewController.m in Sources */,
+				00B9511722929DA7008D9411 /* HP_HomeCell.m in Sources */,
+				008208D322A4F4CA00EBEF4C /* HP_Message.m in Sources */,
+				DDFE713F229115AF0029C425 /* UIBarButtonItem+Extension.m in Sources */,
+				DDFE713322910D1C0029C425 /* AnimationContoller.m in Sources */,
+				00D2F09C22A91480008D52D9 /* HP_FollowAndFansViewController.m in Sources */,
+				008208D022A4F4B300EBEF4C /* JKDBHelper.m in Sources */,
+				00B951A622965A78008D9411 /* HP_DynamicViewController.m in Sources */,
+				DDFE713E229115AF0029C425 /* UIView+Extension.m in Sources */,
+				008207F1229D359800EBEF4C /* HP_InsertBGView.m in Sources */,
+				00B9517222963925008D9411 /* HJTabViewControllerPlugin_Base.m in Sources */,
+				00B951B922967435008D9411 /* HP_BaseAlbumViewController.m in Sources */,
+				008208D922A4F7D500EBEF4C /* MomentUtil.m in Sources */,
+				008208DF22A4F86C00EBEF4C /* Comment.m in Sources */,
+				00D2F09122A9020E008D52D9 /* RectManager.m in Sources */,
+				DDFE71152290F5540029C425 /* HP_TabbarViewController.m in Sources */,
+				DDFE713D229115AF0029C425 /* UIButton+Extension.m in Sources */,
+				0082090522A5316200EBEF4C /* UIView+BorderLine.m in Sources */,
+				00D2F08C22A9020E008D52D9 /* IDInfo.m in Sources */,
+				00D2F08D22A9020E008D52D9 /* AVCaptureViewController.m in Sources */,
+				00D2EFFE22A8FD2B008D52D9 /* HP_CerIdcardTabCell.m in Sources */,
+				DDFE71122290F53A0029C425 /* HP_BaseViewController.m in Sources */,
+				008208C522A4F35500EBEF4C /* HP_TableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,13 +1374,21 @@
 		};
 		DDFE71062290F42A0029C425 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1F14D77EC8D00089509BD59 /* Pods-HuPiao.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = HuPiao/Info.plist;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/HuPiao/Supporting Files/PrefixHeader.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/HuPiao/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/HuPiao/HP_Command/ScanIDCard/libexidcard",
+					"$(PROJECT_DIR)/HuPiao/HP_Command/Third/libexidcard",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zecaifu-luanjinxin.HuPiao";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -449,13 +1398,21 @@
 		};
 		DDFE71072290F42A0029C425 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CDBCA537C9F607AC2A70D980 /* Pods-HuPiao.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = HuPiao/Info.plist;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/HuPiao/Supporting Files/PrefixHeader.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/HuPiao/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/HuPiao/HP_Command/ScanIDCard/libexidcard",
+					"$(PROJECT_DIR)/HuPiao/HP_Command/Third/libexidcard",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zecaifu-luanjinxin.HuPiao";
 				PRODUCT_NAME = "$(TARGET_NAME)";

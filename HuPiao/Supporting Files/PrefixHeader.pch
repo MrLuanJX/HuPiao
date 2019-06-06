@@ -1,0 +1,49 @@
+//
+//  PrefixHeader.pch
+//  HuPiao
+//
+//  Created by 栾金鑫 on 2019/5/19.
+//  Copyright © 2019年 栾金鑫. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "DefineFile.h"
+
+/*** Lib ***/
+#import <AFNetworking.h>
+#import <Masonry.h>
+#import <MJExtension.h>
+#import <MJRefresh.h>
+#import <SDWebImageManager.h>
+#import <SDWebImageDownloader.h>
+#import <UIImageView+WebCache.h>
+#import <SDImageCache.h>
+#import <SDWebImage/UIButton+WebCache.h>
+#import <SVProgressHUD.h>
+#import <AdSupport/AdSupport.h>
+#import "WMPageController.h"
+#import "HZPhotoBrowser.h"
+#import <SDCycleScrollView.h>
+#import "YNPageViewController.h"
+#import "HP_TabbarViewController.h"
+#import "HP_NavigationViewController.h"
+#import "HP_BaseViewController.h"
+#import "UIView+BorderLine.h"
+#import "NSString+trim.h"
+#import "TZImagePickerController.h"
+#import "UIButton+Extension.h"
+#import "UIBarButtonItem+Extension.h"
+#import "UIImage+Extension.h"
+#import "UIView+Extension.h"
+#import "HP_ImageListView.h"
+#import "HZPhotoBrowser.h"
+#import "HPDivisableTool.h"
+#import <YYStarView.h>
+#import "BRDatePickerView.h"
+#import "BRStringPickerView.h"
+#import "MUser.h"
+#import "INMAlertView.h"
+
+#endif /* PrefixHeader_pch */
