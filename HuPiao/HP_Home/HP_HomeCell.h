@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic , strong) MUser * user;
 
+@property (nonatomic , copy) NSString * address;
+
 @end
 
 NS_ASSUME_NONNULL_END

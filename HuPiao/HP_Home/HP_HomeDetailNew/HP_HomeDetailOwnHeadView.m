@@ -17,6 +17,7 @@
 @property (nonatomic , strong) UIImageView * authImg;               // 认证
 @property (nonatomic , strong) YYStarView * starView;               // 五星
 @property (nonatomic , strong) UIButton * likeBtn;                  // 热度
+@property (nonatomic , strong) UIButton * weChatBtn;                // 微信
 
 @end
 
@@ -39,10 +40,11 @@
     [self addSubview: self.nameLabel];
     [self addSubview: self.contentLabel];
     [self addSubview: self.btmLine];
-    [self addSubview: self.careBtn];
+//    [self addSubview: self.careBtn];
     [self addSubview: self.authImg];
     [self addSubview: self.starView];
     [self addSubview: self.likeBtn];
+    [self addSubview: self.weChatBtn];
 }
 
 - (void) createConstrainte {
@@ -82,7 +84,13 @@
     [self.contentLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo (wSelf.authImg.mas_left);
         make.top.mas_equalTo (wSelf.authImg.mas_bottom).offset(HPFit(10));
-        make.right.mas_equalTo (-HPFit(15));
+        make.right.mas_equalTo (-HPFit(65));
+    }];
+    
+    [self.weChatBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(wSelf.likeBtn.mas_right);
+        make.centerY.mas_equalTo (wSelf.contentLabel.mas_centerY);
+        make.width.height.mas_equalTo (HPFit(40));
     }];
 }
 
@@ -117,7 +125,7 @@
     }
     return _btmLine;
 }
-
+/*
 - (UIButton *)careBtn {
     if (!_careBtn) {
         _careBtn = [UIButton new];
@@ -129,7 +137,7 @@
     }
     return _careBtn;
 }
-
+*/
 - (UIImageView *) authImg {
     if (!_authImg) {
         _authImg = [UIImageView new];
@@ -198,13 +206,30 @@
     return _likeBtn;
 }
 
+- (UIButton *) weChatBtn {
+    if (!_weChatBtn) {
+        _weChatBtn = [UIButton new];
+        [_weChatBtn setImage:[UIImage imageNamed:@"weChat"] forState:UIControlStateNormal];
+        [_weChatBtn addTarget:self action:@selector(weChatAction) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _weChatBtn;
+}
+
+// 微信
+- (void) weChatAction {
+    if (self.weChatActionBlock) {
+        self.weChatActionBlock();
+    }
+}
+
+// 关注
 - (void) careAction : (UIButton *)sender {
     sender.selected = !sender.selected;
     if (sender.selected) {
-         NSLog(@"收藏");
+         NSLog(@"关注");
         [sender setBackgroundImage:[UIImage imageNamed:@"love_video_press_20x20_"] forState:UIControlStateSelected];
     } else {
-         NSLog(@"取消收藏");
+         NSLog(@"取消关注");
          [sender setBackgroundImage:[UIImage imageNamed:@"love_video_night_20x20_"] forState:UIControlStateNormal];
     }
 }

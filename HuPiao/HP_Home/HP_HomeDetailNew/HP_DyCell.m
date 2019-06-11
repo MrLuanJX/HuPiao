@@ -58,8 +58,6 @@
 -(void)setupItemUI{
     
     self.image = [UIImageView new];
-//    self.image.layer.cornerRadius = 8.0;
-//    self.image.layer.masksToBounds = YES;
     self.image.backgroundColor = [UIColor redColor];
     [self.contentView addSubview:self.image];
 }

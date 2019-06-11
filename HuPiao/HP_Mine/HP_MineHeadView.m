@@ -114,7 +114,7 @@
     }];
     
     [self.signBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.mas_equalTo(wSelf);
+        make.left.right.bottom.mas_equalTo(0);
         make.height.mas_equalTo(HPFit(40));
     }];
 }
@@ -199,7 +199,7 @@
     
     // 设置array的垂直方向的约束
     [self.masonryViewArray mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo (wSelf.avatarImageView.mas_bottom).offset(HPFit(20));
+        make.top.mas_equalTo (wSelf.avatarImageView.mas_bottom).offset(HPFit(30));
         make.height.mas_equalTo (HPFit(50));
     }];
     

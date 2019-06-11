@@ -10,6 +10,10 @@
 #import "YNPageTableView.h"
 #import "UIViewController+YNPageExtend.h"
 #import "HP_InsertBGView.h"
+#import "HP_CircleTableCell.h"
+#import "HP_ImpressionTableCell.h"
+#import "HP_PersonalTableCell.h"
+#import "HP_EvaluateTableCell.h"
 
 /// 开启刷新头部高度
 #define kOpenRefreshHeaderViewHeight 0
@@ -31,9 +35,11 @@
     [super viewDidLoad];
     __weak typeof (self) weakSelf = self;
     
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"id"];
-    
     [self.view addSubview:self.tableView];
+    
+    [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.right.bottom.mas_equalTo(0);
+    }];
     
     self.dataArray = @[].mutableCopy;
     /// 加载数据
@@ -153,25 +159,39 @@
 }
     
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dataArray.count + 1;
+    return section == 6 ? 10 : 1;//self.dataArray.count;
 }
     
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row < self.dataArray.count) {
-        return kCellHeight;
+        if (indexPath.section == 4) {
+            return (HPScreenW - HPFit(70))/3 + HPFit(10);
+        } else if (indexPath.section == 6) {
+            return HPFit(60);
+        } else
+            return (HPScreenW - HPFit(90))/5 + HPFit(20);//kCellHeight;
     }
-    return self.placeHolderCellHeight;
+    return HPFit(60);//self.placeHolderCellHeight;
 }
     
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"id"];
-    if (indexPath.row < self.dataArray.count) {
-        cell.textLabel.text = [NSString stringWithFormat:@"%@ section: %zd row:%zd", @"测试", indexPath.section, indexPath.row];
-        return cell;
+    if (indexPath.section == 2 || indexPath.section == 3 ) {
+        HP_ImpressionTableCell * imCell = [tableView dequeueReusableCellWithIdentifier:@"im"];
+        imCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        return imCell;
+    } else if (indexPath.section == 4) {
+        HP_PersonalTableCell * personalCell = [tableView dequeueReusableCellWithIdentifier:@"personal"];
+        personalCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        return personalCell;
+    } else if (indexPath.section == 6) {
+        HP_EvaluateTableCell * evaluateCell = [tableView dequeueReusableCellWithIdentifier:@"evaluate"];
+        evaluateCell.accessoryType = UITableViewCellAccessoryNone;
+        return evaluateCell;
     } else {
-        cell.textLabel.text = @"";
+        HP_CircleTableCell * cell = [tableView dequeueReusableCellWithIdentifier:@"id"];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        return cell;
     }
-    return cell;
 }
     
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -182,10 +202,17 @@
     
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.delegate = self;
         _tableView.dataSource = self;
+//        _tableView.estimatedRowHeight = 0;
+        [_tableView registerClass:[HP_CircleTableCell class] forCellReuseIdentifier:@"id"];
+        [_tableView registerClass:[HP_ImpressionTableCell class] forCellReuseIdentifier:@"im"];
+        [_tableView registerClass:[HP_PersonalTableCell class] forCellReuseIdentifier:@"personal"];
+        [_tableView registerClass:[HP_EvaluateTableCell class] forCellReuseIdentifier:@"evaluate"];
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.contentInset = UIEdgeInsetsMake(0, 0, HPFit(10), 0);
     }
     return _tableView;
 }

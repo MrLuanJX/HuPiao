@@ -43,14 +43,14 @@
 
 -(void)createConstraint {
     [self.textLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(HPFit(125) - k_status_height);
+        make.top.mas_equalTo(k_top_height + HPFit(10));
         make.left.mas_equalTo(HPFit(15));
         make.right.mas_equalTo(-HPFit(15));
     }];
     
     [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.left.bottom.right.mas_equalTo(0);
-        make.top.mas_equalTo(self.textLabel.mas_bottom);//.mas_offset(MineMarginW);
+        make.bottom.left.right.mas_equalTo(0);
+        make.top.mas_equalTo(self.textLabel.mas_bottom);
     }];
 }
 
@@ -75,7 +75,8 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 0.0000001;
+    
+    return section == 2 ? HPFit(15) : 0.0000001;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {

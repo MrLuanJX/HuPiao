@@ -11,6 +11,7 @@
 #import "HP_PhotoDetailViewController.h"
 #import "HP_DyViewController.h"
 #import "HP_HomeDetailOwnHeadView.h"
+#import "HP_GiftView.h"
 
 @interface HP_HomeDetailNewViewController () <YNPageViewControllerDataSource, YNPageViewControllerDelegate, SDCycleScrollViewDelegate>
     
@@ -33,6 +34,8 @@
 @property (nonatomic , strong) UIButton * talkBtn;
 
 @property (nonatomic , assign) CGFloat contentY;
+// 礼物
+@property (nonatomic , strong) UIButton * giftBtn;
 
 @end
 
@@ -56,6 +59,17 @@
     self.isCared = NO;
     
     [self setupBackBtn];
+    [self setupRightNav];
+}
+
+- (void) setupRightNav {
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(giftAction ) image:@"discover_3_0" highImage:@"discover_3_0" isLeftBtn:NO];
+}
+
+- (void) giftAction {
+    NSLog(@"礼物");
+    HP_GiftView * giftView = [HP_GiftView new];
+    [giftView show];
 }
 
 - (void) setupBackBtn {
@@ -63,9 +77,17 @@
     [self.view addSubview: self.createDyBtn];
     [self.view addSubview: self.backBtn];
     [self.view addSubview: self.talkBtn];
+    [self.view addSubview: self.giftBtn];
+    // 礼物
+    [self.giftBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo (-HPFit(15));
+        make.top.mas_equalTo (k_status_height);
+        make.width.height.mas_equalTo (HPFit(40));
+    }];
+    
     // 返回
     [self.backBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo (self.navigationController.navigationBar.height);
+        make.top.mas_equalTo (k_status_height);
         make.left.mas_equalTo (10);
         make.width.height.mas_equalTo (40);
     }];
@@ -115,7 +137,11 @@
     configration.showBottomLine = NO;
     configration.showGradientColor = YES;
     configration.bounces = YES;
-    configration.suspenOffsetY = 88;
+    if ((void)(SAFE_AREA_INSETS_BOTTOM),safeAreaInsets().bottom > 0.0) {
+        configration.suspenOffsetY = 88;
+    } else {
+        configration.suspenOffsetY = 64;
+    }
     configration.itemFont = HPFontSize(14);
     configration.selectedItemFont = HPFontSize(16);
     configration.selectedItemColor = HPUIColorWithRGB(0x3D79FD, 1.0);
@@ -125,6 +151,7 @@
 }
     
 + (instancetype)suspendCenterPageVCWithConfig:(YNPageConfigration *)config WithUser:(MUser *)user IsOwn:(BOOL)isOwn{
+//    WS(wSelf);
     
     HP_HomeDetailNewViewController *vc = [HP_HomeDetailNewViewController pageViewControllerWithControllers:[self getArrayVCsWithUser:user isOwn:isOwn] titles:[self getArrayTitles] config:config];
     vc.dataSource = vc;
@@ -142,6 +169,13 @@
     
     vc.ownHeadView.frame = CGRectMake(0, CGRectGetMaxY(autoScrollView.frame), HPScreenW, HPFit(100));
     vc.ownHeadView.user = user;
+    
+   __weak HP_HomeDetailNewViewController* wself = vc;
+    /* 微信Action */
+    vc.ownHeadView.weChatActionBlock = ^{
+        NSLog(@"微信");
+        [wself alertShow:user];
+    };
     [headView addSubview: vc.ownHeadView];
     
     vc.headerView = headView;
@@ -160,7 +194,7 @@
     
     return vc;
 }
-    
+
 + (NSArray *)getArrayVCsWithUser:(MUser *)user isOwn:(BOOL)isOwn{
     
     HP_OwnDetailViewController * ownVC = [[HP_OwnDetailViewController alloc] init];
@@ -300,7 +334,35 @@
         [sender setTitle:@"关 注" forState:UIControlStateNormal];
     }
 }
+// 礼物
+- (UIButton *)giftBtn {
+    if(!_giftBtn) {
+        _giftBtn = [UIButton new];
+        _giftBtn.backgroundColor = HPUIColorWithRGB(0x000000, 0.5);
+        _giftBtn.layer.cornerRadius = 20;
+        _giftBtn.layer.masksToBounds = YES;
+        [_giftBtn setImage:[UIImage imageNamed:@"discover_3_0"] forState:UIControlStateNormal];
+        [_giftBtn addTarget:self action:@selector(giftAction) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _giftBtn;
+}
 
+- (void) alertShow: (MUser *) user {
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:@"购买 %@ 联系方式需要消耗您 %@ H币",user.name,@"108"] preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+        NSLog(@"点击取消");
+    }]];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        NSLog(@"点击确认");
+    }]];
 
+    // 由于它是一个控制器 直接modal出来就好了
+    [self presentViewController:alertController animated:YES completion:nil];
+}
 
 @end

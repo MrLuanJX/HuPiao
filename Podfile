@@ -22,5 +22,6 @@
  pod 'YYStarView'
  pod 'BRPickerView'
  pod 'TZImagePickerController'
+ pod  'FFDropDownMenu'
  end
 

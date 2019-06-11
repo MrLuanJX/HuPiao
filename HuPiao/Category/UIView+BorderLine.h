@@ -18,10 +18,10 @@ typedef NS_OPTIONS(NSUInteger, UIBorderSideType) {
 };
 
 @interface UIView (BorderLine)
-
+// 加边框
 - (UIView *)borderForColor:(UIColor *)color borderWidth:(CGFloat)borderWidth borderType:(UIBorderSideType)borderType;
 
-
+// 切圆角
 - (void)setBorderWithCornerRadius:(CGFloat)cornerRadius
                       borderWidth:(CGFloat)borderWidth
                       borderColor:(UIColor *)borderColor

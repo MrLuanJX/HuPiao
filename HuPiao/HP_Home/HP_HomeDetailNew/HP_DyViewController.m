@@ -67,7 +67,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row < self.dataArray.count) {
         
-        return indexPath.row %2 == 0 ? HPFit(720) : HPFit(740);
+        return indexPath.row %2 == 0 ? HPFit(725) : HPFit(740);
         //kCellHeight;   HPFit(720);
     }
     return self.placeHolderCellHeight;

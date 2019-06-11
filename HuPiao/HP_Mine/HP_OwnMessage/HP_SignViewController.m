@@ -149,7 +149,7 @@
         _stringlenghtLab.font = HPFontSize(13);
         _stringlenghtLab.textColor = [UIColor lightGrayColor];
         _stringlenghtLab.textAlignment = NSTextAlignmentRight;
-        _stringlenghtLab.text = [NSString stringWithFormat:@"0.%d",self.maxLength];
+        _stringlenghtLab.text = [NSString stringWithFormat:@"0/%d",self.maxLength];
     }
     return _stringlenghtLab;
 }

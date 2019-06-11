@@ -16,11 +16,12 @@
 #import "HP_SignViewController.h"
 #import "HP_FollowAndFansViewController.h"
 #import "HP_WalletViewController.h"
+#import "HP_CeIdcardBaseViewController.h"
 
-
-static CGFloat const imageBGHeight = 200; // 背景图片的高度
+static CGFloat const imageBGHeight = 300; // 背景图片的高度
 
 @interface HP_MineViewController () <UITableViewDelegate , UITableViewDataSource>
+
 @property (nonatomic , strong) MUser * user;
 
 @property (nonatomic , strong) UITableView * tableView;
@@ -264,7 +265,9 @@ static CGFloat const imageBGHeight = 200; // 背景图片的高度
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     HP_SignViewController * signVC = [HP_SignViewController new];
-    HP_CeIdcardViewController * ceIdcardVC = [HP_CeIdcardViewController new];
+//    HP_CeIdcardViewController * ceIdcardVC = [HP_CeIdcardViewController new];
+    HP_CeIdcardBaseViewController * ceIdcardVC = [HP_CeIdcardBaseViewController new];
+    
     if (indexPath.section == 0 && indexPath.row == 1) {         // 身份认证
         ceIdcardVC.title = @"身份认证";
         [self.navigationController pushViewController:ceIdcardVC animated:YES];

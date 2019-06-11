@@ -226,4 +226,19 @@
     [view.layer addSublayer:gradient];
 }
 
++ (void)addRefreshBGView:(UIView *)BGView ColorArray:(NSArray *)colorArray Locations:(NSArray *)locations startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint {
+    
+    UIView * bgView = [[UIView alloc] initWithFrame:CGRectOffset(BGView.bounds, 0, -BGView.bounds.size.height)];
+    CAGradientLayer *gradientLayer = [CAGradientLayer layer];  // 设置渐变效果
+    gradientLayer.bounds = bgView.bounds;
+    gradientLayer.borderWidth = 0;
+    gradientLayer.frame = bgView.bounds;
+    gradientLayer.colors = colorArray;
+    gradientLayer.locations = locations;
+    gradientLayer.startPoint = startPoint;
+    gradientLayer.endPoint = endPoint;
+    [bgView.layer insertSublayer:gradientLayer atIndex:0];
+    [BGView insertSubview:bgView atIndex:0];
+}
+
 @end

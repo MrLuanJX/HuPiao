@@ -16,6 +16,8 @@
 
 @property (nonatomic , strong) UILabel * titleLabel;
 
+@property (nonatomic , strong) UILabel * addressLabel;
+
 @property (nonatomic , strong) UIButton * likeBtn;
 
 @property (nonatomic , assign) BOOL isLiked;
@@ -31,6 +33,12 @@
        
     self.titleLabel.text = user.name;
     [self.iconImg sd_setImageWithURL:[NSURL URLWithString:user.portrait] placeholderImage:[UIImage imageNamed:@""]]; // 1.jpg
+}
+
+- (void)setAddress:(NSString *)address {
+    _address = address;
+    
+    self.addressLabel.text = HPNULLString(address) ? self.index.row%3 == 0 ? @"距您 2km" : @"北京市 朝阳区" : address;
 }
 
 - (void)setIndex:(NSIndexPath *)index {
@@ -67,6 +75,7 @@
     [self.contentView addSubview: self.iconImg];
     [self.contentView addSubview: self.authImg];
     [self.contentView addSubview: self.titleLabel];
+    [self.contentView addSubview: self.addressLabel];
     [self.contentView addSubview: self.likeBtn];
     [self.contentView addSubview: self.starView];
 }
@@ -88,8 +97,13 @@
     }];
     
     [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(10);
-        make.bottom.mas_equalTo(-10);
+        make.left.mas_equalTo(HPFit(10));
+        make.bottom.mas_equalTo(-HPFit(40));
+    }];
+    
+    [self.addressLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo (weakSelf.titleLabel.mas_left);
+        make.bottom.mas_equalTo(-HPFit(10));
     }];
     
     [self.starView mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -107,7 +121,7 @@
     [self.likeBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.bottom.right.mas_equalTo (-10);
         make.width.mas_equalTo(80);
-        make.centerY.mas_equalTo(weakSelf.titleLabel.mas_centerY);
+        make.centerY.mas_equalTo(weakSelf.addressLabel.mas_centerY);
     }];
      
 }
@@ -141,6 +155,15 @@
         _titleLabel.preferredMaxLayoutWidth = [UIScreen mainScreen].bounds.size.width - 20;
     }
     return _titleLabel;
+}
+
+- (UILabel *)addressLabel {
+    if (!_addressLabel) {
+        _addressLabel = [UILabel new];
+        _addressLabel.font = HPFontSize(15);
+        _addressLabel.textColor = [UIColor whiteColor];
+    }
+    return _addressLabel;
 }
 
 - (UIButton *)likeBtn {

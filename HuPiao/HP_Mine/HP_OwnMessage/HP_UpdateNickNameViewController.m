@@ -40,7 +40,7 @@
 
 #pragma mark -给每个cell中的textfield添加事件，只要值改变就调用此函数
 -(void)changedTextField:(UITextField *)textField {
-    if (![[textField.text trim] isEqualToString:self.user.name] || [textField.text trim].length == 0) {
+    if (![[textField.text trim] isEqualToString:self.user.name] && [textField.text trim].length > 0) {
         self.sendBtn.backgroundColor = kSetUpCololor(61, 121, 253, 1.0);
         self.sendBtn.userInteractionEnabled = YES;
     } else {

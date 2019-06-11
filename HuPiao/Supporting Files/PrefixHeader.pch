@@ -45,5 +45,6 @@
 #import "BRStringPickerView.h"
 #import "MUser.h"
 #import "INMAlertView.h"
-
+#import "CLocationManager.h"
+#import <FFDropDownMenuView.h>
 #endif /* PrefixHeader_pch */

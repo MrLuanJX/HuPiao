@@ -215,10 +215,10 @@
         [self.device lockForConfiguration:nil];// 请求独占访问硬件设备
         
         if (self.isTorchOn) {
-            self.navigationItem.rightBarButtonItem.image = [[UIImage imageNamed:@"nav_torch_on"] originalImage];
+            self.navigationItem.rightBarButtonItem.image = [UIImage imageNamed:@"nav_torch_on"]; // originalImage
             [self.device setTorchMode:AVCaptureTorchModeOn];
         } else {
-            self.navigationItem.rightBarButtonItem.image = [[UIImage imageNamed:@"nav_torch_off"] originalImage];
+            self.navigationItem.rightBarButtonItem.image = [UIImage imageNamed:@"nav_torch_off"]; // originalImage]
             [self.device setTorchMode:AVCaptureTorchModeOff];
         }
         [self.device unlockForConfiguration];// 请求解除独占访问硬件设备

@@ -36,8 +36,6 @@
 
 - (void) addCollectionView {
     [self.collectionView registerClass:[XZ_CollectionCell class] forCellWithReuseIdentifier:@"id"];
-//    [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:HeaderID];
-//    [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:FooterID];
     [self.view addSubview:self.collectionView];
     [self addCollectionViewRefresh];
 }

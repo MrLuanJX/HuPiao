@@ -15,6 +15,7 @@ PODS:
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
   - BRPickerView (2.2.1)
+  - FFDropDownMenu (1.4.5)
   - FLAnimatedImage (1.0.12)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
@@ -58,6 +59,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - BRPickerView
+  - FFDropDownMenu
   - FMDB
   - HZPhotoBrowser
   - IQKeyboardManager
@@ -82,6 +84,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
     - BRPickerView
+    - FFDropDownMenu
     - FLAnimatedImage
     - FMDB
     - HZPhotoBrowser
@@ -106,6 +109,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   BRPickerView: 0590a8c5de9bd98c6b4e4f117a3dff6de287d5b2
+  FFDropDownMenu: 3dc2b1e47d349687b9d451282a3b6bae3e0e8c7a
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   HZPhotoBrowser: 6ed34b8d447a82b9d535574bd24e6ee0689ebf1f
@@ -127,6 +131,6 @@ SPEC CHECKSUMS:
   YYStarView: 88da305c4e86bc2468758e9313f2d25cce4f3ba3
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: dea28259bc88cd9d2a5b14e6d53343645b7ad485
+PODFILE CHECKSUM: 5c22b477256c7a65d1b12046a21a490761b56f91
 
 COCOAPODS: 1.6.1

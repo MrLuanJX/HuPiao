@@ -18,8 +18,9 @@
     
 @property (nonatomic , assign) BOOL isLiked;
 
-@property (nonatomic, strong) NSMutableArray * messageList;
+@property (nonatomic , strong) NSMutableArray * messageList;
 
+@property (nonatomic , copy) NSString * address;
 @end
 
 @implementation HP_HomeBaseViewController
@@ -32,6 +33,22 @@
     [self.tableView reloadData];
 }
 
+- (void) getlocation {
+    WS(wSelf);
+    [[CLocationManager shareLocation] getLocationCoordinate:^(CLLocationCoordinate2D locationCorrrdinate) {
+        NSLog(@"latitude = %f --- %f",locationCorrrdinate.latitude,locationCorrrdinate.longitude);
+        
+    } withAddress:^(NSString *addressString) {
+        NSLog(@"addressString = %@",addressString);
+        wSelf.address = addressString;
+    } FirstTime:^{
+        NSLog(@"first");
+        [self.messageList removeAllObjects];
+        [self.messageList addObjectsFromArray:[MUser findAll]];
+        [self.tableView reloadData];
+    }];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.isLiked = YES;
@@ -39,6 +56,8 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self addTableView];
+    
+    [self getlocation];
 }
     
 -(UITableView *)tableView{
@@ -65,7 +84,6 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSLog(@"messageList = %ld",self.messageList.count);
 
     return [self.messageList count];
 }
@@ -81,6 +99,8 @@
     homeCell.user = user;
     
     homeCell.index = indexPath;
+    
+    homeCell.address = self.address;
     
     homeCell.likeBtnActionBlock = ^(UIButton * _Nonnull button) {
          if (self.isLiked == YES) {

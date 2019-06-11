@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HP_HomeDetailOwnHeadView : UIView
 
+@property (nonatomic , copy) void(^weChatActionBlock)(void);
+
 @property (nonatomic , strong) MUser * user;
 
 @end
