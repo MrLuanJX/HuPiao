@@ -8,16 +8,16 @@
 
 #import "HP_CeIdFirstView.h"
 #import "HP_CeIdFirstCell.h"
+#import "HP_CashWithdrawalModel.h"
 
-@interface HP_CeIdFirstView () <UITableViewDelegate , UITableViewDataSource>
+@interface HP_CeIdFirstView () <UITableViewDelegate , UITableViewDataSource ,HP_CeIdFirstCellDelegate>
 
-@property (nonatomic , strong) UITableView * tableView;
-@property (nonatomic , strong) NSMutableArray * tfArray;
 @property (nonatomic , strong) UILabel * textLabel;
+@property (nonatomic , strong) UITableView * tableView;
 @property (nonatomic , strong) UIButton * commitBtn;
-@property (nonatomic , copy) NSString * realName;
-@property (nonatomic , copy) NSString * phoneNum;
-@property (nonatomic , copy) NSString * weChatNum;
+@property (nonatomic , strong) NSMutableArray * dataSource;
+@property (nonatomic , strong) NSMutableArray * textArr;
+@property (nonatomic , assign) BOOL isEmpty;
 
 @end
 
@@ -26,8 +26,10 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         
-        [self createSubviews];
+        self.isEmpty = YES;
         
+        [self createSubviews];
+
         [self createConstraint];
     }
     return self;
@@ -56,7 +58,7 @@
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return self.dataSource.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -106,21 +108,23 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    WS(wSelf);
     HP_CeIdFirstCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CerIdcardTabCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.indexPath = indexPath;
-    //    cell.model = self.listData[indexPath.section];
-    
-    cell.textFieldChangedBlock = ^(UITextField * _Nonnull textField, NSInteger tag, NSString * _Nonnull text) {
-        NSLog(@"text = %@---%ld",text,(long)tag);
-        
-        wSelf.realName = tag == 0 && text.length > 0 ? text : @"";
-        wSelf.phoneNum = tag == 1 && text.length > 0 ? text : @"";
-        wSelf.weChatNum = tag == 2 && text.length > 0 ? text : @"";
-    };
+    cell.model = self.dataSource[indexPath.section];
+    cell.delegate = self;
     
     return cell;
+}
+
+//代理回调，比对indexPath将对应的text进行修改保存
+- (void) textFieldCellText:(NSString *)text index:(NSIndexPath *)index {
+    for (int i = 0; i < self.dataSource.count; i++) {
+        HP_CashWithdrawalModel *model = self.dataSource[i];
+        if (index == model.index) {
+            model.text = text;
+        }
+    }
 }
 
 -(UILabel *)textLabel {
@@ -149,10 +153,49 @@
 }
 
 - (void) commitAction {
+    NSLog(@"commit");
     self.commitBtn.backgroundColor = kSetUpCololor(61, 121, 253, 1.0);
-    if (self.firstCommitBlock) {
-        NSLog(@"---------");
-        self.firstCommitBlock();
+    
+    for (int i = 0; i < 3; i++) {
+        HP_CashWithdrawalModel *model = self.dataSource[i];
+        if (model.index.section == 0) {
+            NSLog(@"0");
+            NSLog(@"text = %@",model.text);
+            if (model.text.length == 0) {
+                NSLog(@"名不空");
+                self.isEmpty = YES;
+                return;
+            }else {
+                self.isEmpty = NO;
+            }
+        } else if (model.index.section == 1) {
+            NSLog(@"1");
+            NSLog(@"text = %@",model.text);
+            if (model.text.length == 0) {
+                NSLog(@"手机不空");
+                self.isEmpty = YES;
+
+                return;
+            } else {
+                self.isEmpty = NO;
+            }
+        } else if (model.index.section == 2) {
+            NSLog(@"2");
+            NSLog(@"text = %@",model.text);
+            if (model.text.length == 0) {
+                NSLog(@"微信不空");
+                self.isEmpty = YES;
+
+                return;
+            } else {
+                self.isEmpty = NO;
+            }
+        }
+    }
+    if (self.isEmpty == NO) {
+        if (self.firstCommitBlock) {
+            self.firstCommitBlock();
+        }
     }
 }
 
@@ -160,11 +203,26 @@
     self.commitBtn.backgroundColor = HPUIColorWithRGB(0x4D4D4D, 0.8);
 }
 
-- (NSMutableArray *)tfArray {
-    if (!_tfArray) {
-        _tfArray = @[].mutableCopy;
+- (NSMutableArray *)dataSource {
+    if (!_dataSource) {
+        _dataSource = @[].mutableCopy;
+        //循环创建model，s初始设置text为空，并编号index
+        for (int i = 0; i < 3; i++) {
+            HP_CashWithdrawalModel *model = [[HP_CashWithdrawalModel alloc] init];
+            model.text = @"";
+            NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:i];
+            model.index = index;
+            [_dataSource addObject:model];
+        }
     }
-    return _tfArray;
+    return _dataSource;
+}
+
+- (NSMutableArray *)textArr {
+    if (!_textArr) {
+        _textArr = @[].mutableCopy;
+    }
+    return _textArr;
 }
 
 @end

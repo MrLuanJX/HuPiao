@@ -16,6 +16,12 @@
 
 @implementation HP_CeIdFirstCell
 
+// model对象赋值
+- (void)setModel:(HP_CashWithdrawalModel *)model{
+    _model = model;
+    self.textField.text = model.text;
+}
+
 - (void)setIndexPath:(NSIndexPath *)indexPath {
     _indexPath = indexPath;
     
@@ -71,17 +77,20 @@
         _textField.backgroundColor = [UIColor whiteColor];
         _textField.font = HPFontSize(14);
         _textField.delegate = self;
-        _textField.tag = self.indexPath.section;
         [_textField addTarget:self action:@selector(changedTextField:) forControlEvents:UIControlEventEditingChanged];
     }
     return _textField;
 }
 
-#pragma mark -给每个cell中的textfield添加事件，只要值改变就调用此函数
+// 代理方法
 -(void)changedTextField:(UITextField *)textField {
-    if (self.textFieldChangedBlock) {
-        self.textFieldChangedBlock(textField , self.indexPath.section , textField.text);
+//- (void)textFieldDidEndEditing:(UITextField *)textField{
+    
+    if ([self.delegate respondsToSelector:@selector(textFieldCellText:index:)]) {
+        //这里讲textField中输入的内容和model中存储的index传递到controller
+        [self.delegate textFieldCellText:textField.text index:_model.index];
     }
 }
+
 
 @end

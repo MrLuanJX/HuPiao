@@ -36,6 +36,8 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
 @property (nonatomic , strong) NSMutableArray * array;
 @property (nonatomic , assign) CGFloat fileSize;
 
+@property (nonatomic , strong) UIButton * logoutBtn;
+
 @end
 
 @implementation HP_MineViewController
@@ -181,34 +183,23 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
     };
 }
 
+- (void) logoutDown :(UIButton *) sender{
+    self.logoutBtn.backgroundColor = HPUIColorWithRGB(0x4D4D4D, 0.8);
+}
+
+- (void) logoutAction :(UIButton *) sender{
+    NSLog(@"退出登录");
+    self.logoutBtn.backgroundColor = kSetUpCololor(61, 121, 253, 1.0);
+}
+
 #pragma mark - UITableViewDelegate  UITableViewDataSource
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
-    return section == 1 ? 10 : 0.00001;//50;
+    return section == 1 ? 10 : 0.00001;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-   /* NSMutableArray * arr = [NSMutableArray arrayWithObjects:@"与我亲密的",@"我的荣誉",@"主播形象",@"用户印象",@"个人资料",@"礼物柜",@"用户评价", nil];
-    int R = (arc4random() % 256) ;
-    int G = (arc4random() % 256) ;
-    int B = (arc4random() % 256) ;
-    
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
-    view.backgroundColor = kSetUpCololor(242, 242, 242, 1.0);
-    
-    UILabel *  lineLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 5, 50 - 20)];
-    lineLabel.backgroundColor = kSetUpCololor(R, G, B, 1.0);
-    [view addSubview:lineLabel];
-    
-    UILabel * titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, self.view.frame.size.width - 40, 50)];
-    titleLabel.text = arr[section];
-    titleLabel.textColor = [UIColor blackColor];
-    titleLabel.font = HPFontBoldSize(20);
-    [view addSubview:titleLabel];
-    
-    return view;*/
-    
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 10)];
     view.backgroundColor = kSetUpCololor(242, 242, 242, 1.0);
     
@@ -216,11 +207,22 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 0.00001;
+    return section == 1 ? HPFit(80) : 0.00001;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    return [UIView new];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, HPFit(80))];
+    
+    self.logoutBtn = [[UIButton alloc] initWithFrame:CGRectMake(HPFit(15), view.frame.size.height - HPFit(40), self.view.frame.size.width - HPFit(30), HPFit(40))];
+    [self.logoutBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.logoutBtn setTitle:@"退 出 登 录" forState:UIControlStateNormal];
+    [self.logoutBtn addTarget:self action:@selector(logoutDown:) forControlEvents:UIControlEventTouchDown];
+    [self.logoutBtn addTarget:self action:@selector(logoutAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.logoutBtn setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+    self.logoutBtn.backgroundColor = kSetUpCololor(61, 121, 253, 1.0);
+    [view addSubview:self.logoutBtn];
+    [self.logoutBtn setBorderWithCornerRadius:8.0 borderWidth:0 borderColor:HPClearColor type:UIRectCornerAllCorners];
+    return section == 1 ? view : [UIView new];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

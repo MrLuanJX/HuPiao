@@ -241,4 +241,55 @@
     [BGView insertSubview:bgView atIndex:0];
 }
 
+/*
+ * shadowColor 阴影颜色
+ *
+ * shadowOpacity 阴影透明度，默认0
+ *
+ * shadowRadius  阴影半径，默认3
+ *
+ * shadowPathSide 设置哪一侧的阴影，
+ * shadowPathWidth 阴影的宽度，
+ */
+
++ (void)LJX_AddShadowToView:(UIView *)theView SetShadowPathWith:(UIColor *)shadowColor shadowOpacity:(CGFloat)shadowOpacity shadowRadius:(CGFloat)shadowRadius shadowSide:(LJXShadowPathSide)shadowPathSide shadowPathWidth:(CGFloat)shadowPathWidth{
+    
+    theView.layer.masksToBounds = NO;
+    theView.layer.shadowColor = shadowColor.CGColor;
+    theView.layer.shadowOpacity = shadowOpacity;
+    theView.layer.shadowRadius =  shadowRadius;
+    theView.layer.shadowOffset = CGSizeZero;
+    CGRect shadowRect;
+    CGFloat originX = 0;
+    CGFloat originY = 0;
+    CGFloat originW = theView.bounds.size.width;
+    CGFloat originH = theView.bounds.size.height;
+    
+    switch (shadowPathSide) {
+        case LJXShadowPathTop:
+            shadowRect  = CGRectMake(originX, originY - shadowPathWidth/2, originW,  shadowPathWidth);
+            break;
+        case LJXShadowPathBottom:
+            shadowRect  = CGRectMake(originX, originH -shadowPathWidth/2, originW, shadowPathWidth);
+            break;
+            
+        case LJXShadowPathLeft:
+            shadowRect  = CGRectMake(originX - shadowPathWidth/2, originY, shadowPathWidth, originH);
+            break;
+            
+        case LJXShadowPathRight:
+            shadowRect  = CGRectMake(originW - shadowPathWidth/2, originY, shadowPathWidth, originH);
+            break;
+        case LJXShadowPathNoTop:
+            shadowRect  = CGRectMake(originX -shadowPathWidth/2, originY +1, originW +shadowPathWidth,originH + shadowPathWidth/2 );
+            break;
+        case LJXShadowPathAllSide:
+            shadowRect  = CGRectMake(originX - shadowPathWidth/2, originY - shadowPathWidth/2, originW +  shadowPathWidth, originH + shadowPathWidth);
+            break;
+    }
+    UIBezierPath *path =[UIBezierPath bezierPathWithRect:shadowRect];
+    theView.layer.shadowPath = path.CGPath;
+}
+
+
 @end

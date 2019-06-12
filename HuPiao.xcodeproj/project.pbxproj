@@ -116,6 +116,8 @@
 		00D2F0C022AF6B53008D52D9 /* HP_CeIdFirstCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2F0BF22AF6B53008D52D9 /* HP_CeIdFirstCell.m */; };
 		00D2F0C322AF7BA3008D52D9 /* HP_CeIdSecondView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2F0C222AF7BA3008D52D9 /* HP_CeIdSecondView.m */; };
 		00D2F0C722AF9807008D52D9 /* HP_GiftView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2F0C622AF9807008D52D9 /* HP_GiftView.m */; };
+		00D2F0D822B0C4B5008D52D9 /* HP_CashWithdrawalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2F0D222B0C4B4008D52D9 /* HP_CashWithdrawalViewController.m */; };
+		00D2F0D922B0C4B5008D52D9 /* HP_CashWithdrawalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2F0D322B0C4B4008D52D9 /* HP_CashWithdrawalModel.m */; };
 		6FA88AE52053FD530287571A /* libPods-HuPiao.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1F0D25849DB2562E24DED4 /* libPods-HuPiao.a */; };
 		DDFE70DE2290F4270029C425 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFE70DD2290F4270029C425 /* AppDelegate.m */; };
 		DDFE70E12290F4270029C425 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFE70E02290F4270029C425 /* ViewController.m */; };
@@ -355,6 +357,10 @@
 		00D2F0C222AF7BA3008D52D9 /* HP_CeIdSecondView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_CeIdSecondView.m; sourceTree = "<group>"; };
 		00D2F0C522AF9807008D52D9 /* HP_GiftView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_GiftView.h; sourceTree = "<group>"; };
 		00D2F0C622AF9807008D52D9 /* HP_GiftView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_GiftView.m; sourceTree = "<group>"; };
+		00D2F0D222B0C4B4008D52D9 /* HP_CashWithdrawalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HP_CashWithdrawalViewController.m; sourceTree = "<group>"; };
+		00D2F0D322B0C4B4008D52D9 /* HP_CashWithdrawalModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HP_CashWithdrawalModel.m; sourceTree = "<group>"; };
+		00D2F0D522B0C4B5008D52D9 /* HP_CashWithdrawalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HP_CashWithdrawalViewController.h; sourceTree = "<group>"; };
+		00D2F0D722B0C4B5008D52D9 /* HP_CashWithdrawalModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HP_CashWithdrawalModel.h; sourceTree = "<group>"; };
 		7A1F0D25849DB2562E24DED4 /* libPods-HuPiao.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HuPiao.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDBCA537C9F607AC2A70D980 /* Pods-HuPiao.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuPiao.release.xcconfig"; path = "Target Support Files/Pods-HuPiao/Pods-HuPiao.release.xcconfig"; sourceTree = "<group>"; };
 		DDFE70D92290F4270029C425 /* HuPiao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HuPiao.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -769,6 +775,7 @@
 		00D2F09D22A91C8E008D52D9 /* HP_Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				00D2F0D122B0C4AA008D52D9 /* HP_CashWithdrawal */,
 				00D2F09E22A91CA3008D52D9 /* HP_WalletViewController.h */,
 				00D2F09F22A91CA3008D52D9 /* HP_WalletViewController.m */,
 				00D2F0A522AE24DA008D52D9 /* HP_WalletHeadView.h */,
@@ -810,6 +817,17 @@
 				00D2F0C622AF9807008D52D9 /* HP_GiftView.m */,
 			);
 			path = HP_GiftView;
+			sourceTree = "<group>";
+		};
+		00D2F0D122B0C4AA008D52D9 /* HP_CashWithdrawal */ = {
+			isa = PBXGroup;
+			children = (
+				00D2F0D522B0C4B5008D52D9 /* HP_CashWithdrawalViewController.h */,
+				00D2F0D222B0C4B4008D52D9 /* HP_CashWithdrawalViewController.m */,
+				00D2F0D722B0C4B5008D52D9 /* HP_CashWithdrawalModel.h */,
+				00D2F0D322B0C4B4008D52D9 /* HP_CashWithdrawalModel.m */,
+			);
+			path = HP_CashWithdrawal;
 			sourceTree = "<group>";
 		};
 		20BAD2B593F7BD9618E9A655 /* Frameworks */ = {
@@ -1223,6 +1241,7 @@
 				DDFE71272291065A0029C425 /* HP_MessageViewController.m in Sources */,
 				00D2EFE822A794D1008D52D9 /* HP_AuthOwnView.m in Sources */,
 				00D2F0BA22AF505F008D52D9 /* HP_CeIdcardBaseViewController.m in Sources */,
+				00D2F0D822B0C4B5008D52D9 /* HP_CashWithdrawalViewController.m in Sources */,
 				00D2EFD622A75FE8008D52D9 /* INMRefreshGifHeader.m in Sources */,
 				00D2F0A022A91CA3008D52D9 /* HP_WalletViewController.m in Sources */,
 				008208E822A4F89900EBEF4C /* Moment.m in Sources */,
@@ -1230,6 +1249,7 @@
 				00D2F09822A90508008D52D9 /* Lyy_ImagePickerController.m in Sources */,
 				008208EF22A4F9A000EBEF4C /* HP_ContactsViewController.m in Sources */,
 				00B951BA22967435008D9411 /* HP_BaseInformationViewController.m in Sources */,
+				00D2F0D922B0C4B5008D52D9 /* HP_CashWithdrawalModel.m in Sources */,
 				0082090B22A65DF900EBEF4C /* HP_MineHeadView.m in Sources */,
 				DDFE712A229106660029C425 /* HP_MineViewController.m in Sources */,
 				0082086A22A1102300EBEF4C /* HP_DyViewController.m in Sources */,

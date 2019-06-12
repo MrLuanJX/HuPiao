@@ -7,6 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+typedef enum :NSInteger{
+    LJXShadowPathLeft,
+    LJXShadowPathRight,
+    LJXShadowPathTop,
+    LJXShadowPathBottom,
+    LJXShadowPathNoTop,
+    LJXShadowPathAllSide
+} LJXShadowPathSide;
 
 @interface UIView (Extension)
 
@@ -51,5 +59,21 @@
 
 // 插入一个背景
 + (void)addRefreshBGView:(UIView *)BGView ColorArray:(NSArray *)colorArray Locations:(NSArray *)locations startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint;
+
+/*
+ * shadowColor 阴影颜色
+ *
+ * shadowOpacity 阴影透明度，默认0
+ *
+ * shadowRadius  阴影半径，默认3
+ *
+ * shadowPathSide 设置哪一侧的阴影，
+ 
+ * shadowPathWidth 阴影的宽度，
+ 
+ */
+
++ (void)LJX_AddShadowToView:(UIView *)theView SetShadowPathWith:(UIColor *)shadowColor shadowOpacity:(CGFloat)shadowOpacity shadowRadius:(CGFloat)shadowRadius shadowSide:(LJXShadowPathSide)shadowPathSide shadowPathWidth:(CGFloat)shadowPathWidth;
+
 
 @end

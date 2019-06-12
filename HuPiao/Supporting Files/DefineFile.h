@@ -20,7 +20,7 @@
 // 右侧留白
 #define kRightMargin            15
 // 头像视图的宽、高
-#define kAvatarWidth            40
+#define kAvatarWidth            50
 // 主色调高亮颜色（暗蓝色）
 #define kHLTextColor            [UIColor colorWithRed:0.28 green:0.35 blue:0.54 alpha:1.0]
 

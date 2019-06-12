@@ -291,7 +291,7 @@ static CGFloat contentViewH = 370;
         __weak typeof (self) weakSelf = self;
         //蒙版遮罩
         UIButton *coverBtn = [[UIButton alloc] init];
-        coverBtn.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:(0.6)];
+        coverBtn.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.1];
         [coverBtn addTarget:self action:@selector(close) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:coverBtn];
         [coverBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -301,10 +301,8 @@ static CGFloat contentViewH = 370;
         //弹出视图
         HP_GiftContentView * giftContentView = [[HP_GiftContentView alloc]initWithFrame:CGRectMake(0, HPScreenH, HPScreenW, HPFit(200))];
         self.giftContentView = giftContentView;
-        giftContentView.backgroundColor = HPUIColorWithRGB(0x000000, 0.5);
+        giftContentView.backgroundColor = HPUIColorWithRGB(0x000000, 0.7);
         [self addSubview:giftContentView];
-        
-//        [self shakeToShow:giftContentView];
     }
     return self;
 }

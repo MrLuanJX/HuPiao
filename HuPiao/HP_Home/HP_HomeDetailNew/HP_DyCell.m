@@ -81,6 +81,8 @@
 @property (nonatomic , strong) HP_ImageView * avatarImageView;
 // 昵称
 @property (nonatomic , strong) UIButton * nicknameBtn;
+// 时间
+@property (nonatomic , strong) UILabel * time;
 // 内容
 @property (nonatomic , strong) UILabel * linkLabel;
 // 图片
@@ -209,7 +211,7 @@
 
     // 名字视图
     _nicknameBtn = [[UIButton alloc] init];
-    _nicknameBtn.frame = CGRectMake(CGRectGetMaxX(_avatarImageView.frame)+HPFit(15), _avatarImageView.top, _nicknameBtn.width, HPFit(20));
+    _nicknameBtn.frame = CGRectMake(CGRectGetMaxX(_avatarImageView.frame)+HPFit(15), _avatarImageView.top, _nicknameBtn.width, 20);
 //    _nicknameBtn.tag = MMOperateTypeProfile;
     _nicknameBtn.titleLabel.font = [UIFont boldSystemFontOfSize:17.0];
 //    [_nicknameBtn setTitle:@"寒意" forState:UIControlStateNormal];
@@ -219,6 +221,17 @@
     [_nicknameBtn sizeToFit];
     [self.contentView addSubview:_nicknameBtn];
     
+    // 时间
+    _time = [UILabel new];
+    _time.frame = CGRectMake(CGRectGetMinX(_nicknameBtn.frame), CGRectGetMaxY(_nicknameBtn.frame), 0, CGRectGetHeight(_nicknameBtn.frame));
+    _time.text = @"2019-06-10 14:20:03";
+    _time.textColor = HPUIColorWithRGB(0xC2C2C2, 1.0);
+    _time.font = HPFontSize(14);
+    _time.numberOfLines = 0;
+    [_time sizeToFit];
+    [self.contentView addSubview:_time];
+    
+    // 删除
     _deleteBtn = [UIButton new];
     [_deleteBtn setBackgroundImage:[UIImage imageNamed:@"dislikeicon_textpage_night_26x14_"] forState:UIControlStateNormal];
     _deleteBtn.hidden = YES;

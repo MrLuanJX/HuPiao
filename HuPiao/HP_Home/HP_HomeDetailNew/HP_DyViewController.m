@@ -34,7 +34,6 @@
 - (void) setupUI {
     __weak typeof (self) weakSelf = self;
 
-//    [self.tableView registerClass:[HP_DyCell class] forCellReuseIdentifier:@"dyCell"];
     [self.view addSubview:self.tableView];
     
     self.dataArray = @[].mutableCopy;
@@ -67,7 +66,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row < self.dataArray.count) {
         
-        return indexPath.row %2 == 0 ? HPFit(725) : HPFit(740);
+        return indexPath.row %2 == 0 ? HPFit(735) : HPFit(750);
         //kCellHeight;   HPFit(720);
     }
     return self.placeHolderCellHeight;

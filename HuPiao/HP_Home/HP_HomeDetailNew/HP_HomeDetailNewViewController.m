@@ -25,7 +25,7 @@
 
 @property (nonatomic , strong) UIButton * careBtn;                  // 关注
 
-@property (nonatomic , assign) BOOL isCared;
+@property (nonatomic , assign) BOOL isCared;                        // 是否已关注
 
 @property (nonatomic , strong) HP_HomeDetailOwnHeadView * ownHeadView;
 
@@ -36,6 +36,8 @@
 @property (nonatomic , assign) CGFloat contentY;
 // 礼物
 @property (nonatomic , strong) UIButton * giftBtn;
+
+@property (nonatomic , assign) CGFloat currentY;
 
 @end
 
@@ -222,6 +224,21 @@
 - (void)pageViewController:(YNPageViewController *)pageViewController contentOffsetY:(CGFloat)contentOffset progress:(CGFloat)progress {
     
 //    NSLog(@"--- contentOffset = %f,    progress = %f", contentOffset, progress);
+    if (self.currentY < contentOffset) {
+        self.careBtn.hidden = YES;
+        self.talkBtn.hidden = YES;
+    } else {
+        self.careBtn.hidden = NO;
+        self.talkBtn.hidden = NO;
+    }
+    
+    if (contentOffset <= -596.00) {
+        self.careBtn.hidden = NO;
+        self.talkBtn.hidden = NO;
+    }
+    
+    self.currentY = contentOffset;
+
     self.navigationController.navigationBar.alpha = progress;
 }
     
