@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HP_GiftView : UIView
 
+@property (nonatomic , copy) void (^rechargeBlock) (void);
+
 @property (nonatomic , strong) NSMutableArray * dataArray;
 
 + (instancetype)showGiftView;

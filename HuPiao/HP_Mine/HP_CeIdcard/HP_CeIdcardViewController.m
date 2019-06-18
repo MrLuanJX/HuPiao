@@ -8,7 +8,6 @@
 
 #import "HP_CeIdcardViewController.h"
 #import "HP_CerIdcardTabCell.h"
-#import "Lyy_ImagePickerController.h"
 #import "AVCaptureViewController.h"
 #import "JQAVCaptureViewController.h"
 #import "IDInfo.h"
@@ -111,7 +110,6 @@
         [self didClickTakePhoto];
     }
 }
-
 
 - (void) fontIDCardInfoAction {
     __weak typeof (self) weakSelf = self;

@@ -97,6 +97,8 @@ static CGFloat contentViewH = 370;
 
 @interface HP_GiftContentView () <UICollectionViewDelegate , UICollectionViewDataSource>
 
+@property (nonatomic , copy) void (^rechargeBlock) (void);
+
 @property (nonatomic , strong) UILabel * title;
 @property (nonatomic , strong) UILabel * lineTop;
 @property (nonatomic , strong) UICollectionView * collectionView;
@@ -250,8 +252,16 @@ static CGFloat contentViewH = 370;
         [_rechargeBtn setTitleColor:_title.textColor forState:UIControlStateNormal];
         _rechargeBtn.titleLabel.font = HPFontSize(15);
         _rechargeBtn.backgroundColor = kSetUpCololor(61, 121, 253, 1.0);
+        [_rechargeBtn addTarget:self action:@selector(rechargeAction) forControlEvents:UIControlEventTouchUpInside];
     }
     return _rechargeBtn;
+}
+
+- (void) rechargeAction {
+    NSLog(@"充值");
+    if (self.rechargeBlock) {
+        self.rechargeBlock();
+    }
 }
 
 - (UICollectionView *)collectionView {
@@ -301,6 +311,10 @@ static CGFloat contentViewH = 370;
         //弹出视图
         HP_GiftContentView * giftContentView = [[HP_GiftContentView alloc]initWithFrame:CGRectMake(0, HPScreenH, HPScreenW, HPFit(200))];
         self.giftContentView = giftContentView;
+        giftContentView.rechargeBlock = ^{
+            weakSelf.rechargeBlock();
+            [weakSelf close];
+        };
         giftContentView.backgroundColor = HPUIColorWithRGB(0x000000, 0.7);
         [self addSubview:giftContentView];
     }
@@ -310,7 +324,6 @@ static CGFloat contentViewH = 370;
 - (void)close {
      WS(wSelf);
     [UIView animateWithDuration:0.2 animations:^{
-//        self.transform = CGAffineTransformIdentity;
         wSelf.giftContentView.frame = CGRectMake(0, HPScreenH, HPScreenW, contentViewH);
     } completion:^(BOOL finished) {
         [self removeFromSuperview];

@@ -47,4 +47,7 @@
 #import "INMAlertView.h"
 #import "CLocationManager.h"
 #import <FFDropDownMenuView.h>
+#import "LLWPlusPopView.h"
+#import "Lyy_ImagePickerController.h"
+
 #endif /* PrefixHeader_pch */

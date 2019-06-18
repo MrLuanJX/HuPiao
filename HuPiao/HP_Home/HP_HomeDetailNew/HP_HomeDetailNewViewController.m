@@ -12,8 +12,10 @@
 #import "HP_DyViewController.h"
 #import "HP_HomeDetailOwnHeadView.h"
 #import "HP_GiftView.h"
+#import "HP_RechargeViewController.h"
+#import "HP_CreateDyViewController.h"
 
-@interface HP_HomeDetailNewViewController () <YNPageViewControllerDataSource, YNPageViewControllerDelegate, SDCycleScrollViewDelegate>
+@interface HP_HomeDetailNewViewController () <YNPageViewControllerDataSource, YNPageViewControllerDelegate, SDCycleScrollViewDelegate,TZImagePickerControllerDelegate>
     
 @property (nonatomic, copy) NSArray *imagesURLs;
     
@@ -39,19 +41,23 @@
 
 @property (nonatomic , assign) CGFloat currentY;
 
+@property (nonatomic , assign) BOOL isOwn;
+// 相册
+@property(nonatomic , strong) TZImagePickerController * photoalbum;
+
 @end
 
 @implementation HP_HomeDetailNewViewController
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+
     self.navigationController.navigationBar.alpha = 0;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    
+
     self.navigationController.navigationBar.alpha = 1;
 }
 
@@ -68,12 +74,47 @@
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(giftAction ) image:@"discover_3_0" highImage:@"discover_3_0" isLeftBtn:NO];
 }
 
+#pragma mark - 礼物
 - (void) giftAction {
     NSLog(@"礼物");
+    WS(wSelf);
+    HP_RechargeViewController * rechargeVC = [HP_RechargeViewController new];
+    rechargeVC.title = @"充值";
     HP_GiftView * giftView = [HP_GiftView new];
+    giftView.rechargeBlock = ^{
+        [wSelf.navigationController pushViewController:rechargeVC animated:YES];
+    };
     [giftView show];
 }
 
+#pragma mark - 发布动态
+- (void) createDyAction {
+//    [self configPopView];
+    [self presentViewController:[HP_CreateDyViewController new] animated:YES completion:nil];
+//    [self.navigationController pushViewController:[HP_CreateDyViewController new] animated:NO];
+}
+
+#pragma mark - 聊天
+- (void) talkAction {
+    NSLog(@"聊天");
+}
+
+#pragma mark - 关注
+- (void) careAction : (UIButton *)sender {
+    sender.selected = !sender.selected;
+    if (sender.selected) {
+        NSLog(@"Button关注");
+        sender.backgroundColor = HPUIColorWithRGB(0x000000, 0.3);
+        [sender setTitle:@"已关注" forState:UIControlStateNormal];
+        
+    } else {
+        NSLog(@"Button取消关注");
+        sender.backgroundColor = kSetUpCololor(61, 121, 253, 0.8);
+        [sender setTitle:@"关 注" forState:UIControlStateNormal];
+    }
+}
+
+#pragma mark - 创建视图
 - (void) setupBackBtn {
     [self.view addSubview: self.careBtn];
     [self.view addSubview: self.createDyBtn];
@@ -128,6 +169,7 @@
 + (instancetype)suspendCenterPageVCWithUser:(MUser *)user IsOwn:(BOOL)isOwn{
     
     YNPageConfigration *configration = [YNPageConfigration defaultConfig];
+   
     configration.pageStyle = YNPageStyleSuspensionCenter;
     configration.headerViewCouldScale = YES;
     configration.headerViewScaleMode = YNPageHeaderViewScaleModeTop;
@@ -138,6 +180,7 @@
     configration.lineWidthEqualFontWidth = true;
     configration.showBottomLine = NO;
     configration.showGradientColor = YES;
+    configration.tempTopHeight = 0;
     configration.bounces = YES;
     if ((void)(SAFE_AREA_INSETS_BOTTOM),safeAreaInsets().bottom > 0.0) {
         configration.suspenOffsetY = 88;
@@ -173,6 +216,7 @@
     vc.ownHeadView.user = user;
     
    __weak HP_HomeDetailNewViewController* wself = vc;
+#pragma mark - 微信
     /* 微信Action */
     vc.ownHeadView.weChatActionBlock = ^{
         NSLog(@"微信");
@@ -183,6 +227,8 @@
     vc.headerView = headView;
     /// 指定默认选择index 页面
     vc.pageIndex = 0;
+    
+    vc.isOwn = isOwn;
     
     if (isOwn == YES) {
         vc.careBtn.hidden = YES;
@@ -222,31 +268,45 @@
 }
 #pragma mark - YNPageViewControllerDelegate
 - (void)pageViewController:(YNPageViewController *)pageViewController contentOffsetY:(CGFloat)contentOffset progress:(CGFloat)progress {
-    
 //    NSLog(@"--- contentOffset = %f,    progress = %f", contentOffset, progress);
-    if (self.currentY < contentOffset) {
-        self.careBtn.hidden = YES;
-        self.talkBtn.hidden = YES;
+    
+    if (self.isOwn == NO) {
+        if (self.currentY < contentOffset) {
+            self.careBtn.hidden = YES ;
+            self.talkBtn.hidden = YES;
+        } else {
+            self.careBtn.hidden = NO;
+            self.talkBtn.hidden = NO;
+        }
+        
+        if (contentOffset <= -596.00) {
+            self.careBtn.hidden = NO;
+            self.talkBtn.hidden = NO;
+        }
+        
+        self.currentY = contentOffset;
     } else {
-        self.careBtn.hidden = NO;
-        self.talkBtn.hidden = NO;
+        if (self.currentY < contentOffset) {
+            self.createDyBtn.hidden = YES ;
+        } else {
+            self.createDyBtn.hidden = NO ;
+        }
+        if (contentOffset <= -596.00) {
+            self.createDyBtn.hidden = NO ;
+        }
+        
+        self.currentY = contentOffset;
     }
     
-    if (contentOffset <= -596.00) {
-        self.careBtn.hidden = NO;
-        self.talkBtn.hidden = NO;
-    }
-    
-    self.currentY = contentOffset;
-
     self.navigationController.navigationBar.alpha = progress;
 }
     
-/// 返回列表的高度 默认是控制器的高度大小
+// 返回列表的高度 默认是控制器的高度大小
 //- (CGFloat)pageViewController:(YNPageViewController *)pageViewController heightForScrollViewAtIndex:(NSInteger)index {
+//
 //    return 400;
 //}
-    
+
 #pragma mark - SDCycleScrollViewDelegate
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index {
     NSLog(@"----click 轮播图 index %ld", index);
@@ -279,6 +339,7 @@
     return @[@"资料", @"相册", @"动态"];
 }
 
+// 返回
 - (UIButton *)backBtn {
     if (!_backBtn) {
         _backBtn = [UIButton new];
@@ -302,7 +363,7 @@
     }
     return _ownHeadView;
 }
-
+// 关注
 - (UIButton *) careBtn {
     if (!_careBtn) {
         _careBtn = [UIButton new];
@@ -314,7 +375,7 @@
     }
     return _careBtn;
 }
-
+// 发布动态
 - (UIButton *)createDyBtn {
     if (!_createDyBtn) {
         _createDyBtn = [UIButton new];
@@ -323,10 +384,11 @@
         [_createDyBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         _createDyBtn.titleLabel.font = HPFontSize(15);
         _createDyBtn.hidden = YES;
+        [_createDyBtn addTarget:self action:@selector(createDyAction) forControlEvents:UIControlEventTouchUpInside];
     }
     return _createDyBtn;
 }
-
+// 聊天
 - (UIButton *) talkBtn {
     if (!_talkBtn) {
         _talkBtn = [UIButton new];
@@ -334,23 +396,11 @@
         [_talkBtn setTitle:@"聊 天" forState:UIControlStateNormal];
         [_talkBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         _talkBtn.titleLabel.font = HPFontSize(15);
+        [_talkBtn addTarget:self action:@selector(talkAction) forControlEvents:UIControlEventTouchUpInside];
     }
     return _talkBtn;
 }
 
-- (void) careAction : (UIButton *)sender {
-    sender.selected = !sender.selected;
-    if (sender.selected) {
-        NSLog(@"Button关注");
-        sender.backgroundColor = HPUIColorWithRGB(0x000000, 0.3);
-        [sender setTitle:@"已关注" forState:UIControlStateNormal];
-
-    } else {
-        NSLog(@"Button取消关注");
-        sender.backgroundColor = kSetUpCololor(61, 121, 253, 0.8);
-        [sender setTitle:@"关 注" forState:UIControlStateNormal];
-    }
-}
 // 礼物
 - (UIButton *)giftBtn {
     if(!_giftBtn) {
@@ -380,6 +430,66 @@
 
     // 由于它是一个控制器 直接modal出来就好了
     [self presentViewController:alertController animated:YES completion:nil];
+}
+
+#pragma mark - 弹出视图
+- (void) configPopView {
+    
+    __weak typeof (self) weakSelf = self;
+    
+    NSArray *titles = @[@"文字",@"相册", @"拍照"];
+    
+    NSMutableArray *imgs = @[].mutableCopy;
+    for (NSInteger i = 0; i < titles.count; i ++) {
+        [imgs addObject:[NSString stringWithFormat:@"publish_%zi", i]];
+    }
+    [LLWPlusPopView showWithImages:imgs titles:titles selectBlock:^(NSInteger index) {
+        NSLog(@"index:%zi", index);
+        
+        if (index == 0) {
+            
+        } else if (index == 1) {
+            
+            [weakSelf openpHotoalbum];
+        } else if (index == 2) {
+            //            [weakSelf takePhoto];
+        }
+    } view:self.view] ;
+}
+
+//打开相册
+-(void)openpHotoalbum {
+    
+    __weak typeof (self) weakSelf = self;
+    [self.photoalbum setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+        
+        NSLog(@"photos = %@",photos);
+        
+    }];
+    [self presentViewController:self.photoalbum
+                       animated:YES completion:nil];
+}
+
+//打开相机
+-(void)takePhoto {
+    __weak typeof (self) weakSelf = self;
+    Lyy_ImagePickerController *controlelr = [[Lyy_ImagePickerController alloc]init];
+    controlelr.presentViewController = self;
+    controlelr.finishCallback = ^(UIImage * _Nonnull img,PHAsset *asset) {
+        
+    };
+    [controlelr takePhoto];
+}
+
+-(TZImagePickerController *)photoalbum {
+    if (_photoalbum == nil) {
+        _photoalbum = [[TZImagePickerController alloc] initWithMaxImagesCount:9 delegate:self];
+        _photoalbum.allowTakeVideo = NO;
+        _photoalbum.allowPickingVideo = NO;
+        _photoalbum.allowPickingGif = NO;
+        _photoalbum.showSelectBtn = YES;
+    }
+    return _photoalbum;
 }
 
 @end

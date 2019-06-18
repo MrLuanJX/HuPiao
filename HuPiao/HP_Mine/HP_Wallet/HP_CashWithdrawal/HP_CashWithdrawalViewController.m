@@ -24,24 +24,12 @@
     _index = index;
     switch (index.section) {
         case 0:
-            self.textField.placeholder = @"请输入提现金额";
+            self.textField.placeholder = @"请输入真实姓名";
             self.textField.keyboardType = UIKeyboardTypeNumberPad;
             break;
         case 1:
-            self.textField.placeholder = @"请输入银行卡号";
-            self.textField.keyboardType = UIKeyboardTypeNumberPad;
-            break;
-        case 2:
-            self.textField.placeholder = @"请输入开户行";
-            self.textField.keyboardType = UIKeyboardTypeDefault;
-            break;
-        case 3:
             self.textField.placeholder = @"请输入手机号";
             self.textField.keyboardType = UIKeyboardTypeNumberPad;
-            break;
-        case 4:
-            self.textField.placeholder = @"请输入微信号";
-            self.textField.keyboardType = UIKeyboardTypeDefault;
             break;
         default:
             break;
@@ -161,7 +149,7 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    NSMutableArray * arr = [NSMutableArray arrayWithObjects:@"提现金额",@"开户行",@"银行卡号",@"手机号",@"微信号", nil];
+    NSMutableArray * arr = [NSMutableArray arrayWithObjects:@"真实姓名",@"手机号", nil];
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
     
     UILabel * titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, self.view.frame.size.width - 40, 40)];
@@ -173,7 +161,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return section == 4 ? HPFit(80) : 0.00001;
+    return section == 1 ? HPFit(80) : 0.00001;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
@@ -188,7 +176,7 @@
     self.commitBtn.tag = section;
     [view addSubview:self.commitBtn];
     [self.commitBtn setBorderWithCornerRadius:8.0 borderWidth:0 borderColor:HPClearColor type:UIRectCornerAllCorners];
-    return section == 4 ? view : [UIView new];
+    return section == 1 ? view : [UIView new];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -232,53 +220,23 @@
 
 - (void) commitAction: (UIButton *) sender{
     self.commitBtn.backgroundColor = kSetUpCololor(61, 121, 253, 1.0);
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 2; i++) {
         HP_CashWithdrawalModel *model = self.dataSource[i];
         if (model.index.section == 0) {
             NSLog(@"0");
             NSLog(@"text = %@",model.text);
             if (model.text.length == 0) {
-                NSLog(@"金额不空");
+                NSLog(@"真实姓名不空");
                 self.isEmpty = YES;
                 return;
-            }else {
+            } else {
                 self.isEmpty = NO;
             }
         } else if (model.index.section == 1) {
             NSLog(@"1");
             NSLog(@"text = %@",model.text);
             if (model.text.length == 0) {
-                NSLog(@"开户行不空");
-                self.isEmpty = YES;
-                return;
-            } else {
-                self.isEmpty = NO;
-            }
-        } else if (model.index.section == 2) {
-            NSLog(@"2");
-            NSLog(@"text = %@",model.text);
-            if (model.text.length == 0) {
-                NSLog(@"卡号不空");
-                self.isEmpty = YES;
-                return;
-            } else {
-                self.isEmpty = NO;
-            }
-        } else if (model.index.section == 3) {
-            NSLog(@"2");
-            NSLog(@"text = %@",model.text);
-            if (model.text.length == 0) {
                 NSLog(@"手机号不空");
-                self.isEmpty = YES;
-                return;
-            } else {
-                self.isEmpty = NO;
-            }
-        } else if (model.index.section == 4) {
-            NSLog(@"2");
-            NSLog(@"text = %@",model.text);
-            if (model.text.length == 0) {
-                NSLog(@"微信不空");
                 self.isEmpty = YES;
                 return;
             } else {
@@ -301,7 +259,7 @@
         _textLabel.numberOfLines = 0;
         _textLabel.font = HPFontSize(14);
         _textLabel.textColor = HPSubTitleColor;
-        _textLabel.text = @"为确保资金安全，请如实填写提现申请信息"; // \n\n10H币 = 1元
+        _textLabel.text = @"为确保资金安全，请如实填写支付宝账号信息"; // \n\n10H币 = 1元
     }
     return _textLabel;
 }
@@ -342,7 +300,7 @@
     if (!_dataSource) {
         _dataSource = @[].mutableCopy;
         //循环创建model，s初始设置text为空，并编号index
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 2; i++) {
             HP_CashWithdrawalModel *model = [[HP_CashWithdrawalModel alloc] init];
             model.text = @"";
             NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:i];

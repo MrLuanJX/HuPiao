@@ -73,7 +73,6 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-
     [self addTableView];
 
     [self addDataSource];
@@ -151,6 +150,7 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
 //            NSLog(@"user = %@",user);
             HP_HomeDetailNewViewController * detailVC = [HP_HomeDetailNewViewController suspendCenterPageVCWithUser:weakSelf.user IsOwn:YES];
             detailVC.title = weakSelf.user.name;
+            detailVC.hidesBottomBarWhenPushed = YES;
             [weakSelf.navigationController pushViewController:detailVC animated:YES];
         });
     };
@@ -396,6 +396,7 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
     [SVProgressHUD showSuccessWithStatus:@"清理成功"];
     [SVProgressHUD setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.5]];
     [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
+    [SVProgressHUD setGraceTimeInterval:1.0];
     self.fileSize = 0;
     [self.tableView reloadData];
 }

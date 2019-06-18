@@ -10,6 +10,7 @@
 #import "HP_WalletHeadView.h"
 #import "HP_ExpenditureViewController.h"
 #import "HP_CashWithdrawalViewController.h"
+#import "HP_RechargeViewController.h"
 
 @interface HP_WalletViewController () < UIScrollViewDelegate>
 
@@ -48,6 +49,9 @@
     HP_ExpenditureViewController * expenditureVC = [HP_ExpenditureViewController new];
     // 提现
     HP_CashWithdrawalViewController * cashVC = [HP_CashWithdrawalViewController new];
+    // 充值
+    HP_RechargeViewController * rechargeVC = [HP_RechargeViewController new];
+    
     NSMutableArray * titleArr = [NSMutableArray arrayWithObjects:@"充值",@"支出明细",@"收入明细",@"提现", nil];
     
     UIView * btnView = [UIView CreateViewWithFrame:CGRectMake(HPFit(50), CGRectGetMaxY(self.headView.frame) - HPFit(20), HPScreenW - HPFit(100), titleArr.count * HPFit(60)) BackgroundColor:[UIColor whiteColor] InteractionEnabled:YES];
@@ -59,7 +63,8 @@
         UIButton * btn = [UIButton addCustomButtonWithFrame:CGRectMake(0, i*(HPFit(59)), btnView.width, HPFit(59)) title:titleArr[i] backgroundColor:[UIColor whiteColor] titleColor:HPUIColorWithRGB(0x333333, 1.0) tapAction:^(UIButton *button) {
             switch (i) {
                 case 0:
-                    button.backgroundColor = [UIColor redColor];
+                    rechargeVC.title = @"充值";
+                    [wSelf.navigationController pushViewController:rechargeVC animated:YES];
                     break;
                 case 1:
                     expenditureVC.title = @"支出明细";
@@ -70,7 +75,6 @@
                     [wSelf.navigationController pushViewController:expenditureVC animated:YES];
                     break;
                 case 3:
-//                    button.backgroundColor = [UIColor yellowColor];
                     cashVC.title = @"提现";
                     [wSelf.navigationController pushViewController:cashVC animated:YES];
                     break;
