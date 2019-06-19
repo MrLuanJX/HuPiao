@@ -17,7 +17,6 @@
 @property (nonatomic , strong) UIImageView * authImg;               // 认证
 @property (nonatomic , strong) YYStarView * starView;               // 五星
 @property (nonatomic , strong) UIButton * likeBtn;                  // 热度
-@property (nonatomic , strong) UIButton * weChatBtn;                // 微信
 
 @end
 

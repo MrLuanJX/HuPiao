@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic , strong) MUser * user;
 
+@property (nonatomic , strong) UIButton * weChatBtn;                // 微信
+
 @end
 
 NS_ASSUME_NONNULL_END

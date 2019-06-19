@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , strong) UITableView *tableView;
 @property (nonatomic , strong) MUser * user;
 
-@property (nonatomic , assign) BOOL isOwn;
+@property (nonatomic , strong) NSString * isOwn;
 
 @end
 

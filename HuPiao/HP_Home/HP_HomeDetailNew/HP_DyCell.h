@@ -32,7 +32,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic , copy) void(^cellHeightBlock)(CGFloat rowHeight);
 
-@property (nonatomic , strong) UIButton * deleteBtn;
+@property (nonatomic , strong) UIButton * deleteBtn;    // 删除
+
+@property (nonatomic , strong) UIButton * careBtn;      // 关注
 
 @end
 

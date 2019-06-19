@@ -240,6 +240,23 @@
         make.centerY.mas_equalTo (self.nicknameBtn.mas_centerY);
         make.right.mas_equalTo (-HPFit(20));
     }];
+    
+    // 关注
+    _careBtn = [UIButton new];
+    [_careBtn setTitle:@"关注" forState:UIControlStateNormal];
+    [_careBtn setTitleColor:kSetUpCololor(61, 121, 253, 1.0) forState:UIControlStateNormal];
+    _careBtn.layer.borderColor = kSetUpCololor(61, 121, 253, 1.0).CGColor;
+    _careBtn.layer.borderWidth = 1.0;
+    _careBtn.layer.cornerRadius = 5.0;
+    _careBtn.hidden = YES;
+    [self.contentView addSubview:_careBtn];
+    [_careBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo (self.nicknameBtn.mas_centerY);
+        make.right.mas_equalTo (-HPFit(20));
+        make.height.mas_equalTo(HPFit(30));
+        make.width.mas_equalTo (HPFit(60));
+    }];
+    
     // 正文视图 ↓↓
     _linkLabel = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMinX(wSelf.avatarImageView.frame), _avatarImageView.bottom + HPFit(10), HPScreenW - kBlank*2, 999)];
     _linkLabel.text = @"苹果近期在美国最高法院输掉了涉及AppStore的一起诉讼。 新网站页面一个部分的标题是“一家欢迎竞争的商店”。这个页面重点介绍了与苹果内置软件和服务有竞争关系的应用，包括Spotify。开发用于控制设备上瘾和监控屏幕使用时间的应用开发者近期表示，他们认为苹果想要将他们的应用从Apptore中下架，是因为他们的产品与苹果近期推出的ScreenTime功能有竞争关系。苹果在欧盟面临这方面的指控。苹果当时在公告中表示，下架这些应用与隐私保护和信息安全有关，并认为这些开发者滥用了苹果的软件。";

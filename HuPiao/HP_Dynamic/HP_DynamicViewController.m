@@ -50,7 +50,7 @@
     
 - (__kindof UIViewController *)pageController:(WMPageController *)pageController viewControllerAtIndex:(NSInteger)index {
     HP_DyViewController * detailVC = [[HP_DyViewController alloc]init];
- 
+    detailVC.isOwn = index == 0 ? @"Dy" : @"";
     return detailVC;
 }
     

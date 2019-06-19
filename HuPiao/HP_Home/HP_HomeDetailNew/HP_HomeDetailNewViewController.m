@@ -38,10 +38,11 @@
 @property (nonatomic , assign) CGFloat contentY;
 // 礼物
 @property (nonatomic , strong) UIButton * giftBtn;
+@property (nonatomic , strong) UIButton * navGiftBtn;
 
 @property (nonatomic , assign) CGFloat currentY;
 
-@property (nonatomic , assign) BOOL isOwn;
+@property (nonatomic , copy) NSString * isOwn;
 // 相册
 @property(nonatomic , strong) TZImagePickerController * photoalbum;
 
@@ -73,7 +74,7 @@
     self.isCared = NO;
     
     [self setupBackBtn];
-    [self setupRightNav];
+//    [self setupRightNav];
     
     [self navBar];
 }
@@ -172,7 +173,7 @@
 }
 
 #pragma mark - Public Function
-+ (instancetype)suspendCenterPageVCWithUser:(MUser *)user IsOwn:(BOOL)isOwn{
++ (instancetype)suspendCenterPageVCWithUser:(MUser *)user IsOwn:(NSString *)isOwn{
     
     YNPageConfigration *configration = [YNPageConfigration defaultConfig];
    
@@ -202,7 +203,7 @@
     return [self suspendCenterPageVCWithConfig:configration WithUser:user IsOwn:isOwn];
 }
     
-+ (instancetype)suspendCenterPageVCWithConfig:(YNPageConfigration *)config WithUser:(MUser *)user IsOwn:(BOOL)isOwn{
++ (instancetype)suspendCenterPageVCWithConfig:(YNPageConfigration *)config WithUser:(MUser *)user IsOwn:(NSString *)isOwn{
 //    WS(wSelf);
     
     HP_HomeDetailNewViewController *vc = [HP_HomeDetailNewViewController pageViewControllerWithControllers:[self getArrayVCsWithUser:user isOwn:isOwn] titles:[self getArrayTitles] config:config];
@@ -239,20 +240,26 @@
     
     vc.isOwn = isOwn;
     
-    if (isOwn == YES) {
+    if ([isOwn isEqualToString:@"Own"]) {
+        vc.ownHeadView.weChatBtn.hidden = YES;
+        vc.navGiftBtn.hidden = YES;
+        vc.giftBtn.hidden = YES;
         vc.careBtn.hidden = YES;
         vc.talkBtn.hidden = YES;
         vc.createDyBtn.hidden = NO;
     } else {
+        vc.ownHeadView.weChatBtn.hidden = NO;
         vc.createDyBtn.hidden = YES;
         vc.careBtn.hidden = NO;
         vc.talkBtn.hidden = NO;
+        vc.navGiftBtn.hidden = NO;
+        vc.giftBtn.hidden = NO;
     }
     
     return vc;
 }
 
-+ (NSArray *)getArrayVCsWithUser:(MUser *)user isOwn:(BOOL)isOwn{
++ (NSArray *)getArrayVCsWithUser:(MUser *)user isOwn:(NSString *)isOwn{
     
     HP_OwnDetailViewController * ownVC = [[HP_OwnDetailViewController alloc] init];
     ownVC.user = user;
@@ -278,7 +285,7 @@
 #pragma mark - YNPageViewControllerDelegate
 - (void)pageViewController:(YNPageViewController *)pageViewController contentOffsetY:(CGFloat)contentOffset progress:(CGFloat)progress {
     
-    if (self.isOwn == NO) {
+    if ([self.isOwn isEqualToString:@"Own"]) {
         if (self.currentY < contentOffset) {
             self.careBtn.hidden = YES ;
             self.talkBtn.hidden = YES;
@@ -460,10 +467,11 @@
     [backBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
     [self.navBGView addSubview:backBtn];
     
-    UIButton * giftBtn = [[UIButton alloc] init];
-    [giftBtn setImage:[UIImage imageNamed:@"discover_3_0"] forState:UIControlStateNormal];
-    [giftBtn addTarget:self action:@selector(giftAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.navBGView addSubview:giftBtn];
+    self.navGiftBtn = [[UIButton alloc] init];
+    [self.navGiftBtn setImage:[UIImage imageNamed:@"discover_3_0"] forState:UIControlStateNormal];
+    [self.navGiftBtn addTarget:self action:@selector(giftAction) forControlEvents:UIControlEventTouchUpInside];
+    self.navGiftBtn.hidden = YES;
+    [self.navBGView addSubview:self.navGiftBtn];
     
     [backBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo (HPFit(17));
@@ -471,14 +479,14 @@
         make.width.height.mas_equalTo (HPFit(20));
     }];
     
-    [giftBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+    [self.navGiftBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo (-HPFit(24));
         make.width.height.bottom.mas_equalTo (backBtn);
     }];
     
     [titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo (backBtn.mas_right).offset(HPFit(15));
-        make.right.mas_equalTo (giftBtn.mas_left) .offset (-HPFit(15));
+        make.right.mas_equalTo (self.navGiftBtn.mas_left) .offset (-HPFit(15));
         make.centerY.mas_equalTo (backBtn.mas_centerY);
     }];
     

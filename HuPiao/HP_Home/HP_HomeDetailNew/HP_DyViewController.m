@@ -84,8 +84,10 @@
     
     dyCell.user = self.user;
     
-    dyCell.deleteBtn.hidden = self.isOwn == YES ? NO : YES;
+    dyCell.deleteBtn.hidden = [self.isOwn isEqualToString:@"Own"] ? NO : YES;
     
+    dyCell.careBtn.hidden = [self.isOwn isEqualToString:@"Dy"] ? NO : YES;
+
     return dyCell;
 }
 

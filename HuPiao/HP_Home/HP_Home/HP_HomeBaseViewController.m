@@ -125,7 +125,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     MUser * user = [self.messageList objectAtIndex:indexPath.row];
 
-    HP_HomeDetailNewViewController * detailVC = [HP_HomeDetailNewViewController suspendCenterPageVCWithUser:user IsOwn:NO];
+    HP_HomeDetailNewViewController * detailVC = [HP_HomeDetailNewViewController suspendCenterPageVCWithUser:user IsOwn:@"home"];
     detailVC.hidesBottomBarWhenPushed = YES;
     detailVC.title = user.name;
     [self.navigationController pushViewController:detailVC animated:YES];
