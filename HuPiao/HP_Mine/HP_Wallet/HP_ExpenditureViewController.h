@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HP_ExpenditureViewController : UIViewController
 
+@property (nonatomic , assign) BOOL isIncome;       //  支出/收入
+
 @end
 
 NS_ASSUME_NONNULL_END

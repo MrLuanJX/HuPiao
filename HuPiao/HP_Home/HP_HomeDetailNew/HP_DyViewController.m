@@ -8,6 +8,7 @@
 
 #import "HP_DyViewController.h"
 #import "HP_DyCell.h"
+#import "HP_DyCommentController.h"
 
 /// cell高度
 #define kCellHeight 44
@@ -66,7 +67,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row < self.dataArray.count) {
-        
+
         return indexPath.row %2 == 0 ? HPFit(735) : HPFit(750);
         //kCellHeight;   HPFit(720);
     }
@@ -97,9 +98,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 
-    //    BaseViewController *baseVC = [BaseViewController new];
-    //    baseVC.title = @"二级页面";
-    //    [self.navigationController pushViewController:baseVC animated:YES];
+    HP_DyCommentController *baseVC = [HP_DyCommentController new];
+    baseVC.title = @"动态详情";
+    baseVC.user = self.user;
+    [self.navigationController pushViewController:baseVC animated:YES];
 }
 
 - (UITableView *)tableView {

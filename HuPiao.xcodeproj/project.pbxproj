@@ -66,9 +66,6 @@
 		00B951A122964DCF008D9411 /* xzys.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00B9519222964DCF008D9411 /* xzys.jpg */; };
 		00B951A222964DCF008D9411 /* mj.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00B9519322964DCF008D9411 /* mj.jpg */; };
 		00B951A622965A78008D9411 /* HP_DynamicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B951A522965A78008D9411 /* HP_DynamicViewController.m */; };
-		00B951B322967405008D9411 /* HP_HomeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B951B122967405008D9411 /* HP_HomeDetailViewController.m */; };
-		00B951B922967435008D9411 /* HP_BaseAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B951B522967433008D9411 /* HP_BaseAlbumViewController.m */; };
-		00B951BA22967435008D9411 /* HP_BaseInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B951B622967434008D9411 /* HP_BaseInformationViewController.m */; };
 		00B951BD22967450008D9411 /* XZ_CollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B951BC22967450008D9411 /* XZ_CollectionCell.m */; };
 		00B951C322967CDC008D9411 /* HP_HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B951C222967CDC008D9411 /* HP_HomeViewController.m */; };
 		00B951C722968A20008D9411 /* HP_HomeDetailNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B951C622968A20008D9411 /* HP_HomeDetailNewViewController.m */; };
@@ -122,6 +119,31 @@
 		00EEA2F422B8A6980038A521 /* HP_CreateDyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEA2F322B8A6980038A521 /* HP_CreateDyViewController.m */; };
 		00EEA2FD22B8A8400038A521 /* LLWCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEA2FA22B8A8400038A521 /* LLWCustomButton.m */; };
 		00EEA2FE22B8A8400038A521 /* LLWPlusPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEA2FB22B8A8400038A521 /* LLWPlusPopView.m */; };
+		00EEA30422B8E36E0038A521 /* HP_CreateDyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEA30322B8E36E0038A521 /* HP_CreateDyCell.m */; };
+		00EEA30922BA06B10038A521 /* HP_DyCommentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEA30822BA06B10038A521 /* HP_DyCommentController.m */; };
+		00EEA34122BA0ADE0038A521 /* emotion_icons.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00EEA30C22BA0ADE0038A521 /* emotion_icons.plist */; };
+		00EEA34222BA0ADE0038A521 /* chatEmojis.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00EEA30D22BA0ADE0038A521 /* chatEmojis.plist */; };
+		00EEA34322BA0ADE0038A521 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00EEA30F22BA0ADE0038A521 /* libmp3lame.a */; };
+		00EEA34422BA0ADE0038A521 /* XBZChatKeyBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEA31122BA0ADE0038A521 /* XBZChatKeyBoardView.m */; };
+		00EEA34522BA0ADE0038A521 /* UIButton+XBZKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEA31322BA0ADE0038A521 /* UIButton+XBZKeyBoard.m */; };
+		00EEA34622BA0ADE0038A521 /* UIColor+XBZKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEA31522BA0ADE0038A521 /* UIColor+XBZKeyBoard.m */; };
+		00EEA34722BA0ADE0038A521 /* UIImage+XBZKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEA31622BA0ADE0038A521 /* UIImage+XBZKeyBoard.m */; };
+		00EEA34822BA0ADE0038A521 /* UIView+XBZKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEA31922BA0ADE0038A521 /* UIView+XBZKeyBoard.m */; };
+		00EEA34922BA0ADE0038A521 /* NSString+XBZKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEA31D22BA0ADE0038A521 /* NSString+XBZKeyBoard.m */; };
+		00EEA34A22BA0ADE0038A521 /* UIScrollView+XBZKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEA31E22BA0ADE0038A521 /* UIScrollView+XBZKeyBoard.m */; };
+		00EEA34B22BA0ADE0038A521 /* XBZChatKeyBoardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEA32022BA0ADE0038A521 /* XBZChatKeyBoardManager.m */; };
+		00EEA34C22BA0ADE0038A521 /* XBZEmojiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEA32622BA0ADE0038A521 /* XBZEmojiModel.m */; };
+		00EEA34D22BA0ADE0038A521 /* XBZChatMoreItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEA32722BA0ADE0038A521 /* XBZChatMoreItem.m */; };
+		00EEA34E22BA0ADE0038A521 /* XBZKeyBoardTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEA32C22BA0ADE0038A521 /* XBZKeyBoardTextView.m */; };
+		00EEA34F22BA0ADE0038A521 /* XBZVoiceAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEA33022BA0ADE0038A521 /* XBZVoiceAnimationView.m */; };
+		00EEA35022BA0ADE0038A521 /* XBZAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEA33122BA0ADE0038A521 /* XBZAudioRecorder.m */; };
+		00EEA35122BA0ADE0038A521 /* XBZChatEmojiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEA33322BA0ADE0038A521 /* XBZChatEmojiView.m */; };
+		00EEA35222BA0ADF0038A521 /* XBZChatMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEA33722BA0ADE0038A521 /* XBZChatMoreView.m */; };
+		00EEA35322BA0ADF0038A521 /* XBZChatMoreCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEA33922BA0ADE0038A521 /* XBZChatMoreCollectionViewCell.m */; };
+		00EEA35422BA0ADF0038A521 /* XBZEmojiFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEA33D22BA0ADE0038A521 /* XBZEmojiFlowLayout.m */; };
+		00EEA35522BA0ADF0038A521 /* XBZEmojiCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEA33E22BA0ADE0038A521 /* XBZEmojiCollectionViewCell.m */; };
+		00EEA35622BA0ADF0038A521 /* resource.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00EEA34022BA0ADE0038A521 /* resource.xcassets */; };
+		00EEA35922BA0BF80038A521 /* HP_CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEA35822BA0BF80038A521 /* HP_CommentCell.m */; };
 		6FA88AE52053FD530287571A /* libPods-HuPiao.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1F0D25849DB2562E24DED4 /* libPods-HuPiao.a */; };
 		DDFE70DE2290F4270029C425 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFE70DD2290F4270029C425 /* AppDelegate.m */; };
 		DDFE70E12290F4270029C425 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFE70E02290F4270029C425 /* ViewController.m */; };
@@ -261,12 +283,6 @@
 		00B9519322964DCF008D9411 /* mj.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mj.jpg; sourceTree = "<group>"; };
 		00B951A422965A78008D9411 /* HP_DynamicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_DynamicViewController.h; sourceTree = "<group>"; };
 		00B951A522965A78008D9411 /* HP_DynamicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_DynamicViewController.m; sourceTree = "<group>"; };
-		00B951B122967405008D9411 /* HP_HomeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HP_HomeDetailViewController.m; sourceTree = "<group>"; };
-		00B951B222967405008D9411 /* HP_HomeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HP_HomeDetailViewController.h; sourceTree = "<group>"; };
-		00B951B522967433008D9411 /* HP_BaseAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HP_BaseAlbumViewController.m; sourceTree = "<group>"; };
-		00B951B622967434008D9411 /* HP_BaseInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HP_BaseInformationViewController.m; sourceTree = "<group>"; };
-		00B951B722967434008D9411 /* HP_BaseAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HP_BaseAlbumViewController.h; sourceTree = "<group>"; };
-		00B951B822967435008D9411 /* HP_BaseInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HP_BaseInformationViewController.h; sourceTree = "<group>"; };
 		00B951BB2296744F008D9411 /* XZ_CollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZ_CollectionCell.h; sourceTree = "<group>"; };
 		00B951BC22967450008D9411 /* XZ_CollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZ_CollectionCell.m; sourceTree = "<group>"; };
 		00B951C122967CDC008D9411 /* HP_HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_HomeViewController.h; sourceTree = "<group>"; };
@@ -373,6 +389,54 @@
 		00EEA2FA22B8A8400038A521 /* LLWCustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLWCustomButton.m; sourceTree = "<group>"; };
 		00EEA2FB22B8A8400038A521 /* LLWPlusPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLWPlusPopView.m; sourceTree = "<group>"; };
 		00EEA2FC22B8A8400038A521 /* LLWCustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLWCustomButton.h; sourceTree = "<group>"; };
+		00EEA30222B8E36E0038A521 /* HP_CreateDyCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_CreateDyCell.h; sourceTree = "<group>"; };
+		00EEA30322B8E36E0038A521 /* HP_CreateDyCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_CreateDyCell.m; sourceTree = "<group>"; };
+		00EEA30722BA06B10038A521 /* HP_DyCommentController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_DyCommentController.h; sourceTree = "<group>"; };
+		00EEA30822BA06B10038A521 /* HP_DyCommentController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_DyCommentController.m; sourceTree = "<group>"; };
+		00EEA30C22BA0ADE0038A521 /* emotion_icons.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emotion_icons.plist; sourceTree = "<group>"; };
+		00EEA30D22BA0ADE0038A521 /* chatEmojis.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = chatEmojis.plist; sourceTree = "<group>"; };
+		00EEA30F22BA0ADE0038A521 /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
+		00EEA31022BA0ADE0038A521 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
+		00EEA31122BA0ADE0038A521 /* XBZChatKeyBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBZChatKeyBoardView.m; sourceTree = "<group>"; };
+		00EEA31322BA0ADE0038A521 /* UIButton+XBZKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+XBZKeyBoard.m"; sourceTree = "<group>"; };
+		00EEA31422BA0ADE0038A521 /* UIView+XBZKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XBZKeyBoard.h"; sourceTree = "<group>"; };
+		00EEA31522BA0ADE0038A521 /* UIColor+XBZKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+XBZKeyBoard.m"; sourceTree = "<group>"; };
+		00EEA31622BA0ADE0038A521 /* UIImage+XBZKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+XBZKeyBoard.m"; sourceTree = "<group>"; };
+		00EEA31722BA0ADE0038A521 /* UIScrollView+XBZKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+XBZKeyBoard.h"; sourceTree = "<group>"; };
+		00EEA31822BA0ADE0038A521 /* NSString+XBZKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XBZKeyBoard.h"; sourceTree = "<group>"; };
+		00EEA31922BA0ADE0038A521 /* UIView+XBZKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XBZKeyBoard.m"; sourceTree = "<group>"; };
+		00EEA31A22BA0ADE0038A521 /* UIButton+XBZKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+XBZKeyBoard.h"; sourceTree = "<group>"; };
+		00EEA31B22BA0ADE0038A521 /* UIImage+XBZKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+XBZKeyBoard.h"; sourceTree = "<group>"; };
+		00EEA31C22BA0ADE0038A521 /* UIColor+XBZKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+XBZKeyBoard.h"; sourceTree = "<group>"; };
+		00EEA31D22BA0ADE0038A521 /* NSString+XBZKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XBZKeyBoard.m"; sourceTree = "<group>"; };
+		00EEA31E22BA0ADE0038A521 /* UIScrollView+XBZKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+XBZKeyBoard.m"; sourceTree = "<group>"; };
+		00EEA32022BA0ADE0038A521 /* XBZChatKeyBoardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBZChatKeyBoardManager.m; sourceTree = "<group>"; };
+		00EEA32122BA0ADE0038A521 /* XBZChatKeyBoardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBZChatKeyBoardManager.h; sourceTree = "<group>"; };
+		00EEA32222BA0ADE0038A521 /* XBZKeyBoardDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBZKeyBoardDefine.h; sourceTree = "<group>"; };
+		00EEA32322BA0ADE0038A521 /* XBZChatKeyBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBZChatKeyBoardView.h; sourceTree = "<group>"; };
+		00EEA32522BA0ADE0038A521 /* XBZChatMoreItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBZChatMoreItem.h; sourceTree = "<group>"; };
+		00EEA32622BA0ADE0038A521 /* XBZEmojiModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBZEmojiModel.m; sourceTree = "<group>"; };
+		00EEA32722BA0ADE0038A521 /* XBZChatMoreItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBZChatMoreItem.m; sourceTree = "<group>"; };
+		00EEA32822BA0ADE0038A521 /* XBZEmojiModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBZEmojiModel.h; sourceTree = "<group>"; };
+		00EEA32B22BA0ADE0038A521 /* XBZKeyBoardTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBZKeyBoardTextView.h; sourceTree = "<group>"; };
+		00EEA32C22BA0ADE0038A521 /* XBZKeyBoardTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBZKeyBoardTextView.m; sourceTree = "<group>"; };
+		00EEA32E22BA0ADE0038A521 /* XBZVoiceAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBZVoiceAnimationView.h; sourceTree = "<group>"; };
+		00EEA32F22BA0ADE0038A521 /* XBZAudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBZAudioRecorder.h; sourceTree = "<group>"; };
+		00EEA33022BA0ADE0038A521 /* XBZVoiceAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBZVoiceAnimationView.m; sourceTree = "<group>"; };
+		00EEA33122BA0ADE0038A521 /* XBZAudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBZAudioRecorder.m; sourceTree = "<group>"; };
+		00EEA33322BA0ADE0038A521 /* XBZChatEmojiView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBZChatEmojiView.m; sourceTree = "<group>"; };
+		00EEA33422BA0ADE0038A521 /* XBZChatEmojiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBZChatEmojiView.h; sourceTree = "<group>"; };
+		00EEA33622BA0ADE0038A521 /* XBZChatMoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBZChatMoreView.h; sourceTree = "<group>"; };
+		00EEA33722BA0ADE0038A521 /* XBZChatMoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBZChatMoreView.m; sourceTree = "<group>"; };
+		00EEA33922BA0ADE0038A521 /* XBZChatMoreCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBZChatMoreCollectionViewCell.m; sourceTree = "<group>"; };
+		00EEA33A22BA0ADE0038A521 /* XBZEmojiFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBZEmojiFlowLayout.h; sourceTree = "<group>"; };
+		00EEA33B22BA0ADE0038A521 /* XBZEmojiCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBZEmojiCollectionViewCell.h; sourceTree = "<group>"; };
+		00EEA33C22BA0ADE0038A521 /* XBZChatMoreCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBZChatMoreCollectionViewCell.h; sourceTree = "<group>"; };
+		00EEA33D22BA0ADE0038A521 /* XBZEmojiFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBZEmojiFlowLayout.m; sourceTree = "<group>"; };
+		00EEA33E22BA0ADE0038A521 /* XBZEmojiCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBZEmojiCollectionViewCell.m; sourceTree = "<group>"; };
+		00EEA34022BA0ADE0038A521 /* resource.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = resource.xcassets; sourceTree = "<group>"; };
+		00EEA35722BA0BF80038A521 /* HP_CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HP_CommentCell.h; sourceTree = "<group>"; };
+		00EEA35822BA0BF80038A521 /* HP_CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HP_CommentCell.m; sourceTree = "<group>"; };
 		7A1F0D25849DB2562E24DED4 /* libPods-HuPiao.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HuPiao.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDBCA537C9F607AC2A70D980 /* Pods-HuPiao.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuPiao.release.xcconfig"; path = "Target Support Files/Pods-HuPiao/Pods-HuPiao.release.xcconfig"; sourceTree = "<group>"; };
 		DDFE70D92290F4270029C425 /* HuPiao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HuPiao.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -423,6 +487,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00EEA34322BA0ADE0038A521 /* libmp3lame.a in Frameworks */,
 				6FA88AE52053FD530287571A /* libPods-HuPiao.a in Frameworks */,
 				00D2F08922A9020E008D52D9 /* libexidcardios.a in Frameworks */,
 			);
@@ -525,6 +590,7 @@
 		00B951582296390F008D9411 /* HP_Command */ = {
 			isa = PBXGroup;
 			children = (
+				00EEA30A22BA0ADE0038A521 /* XBZChatKeyBoard */,
 				00EEA2F822B8A8400038A521 /* LLWPlusPopView */,
 				00D2F09722A90508008D52D9 /* Lyy_ImagePickerController.h */,
 				00D2F09622A90508008D52D9 /* Lyy_ImagePickerController.m */,
@@ -599,21 +665,6 @@
 			path = HP_Dynamic;
 			sourceTree = "<group>";
 		};
-		00B951B42296740E008D9411 /* HP_HomeDetail */ = {
-			isa = PBXGroup;
-			children = (
-				00B951B222967405008D9411 /* HP_HomeDetailViewController.h */,
-				00B951B122967405008D9411 /* HP_HomeDetailViewController.m */,
-				00B951B822967435008D9411 /* HP_BaseInformationViewController.h */,
-				00B951B622967434008D9411 /* HP_BaseInformationViewController.m */,
-				00B951B722967434008D9411 /* HP_BaseAlbumViewController.h */,
-				00B951B522967433008D9411 /* HP_BaseAlbumViewController.m */,
-				00B951BB2296744F008D9411 /* XZ_CollectionCell.h */,
-				00B951BC22967450008D9411 /* XZ_CollectionCell.m */,
-			);
-			path = HP_HomeDetail;
-			sourceTree = "<group>";
-		};
 		00B951C422968A10008D9411 /* HP_HomeDetailNew */ = {
 			isa = PBXGroup;
 			children = (
@@ -633,6 +684,8 @@
 				0082086C22A1160A00EBEF4C /* HP_DyCell.m */,
 				008208C022A4C2AA00EBEF4C /* HP_DyModel.h */,
 				008208C122A4C2AA00EBEF4C /* HP_DyModel.m */,
+				00B951BB2296744F008D9411 /* XZ_CollectionCell.h */,
+				00B951BC22967450008D9411 /* XZ_CollectionCell.m */,
 			);
 			path = HP_HomeDetailNew;
 			sourceTree = "<group>";
@@ -859,6 +912,8 @@
 			children = (
 				00EEA2F222B8A6980038A521 /* HP_CreateDyViewController.h */,
 				00EEA2F322B8A6980038A521 /* HP_CreateDyViewController.m */,
+				00EEA30222B8E36E0038A521 /* HP_CreateDyCell.h */,
+				00EEA30322B8E36E0038A521 /* HP_CreateDyCell.m */,
 			);
 			path = HP_CreateDy;
 			sourceTree = "<group>";
@@ -872,6 +927,175 @@
 				00EEA2FC22B8A8400038A521 /* LLWCustomButton.h */,
 			);
 			path = LLWPlusPopView;
+			sourceTree = "<group>";
+		};
+		00EEA30522BA064B0038A521 /* HP_Home */ = {
+			isa = PBXGroup;
+			children = (
+				00B9511222929C9F008D9411 /* HP_HomeBaseViewController.h */,
+				00B9511322929C9F008D9411 /* HP_HomeBaseViewController.m */,
+				00B951C122967CDC008D9411 /* HP_HomeViewController.h */,
+				00B951C222967CDC008D9411 /* HP_HomeViewController.m */,
+				00B9511522929DA7008D9411 /* HP_HomeCell.h */,
+				00B9511622929DA7008D9411 /* HP_HomeCell.m */,
+			);
+			path = HP_Home;
+			sourceTree = "<group>";
+		};
+		00EEA30622BA06910038A521 /* HP_HomeDyComment */ = {
+			isa = PBXGroup;
+			children = (
+				00EEA30722BA06B10038A521 /* HP_DyCommentController.h */,
+				00EEA30822BA06B10038A521 /* HP_DyCommentController.m */,
+				00EEA35722BA0BF80038A521 /* HP_CommentCell.h */,
+				00EEA35822BA0BF80038A521 /* HP_CommentCell.m */,
+			);
+			path = HP_HomeDyComment;
+			sourceTree = "<group>";
+		};
+		00EEA30A22BA0ADE0038A521 /* XBZChatKeyBoard */ = {
+			isa = PBXGroup;
+			children = (
+				00EEA30B22BA0ADE0038A521 /* Plist */,
+				00EEA30E22BA0ADE0038A521 /* Lame */,
+				00EEA31122BA0ADE0038A521 /* XBZChatKeyBoardView.m */,
+				00EEA31222BA0ADE0038A521 /* Catgoriy */,
+				00EEA31F22BA0ADE0038A521 /* Manager */,
+				00EEA32222BA0ADE0038A521 /* XBZKeyBoardDefine.h */,
+				00EEA32322BA0ADE0038A521 /* XBZChatKeyBoardView.h */,
+				00EEA32422BA0ADE0038A521 /* Model */,
+				00EEA32922BA0ADE0038A521 /* View */,
+				00EEA33F22BA0ADE0038A521 /* Resource */,
+			);
+			path = XBZChatKeyBoard;
+			sourceTree = "<group>";
+		};
+		00EEA30B22BA0ADE0038A521 /* Plist */ = {
+			isa = PBXGroup;
+			children = (
+				00EEA30C22BA0ADE0038A521 /* emotion_icons.plist */,
+				00EEA30D22BA0ADE0038A521 /* chatEmojis.plist */,
+			);
+			path = Plist;
+			sourceTree = "<group>";
+		};
+		00EEA30E22BA0ADE0038A521 /* Lame */ = {
+			isa = PBXGroup;
+			children = (
+				00EEA30F22BA0ADE0038A521 /* libmp3lame.a */,
+				00EEA31022BA0ADE0038A521 /* lame.h */,
+			);
+			path = Lame;
+			sourceTree = "<group>";
+		};
+		00EEA31222BA0ADE0038A521 /* Catgoriy */ = {
+			isa = PBXGroup;
+			children = (
+				00EEA31322BA0ADE0038A521 /* UIButton+XBZKeyBoard.m */,
+				00EEA31422BA0ADE0038A521 /* UIView+XBZKeyBoard.h */,
+				00EEA31522BA0ADE0038A521 /* UIColor+XBZKeyBoard.m */,
+				00EEA31622BA0ADE0038A521 /* UIImage+XBZKeyBoard.m */,
+				00EEA31722BA0ADE0038A521 /* UIScrollView+XBZKeyBoard.h */,
+				00EEA31822BA0ADE0038A521 /* NSString+XBZKeyBoard.h */,
+				00EEA31922BA0ADE0038A521 /* UIView+XBZKeyBoard.m */,
+				00EEA31A22BA0ADE0038A521 /* UIButton+XBZKeyBoard.h */,
+				00EEA31B22BA0ADE0038A521 /* UIImage+XBZKeyBoard.h */,
+				00EEA31C22BA0ADE0038A521 /* UIColor+XBZKeyBoard.h */,
+				00EEA31D22BA0ADE0038A521 /* NSString+XBZKeyBoard.m */,
+				00EEA31E22BA0ADE0038A521 /* UIScrollView+XBZKeyBoard.m */,
+			);
+			path = Catgoriy;
+			sourceTree = "<group>";
+		};
+		00EEA31F22BA0ADE0038A521 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				00EEA32022BA0ADE0038A521 /* XBZChatKeyBoardManager.m */,
+				00EEA32122BA0ADE0038A521 /* XBZChatKeyBoardManager.h */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		00EEA32422BA0ADE0038A521 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				00EEA32522BA0ADE0038A521 /* XBZChatMoreItem.h */,
+				00EEA32622BA0ADE0038A521 /* XBZEmojiModel.m */,
+				00EEA32722BA0ADE0038A521 /* XBZChatMoreItem.m */,
+				00EEA32822BA0ADE0038A521 /* XBZEmojiModel.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		00EEA32922BA0ADE0038A521 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				00EEA32A22BA0ADE0038A521 /* TextView */,
+				00EEA32D22BA0ADE0038A521 /* Record */,
+				00EEA33222BA0ADE0038A521 /* Face */,
+				00EEA33522BA0ADE0038A521 /* More */,
+				00EEA33822BA0ADE0038A521 /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		00EEA32A22BA0ADE0038A521 /* TextView */ = {
+			isa = PBXGroup;
+			children = (
+				00EEA32B22BA0ADE0038A521 /* XBZKeyBoardTextView.h */,
+				00EEA32C22BA0ADE0038A521 /* XBZKeyBoardTextView.m */,
+			);
+			path = TextView;
+			sourceTree = "<group>";
+		};
+		00EEA32D22BA0ADE0038A521 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				00EEA32E22BA0ADE0038A521 /* XBZVoiceAnimationView.h */,
+				00EEA32F22BA0ADE0038A521 /* XBZAudioRecorder.h */,
+				00EEA33022BA0ADE0038A521 /* XBZVoiceAnimationView.m */,
+				00EEA33122BA0ADE0038A521 /* XBZAudioRecorder.m */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		00EEA33222BA0ADE0038A521 /* Face */ = {
+			isa = PBXGroup;
+			children = (
+				00EEA33322BA0ADE0038A521 /* XBZChatEmojiView.m */,
+				00EEA33422BA0ADE0038A521 /* XBZChatEmojiView.h */,
+			);
+			path = Face;
+			sourceTree = "<group>";
+		};
+		00EEA33522BA0ADE0038A521 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				00EEA33622BA0ADE0038A521 /* XBZChatMoreView.h */,
+				00EEA33722BA0ADE0038A521 /* XBZChatMoreView.m */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
+		00EEA33822BA0ADE0038A521 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				00EEA33922BA0ADE0038A521 /* XBZChatMoreCollectionViewCell.m */,
+				00EEA33A22BA0ADE0038A521 /* XBZEmojiFlowLayout.h */,
+				00EEA33B22BA0ADE0038A521 /* XBZEmojiCollectionViewCell.h */,
+				00EEA33C22BA0ADE0038A521 /* XBZChatMoreCollectionViewCell.h */,
+				00EEA33D22BA0ADE0038A521 /* XBZEmojiFlowLayout.m */,
+				00EEA33E22BA0ADE0038A521 /* XBZEmojiCollectionViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		00EEA33F22BA0ADE0038A521 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				00EEA34022BA0ADE0038A521 /* resource.xcassets */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		20BAD2B593F7BD9618E9A655 /* Frameworks */ = {
@@ -1011,14 +1235,9 @@
 		DDFE711F229105F40029C425 /* HP_Home */ = {
 			isa = PBXGroup;
 			children = (
+				00EEA30622BA06910038A521 /* HP_HomeDyComment */,
+				00EEA30522BA064B0038A521 /* HP_Home */,
 				00B951C422968A10008D9411 /* HP_HomeDetailNew */,
-				00B951B42296740E008D9411 /* HP_HomeDetail */,
-				00B9511222929C9F008D9411 /* HP_HomeBaseViewController.h */,
-				00B9511322929C9F008D9411 /* HP_HomeBaseViewController.m */,
-				00B951C122967CDC008D9411 /* HP_HomeViewController.h */,
-				00B951C222967CDC008D9411 /* HP_HomeViewController.m */,
-				00B9511522929DA7008D9411 /* HP_HomeCell.h */,
-				00B9511622929DA7008D9411 /* HP_HomeCell.m */,
 			);
 			path = HP_Home;
 			sourceTree = "<group>";
@@ -1157,6 +1376,7 @@
 				00B9519E22964DCF008D9411 /* sz.jpg in Resources */,
 				00B9519A22964DCF008D9411 /* sp.jpg in Resources */,
 				00B9519822964DCF008D9411 /* tc.jpg in Resources */,
+				00EEA35622BA0ADF0038A521 /* resource.xcassets in Resources */,
 				00B951A122964DCF008D9411 /* xzys.jpg in Resources */,
 				00D2F08A22A9020E008D52D9 /* zocr0.lib in Resources */,
 				0082091122A6788900EBEF4C /* bgView.jpg in Resources */,
@@ -1164,6 +1384,7 @@
 				00B9512E2292AAE2008D9411 /* gfrz.png in Resources */,
 				00B951A022964DCF008D9411 /* tx.jpg in Resources */,
 				00B9519522964DCF008D9411 /* xingzuo.jpg in Resources */,
+				00EEA34122BA0ADE0038A521 /* emotion_icons.plist in Resources */,
 				00B9519622964DCF008D9411 /* shuangzi.jpg in Resources */,
 				00B9519722964DCF008D9411 /* timg.jpg in Resources */,
 				00B9519922964DCF008D9411 /* by.png in Resources */,
@@ -1176,6 +1397,7 @@
 				00B9519F22964DCF008D9411 /* jx.jpg in Resources */,
 				00B9519422964DCF008D9411 /* cn.jpg in Resources */,
 				DDFE70E42290F4270029C425 /* Main.storyboard in Resources */,
+				00EEA34222BA0ADE0038A521 /* chatEmojis.plist in Resources */,
 				00B9519C22964DCF008D9411 /* sy.jpg in Resources */,
 				00B9519D22964DCF008D9411 /* jn.jpg in Resources */,
 			);
@@ -1264,6 +1486,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				008208A222A1281400EBEF4C /* HP_ImagePreviewView.m in Sources */,
+				00EEA35422BA0ADF0038A521 /* XBZEmojiFlowLayout.m in Sources */,
+				00EEA34822BA0ADE0038A521 /* UIView+XBZKeyBoard.m in Sources */,
+				00EEA34D22BA0ADE0038A521 /* XBZChatMoreItem.m in Sources */,
 				00D2EFF422A8ECC5008D52D9 /* HP_UpdateNickNameViewController.m in Sources */,
 				00D2F08B22A9020E008D52D9 /* JQIDCardScaningView.m in Sources */,
 				0082089F22A1243100EBEF4C /* HP_Label.m in Sources */,
@@ -1272,29 +1497,33 @@
 				00D2EFDA22A75FE8008D52D9 /* INMUpdateModel.m in Sources */,
 				008208F222A4FBBD00EBEF4C /* NSString+Letter.m in Sources */,
 				00D2F0B722AE661C008D52D9 /* HP_EvaluateTableCell.m in Sources */,
-				00B951B322967405008D9411 /* HP_HomeDetailViewController.m in Sources */,
 				00EEA2FD22B8A8400038A521 /* LLWCustomButton.m in Sources */,
 				00B951C322967CDC008D9411 /* HP_HomeViewController.m in Sources */,
+				00EEA34A22BA0ADE0038A521 /* UIScrollView+XBZKeyBoard.m in Sources */,
 				00D2EFD922A75FE8008D52D9 /* INMUpdateView.m in Sources */,
+				00EEA34622BA0ADE0038A521 /* UIColor+XBZKeyBoard.m in Sources */,
 				0082087322A1189A00EBEF4C /* HP_ImageListView.m in Sources */,
 				00B9517022963925008D9411 /* HJTabViewControllerPlugin_TabViewBar.m in Sources */,
 				00B9516E22963925008D9411 /* HJTabViewController.m in Sources */,
 				00D2F0A722AE24DA008D52D9 /* HP_WalletHeadView.m in Sources */,
 				0082090822A6023500EBEF4C /* GXUpvoteButton.m in Sources */,
 				00D2EFE522A794BE008D52D9 /* HP_NormalOwnView.m in Sources */,
+				00EEA34E22BA0ADE0038A521 /* XBZKeyBoardTextView.m in Sources */,
 				00D2EFE222A794A9008D52D9 /* HP_OwnMessageViewController.m in Sources */,
 				008208F522A4FBD900EBEF4C /* JPinYinUtil.m in Sources */,
 				DDFE71272291065A0029C425 /* HP_MessageViewController.m in Sources */,
 				00D2EFE822A794D1008D52D9 /* HP_AuthOwnView.m in Sources */,
 				00D2F0BA22AF505F008D52D9 /* HP_CeIdcardBaseViewController.m in Sources */,
+				00EEA34922BA0ADE0038A521 /* NSString+XBZKeyBoard.m in Sources */,
 				00D2F0D822B0C4B5008D52D9 /* HP_CashWithdrawalViewController.m in Sources */,
 				00D2EFD622A75FE8008D52D9 /* INMRefreshGifHeader.m in Sources */,
 				00D2F0A022A91CA3008D52D9 /* HP_WalletViewController.m in Sources */,
+				00EEA35122BA0ADE0038A521 /* XBZChatEmojiView.m in Sources */,
 				008208E822A4F89900EBEF4C /* Moment.m in Sources */,
+				00EEA30422B8E36E0038A521 /* HP_CreateDyCell.m in Sources */,
 				008208E422A4F89100EBEF4C /* MLocation.m in Sources */,
 				00D2F09822A90508008D52D9 /* Lyy_ImagePickerController.m in Sources */,
 				008208EF22A4F9A000EBEF4C /* HP_ContactsViewController.m in Sources */,
-				00B951BA22967435008D9411 /* HP_BaseInformationViewController.m in Sources */,
 				00D2F0D922B0C4B5008D52D9 /* HP_CashWithdrawalModel.m in Sources */,
 				0082090B22A65DF900EBEF4C /* HP_MineHeadView.m in Sources */,
 				DDFE712A229106660029C425 /* HP_MineViewController.m in Sources */,
@@ -1303,14 +1532,17 @@
 				00D2F0B422AE62EA008D52D9 /* HP_PersonalTableCell.m in Sources */,
 				00B9516C22963925008D9411 /* HJDefaultTabViewBar.m in Sources */,
 				008208C922A4F3C600EBEF4C /* HP_MessageListViewController.m in Sources */,
+				00EEA35922BA0BF80038A521 /* HP_CommentCell.m in Sources */,
 				008208BF22A4BB1000EBEF4C /* HPDivisableTool.m in Sources */,
 				00D2F0C322AF7BA3008D52D9 /* HP_CeIdSecondView.m in Sources */,
 				00D2F08F22A9020E008D52D9 /* LHSIDCardScaningView.m in Sources */,
+				00EEA30922BA06B10038A521 /* HP_DyCommentController.m in Sources */,
 				DDFE70EC2290F42A0029C425 /* main.m in Sources */,
 				00D2F08E22A9020E008D52D9 /* UIAlertController+Extend.m in Sources */,
 				00B951C722968A20008D9411 /* HP_HomeDetailNewViewController.m in Sources */,
 				00D2F09522A90262008D52D9 /* AlertViewTool.m in Sources */,
 				008208C222A4C2AA00EBEF4C /* HP_DyModel.m in Sources */,
+				00EEA35022BA0ADE0038A521 /* XBZAudioRecorder.m in Sources */,
 				00EEA2FE22B8A8400038A521 /* LLWPlusPopView.m in Sources */,
 				008208DC22A4F83C00EBEF4C /* MUser.m in Sources */,
 				00D2F0A422ADFD80008D52D9 /* CLocationManager.m in Sources */,
@@ -1324,6 +1556,7 @@
 				0082086D22A1160A00EBEF4C /* HP_DyCell.m in Sources */,
 				00D2F0C722AF9807008D52D9 /* HP_GiftView.m in Sources */,
 				008208CF22A4F4B300EBEF4C /* JKDBModel.m in Sources */,
+				00EEA35222BA0ADF0038A521 /* XBZChatMoreView.m in Sources */,
 				00B9516F22963925008D9411 /* HJTabViewController+ViewController.m in Sources */,
 				DDFE712D22910C000029C425 /* KLTNavigationController.m in Sources */,
 				00B951CD22968AFF008D9411 /* HP_PhotoDetailViewController.m in Sources */,
@@ -1334,37 +1567,44 @@
 				00D2EFF122A8E885008D52D9 /* HP_SignViewController.m in Sources */,
 				00D2EFD822A75FE8008D52D9 /* INMRefreshHeader.m in Sources */,
 				DDFE7140229115AF0029C425 /* UIImage+Extension.m in Sources */,
+				00EEA35322BA0ADF0038A521 /* XBZChatMoreCollectionViewCell.m in Sources */,
 				00B9511422929C9F008D9411 /* HP_HomeBaseViewController.m in Sources */,
 				00D2EFFB22A8FC67008D52D9 /* HP_CeIdcardViewController.m in Sources */,
 				0082087622A11BAB00EBEF4C /* HP_Utility.m in Sources */,
+				00EEA34422BA0ADE0038A521 /* XBZChatKeyBoardView.m in Sources */,
 				00D2EFDC22A75FE8008D52D9 /* INMAlertView.m in Sources */,
 				00B951CA22968AEA008D9411 /* HP_OwnDetailViewController.m in Sources */,
 				00D2EFF722A8F04F008D52D9 /* NSString+trim.m in Sources */,
 				DDFE70DE2290F4270029C425 /* AppDelegate.m in Sources */,
+				00EEA34522BA0ADE0038A521 /* UIButton+XBZKeyBoard.m in Sources */,
 				00EEA2F422B8A6980038A521 /* HP_CreateDyViewController.m in Sources */,
 				00D2F09022A9020E008D52D9 /* JQAVCaptureViewController.m in Sources */,
 				00B9511722929DA7008D9411 /* HP_HomeCell.m in Sources */,
 				008208D322A4F4CA00EBEF4C /* HP_Message.m in Sources */,
 				DDFE713F229115AF0029C425 /* UIBarButtonItem+Extension.m in Sources */,
 				DDFE713322910D1C0029C425 /* AnimationContoller.m in Sources */,
+				00EEA34722BA0ADE0038A521 /* UIImage+XBZKeyBoard.m in Sources */,
 				00D2F0C022AF6B53008D52D9 /* HP_CeIdFirstCell.m in Sources */,
 				00D2F0BD22AF5AA8008D52D9 /* HP_CeIdFirstView.m in Sources */,
 				00D2F09C22A91480008D52D9 /* HP_FollowAndFansViewController.m in Sources */,
 				008208D022A4F4B300EBEF4C /* JKDBHelper.m in Sources */,
+				00EEA34B22BA0ADE0038A521 /* XBZChatKeyBoardManager.m in Sources */,
 				00B951A622965A78008D9411 /* HP_DynamicViewController.m in Sources */,
 				DDFE713E229115AF0029C425 /* UIView+Extension.m in Sources */,
 				00D2F0AA22AE37D7008D52D9 /* HP_ExpenditureViewController.m in Sources */,
+				00EEA34F22BA0ADE0038A521 /* XBZVoiceAnimationView.m in Sources */,
 				008207F1229D359800EBEF4C /* HP_InsertBGView.m in Sources */,
 				00B9517222963925008D9411 /* HJTabViewControllerPlugin_Base.m in Sources */,
-				00B951B922967435008D9411 /* HP_BaseAlbumViewController.m in Sources */,
 				00D2F0B122AE5DB7008D52D9 /* HP_ImpressionTableCell.m in Sources */,
 				008208D922A4F7D500EBEF4C /* MomentUtil.m in Sources */,
 				008208DF22A4F86C00EBEF4C /* Comment.m in Sources */,
 				00D2F09122A9020E008D52D9 /* RectManager.m in Sources */,
+				00EEA34C22BA0ADE0038A521 /* XBZEmojiModel.m in Sources */,
 				DDFE71152290F5540029C425 /* HP_TabbarViewController.m in Sources */,
 				DDFE713D229115AF0029C425 /* UIButton+Extension.m in Sources */,
 				0082090522A5316200EBEF4C /* UIView+BorderLine.m in Sources */,
 				00D2F08C22A9020E008D52D9 /* IDInfo.m in Sources */,
+				00EEA35522BA0ADF0038A521 /* XBZEmojiCollectionViewCell.m in Sources */,
 				00D2F08D22A9020E008D52D9 /* AVCaptureViewController.m in Sources */,
 				00D2F0AE22AE46FF008D52D9 /* HP_CircleTableCell.m in Sources */,
 				00D2EFFE22A8FD2B008D52D9 /* HP_CerIdcardTabCell.m in Sources */,
@@ -1556,6 +1796,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/HuPiao/HP_Command/ScanIDCard/libexidcard",
 					"$(PROJECT_DIR)/HuPiao/HP_Command/Third/libexidcard",
+					"$(PROJECT_DIR)/HuPiao/HP_Command/XBZChatKeyBoard/Lame",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zecaifu-luanjinxin.HuPiao";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1583,6 +1824,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/HuPiao/HP_Command/ScanIDCard/libexidcard",
 					"$(PROJECT_DIR)/HuPiao/HP_Command/Third/libexidcard",
+					"$(PROJECT_DIR)/HuPiao/HP_Command/XBZChatKeyBoard/Lame",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zecaifu-luanjinxin.HuPiao";
 				PRODUCT_NAME = "$(TARGET_NAME)";

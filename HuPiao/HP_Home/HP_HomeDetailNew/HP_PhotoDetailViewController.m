@@ -56,37 +56,6 @@
 }
     
 #pragma mark - UICollectionViewDelegate, UICollectionViewDataSource
-/*
-    static NSString *HeaderID = @"header";
-    static NSString *FooterID = @"footer";
-
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    if (kind == UICollectionElementKindSectionHeader) {
-        UICollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:HeaderID forIndexPath:indexPath];
-        headerView.backgroundColor = [UIColor blueColor];
-        return headerView;
-    } else {
-        UICollectionReusableView *footerView =  [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:FooterID forIndexPath:indexPath];
-        
-        footerView.backgroundColor = [UIColor greenColor];
-        return footerView;
-    }
-}
-
-/// collectinView section header 在高版本存在系统BUG，需要设置zPosition = 0.0
-- (void)collectionView:(UICollectionView *)collectionView willDisplaySupplementaryView:(UICollectionReusableView *)view forElementKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath {
-    view.layer.zPosition = 0.0;
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    return (CGSize){HPScreenW * 0.5, 22};
-}
-    
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
-    return (CGSize){HPScreenW, 22};
-}
-*/
-    
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
@@ -116,8 +85,7 @@
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-//        layout.itemSize = CGSizeMake(100, 100);
-         layout.itemSize = CGSizeMake((HPScreenW - HPFit(40))/3, (HPScreenW - HPFit(40))/3);
+        layout.itemSize = CGSizeMake((HPScreenW - HPFit(40))/3, (HPScreenW - HPFit(40))/3);
         layout.sectionInset = UIEdgeInsetsMake( HPFit(10), HPFit(10), HPFit(30), HPFit(10)); //设置距离上 左 下 右
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) collectionViewLayout:layout];
         _collectionView.showsVerticalScrollIndicator = NO;
@@ -135,8 +103,6 @@
 - (NSMutableArray *)imgArr {
     if (!_imgArr) {
         _imgArr = @[].mutableCopy;
-        //[NSMutableArray arrayWithObjects:@"1.jpg",@"2.png",@"3.png",@"2.png",@"1.jpg",@"3.png",@"3.png",@"1.jpg",@"2.png",@"2.png",@"1.jpg",@"2.png",@"3.png",@"1.jpg",@"3.png",@"1.jpg",@"3.png",@"2.png", nil];
-        //@"by.png",@"jn.jpg",@"sz.jpg",@"jx.jpg",@"sz.jpg",@"cn.jpg",@"tc.jpg",@"tx.jpg",@"ss.jpg",@"mj.jpg",@"sp.jpg",@"sy.jpg",
     }
     return _imgArr;
 }

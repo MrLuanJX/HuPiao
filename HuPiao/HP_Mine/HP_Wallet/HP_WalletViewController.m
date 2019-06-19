@@ -68,10 +68,12 @@
                     break;
                 case 1:
                     expenditureVC.title = @"支出明细";
+                    expenditureVC.isIncome = NO;
                     [wSelf.navigationController pushViewController:expenditureVC animated:YES];
                     break;
                 case 2:
                     expenditureVC.title = @"收入明细";
+                    expenditureVC.isIncome = YES;
                     [wSelf.navigationController pushViewController:expenditureVC animated:YES];
                     break;
                 case 3:

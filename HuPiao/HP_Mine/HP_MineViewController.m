@@ -193,7 +193,6 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
 }
 
 #pragma mark - UITableViewDelegate  UITableViewDataSource
-
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
     return section == 1 ? 10 : 0.00001;

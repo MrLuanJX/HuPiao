@@ -12,6 +12,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HP_CreateDyViewController : UIViewController
 
+@property (nonatomic , strong) NSMutableArray * selectedPhotos;
+
+@property (nonatomic , strong) NSMutableArray * selectedAssets;
+
+// 相册
+@property(nonatomic , strong) TZImagePickerController * againPhotoalbum;
+
 @end
 
 NS_ASSUME_NONNULL_END

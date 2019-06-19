@@ -79,7 +79,8 @@
 - (NSArray *)getDropDownMenuModelsArray {
     __weak typeof(self)weakSelf = self;
     //菜单模型0
-    NSMutableArray * titleArray = [NSMutableArray arrayWithObjects:@"Twitter",@"Line",@"QQ",@"QZone", nil];
+    
+    NSMutableArray * titleArray = self.isIncome == YES ? [NSMutableArray arrayWithObjects:@"充值",@"礼物",@"购买", nil] : [NSMutableArray arrayWithObjects:@"提现",@"礼物",@"购买", nil];
     NSMutableArray * dropMenuArr = [NSMutableArray array];
     for (int i = 0; i < titleArray.count; i++) {
         FFDropDownMenuModel *menuModel0 = [FFDropDownMenuModel ff_DropDownMenuModelWithMenuItemTitle:titleArray[i] menuItemIconName:@"menu0" menuBlock:^{

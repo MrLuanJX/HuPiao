@@ -45,6 +45,10 @@
 // 相册
 @property(nonatomic , strong) TZImagePickerController * photoalbum;
 
+@property(nonatomic , strong) MUser * user;
+
+@property(nonatomic , strong) UIView * navBGView;
+
 @end
 
 @implementation HP_HomeDetailNewViewController
@@ -52,13 +56,15 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-    self.navigationController.navigationBar.alpha = 0;
+    self.navigationController.navigationBar.hidden = YES;
+    
+    self.navBGView.alpha = 0;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-
-    self.navigationController.navigationBar.alpha = 1;
+    
+    self.navigationController.navigationBar.hidden = NO;
 }
 
 - (void)viewDidLoad {
@@ -68,6 +74,8 @@
     
     [self setupBackBtn];
     [self setupRightNav];
+    
+    [self navBar];
 }
 
 - (void) setupRightNav {
@@ -89,9 +97,7 @@
 
 #pragma mark - 发布动态
 - (void) createDyAction {
-//    [self configPopView];
-    [self presentViewController:[HP_CreateDyViewController new] animated:YES completion:nil];
-//    [self.navigationController pushViewController:[HP_CreateDyViewController new] animated:NO];
+    [self jumpCreateDyVC];
 }
 
 #pragma mark - 聊天
@@ -187,6 +193,7 @@
     } else {
         configration.suspenOffsetY = 64;
     }
+
     configration.itemFont = HPFontSize(14);
     configration.selectedItemFont = HPFontSize(16);
     configration.selectedItemColor = HPUIColorWithRGB(0x3D79FD, 1.0);
@@ -202,10 +209,12 @@
     vc.dataSource = vc;
     vc.delegate = vc;
     
+    vc.user = user;
+    
     UIView * headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, HPScreenW, HPFit(500))];
     headView.backgroundColor = [UIColor redColor];
     
-    SDCycleScrollView * autoScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, HPScreenW,HPFit(400)) delegate:vc placeholderImage:[UIImage imageNamed:@"1.jpg"]];  // floor(400.0f)
+    SDCycleScrollView * autoScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, HPScreenW,HPFit(400)) delegate:vc placeholderImage:[UIImage imageNamed:@"1.jpg"]];
     autoScrollView.bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
     autoScrollView.autoScrollTimeInterval = 5.0;
     autoScrollView.localizationImageNamesGroup = vc.imgArray;
@@ -268,7 +277,6 @@
 }
 #pragma mark - YNPageViewControllerDelegate
 - (void)pageViewController:(YNPageViewController *)pageViewController contentOffsetY:(CGFloat)contentOffset progress:(CGFloat)progress {
-//    NSLog(@"--- contentOffset = %f,    progress = %f", contentOffset, progress);
     
     if (self.isOwn == NO) {
         if (self.currentY < contentOffset) {
@@ -298,7 +306,7 @@
         self.currentY = contentOffset;
     }
     
-    self.navigationController.navigationBar.alpha = progress;
+    self.navBGView.alpha = progress;
 }
     
 // 返回列表的高度 默认是控制器的高度大小
@@ -415,81 +423,66 @@
 }
 
 - (void) alertShow: (MUser *) user {
-    
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:@"购买 %@ 联系方式需要消耗您 %@ H币",user.name,@"108"] preferredStyle:UIAlertControllerStyleAlert];
-    
     [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
         NSLog(@"点击取消");
     }]];
-    
     [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
         NSLog(@"点击确认");
     }]];
-
     // 由于它是一个控制器 直接modal出来就好了
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
-#pragma mark - 弹出视图
-- (void) configPopView {
-    
+// 发布动态
+-(void) jumpCreateDyVC {
     __weak typeof (self) weakSelf = self;
-    
-    NSArray *titles = @[@"文字",@"相册", @"拍照"];
-    
-    NSMutableArray *imgs = @[].mutableCopy;
-    for (NSInteger i = 0; i < titles.count; i ++) {
-        [imgs addObject:[NSString stringWithFormat:@"publish_%zi", i]];
-    }
-    [LLWPlusPopView showWithImages:imgs titles:titles selectBlock:^(NSInteger index) {
-        NSLog(@"index:%zi", index);
-        
-        if (index == 0) {
-            
-        } else if (index == 1) {
-            
-            [weakSelf openpHotoalbum];
-        } else if (index == 2) {
-            //            [weakSelf takePhoto];
-        }
-    } view:self.view] ;
+    HP_CreateDyViewController * createDyVC = [HP_CreateDyViewController new];
+    HP_NavigationViewController * createDyNav = [[HP_NavigationViewController alloc] initWithRootViewController:createDyVC];
+     [weakSelf presentViewController:createDyNav animated:YES completion:nil];
 }
 
-//打开相册
--(void)openpHotoalbum {
+- (void) navBar {
+    self.navBGView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, HPScreenW, k_top_height)];
+    self.navBGView.backgroundColor = [UIColor whiteColor];
     
-    __weak typeof (self) weakSelf = self;
-    [self.photoalbum setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
-        
-        NSLog(@"photos = %@",photos);
-        
+    UILabel * titleLabel = [UILabel new];
+    titleLabel.font = HPFontSize(18);
+    titleLabel.textColor = HPUIColorWithRGB(0x282828,1.0);
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.text = self.user.name;
+    [self.navBGView addSubview:titleLabel];
+    
+    UIButton * backBtn = [[UIButton alloc] init];
+    [backBtn setImage:[UIImage imageNamed:@"lefterbackicon_titlebar_24x24_"] forState:UIControlStateNormal];
+    [backBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.navBGView addSubview:backBtn];
+    
+    UIButton * giftBtn = [[UIButton alloc] init];
+    [giftBtn setImage:[UIImage imageNamed:@"discover_3_0"] forState:UIControlStateNormal];
+    [giftBtn addTarget:self action:@selector(giftAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.navBGView addSubview:giftBtn];
+    
+    [backBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo (HPFit(17));
+        make.bottom.mas_equalTo (-HPFit(11));
+        make.width.height.mas_equalTo (HPFit(20));
     }];
-    [self presentViewController:self.photoalbum
-                       animated:YES completion:nil];
-}
-
-//打开相机
--(void)takePhoto {
-    __weak typeof (self) weakSelf = self;
-    Lyy_ImagePickerController *controlelr = [[Lyy_ImagePickerController alloc]init];
-    controlelr.presentViewController = self;
-    controlelr.finishCallback = ^(UIImage * _Nonnull img,PHAsset *asset) {
-        
-    };
-    [controlelr takePhoto];
-}
-
--(TZImagePickerController *)photoalbum {
-    if (_photoalbum == nil) {
-        _photoalbum = [[TZImagePickerController alloc] initWithMaxImagesCount:9 delegate:self];
-        _photoalbum.allowTakeVideo = NO;
-        _photoalbum.allowPickingVideo = NO;
-        _photoalbum.allowPickingGif = NO;
-        _photoalbum.showSelectBtn = YES;
-    }
-    return _photoalbum;
+    
+    [giftBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo (-HPFit(24));
+        make.width.height.bottom.mas_equalTo (backBtn);
+    }];
+    
+    [titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo (backBtn.mas_right).offset(HPFit(15));
+        make.right.mas_equalTo (giftBtn.mas_left) .offset (-HPFit(15));
+        make.centerY.mas_equalTo (backBtn.mas_centerY);
+    }];
+    
+    [self.view addSubview:self.navBGView];
 }
 
 @end
