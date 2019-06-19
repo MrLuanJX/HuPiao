@@ -61,7 +61,7 @@
     
 -(UITableView *)tableView{
     if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         _tableView.separatorStyle = UITableViewCellEditingStyleNone;
         _tableView.delegate = self;
         _tableView.dataSource = self;
@@ -79,21 +79,43 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return [self.messageList count];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 
-    return [self.messageList count];
+    return 1;
 }
+
+#pragma mark - UITableViewDelegate  UITableViewDataSource
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
+    return HPFit(10);
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 10)];
+    view.backgroundColor = kSetUpCololor(242, 242, 242, 1.0);
+    
+    return  view;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return  0.00001;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    
+    return  [UIView new];
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     static NSString * identifier = @"homeCell";
     
     HP_HomeCell * homeCell = [HP_HomeCell dequeueReusableCellWithTableView:tableView Identifier:identifier];
 
-    MUser * user = [self.messageList objectAtIndex:indexPath.row];
+    MUser * user = [self.messageList objectAtIndex:indexPath.section];
     
     homeCell.user = user;
     
@@ -101,31 +123,13 @@
     
     homeCell.address = self.address;
     
-    homeCell.likeBtnActionBlock = ^(UIButton * _Nonnull button) {
-         if (self.isLiked == YES) {
-             [button setImage:[UIImage imageNamed:@"details_like_icon_press_20x20_"] forState:UIControlStateNormal];
-             [button setTitle:@"103" forState:UIControlStateNormal];
-             [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-             
-             [self btnActionAnimationWithBtn:button];
-             
-             self.isLiked = NO;
-         } else {
-             [button setImage:[UIImage imageNamed:@"details_like_icon_20x20_"] forState:UIControlStateNormal];
-             [button setTitle:@"102" forState:UIControlStateNormal];
-             [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-             
-             self.isLiked = YES;
-         }
-    };
-    
     return homeCell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    MUser * user = [self.messageList objectAtIndex:indexPath.row];
+    MUser * user = [self.messageList objectAtIndex:indexPath.section];
 
-    HP_HomeDetailNewViewController * detailVC = [HP_HomeDetailNewViewController suspendCenterPageVCWithUser:user IsOwn:@"home"];
+    HP_HomeDetailNewViewController * detailVC = [HP_HomeDetailNewViewController suspendCenterPageVCWithUser:user IsOwn:@"Home"];
     detailVC.hidesBottomBarWhenPushed = YES;
     detailVC.title = user.name;
     [self.navigationController pushViewController:detailVC animated:YES];

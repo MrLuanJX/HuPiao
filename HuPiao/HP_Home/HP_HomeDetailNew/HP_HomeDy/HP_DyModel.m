@@ -10,4 +10,9 @@
 
 @implementation HP_DyModel
 
++ (NSArray *)transients
+{
+    return [NSArray arrayWithObjects:@"user",@"location",@"commentList",@"likeList",@"pictureList", nil];
+}
+
 @end

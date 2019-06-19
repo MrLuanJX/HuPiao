@@ -73,4 +73,14 @@
 /**判断字符串是否为空*/
 #define HPNULLString(string) ((string == nil) ||[string isEqualToString:@""] ||([string length] == 0)  || [string isKindOfClass:[NSNull class]] || [[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0 ||[string isEqual:[NSNull null]])
 
+
+// 内容视图宽度
+#define kTextWidth              (HPScreenW - 60 - 25)
+// 图片间距
+#define kImagePadding           5
+// 图片宽度
+#define kImageWidth             75
+// 视图之间的间距
+#define kPaddingValue           8
+
 #endif /* DefineFile_h */

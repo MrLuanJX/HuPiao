@@ -85,10 +85,10 @@
     
     CGFloat wid = [UIScreen mainScreen].bounds.size.width;
     
-    [self.contentView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.mas_equalTo(0);
-        make.bottom.mas_equalTo(-10);
-    }];
+//    [self.contentView mas_remakeConstraints:^(MASConstraintMaker *make) {
+//        make.top.left.right.mas_equalTo(0);
+//        make.bottom.mas_equalTo(-10);
+//    }];
     
     [self.iconImg mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.mas_equalTo(0);

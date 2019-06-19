@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HP_DyModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,9 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HP_ImageListView : UIView
 // 动态
-//@property (nonatomic,strong) Moment * moment;
+@property (nonatomic , strong) HP_DyModel * moment;
 // 点击小图
-@property (nonatomic, copy) void (^singleTapHandler)(HP_ImageView *imageView);
+@property (nonatomic , copy) void (^singleTapHandler)(HP_ImageView *imageView);
 
 @end
 

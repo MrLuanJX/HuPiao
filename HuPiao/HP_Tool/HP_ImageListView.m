@@ -8,6 +8,7 @@
 
 #import "HP_ImageListView.h"
 #import "HP_ImagePreviewView.h"
+#import "HP_Utility.h"
 
 #pragma mark - ------------------ 小图List显示视图 ------------------
 
@@ -21,7 +22,7 @@
 @end
 
 @implementation HP_ImageListView
-/*
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -49,7 +50,7 @@
 
 #pragma mark - Setter
 
-- (void)setMoment:(Moment *)moment
+- (void)setMoment:(HP_DyModel *)moment
 {
     _moment = moment;
     for (HP_ImageView * imageView in _imageViewsArray) {
@@ -68,20 +69,26 @@
     HP_ImageView * imageView = nil;
     for (NSInteger i = 0; i < count; i++)
     {
+        CGFloat imageX = 0;
+        CGFloat imageY = 0;
+        CGRect frame = CGRectZero;
         NSInteger rowNum = i / 3;
         NSInteger colNum = i % 3;
-        if(count == 4) {
+        if(count == 4 || count == 2) {
             rowNum = i / 2;
             colNum = i % 2;
+            imageY = rowNum * ((HPScreenW- HPFit(40))/2 + HPFit(10));
+            imageX = colNum * ((HPScreenW- HPFit(40))/2 + HPFit(10));
+            frame = CGRectMake(imageX, imageY, (HPScreenW- HPFit(40))/2 , (HPScreenW- HPFit(40))/2);
+        } else {
+            imageY = rowNum * ((HPScreenW- HPFit(50))/3 + HPFit(10));
+            imageX = colNum * ((HPScreenW- HPFit(50))/3 + HPFit(10));
+            frame = CGRectMake(imageX, imageY, (HPScreenW- HPFit(50))/3 , (HPScreenW- HPFit(50))/3);
         }
-        CGFloat imageX = colNum * (kImageWidth + kImagePadding);
-        CGFloat imageY = rowNum * (kImageWidth + kImagePadding);
-        CGRect frame = CGRectMake(imageX, imageY, kImageWidth, kImageWidth);
-        
         // 单张图片需计算实际显示size
         if (count == 1) {
-            CGSize singleSize = [Utility getMomentImageSize:CGSizeMake(moment.singleWidth, moment.singleHeight)];
-            frame = CGRectMake(0, 0, singleSize.width, singleSize.height);
+            CGSize singleSize = [HP_Utility getMomentImageSize:CGSizeMake(moment.singleWidth, moment.singleHeight)];
+            frame = CGRectMake(0, 0, singleSize.width - 15, singleSize.height);
         }
         imageView = [self viewWithTag:1000+i];
         imageView.hidden = NO;
@@ -146,7 +153,7 @@
     offset.x = index * HPScreenW;
     _previewView.scrollView.contentOffset = offset;
 }
-*/
+
 #pragma mark - 大图单击||长按
 - (void)singleTapBigViewCallback:(MMScrollView *)scrollView
 {

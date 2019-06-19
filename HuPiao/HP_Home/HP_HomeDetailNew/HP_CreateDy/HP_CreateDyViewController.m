@@ -119,7 +119,7 @@
     cell.photoClickAction = ^(NSIndexPath * _Nonnull index) {
         [wSelf showAlertController];
     };
-    
+
     __weak HP_CreateDyCell* wselfCell = cell;
     
     // 照片预览
@@ -167,8 +167,7 @@
 
 //打开相册
 -(void)openpHotoalbum {
-    
-    __weak typeof (self) weakSelf = self;
+//    __weak typeof (self) weakSelf = self;
     self.againPhotoalbum = [[TZImagePickerController alloc] initWithMaxImagesCount:9 columnNumber:3 delegate:self pushPhotoPickerVc:YES];
     self.againPhotoalbum.allowTakeVideo = NO;
     self.againPhotoalbum.allowPickingVideo = NO;
@@ -179,7 +178,7 @@
     self.againPhotoalbum.showSelectedIndex = YES;
     self.againPhotoalbum.preferredLanguage = @"zh-Hans";
     self.againPhotoalbum.selectedAssets = _selectedAssets;
-
+    self.againPhotoalbum.allowPickingOriginalPhoto = NO;
     [self presentViewController:self.againPhotoalbum
                        animated:YES completion:nil];
 }

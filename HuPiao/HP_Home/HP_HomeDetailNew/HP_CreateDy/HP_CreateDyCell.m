@@ -18,6 +18,11 @@ static int maxLength = 200;
 
 @property (nonatomic, strong) id asset;
 
+@property (nonatomic, strong) UIButton *deleteBtn;
+
+@property (nonatomic, assign) NSInteger row;
+
+
 @end
 
 @implementation HP_CreateDyCollectCell
@@ -26,6 +31,11 @@ static int maxLength = 200;
     _img = img;
     
     self.bgImg.image = img;
+}
+
+- (void)setRow:(NSInteger)row {
+    _row = row;
+    _deleteBtn.tag = row;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -37,9 +47,14 @@ static int maxLength = 200;
         self.backgroundColor = [UIColor whiteColor];
         
         [self.contentView addSubview:self.bgImg];
+        [self.contentView addSubview: self.deleteBtn];
         
         [self.bgImg mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.bottom.right.top.left.mas_equalTo(0);
+        }];
+        
+        [self.deleteBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.right.mas_equalTo(weakSelf.bgImg);
         }];
     }
     return self;
@@ -52,6 +67,14 @@ static int maxLength = 200;
         [_bgImg setClipsToBounds:YES];
     }
     return _bgImg;
+}
+
+- (UIButton *)deleteBtn {
+    if (!_deleteBtn) {
+        _deleteBtn = [UIButton new];
+        [_deleteBtn setImage:[UIImage imageNamed:@"photo_delete"] forState:UIControlStateNormal];
+    }
+    return _deleteBtn;
 }
 
 @end
@@ -70,17 +93,7 @@ static int maxLength = 200;
 
 - (void)setSelectedPhotos:(NSMutableArray *)selectedPhotos {
     _selectedPhotos = selectedPhotos;
-    
-//    NSMutableArray * arr = [NSMutableArray array];
-//    if (selectedPhotos.count == 0) {
-//        [arr addObject:[UIImage imageNamed:@"AlbumAddBtn"]];
-//    } else if (selectedPhotos.count > 0 && selectedPhotos.count < 9) {
-//        [arr addObjectsFromArray:selectedPhotos];
-//        [arr addObject:[UIImage imageNamed:@"AlbumAddBtn"]];
-//    } else {
-//        [arr addObjectsFromArray:selectedPhotos];
-//    }
-//    [self.dataSource addObjectsFromArray:arr];
+
 }
 
 //创建cell
@@ -194,14 +207,16 @@ static int maxLength = 200;
     
     HP_CreateDyCollectCell * collectCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"createCollectCell" forIndexPath:indexPath];
     
-//    collectCell.img = self.dataSource[indexPath.row];
-    
     if (indexPath.item == self.selectedPhotos.count) {
         collectCell.bgImg.image = [UIImage imageNamed:@"AlbumAddBtn.png"];
+        collectCell.deleteBtn.hidden = YES;
     } else {
+        collectCell.deleteBtn.hidden = NO;
         collectCell.bgImg.image = self.selectedPhotos[indexPath.item];
         collectCell.asset = self.selectedAssets[indexPath.item];
     }
+    collectCell.deleteBtn.tag = indexPath.item;
+    [collectCell.deleteBtn addTarget:self action:@selector(deleteBtnClik:) forControlEvents:UIControlEventTouchUpInside];
     
     return collectCell;
 }
@@ -279,6 +294,24 @@ static int maxLength = 200;
         _dataSource = @[].mutableCopy;
     }
     return _dataSource;
+}
+
+// 删除
+- (void) deleteBtnClik:(UIButton *) sender{
+    if ([self collectionView:self.collectionView numberOfItemsInSection:0] <= self.selectedPhotos.count) {
+        [self.selectedPhotos removeObjectAtIndex:sender.tag];
+        [self.selectedAssets removeObjectAtIndex:sender.tag];
+        [self.collectionView reloadData];
+        return;
+    }
+    [self.selectedPhotos removeObjectAtIndex:sender.tag];
+    [self.selectedAssets removeObjectAtIndex:sender.tag];
+    [self.collectionView performBatchUpdates:^{
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:sender.tag inSection:0];
+        [self->_collectionView deleteItemsAtIndexPaths:@[indexPath]];
+    } completion:^(BOOL finished) {
+        [self->_collectionView reloadData];
+    }];
 }
 
 @end

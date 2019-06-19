@@ -42,7 +42,7 @@
 
 @property (nonatomic , assign) CGFloat currentY;
 
-@property (nonatomic , copy) NSString * isOwn;
+@property (nonatomic , strong) NSString * isOwn;
 // 相册
 @property(nonatomic , strong) TZImagePickerController * photoalbum;
 
@@ -239,7 +239,6 @@
     vc.pageIndex = 0;
     
     vc.isOwn = isOwn;
-    
     if ([isOwn isEqualToString:@"Own"]) {
         vc.ownHeadView.weChatBtn.hidden = YES;
         vc.navGiftBtn.hidden = YES;
@@ -267,6 +266,8 @@
     photoVC.user = user;
     HP_DyViewController * dyVC = [[HP_DyViewController alloc] init];
     dyVC.user = user;
+    
+    NSLog(@"isOwn = %@",isOwn);
     dyVC.isOwn = isOwn;
     return @[ownVC, photoVC, dyVC];
 }
@@ -285,7 +286,7 @@
 #pragma mark - YNPageViewControllerDelegate
 - (void)pageViewController:(YNPageViewController *)pageViewController contentOffsetY:(CGFloat)contentOffset progress:(CGFloat)progress {
     
-    if ([self.isOwn isEqualToString:@"Own"]) {
+    if ([self.isOwn isEqualToString:@"Home"]) {
         if (self.currentY < contentOffset) {
             self.careBtn.hidden = YES ;
             self.talkBtn.hidden = YES;
@@ -300,7 +301,7 @@
         }
         
         self.currentY = contentOffset;
-    } else {
+    } else if ([self.isOwn isEqualToString:@"Own"]) {
         if (self.currentY < contentOffset) {
             self.createDyBtn.hidden = YES ;
         } else {

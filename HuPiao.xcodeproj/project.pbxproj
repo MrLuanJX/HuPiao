@@ -670,6 +670,7 @@
 			children = (
 				00EEA2F122B8A6830038A521 /* HP_CreateDy */,
 				00D2F0AB22AE46D3008D52D9 /* HP_OwnDetailCells */,
+				00EEA35A22BA28BB0038A521 /* HP_HomeDy */,
 				00B951C522968A20008D9411 /* HP_HomeDetailNewViewController.h */,
 				00B951C622968A20008D9411 /* HP_HomeDetailNewViewController.m */,
 				00B951C822968AEA008D9411 /* HP_OwnDetailViewController.h */,
@@ -678,12 +679,6 @@
 				0082086322A10B5300EBEF4C /* HP_HomeDetailOwnHeadView.m */,
 				00B951CB22968AFF008D9411 /* HP_PhotoDetailViewController.h */,
 				00B951CC22968AFF008D9411 /* HP_PhotoDetailViewController.m */,
-				0082086822A1102300EBEF4C /* HP_DyViewController.h */,
-				0082086922A1102300EBEF4C /* HP_DyViewController.m */,
-				0082086B22A1160A00EBEF4C /* HP_DyCell.h */,
-				0082086C22A1160A00EBEF4C /* HP_DyCell.m */,
-				008208C022A4C2AA00EBEF4C /* HP_DyModel.h */,
-				008208C122A4C2AA00EBEF4C /* HP_DyModel.m */,
 				00B951BB2296744F008D9411 /* XZ_CollectionCell.h */,
 				00B951BC22967450008D9411 /* XZ_CollectionCell.m */,
 			);
@@ -1096,6 +1091,19 @@
 				00EEA34022BA0ADE0038A521 /* resource.xcassets */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		00EEA35A22BA28BB0038A521 /* HP_HomeDy */ = {
+			isa = PBXGroup;
+			children = (
+				0082086822A1102300EBEF4C /* HP_DyViewController.h */,
+				0082086922A1102300EBEF4C /* HP_DyViewController.m */,
+				0082086B22A1160A00EBEF4C /* HP_DyCell.h */,
+				0082086C22A1160A00EBEF4C /* HP_DyCell.m */,
+				008208C022A4C2AA00EBEF4C /* HP_DyModel.h */,
+				008208C122A4C2AA00EBEF4C /* HP_DyModel.m */,
+			);
+			path = HP_HomeDy;
 			sourceTree = "<group>";
 		};
 		20BAD2B593F7BD9618E9A655 /* Frameworks */ = {

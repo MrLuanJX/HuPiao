@@ -27,6 +27,8 @@
 /// 占位cell高度
 @property (nonatomic, assign) CGFloat placeHolderCellHeight;
 
+@property (nonatomic, strong) UIButton * evaluate;
+
 @end
 
 @implementation HP_OwnDetailViewController
@@ -76,7 +78,11 @@
     [super viewDidDisappear:animated];
     NSLog(@"--%@--%@", [self class], NSStringFromSelector(_cmd));
 }
-    
+#pragma mark - 评价
+- (void) evaluateAction:(UIButton *)sender {
+    NSLog(@"立即评价");
+}
+
 /// 添加下拉刷新
 - (void)addTableViewRefresh {
     __weak typeof (self) weakSelf = self;
@@ -143,6 +149,17 @@
     titleLabel.font = HPFontBoldSize(20);
     [view addSubview:titleLabel];
     
+    self.evaluate = [[UIButton alloc] initWithFrame:CGRectMake(HPScreenW - 90, 5, 80, 40)];
+    [self.evaluate setTitle:@"立即评价" forState:UIControlStateNormal];
+    [self.evaluate setTitleColor:HPUIColorWithRGB(0x333333, 1.0) forState:UIControlStateNormal];
+    [self.evaluate setTitleColor:HPUIColorWithRGB(0x000000, 0.5) forState:UIControlStateHighlighted];
+    self.evaluate.titleLabel.font = HPFontSize(15);
+    self.evaluate.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    [self.evaluate addTarget:self action:@selector(evaluateAction:) forControlEvents:UIControlEventTouchUpInside];
+    self.evaluate.hidden = section == 6 ? NO : YES;
+
+    [view addSubview: self.evaluate];
+
     return view;
 }
     

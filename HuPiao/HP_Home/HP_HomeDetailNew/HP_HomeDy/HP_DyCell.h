@@ -9,16 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "HP_DyModel.h"
 #import "MUser.h"
+#import "HP_DyModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
-@interface DetailCollectCell : UICollectionViewCell
-
-@property (nonatomic , strong) UIImageView * image;
-
-@property (nonatomic , copy) NSString * imageData;
-
-@end
 
 @interface HP_DyCell : UITableViewCell
 

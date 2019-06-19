@@ -26,9 +26,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic , strong) UICollectionView * collectionView;
 
+
 @property (nonatomic , copy) void (^photoClickAction) (NSIndexPath * index);
 
 @property (nonatomic , copy) void (^photoPreviewAction) (NSIndexPath * index , NSMutableArray * photos , NSMutableArray * assets);
+
+@property (nonatomic , copy) void (^delegateAction) (NSInteger index , NSMutableArray * photos , NSMutableArray * assets , UICollectionView * collectionView , UIButton * sender);
 
 
 - (void) reload;
