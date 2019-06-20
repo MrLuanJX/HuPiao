@@ -35,8 +35,13 @@
 }
 
 - (void) addCollectionView {
-    [self.collectionView registerClass:[XZ_CollectionCell class] forCellWithReuseIdentifier:@"id"];
+    [self.collectionView registerClass:[XZ_CollectionCell class] forCellWithReuseIdentifier:@"photoCell"];
     [self.view addSubview:self.collectionView];
+    
+    [self.collectionView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.bottom.mas_equalTo (0);
+    }];
+    
     [self addCollectionViewRefresh];
 }
     
@@ -66,7 +71,7 @@
     
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 
-    XZ_CollectionCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"id" forIndexPath:indexPath];
+    XZ_CollectionCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"photoCell" forIndexPath:indexPath];
     
     MUser * user = self.imgArr[indexPath.item];
     
@@ -85,9 +90,12 @@
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        layout.itemSize = CGSizeMake((HPScreenW - HPFit(40))/3, (HPScreenW - HPFit(40))/3);
-        layout.sectionInset = UIEdgeInsetsMake( HPFit(10), HPFit(10), HPFit(30), HPFit(10)); //设置距离上 左 下 右
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) collectionViewLayout:layout];
+        // 行间距
+        layout.minimumLineSpacing = 5;
+        layout.minimumInteritemSpacing = 0;
+        layout.itemSize = CGSizeMake((HPScreenW - 40)/3, (HPScreenW - 40)/3);
+        layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10); //设置距离上 左 下 右
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
         _collectionView.showsVerticalScrollIndicator = NO;
         _collectionView.dataSource = self;
         _collectionView.delegate = self;

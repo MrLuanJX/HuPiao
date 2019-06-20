@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HP_PhotoDetailViewController : UIViewController
     
 @property (nonatomic, strong) UICollectionView * collectionView;
+
 @property (nonatomic, strong) MUser * user;
 
 @end

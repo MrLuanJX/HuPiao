@@ -12,6 +12,4 @@
 
 @property (nonatomic , strong) UIImageView * bgImg;
 
-@property (nonatomic , strong) UILabel * title;
-
 @end
