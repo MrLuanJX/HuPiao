@@ -10,6 +10,7 @@
 #import "HP_DyCell.h"
 #import "HP_DyCommentController.h"
 #import "MomentUtil.h"
+#import "HP_DyModel.h"
 
 /// cell高度
 #define kCellHeight 44
@@ -48,16 +49,6 @@
     [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.bottom.top.left.right.mas_equalTo(0);
     }];
-    
-//    self.dataArray = @[].mutableCopy;
-    /// 加载数据
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        for (int i = 0; i < 10; i++) {
-//            [weakSelf.dataArray addObject:@""];
-//        }
-//        [self.tableView reloadData];
-//    });
-//    [self addTableViewRefresh];
 }
 
 #pragma mark - 模拟数据
@@ -65,7 +56,6 @@
     self.loginUser = [MUser findFirstByCriteria:@"WHERE type = 1"];
     self.momentList = [[NSMutableArray alloc] init];
     [self.momentList addObjectsFromArray:[MomentUtil getMomentList:0 pageNum:10]];
-//    [self.tableView reloadData];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
@@ -87,16 +77,12 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row < self.dataArray.count) {
         // 使用缓存行高，避免计算多次
-        Moment * moment = [self.momentList objectAtIndex:indexPath.row];
-        NSLog(@"rowHeight1 = %lf",moment.rowHeight);
+        HP_DyModel * moment = [self.momentList objectAtIndex:indexPath.row];
 
         return moment.rowHeight;
-//        return indexPath.row %2 == 0 ? HPFit(735) : HPFit(750);
-        //kCellHeight;   HPFit(720);
     }
-    Moment * moment = [self.momentList objectAtIndex:indexPath.row];
+    HP_DyModel * moment = [self.momentList objectAtIndex:indexPath.row];
     return moment.rowHeight;
-//    return self.placeHolderCellHeight;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -126,20 +112,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-
+    HP_DyModel * dyModel = self.momentList[indexPath.row];
+    
     HP_DyCommentController *baseVC = [HP_DyCommentController new];
     baseVC.title = @"动态详情";
-    baseVC.user = self.user;
+    baseVC.dyModel = dyModel;
     [self.navigationController pushViewController:baseVC animated:YES];
 }
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        // CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - self.tabBarController.tabBar.height)
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _tableView.backgroundColor = kSetUpCololor(242, 242, 242, 1.0);
         _tableView.showsVerticalScrollIndicator = NO;
-//        _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.delegate = self;
         _tableView.dataSource = self;
     }

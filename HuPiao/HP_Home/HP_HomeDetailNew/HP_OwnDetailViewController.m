@@ -149,7 +149,7 @@
     titleLabel.font = HPFontBoldSize(20);
     [view addSubview:titleLabel];
     
-    self.evaluate = [[UIButton alloc] initWithFrame:CGRectMake(HPScreenW - 90, 5, 80, 40)];
+    self.evaluate = [[UIButton alloc] initWithFrame:CGRectMake(HPScreenW - 100, 5, 80, 40)];
     [self.evaluate setTitle:@"立即评价" forState:UIControlStateNormal];
     [self.evaluate setTitleColor:HPUIColorWithRGB(0x333333, 1.0) forState:UIControlStateNormal];
     [self.evaluate setTitleColor:HPUIColorWithRGB(0x000000, 0.5) forState:UIControlStateHighlighted];

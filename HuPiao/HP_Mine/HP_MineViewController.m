@@ -37,6 +37,7 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
 @property (nonatomic , assign) CGFloat fileSize;
 
 @property (nonatomic , strong) UIButton * logoutBtn;
+@property (nonatomic , strong) UILabel *titleLabel;
 
 @end
 
@@ -50,13 +51,13 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
 
     //同理透明掉导航栏下划线
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
-
-    self.navigationItem.title = @"";
     
     [self.messageList removeAllObjects];
     [self.messageList addObjectsFromArray:[MUser findAll]];
     self.user = [self.messageList objectAtIndex:1];
     self.headView.user = self.user;
+    self.titleLabel.text = self.user.name;//@"我的";
+    self.navigationItem.titleView = self.titleLabel;
     [self.tableView reloadData];
 }
 
@@ -83,6 +84,7 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
 #pragma mark -  重点的地方在这里 滚动时候进行计算
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat offsetY = scrollView.contentOffset.y;
+    NSLog(@"offsetY = %lf",offsetY);
     CGFloat offsetH = imageBGHeight + offsetY ;
     if (offsetH < 0) {
         CGRect frame = self.headView.frame;
@@ -91,31 +93,16 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
         self.headView.frame = frame;
     }
     
-    CGFloat alpha = offsetH / imageBGHeight;
+    CGFloat alpha = offsetH / imageBGHeight*1.5;
+    
+    if (scrollView.contentOffset.y > -k_top_height) {
+        self.tableView.contentOffset = CGPointMake(0, -k_top_height);
+    }
     
     [self.navigationController.navigationBar setBackgroundImage:[self imageWithColor:[[UIColor whiteColor] colorWithAlphaComponent:alpha]] forBarMetrics:UIBarMetricsDefault];
-//    self.titleLabel.alpha = alpha;
+    self.titleLabel.alpha = alpha;
 }
 
-#pragma mark - 返回一张纯色图片
-/** 返回一张纯色图片 */
-- (UIImage *)imageWithColor:(UIColor *)color {
-    // 描述矩形
-    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
-    // 开启位图上下文
-    UIGraphicsBeginImageContext(rect.size);
-    // 获取位图上下文
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    // 使用color演示填充上下文
-    CGContextSetFillColorWithColor(context, [color CGColor]);
-    // 渲染上下文
-    CGContextFillRect(context, rect);
-    // 从上下文中获取图片
-    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
-    // 结束上下文
-    UIGraphicsEndImageContext();
-    return theImage;
-}
 
 - (void) foldFileSize {
     NSString *libPath = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES)[0];
@@ -142,7 +129,7 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
         }
         [self.tableView reloadData];
     });
-    
+
     // 跳转个人主页
     self.headView.jumpOwnPage = ^{
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -427,5 +414,38 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
     
     return str;
 }
+
+- (UILabel *)titleLabel {
+    if (_titleLabel == nil) {
+        _titleLabel = [UILabel new];
+        _titleLabel.textColor = HPUIColorWithRGB(0x282828,1.0);
+        [_titleLabel sizeToFit];
+        _titleLabel.textAlignment = NSTextAlignmentCenter;
+        _titleLabel.alpha = 0;
+        _titleLabel.font = HPFontSize(18);
+    }
+    return _titleLabel;
+}
+
+#pragma mark - 返回一张纯色图片
+/** 返回一张纯色图片 */
+- (UIImage *)imageWithColor:(UIColor *)color {
+    // 描述矩形
+    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+    // 开启位图上下文
+    UIGraphicsBeginImageContext(rect.size);
+    // 获取位图上下文
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    // 使用color演示填充上下文
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    // 渲染上下文
+    CGContextFillRect(context, rect);
+    // 从上下文中获取图片
+    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
+    // 结束上下文
+    UIGraphicsEndImageContext();
+    return theImage;
+}
+
 
 @end

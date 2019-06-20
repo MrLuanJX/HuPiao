@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "MUser.h"
+#import "HP_DyModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HP_DyCommentController : UIViewController
 
-@property (nonatomic , strong) MUser * user;
+@property (nonatomic , strong) HP_DyModel * dyModel;
 
 
 @end

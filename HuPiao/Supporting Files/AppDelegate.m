@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "HP_LoginViewController.h"
+#import "HP_UpdatePwdViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,8 +22,10 @@
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
     self.window.backgroundColor = [UIColor whiteColor];
+
+//    HP_NavigationViewController * loginNav = [[HP_NavigationViewController alloc] initWithRootViewController:[HP_LoginViewController new]];
     
-    self.window.rootViewController = [HP_TabbarViewController new];
+    self.window.rootViewController = [HP_TabbarViewController new];   // loginNav; //
     
     [self.window makeKeyAndVisible];
     

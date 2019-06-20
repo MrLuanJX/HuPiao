@@ -36,6 +36,10 @@
 		0082090822A6023500EBEF4C /* GXUpvoteButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0082090722A6023500EBEF4C /* GXUpvoteButton.m */; };
 		0082090B22A65DF900EBEF4C /* HP_MineHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0082090A22A65DF900EBEF4C /* HP_MineHeadView.m */; };
 		0082091122A6788900EBEF4C /* bgView.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0082091022A6788900EBEF4C /* bgView.jpg */; };
+		009CEDF422BB501C00889FFD /* HP_LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CEDF322BB501C00889FFD /* HP_LoginViewController.m */; };
+		009CEDF722BB538C00889FFD /* HP_RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CEDF622BB538C00889FFD /* HP_RegistViewController.m */; };
+		009CEDFA22BB7A5600889FFD /* HPRegistPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CEDF922BB7A5600889FFD /* HPRegistPwdViewController.m */; };
+		009CEDFD22BB86A300889FFD /* HP_UpdatePwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CEDFC22BB86A300889FFD /* HP_UpdatePwdViewController.m */; };
 		00B9511422929C9F008D9411 /* HP_HomeBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B9511322929C9F008D9411 /* HP_HomeBaseViewController.m */; };
 		00B9511722929DA7008D9411 /* HP_HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B9511622929DA7008D9411 /* HP_HomeCell.m */; };
 		00B9512E2292AAE2008D9411 /* gfrz.png in Resources */ = {isa = PBXBuildFile; fileRef = 00B9512D2292AAE2008D9411 /* gfrz.png */; };
@@ -104,8 +108,6 @@
 		00D2F0A422ADFD80008D52D9 /* CLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2F0A222ADFD7F008D52D9 /* CLocationManager.m */; };
 		00D2F0A722AE24DA008D52D9 /* HP_WalletHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2F0A622AE24DA008D52D9 /* HP_WalletHeadView.m */; };
 		00D2F0AA22AE37D7008D52D9 /* HP_ExpenditureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2F0A922AE37D7008D52D9 /* HP_ExpenditureViewController.m */; };
-		00D2F0AE22AE46FF008D52D9 /* HP_CircleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2F0AD22AE46FF008D52D9 /* HP_CircleTableCell.m */; };
-		00D2F0B122AE5DB7008D52D9 /* HP_ImpressionTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2F0B022AE5DB7008D52D9 /* HP_ImpressionTableCell.m */; };
 		00D2F0B422AE62EA008D52D9 /* HP_PersonalTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2F0B322AE62EA008D52D9 /* HP_PersonalTableCell.m */; };
 		00D2F0B722AE661C008D52D9 /* HP_EvaluateTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2F0B622AE661C008D52D9 /* HP_EvaluateTableCell.m */; };
 		00D2F0BA22AF505F008D52D9 /* HP_CeIdcardBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2F0B922AF505F008D52D9 /* HP_CeIdcardBaseViewController.m */; };
@@ -144,6 +146,8 @@
 		00EEA35522BA0ADF0038A521 /* XBZEmojiCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEA33E22BA0ADE0038A521 /* XBZEmojiCollectionViewCell.m */; };
 		00EEA35622BA0ADF0038A521 /* resource.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00EEA34022BA0ADE0038A521 /* resource.xcassets */; };
 		00EEA35922BA0BF80038A521 /* HP_CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEA35822BA0BF80038A521 /* HP_CommentCell.m */; };
+		00EEA36822BB20F30038A521 /* HP_ImpressionTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEA36422BB20F20038A521 /* HP_ImpressionTableCell.m */; };
+		00EEA36922BB20F30038A521 /* HP_CircleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEA36722BB20F30038A521 /* HP_CircleTableCell.m */; };
 		6FA88AE52053FD530287571A /* libPods-HuPiao.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1F0D25849DB2562E24DED4 /* libPods-HuPiao.a */; };
 		DDFE70DE2290F4270029C425 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFE70DD2290F4270029C425 /* AppDelegate.m */; };
 		DDFE70E12290F4270029C425 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFE70E02290F4270029C425 /* ViewController.m */; };
@@ -241,6 +245,14 @@
 		0082090922A65DF900EBEF4C /* HP_MineHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_MineHeadView.h; sourceTree = "<group>"; };
 		0082090A22A65DF900EBEF4C /* HP_MineHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_MineHeadView.m; sourceTree = "<group>"; };
 		0082091022A6788900EBEF4C /* bgView.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bgView.jpg; sourceTree = "<group>"; };
+		009CEDF222BB501C00889FFD /* HP_LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_LoginViewController.h; sourceTree = "<group>"; };
+		009CEDF322BB501C00889FFD /* HP_LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_LoginViewController.m; sourceTree = "<group>"; };
+		009CEDF522BB538C00889FFD /* HP_RegistViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_RegistViewController.h; sourceTree = "<group>"; };
+		009CEDF622BB538C00889FFD /* HP_RegistViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_RegistViewController.m; sourceTree = "<group>"; };
+		009CEDF822BB7A5600889FFD /* HPRegistPwdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HPRegistPwdViewController.h; sourceTree = "<group>"; };
+		009CEDF922BB7A5600889FFD /* HPRegistPwdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HPRegistPwdViewController.m; sourceTree = "<group>"; };
+		009CEDFB22BB86A300889FFD /* HP_UpdatePwdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_UpdatePwdViewController.h; sourceTree = "<group>"; };
+		009CEDFC22BB86A300889FFD /* HP_UpdatePwdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_UpdatePwdViewController.m; sourceTree = "<group>"; };
 		00B9511222929C9F008D9411 /* HP_HomeBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_HomeBaseViewController.h; sourceTree = "<group>"; };
 		00B9511322929C9F008D9411 /* HP_HomeBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_HomeBaseViewController.m; sourceTree = "<group>"; };
 		00B9511522929DA7008D9411 /* HP_HomeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_HomeCell.h; sourceTree = "<group>"; };
@@ -359,10 +371,6 @@
 		00D2F0A622AE24DA008D52D9 /* HP_WalletHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_WalletHeadView.m; sourceTree = "<group>"; };
 		00D2F0A822AE37D7008D52D9 /* HP_ExpenditureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_ExpenditureViewController.h; sourceTree = "<group>"; };
 		00D2F0A922AE37D7008D52D9 /* HP_ExpenditureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_ExpenditureViewController.m; sourceTree = "<group>"; };
-		00D2F0AC22AE46FF008D52D9 /* HP_CircleTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_CircleTableCell.h; sourceTree = "<group>"; };
-		00D2F0AD22AE46FF008D52D9 /* HP_CircleTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_CircleTableCell.m; sourceTree = "<group>"; };
-		00D2F0AF22AE5DB7008D52D9 /* HP_ImpressionTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_ImpressionTableCell.h; sourceTree = "<group>"; };
-		00D2F0B022AE5DB7008D52D9 /* HP_ImpressionTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_ImpressionTableCell.m; sourceTree = "<group>"; };
 		00D2F0B222AE62EA008D52D9 /* HP_PersonalTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_PersonalTableCell.h; sourceTree = "<group>"; };
 		00D2F0B322AE62EA008D52D9 /* HP_PersonalTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_PersonalTableCell.m; sourceTree = "<group>"; };
 		00D2F0B522AE661C008D52D9 /* HP_EvaluateTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_EvaluateTableCell.h; sourceTree = "<group>"; };
@@ -437,6 +445,10 @@
 		00EEA34022BA0ADE0038A521 /* resource.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = resource.xcassets; sourceTree = "<group>"; };
 		00EEA35722BA0BF80038A521 /* HP_CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HP_CommentCell.h; sourceTree = "<group>"; };
 		00EEA35822BA0BF80038A521 /* HP_CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HP_CommentCell.m; sourceTree = "<group>"; };
+		00EEA36422BB20F20038A521 /* HP_ImpressionTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HP_ImpressionTableCell.m; sourceTree = "<group>"; };
+		00EEA36522BB20F20038A521 /* HP_CircleTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HP_CircleTableCell.h; sourceTree = "<group>"; };
+		00EEA36622BB20F20038A521 /* HP_ImpressionTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HP_ImpressionTableCell.h; sourceTree = "<group>"; };
+		00EEA36722BB20F30038A521 /* HP_CircleTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HP_CircleTableCell.m; sourceTree = "<group>"; };
 		7A1F0D25849DB2562E24DED4 /* libPods-HuPiao.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HuPiao.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDBCA537C9F607AC2A70D980 /* Pods-HuPiao.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuPiao.release.xcconfig"; path = "Target Support Files/Pods-HuPiao/Pods-HuPiao.release.xcconfig"; sourceTree = "<group>"; };
 		DDFE70D92290F4270029C425 /* HuPiao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HuPiao.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -539,6 +551,21 @@
 				008208EE22A4F9A000EBEF4C /* HP_ContactsViewController.m */,
 			);
 			path = HP_ContactsViewController;
+			sourceTree = "<group>";
+		};
+		009CEDF122BB4FFD00889FFD /* HP_Login */ = {
+			isa = PBXGroup;
+			children = (
+				009CEDF222BB501C00889FFD /* HP_LoginViewController.h */,
+				009CEDF322BB501C00889FFD /* HP_LoginViewController.m */,
+				009CEDF522BB538C00889FFD /* HP_RegistViewController.h */,
+				009CEDF622BB538C00889FFD /* HP_RegistViewController.m */,
+				009CEDF822BB7A5600889FFD /* HPRegistPwdViewController.h */,
+				009CEDF922BB7A5600889FFD /* HPRegistPwdViewController.m */,
+				009CEDFB22BB86A300889FFD /* HP_UpdatePwdViewController.h */,
+				009CEDFC22BB86A300889FFD /* HP_UpdatePwdViewController.m */,
+			);
+			path = HP_Login;
 			sourceTree = "<group>";
 		};
 		00B951182292A3EE008D9411 /* HP_Tool */ = {
@@ -861,10 +888,10 @@
 		00D2F0AB22AE46D3008D52D9 /* HP_OwnDetailCells */ = {
 			isa = PBXGroup;
 			children = (
-				00D2F0AC22AE46FF008D52D9 /* HP_CircleTableCell.h */,
-				00D2F0AD22AE46FF008D52D9 /* HP_CircleTableCell.m */,
-				00D2F0AF22AE5DB7008D52D9 /* HP_ImpressionTableCell.h */,
-				00D2F0B022AE5DB7008D52D9 /* HP_ImpressionTableCell.m */,
+				00EEA36522BB20F20038A521 /* HP_CircleTableCell.h */,
+				00EEA36722BB20F30038A521 /* HP_CircleTableCell.m */,
+				00EEA36622BB20F20038A521 /* HP_ImpressionTableCell.h */,
+				00EEA36422BB20F20038A521 /* HP_ImpressionTableCell.m */,
 				00D2F0B222AE62EA008D52D9 /* HP_PersonalTableCell.h */,
 				00D2F0B322AE62EA008D52D9 /* HP_PersonalTableCell.m */,
 				00D2F0B522AE661C008D52D9 /* HP_EvaluateTableCell.h */,
@@ -1148,6 +1175,7 @@
 		DDFE70DB2290F4270029C425 /* HuPiao */ = {
 			isa = PBXGroup;
 			children = (
+				009CEDF122BB4FFD00889FFD /* HP_Login */,
 				DDFE711F229105F40029C425 /* HP_Home */,
 				00B951A322965A67008D9411 /* HP_Dynamic */,
 				DDFE71212291060C0029C425 /* HP_Message */,
@@ -1507,6 +1535,7 @@
 				00D2F0B722AE661C008D52D9 /* HP_EvaluateTableCell.m in Sources */,
 				00EEA2FD22B8A8400038A521 /* LLWCustomButton.m in Sources */,
 				00B951C322967CDC008D9411 /* HP_HomeViewController.m in Sources */,
+				009CEDFD22BB86A300889FFD /* HP_UpdatePwdViewController.m in Sources */,
 				00EEA34A22BA0ADE0038A521 /* UIScrollView+XBZKeyBoard.m in Sources */,
 				00D2EFD922A75FE8008D52D9 /* INMUpdateView.m in Sources */,
 				00EEA34622BA0ADE0038A521 /* UIColor+XBZKeyBoard.m in Sources */,
@@ -1531,6 +1560,7 @@
 				00EEA30422B8E36E0038A521 /* HP_CreateDyCell.m in Sources */,
 				008208E422A4F89100EBEF4C /* MLocation.m in Sources */,
 				00D2F09822A90508008D52D9 /* Lyy_ImagePickerController.m in Sources */,
+				009CEDFA22BB7A5600889FFD /* HPRegistPwdViewController.m in Sources */,
 				008208EF22A4F9A000EBEF4C /* HP_ContactsViewController.m in Sources */,
 				00D2F0D922B0C4B5008D52D9 /* HP_CashWithdrawalModel.m in Sources */,
 				0082090B22A65DF900EBEF4C /* HP_MineHeadView.m in Sources */,
@@ -1556,6 +1586,7 @@
 				00D2F0A422ADFD80008D52D9 /* CLocationManager.m in Sources */,
 				00D2EFDB22A75FE8008D52D9 /* INMLoadingView.m in Sources */,
 				008208D622A4F64800EBEF4C /* SearchResultViewController.m in Sources */,
+				00EEA36922BB20F30038A521 /* HP_CircleTableCell.m in Sources */,
 				00D2EFD722A75FE8008D52D9 /* INMHomeRefreshHeader.m in Sources */,
 				DDFE71182290F5690029C425 /* HP_NavigationViewController.m in Sources */,
 				00B951BD22967450008D9411 /* XZ_CollectionCell.m in Sources */,
@@ -1575,6 +1606,7 @@
 				00D2EFF122A8E885008D52D9 /* HP_SignViewController.m in Sources */,
 				00D2EFD822A75FE8008D52D9 /* INMRefreshHeader.m in Sources */,
 				DDFE7140229115AF0029C425 /* UIImage+Extension.m in Sources */,
+				009CEDF722BB538C00889FFD /* HP_RegistViewController.m in Sources */,
 				00EEA35322BA0ADF0038A521 /* XBZChatMoreCollectionViewCell.m in Sources */,
 				00B9511422929C9F008D9411 /* HP_HomeBaseViewController.m in Sources */,
 				00D2EFFB22A8FC67008D52D9 /* HP_CeIdcardViewController.m in Sources */,
@@ -1603,7 +1635,6 @@
 				00EEA34F22BA0ADE0038A521 /* XBZVoiceAnimationView.m in Sources */,
 				008207F1229D359800EBEF4C /* HP_InsertBGView.m in Sources */,
 				00B9517222963925008D9411 /* HJTabViewControllerPlugin_Base.m in Sources */,
-				00D2F0B122AE5DB7008D52D9 /* HP_ImpressionTableCell.m in Sources */,
 				008208D922A4F7D500EBEF4C /* MomentUtil.m in Sources */,
 				008208DF22A4F86C00EBEF4C /* Comment.m in Sources */,
 				00D2F09122A9020E008D52D9 /* RectManager.m in Sources */,
@@ -1613,8 +1644,9 @@
 				0082090522A5316200EBEF4C /* UIView+BorderLine.m in Sources */,
 				00D2F08C22A9020E008D52D9 /* IDInfo.m in Sources */,
 				00EEA35522BA0ADF0038A521 /* XBZEmojiCollectionViewCell.m in Sources */,
+				009CEDF422BB501C00889FFD /* HP_LoginViewController.m in Sources */,
+				00EEA36822BB20F30038A521 /* HP_ImpressionTableCell.m in Sources */,
 				00D2F08D22A9020E008D52D9 /* AVCaptureViewController.m in Sources */,
-				00D2F0AE22AE46FF008D52D9 /* HP_CircleTableCell.m in Sources */,
 				00D2EFFE22A8FD2B008D52D9 /* HP_CerIdcardTabCell.m in Sources */,
 				DDFE71122290F53A0029C425 /* HP_BaseViewController.m in Sources */,
 				008208C522A4F35500EBEF4C /* HP_TableView.m in Sources */,

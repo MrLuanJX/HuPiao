@@ -66,7 +66,7 @@
     if (@available(iOS 11.0, *)) {
         self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
-     [self.tableView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:nil];
+//     [self.tableView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -115,7 +115,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return HPFit(730);
+        return self.dyModel.rowHeight;
     } else {
         return HPFit(70);
     }
@@ -129,7 +129,7 @@
         
         dyCell.index = indexPath;
         
-        dyCell.user = self.user;
+        dyCell.dyModel = self.dyModel;
         
         return dyCell;
     } else {

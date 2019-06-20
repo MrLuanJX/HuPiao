@@ -58,17 +58,6 @@
     
     [self getlocation];
 }
-    
--(UITableView *)tableView{
-    if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
-        _tableView.separatorStyle = UITableViewCellEditingStyleNone;
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        _tableView.estimatedRowHeight = 50;
-    }
-    return _tableView;
-}
 
 -(void)addTableView{
     __weak typeof (self) weakSelf = self;
@@ -152,6 +141,17 @@
         _messageList = [[NSMutableArray alloc] init];
     }
     return _messageList;
+}
+
+-(UITableView *)tableView{
+    if (!_tableView) {
+        _tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+        _tableView.separatorStyle = UITableViewCellEditingStyleNone;
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.estimatedRowHeight = 50;
+    }
+    return _tableView;
 }
 
 @end

@@ -60,7 +60,6 @@
     [self.linkLabel sizeToFit];
     
     bottom = self.linkLabel.bottom + kPaddingValue;
-    
     // 图片
     _imageListView.moment = dyModel;
     if ([dyModel.pictureList count] > 0) {
