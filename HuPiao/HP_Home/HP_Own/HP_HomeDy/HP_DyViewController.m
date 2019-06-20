@@ -11,6 +11,7 @@
 #import "HP_DyCommentController.h"
 #import "MomentUtil.h"
 #import "HP_DyModel.h"
+#import "HZPhotoBrowser.h"
 
 /// cell高度
 #define kCellHeight 44
@@ -41,10 +42,8 @@
 }
 
 - (void) setupUI {
-    __weak typeof (self) weakSelf = self;
-
+    
     [self.view addSubview:self.tableView];
-
 
     [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.bottom.top.left.right.mas_equalTo(0);
@@ -86,6 +85,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    WS(wSelf);
     
     static NSString *CellIdentifier = @"dyCell";
     
@@ -101,6 +101,11 @@
 
     dyCell.dyModel = self.momentList[indexPath.row];
 
+    dyCell.cellImgListBlock = ^(NSInteger index, HP_DyModel * _Nonnull dyModel) {
+        NSLog(@"imgList = %@---%ld",dyModel.pictureList , index);
+        [wSelf photoBrowserURLArray:dyModel.pictureList WithIndex:(int)index];
+    };
+    
     return dyCell;
 }
 
@@ -158,6 +163,24 @@
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     NSLog(@"--%@--%@", [self class], NSStringFromSelector(_cmd));
+}
+
+#pragma mark - 相册预览
+- (void) photoBrowserURLArray:(NSMutableArray *)urlArr WithIndex:(int)index {
+    HZPhotoBrowser *browser = [[HZPhotoBrowser alloc] init];
+    browser.isFullWidthForLandScape = YES;
+    browser.isNeedLandscape = YES;
+    browser.currentImageIndex = index;
+    if (urlArr.count > 0) {
+        NSMutableArray * imgArr = @[].mutableCopy;
+        for (MPicture * pictureUrl in urlArr) {
+            if (!HPNULLString(pictureUrl.thumbnail)) {
+                [imgArr addObject:pictureUrl.thumbnail];
+            }
+        }
+        browser.imageArray = imgArr;
+    }
+    [browser show];
 }
 
 @end

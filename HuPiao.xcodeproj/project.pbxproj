@@ -70,7 +70,6 @@
 		00B951A122964DCF008D9411 /* xzys.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00B9519222964DCF008D9411 /* xzys.jpg */; };
 		00B951A222964DCF008D9411 /* mj.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00B9519322964DCF008D9411 /* mj.jpg */; };
 		00B951A622965A78008D9411 /* HP_DynamicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B951A522965A78008D9411 /* HP_DynamicViewController.m */; };
-		00B951BD22967450008D9411 /* XZ_CollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B951BC22967450008D9411 /* XZ_CollectionCell.m */; };
 		00B951C322967CDC008D9411 /* HP_HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B951C222967CDC008D9411 /* HP_HomeViewController.m */; };
 		00B951C722968A20008D9411 /* HP_HomeDetailNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B951C622968A20008D9411 /* HP_HomeDetailNewViewController.m */; };
 		00B951CA22968AEA008D9411 /* HP_OwnDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B951C922968AEA008D9411 /* HP_OwnDetailViewController.m */; };
@@ -295,8 +294,6 @@
 		00B9519322964DCF008D9411 /* mj.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mj.jpg; sourceTree = "<group>"; };
 		00B951A422965A78008D9411 /* HP_DynamicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_DynamicViewController.h; sourceTree = "<group>"; };
 		00B951A522965A78008D9411 /* HP_DynamicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_DynamicViewController.m; sourceTree = "<group>"; };
-		00B951BB2296744F008D9411 /* XZ_CollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZ_CollectionCell.h; sourceTree = "<group>"; };
-		00B951BC22967450008D9411 /* XZ_CollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZ_CollectionCell.m; sourceTree = "<group>"; };
 		00B951C122967CDC008D9411 /* HP_HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_HomeViewController.h; sourceTree = "<group>"; };
 		00B951C222967CDC008D9411 /* HP_HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_HomeViewController.m; sourceTree = "<group>"; };
 		00B951C522968A20008D9411 /* HP_HomeDetailNewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_HomeDetailNewViewController.h; sourceTree = "<group>"; };
@@ -568,6 +565,29 @@
 			path = HP_Login;
 			sourceTree = "<group>";
 		};
+		009CEEC022BB976E00889FFD /* HP_Own */ = {
+			isa = PBXGroup;
+			children = (
+				00D2F0AB22AE46D3008D52D9 /* HP_OwnCells */,
+				00B951C522968A20008D9411 /* HP_HomeDetailNewViewController.h */,
+				00B951C622968A20008D9411 /* HP_HomeDetailNewViewController.m */,
+				00B951C822968AEA008D9411 /* HP_OwnDetailViewController.h */,
+				00B951C922968AEA008D9411 /* HP_OwnDetailViewController.m */,
+				0082086222A10B5300EBEF4C /* HP_HomeDetailOwnHeadView.h */,
+				0082086322A10B5300EBEF4C /* HP_HomeDetailOwnHeadView.m */,
+			);
+			path = HP_Own;
+			sourceTree = "<group>";
+		};
+		009CEEC122BB986800889FFD /* HP_Photo */ = {
+			isa = PBXGroup;
+			children = (
+				00B951CB22968AFF008D9411 /* HP_PhotoDetailViewController.h */,
+				00B951CC22968AFF008D9411 /* HP_PhotoDetailViewController.m */,
+			);
+			path = HP_Photo;
+			sourceTree = "<group>";
+		};
 		00B951182292A3EE008D9411 /* HP_Tool */ = {
 			isa = PBXGroup;
 			children = (
@@ -692,24 +712,15 @@
 			path = HP_Dynamic;
 			sourceTree = "<group>";
 		};
-		00B951C422968A10008D9411 /* HP_HomeDetailNew */ = {
+		00B951C422968A10008D9411 /* HP_Own */ = {
 			isa = PBXGroup;
 			children = (
-				00EEA2F122B8A6830038A521 /* HP_CreateDy */,
-				00D2F0AB22AE46D3008D52D9 /* HP_OwnDetailCells */,
+				009CEEC022BB976E00889FFD /* HP_Own */,
+				009CEEC122BB986800889FFD /* HP_Photo */,
 				00EEA35A22BA28BB0038A521 /* HP_HomeDy */,
-				00B951C522968A20008D9411 /* HP_HomeDetailNewViewController.h */,
-				00B951C622968A20008D9411 /* HP_HomeDetailNewViewController.m */,
-				00B951C822968AEA008D9411 /* HP_OwnDetailViewController.h */,
-				00B951C922968AEA008D9411 /* HP_OwnDetailViewController.m */,
-				0082086222A10B5300EBEF4C /* HP_HomeDetailOwnHeadView.h */,
-				0082086322A10B5300EBEF4C /* HP_HomeDetailOwnHeadView.m */,
-				00B951CB22968AFF008D9411 /* HP_PhotoDetailViewController.h */,
-				00B951CC22968AFF008D9411 /* HP_PhotoDetailViewController.m */,
-				00B951BB2296744F008D9411 /* XZ_CollectionCell.h */,
-				00B951BC22967450008D9411 /* XZ_CollectionCell.m */,
+				00EEA2F122B8A6830038A521 /* HP_CreateDy */,
 			);
-			path = HP_HomeDetailNew;
+			path = HP_Own;
 			sourceTree = "<group>";
 		};
 		00D2EFC422A75FE6008D52D9 /* INMCustomRefresh */ = {
@@ -885,7 +896,7 @@
 			path = "Location(定位)";
 			sourceTree = "<group>";
 		};
-		00D2F0AB22AE46D3008D52D9 /* HP_OwnDetailCells */ = {
+		00D2F0AB22AE46D3008D52D9 /* HP_OwnCells */ = {
 			isa = PBXGroup;
 			children = (
 				00EEA36522BB20F20038A521 /* HP_CircleTableCell.h */,
@@ -897,7 +908,7 @@
 				00D2F0B522AE661C008D52D9 /* HP_EvaluateTableCell.h */,
 				00D2F0B622AE661C008D52D9 /* HP_EvaluateTableCell.m */,
 			);
-			path = HP_OwnDetailCells;
+			path = HP_OwnCells;
 			sourceTree = "<group>";
 		};
 		00D2F0C422AF97E9008D52D9 /* HP_GiftView */ = {
@@ -1273,7 +1284,7 @@
 			children = (
 				00EEA30622BA06910038A521 /* HP_HomeDyComment */,
 				00EEA30522BA064B0038A521 /* HP_Home */,
-				00B951C422968A10008D9411 /* HP_HomeDetailNew */,
+				00B951C422968A10008D9411 /* HP_Own */,
 			);
 			path = HP_Home;
 			sourceTree = "<group>";
@@ -1589,7 +1600,6 @@
 				00EEA36922BB20F30038A521 /* HP_CircleTableCell.m in Sources */,
 				00D2EFD722A75FE8008D52D9 /* INMHomeRefreshHeader.m in Sources */,
 				DDFE71182290F5690029C425 /* HP_NavigationViewController.m in Sources */,
-				00B951BD22967450008D9411 /* XZ_CollectionCell.m in Sources */,
 				00D2EFEB22A7A82F008D52D9 /* HP_AuthMessageHeadView.m in Sources */,
 				00B9516D22963925008D9411 /* HJTabViewControllerPlugin_HeaderScroll.m in Sources */,
 				0082086D22A1160A00EBEF4C /* HP_DyCell.m in Sources */,

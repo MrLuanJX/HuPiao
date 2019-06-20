@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic , strong) MUser * user;
 
-@property (nonatomic , copy) void(^cellHeightBlock)(CGFloat rowHeight);
+@property (nonatomic , copy) void(^cellImgListBlock)(NSInteger index , HP_DyModel * dyModel);
 
 @property (nonatomic , strong) UIButton * deleteBtn;    // 删除
 

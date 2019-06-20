@@ -123,6 +123,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0) {
+        WS(wSelf);
+        
         static NSString *CellIdentifier = @"dyCell";
         
         HP_DyCell * dyCell = [HP_DyCell dequeueReusableCellWithTableView:tableView Identifier:CellIdentifier];
@@ -130,6 +132,10 @@
         dyCell.index = indexPath;
         
         dyCell.dyModel = self.dyModel;
+        
+        dyCell.cellImgListBlock = ^(NSInteger index, HP_DyModel * _Nonnull dyModel) {
+            [wSelf photoBrowserURLArray:dyModel.pictureList WithIndex:(int)index];
+        };
         
         return dyCell;
     } else {
@@ -236,5 +242,24 @@
     }
     return _dataArray;
 }
+
+#pragma mark - 相册预览
+- (void) photoBrowserURLArray:(NSMutableArray *)urlArr WithIndex:(int)index {
+    HZPhotoBrowser *browser = [[HZPhotoBrowser alloc] init];
+    browser.isFullWidthForLandScape = YES;
+    browser.isNeedLandscape = YES;
+    browser.currentImageIndex = index;
+    if (urlArr.count > 0) {
+        NSMutableArray * imgArr = @[].mutableCopy;
+        for (MPicture * pictureUrl in urlArr) {
+            if (!HPNULLString(pictureUrl.thumbnail)) {
+                [imgArr addObject:pictureUrl.thumbnail];
+            }
+        }
+        browser.imageArray = imgArr;
+    }
+    [browser show];
+}
+
 
 @end

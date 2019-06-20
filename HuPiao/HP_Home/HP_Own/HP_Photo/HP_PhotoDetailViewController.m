@@ -7,8 +7,38 @@
 //
 
 #import "HP_PhotoDetailViewController.h"
-#import "XZ_CollectionCell.h"
 #import "HZPhotoBrowser.h"
+
+@interface HP_PhotoCollectionCell()
+
+@property (nonatomic , strong) UIImageView * bgImg;
+
+@end
+
+@implementation HP_PhotoCollectionCell
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        
+        [self.contentView addSubview:self.bgImg];
+        
+        [self.bgImg mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.right.top.left.mas_equalTo(0);
+        }];
+    }
+    return self;
+}
+
+- (UIImageView *)bgImg {
+    if (!_bgImg) {
+        _bgImg = [[UIImageView alloc]init];
+        _bgImg.contentMode = UIViewContentModeScaleAspectFill;
+        [_bgImg setClipsToBounds:YES];
+    }
+    return _bgImg;
+}
+
+@end
 
 @interface HP_PhotoDetailViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
    
@@ -35,7 +65,7 @@
 }
 
 - (void) addCollectionView {
-    [self.collectionView registerClass:[XZ_CollectionCell class] forCellWithReuseIdentifier:@"photoCell"];
+    [self.collectionView registerClass:[HP_PhotoCollectionCell class] forCellWithReuseIdentifier:@"photoCell"];
     [self.view addSubview:self.collectionView];
     
     [self.collectionView mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -71,7 +101,7 @@
     
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 
-    XZ_CollectionCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"photoCell" forIndexPath:indexPath];
+    HP_PhotoCollectionCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"photoCell" forIndexPath:indexPath];
     
     MUser * user = self.imgArr[indexPath.item];
     
@@ -115,6 +145,7 @@
     return _imgArr;
 }
 
+#pragma mark - 相册预览
 - (void) photoBrowserURLArray:(NSMutableArray *)urlArr WithIndex:(int)index {
     HZPhotoBrowser *browser = [[HZPhotoBrowser alloc] init];
     browser.isFullWidthForLandScape = YES;

@@ -76,6 +76,10 @@
     self.dyModel.rowHeight = rowHeight;
 }
 
+- (void)setIndex:(NSIndexPath *)index {
+    _index = index;
+}
+
 //创建cell
 +(instancetype)dequeueReusableCellWithTableView:(UITableView*)tableView Identifier:(NSString*)identifier {
     
@@ -94,7 +98,6 @@
         self.contentView.backgroundColor = [UIColor whiteColor];
         
         [self configUI];
-
     }
     return self;
 }
@@ -119,7 +122,6 @@
     _nicknameBtn.frame = CGRectMake(CGRectGetMaxX(_avatarImageView.frame)+HPFit(15), _avatarImageView.top, _nicknameBtn.width, 20);
 //    _nicknameBtn.tag = MMOperateTypeProfile;
     _nicknameBtn.titleLabel.font = [UIFont boldSystemFontOfSize:17.0];
-//    [_nicknameBtn setTitle:@"寒意" forState:UIControlStateNormal];
     _nicknameBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [_nicknameBtn setTitleColor:kHLTextColor forState:UIControlStateNormal];
     [_nicknameBtn addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -175,7 +177,9 @@
     // 图片区
     _imageListView = [[HP_ImageListView alloc] initWithFrame:CGRectZero];
     [_imageListView setSingleTapHandler:^(HP_ImageView *imageView) {
-        //        [wSelf resetMenuView];
+        
+        NSLog(@"index = %@---dyModel = %@ ----- %ld",wSelf.index,wSelf.dyModel,imageView.tag);
+        wSelf.cellImgListBlock(imageView.tag - 1000, wSelf.dyModel);
     }];
     [self.contentView addSubview:_imageListView];
     
