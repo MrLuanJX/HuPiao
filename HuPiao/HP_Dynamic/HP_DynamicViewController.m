@@ -36,6 +36,8 @@
         self.titleColorSelected = HPUIColorWithRGB(0x3D79FD, 1.0);
         self.itemMargin = 10;
         self.menuItemWidth = HPFit(80);
+        self.progressViewIsNaughty = YES;
+        self.progressWidth = 10;
     }
     return self;
 }

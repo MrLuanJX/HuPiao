@@ -103,7 +103,7 @@
     }];
     
     [self.ownReadWrite mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_equalTo(wSelf.avatarImageView.mas_bottom).offset(-HPFit(5));
+        make.bottom.mas_equalTo(wSelf.avatarImageView.mas_bottom);
         make.left.mas_equalTo (wSelf.nameLabel.mas_left);
     }];
     

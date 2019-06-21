@@ -165,7 +165,7 @@
     if (!_nameLabel) {
         _nameLabel = [UILabel new];
         _nameLabel.text = @"手机号";
-        _nameLabel.font = [UIFont boldSystemFontOfSize:25];//NAFontSize(25);
+        _nameLabel.font = HPFontBoldSize(20);
         _nameLabel.textColor = [UIColor whiteColor];
     }
     return _nameLabel;

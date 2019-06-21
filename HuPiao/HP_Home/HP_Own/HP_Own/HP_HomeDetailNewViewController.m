@@ -132,7 +132,7 @@
     [self.giftBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo (-HPFit(15));
         make.top.mas_equalTo (k_status_height);
-        make.width.height.mas_equalTo (HPFit(40));
+        make.width.height.mas_equalTo (40);
     }];
     
     // 返回
@@ -471,7 +471,6 @@
     self.navGiftBtn = [[UIButton alloc] init];
     [self.navGiftBtn setImage:[UIImage imageNamed:@"discover_3_0"] forState:UIControlStateNormal];
     [self.navGiftBtn addTarget:self action:@selector(giftAction) forControlEvents:UIControlEventTouchUpInside];
-    self.navGiftBtn.hidden = YES;
     [self.navBGView addSubview:self.navGiftBtn];
     
     [backBtn mas_remakeConstraints:^(MASConstraintMaker *make) {

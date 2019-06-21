@@ -29,9 +29,10 @@
 @property (nonatomic , strong) UIButton * midBtn;        // 中按钮
 
 @property (nonatomic , strong) UIButton * rightBtn;      // 右按钮
-
 // 图片
-@property (nonatomic, strong) HP_ImageListView * imageListView;
+@property (nonatomic , strong) HP_ImageListView * imageListView;
+
+@property (nonatomic , assign) BOOL isCommentCell;
 
 @end
 
@@ -69,8 +70,12 @@
   
     self.btmBtnsView.frame = CGRectMake(0, self.imageListView.bottom + HPFit(15), HPScreenW, HPFit(40));
     
-    bottom = self.btmBtnsView.bottom;
-    rowHeight = bottom;
+    if (self.isCommentCell == YES) {
+        rowHeight = bottom;
+    } else {
+        rowHeight = self.btmBtnsView.bottom;
+//         = bottom;
+    }
     
     // 这样做就是起到缓存行高的作用，省去重复计算!!!
     self.dyModel.rowHeight = rowHeight;
@@ -98,6 +103,16 @@
         self.contentView.backgroundColor = [UIColor whiteColor];
         
         [self configUI];
+        
+        if ([reuseIdentifier isEqualToString:@"dyCommentCell"]) {
+            NSLog(@"评论");
+            self.isCommentCell = YES;
+            self.btmBtnsView.hidden = YES;
+        } else {
+            self.isCommentCell = NO;
+            self.btmBtnsView.hidden = NO;
+        }
+        
     }
     return self;
 }
@@ -152,16 +167,19 @@
     _careBtn = [UIButton new];
     [_careBtn setTitle:@"关注" forState:UIControlStateNormal];
     [_careBtn setTitleColor:kSetUpCololor(61, 121, 253, 1.0) forState:UIControlStateNormal];
-    _careBtn.layer.borderColor = kSetUpCololor(61, 121, 253, 1.0).CGColor;
-    _careBtn.layer.borderWidth = 1.0;
-    _careBtn.layer.cornerRadius = 5.0;
+    [_careBtn setTitleColor:HPUIColorWithRGB(0x000000, 0.5) forState:UIControlStateHighlighted];
+//    _careBtn.layer.borderColor = kSetUpCololor(61, 121, 253, 1.0).CGColor;
+//    _careBtn.layer.borderWidth = 1.0;
+//    _careBtn.layer.cornerRadius = 5.0;
+    _careBtn.titleLabel.font = HPFontSize(14);
     _careBtn.hidden = YES;
+    [_careBtn addTarget:self action:@selector(careAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:_careBtn];
     [_careBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo (self.nicknameBtn.mas_centerY);
         make.right.mas_equalTo (-HPFit(20));
-        make.height.mas_equalTo(HPFit(30));
-        make.width.mas_equalTo (HPFit(60));
+        make.height.mas_equalTo(HPFit(20));
+        make.width.mas_equalTo (HPFit(50));
     }];
     
     // 正文视图 ↓↓
@@ -177,8 +195,6 @@
     // 图片区
     _imageListView = [[HP_ImageListView alloc] initWithFrame:CGRectZero];
     [_imageListView setSingleTapHandler:^(HP_ImageView *imageView) {
-        
-        NSLog(@"index = %@---dyModel = %@ ----- %ld",wSelf.index,wSelf.dyModel,imageView.tag);
         wSelf.cellImgListBlock(imageView.tag - 1000, wSelf.dyModel);
     }];
     [self.contentView addSubview:_imageListView];
@@ -195,20 +211,24 @@
     [_leftBtn setImage:[UIImage imageNamed:@"details_like_icon_20x20_"] forState:UIControlStateNormal];
     [_leftBtn setImage:[UIImage imageNamed:@"details_like_icon_press_20x20_"] forState:UIControlStateSelected];
     [_leftBtn addTarget:self action:@selector(likeAction:) forControlEvents:UIControlEventTouchUpInside];
+    _leftBtn.titleEdgeInsets = UIEdgeInsetsMake(0, HPFit(10), 0, 0);
     [wSelf.btmBtnsView addSubview:_leftBtn];
     
     _midBtn = [UIButton new];
     _midBtn.backgroundColor = [UIColor whiteColor];
     [_midBtn setTitle:@"31" forState:UIControlStateNormal];
-    [_midBtn setImage:[UIImage imageNamed:@"comment_night_24x24_"] forState:UIControlStateNormal];
+    [_midBtn setImage:[UIImage imageNamed:@"comment_24x24_"] forState:UIControlStateNormal];
     [_midBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    _midBtn.titleEdgeInsets = UIEdgeInsetsMake(0, HPFit(10), 0, 0);
+    _midBtn.userInteractionEnabled = NO;
     [wSelf.btmBtnsView addSubview:_midBtn];
     
     _rightBtn = [UIButton new];
     _rightBtn.backgroundColor = [UIColor whiteColor];
     [_rightBtn setTitle:@"分享" forState:UIControlStateNormal];
-    [_rightBtn setImage:[UIImage imageNamed:@"repost_video_20x20_"] forState:UIControlStateNormal];
+    [_rightBtn setImage:[UIImage imageNamed:@"分享"] forState:UIControlStateNormal];
     [_rightBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    _rightBtn.titleEdgeInsets = UIEdgeInsetsMake(0, HPFit(10), 0, 0);
     [wSelf.btmBtnsView addSubview:_rightBtn];
     
     [@[wSelf.leftBtn, wSelf.midBtn, wSelf.rightBtn] mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:1 leadSpacing:0 tailSpacing:0];
@@ -224,9 +244,16 @@
     [super layoutSubviews];
     
     [self.btmBtnsView borderForColor:[UIColor lightGrayColor] borderWidth:1 borderType:UIBorderSideTypeTop];
+    [self.careBtn setBorderWithCornerRadius:5.0 borderWidth:1.0 borderColor:kSetUpCololor(61, 121, 253, 1.0) type:UIRectCornerAllCorners];
+
 }
 
 #pragma mark - 点击事件
+// 关注
+- (void) careAction: (UIButton *) sender {
+    NSLog(@"关注");
+}
+
 // 点击昵称/查看位置/查看全文|收起/删除动态
 - (void)buttonClicked:(UIButton *)sender {
     NSLog(@"点击名称");
@@ -247,7 +274,7 @@
     [self resetMenuView];
      */
 }
-
+// 点赞
 - (void) likeAction :(UIButton *) sender{
     sender.selected = !sender.selected;
     if (sender.selected) {

@@ -52,6 +52,12 @@
     
     //同理透明掉导航栏下划线
     [self.navigationController.navigationBar setShadowImage:nil];
+    
+    NSMutableDictionary *attrDict = [NSMutableDictionary dictionary];
+    attrDict[NSForegroundColorAttributeName] = HPUIColorWithRGB(0x282828,1.0);
+    attrDict[NSFontAttributeName] = HPFontSize(18);
+    
+    self.navigationController.navigationBar.titleTextAttributes = attrDict;
 }
 
 - (void)viewDidLoad {
@@ -147,7 +153,7 @@
     self.updateBtn.backgroundColor = HPUIColorWithRGB(0x96CDCD, 1.0);
     
     if (self.pwOldTF.text.length == 0) {
-        [SVProgressHUD showErrorWithStatus:@"请先填写旧密码"];
+        [SVProgressHUD showErrorWithStatus:@"请先填写当前密码"];
         return;
     }
     if (self.pwTF.text.length == 0) {
@@ -166,8 +172,8 @@
 - (UILabel *)pwOldLabel {
     if (!_pwOldLabel) {
         _pwOldLabel = [UILabel new];
-        _pwOldLabel.text = @"旧 密 码";
-        _pwOldLabel.font = [UIFont boldSystemFontOfSize:25];
+        _pwOldLabel.text = @"当前密码";
+        _pwOldLabel.font = HPFontBoldSize(20);
         _pwOldLabel.textColor = HPUIColorWithRGB(0xffffff, 1.0);
     }
     return _pwOldLabel;
@@ -178,8 +184,8 @@
         _pwOldTF = [UITextField new];
         _pwOldTF.font = [UIFont systemFontOfSize:14];
         _pwOldTF.backgroundColor = [UIColor clearColor];
-        _pwOldTF.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, CGRectGetWidth(_pwTF.frame))];
-        _pwOldTF.leftViewMode = UITextFieldViewModeAlways;
+//        _pwOldTF.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, CGRectGetWidth(_pwTF.frame))];
+//        _pwOldTF.leftViewMode = UITextFieldViewModeAlways;
         _pwOldTF.textColor = [UIColor whiteColor];
         _pwOldTF.secureTextEntry = YES;
         _pwOldTF.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -193,8 +199,8 @@
 - (UILabel *)pwLabel {
     if (!_pwLabel) {
         _pwLabel = [UILabel new];
-        _pwLabel.text = @"新 密 码";
-        _pwLabel.font = [UIFont boldSystemFontOfSize:25];
+        _pwLabel.text = @"新  密  码";
+        _pwLabel.font = _pwOldLabel.font;
         _pwLabel.textColor = HPUIColorWithRGB(0xffffff, 1.0);
     }
     return _pwLabel;
@@ -205,8 +211,8 @@
         _pwTF = [UITextField new];
         _pwTF.font = [UIFont systemFontOfSize:14];
         _pwTF.backgroundColor = [UIColor clearColor];
-        _pwTF.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, CGRectGetWidth(_pwTF.frame))];
-        _pwTF.leftViewMode = UITextFieldViewModeAlways;
+//        _pwTF.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, CGRectGetWidth(_pwTF.frame))];
+//        _pwTF.leftViewMode = UITextFieldViewModeAlways;
         _pwTF.textColor = [UIColor whiteColor];
         _pwTF.secureTextEntry = YES;
         _pwTF.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -231,8 +237,8 @@
         _pwAgainTF = [UITextField new];
         _pwAgainTF.font = [UIFont systemFontOfSize:14];
         _pwAgainTF.backgroundColor = [UIColor clearColor];
-        _pwAgainTF.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, CGRectGetWidth(_pwTF.frame))];
-        _pwAgainTF.leftViewMode = UITextFieldViewModeAlways;
+//        _pwAgainTF.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, CGRectGetWidth(_pwTF.frame))];
+//        _pwAgainTF.leftViewMode = UITextFieldViewModeAlways;
         _pwAgainTF.textColor = [UIColor whiteColor];
         _pwAgainTF.secureTextEntry = YES;
         _pwAgainTF.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -262,7 +268,7 @@
 - (void)changedTextField:(UITextField *)textField {
     //    NSLog(@"值是---%@",textField.text);
     if (self.pwOldTF == textField) {
-        NSLog(@"密码");
+        NSLog(@"当前密码");
         self.pwOldTFEmpty = self.pwOldTF.text.length > 0 ? NO : YES;
     }
     if (self.pwTF == textField) {

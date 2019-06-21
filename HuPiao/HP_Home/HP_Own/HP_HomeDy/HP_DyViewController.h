@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HP_DyViewController : UIViewController
 
 @property (nonatomic , strong) UITableView *tableView;
+
 @property (nonatomic , strong) MUser * user;
 
 @property (nonatomic , strong) NSString * isOwn;

@@ -10,11 +10,18 @@
 
 @interface HP_PersonalCollectionCell ()
 
-@property (nonatomic , strong) UILabel * title;
+
+@property (nonatomic , copy) NSString * text;
 
 @end
 
 @implementation HP_PersonalCollectionCell
+
+- (void)setText:(NSString *)text {
+    _text = text;
+    
+    self.title.text = text;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -38,17 +45,30 @@
     [self.title setBorderWithCornerRadius:self.title.height/2 borderWidth:0 borderColor:HPClearColor type:UIRectCornerAllCorners];
 }
 
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    
-}
-
 - (UILabel *)title {
     if (!_title) {
         _title = [UILabel new];
-        _title.backgroundColor = [UIColor blueColor];
+        int R = (arc4random() % 256) ;
+        int G = (arc4random() % 256) ;
+        int B = (arc4random() % 256) ;
+        _title.backgroundColor = kSetUpCololor(R, G, B, 1.0);
+        _title.font = HPFontSize(15);
+        _title.textAlignment = NSTextAlignmentCenter;
+        _title.textColor = HPUIColorWithRGB(0xffffff, 1.0);
     }
     return _title;
+}
+
+#pragma mark — 实现自适应文字宽度的关键步骤:item的layoutAttributes
+- (UICollectionViewLayoutAttributes *)preferredLayoutAttributesFittingAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes{
+    
+    UICollectionViewLayoutAttributes *attributes = [super preferredLayoutAttributesFittingAttributes:layoutAttributes];
+    CGRect rect = [self.title.text boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, HPFit(20)) options:NSStringDrawingTruncatesLastVisibleLine| NSStringDrawingUsesFontLeading |NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: HPFontSize(14)} context:nil];
+    rect.size.height += HPFit(10);
+    rect.size.width  += rect.size.height *1.5;
+    attributes.frame = rect;
+    
+    return attributes;
 }
 
 @end
@@ -68,7 +88,7 @@
     if (cell == nil) {
         cell = [[HP_PersonalTableCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] ;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.backgroundColor = [UIColor whiteColor];//kSetUpCololor(242, 242, 242, 1.0);
+        cell.backgroundColor = [UIColor whiteColor];
     }
     return cell;
 }
@@ -91,7 +111,7 @@
     // 行间距
     layout.minimumLineSpacing = HPFit(10);
     layout.minimumInteritemSpacing = HPFit(10);
-
+    layout.estimatedItemSize = CGSizeMake(20, 30);
     layout.sectionInset = UIEdgeInsetsMake(HPFit(10), HPFit(10), HPFit(10), HPFit(10)); //设置距离上 左 下 右
     UICollectionView * collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     collectionView.delegate = self;
@@ -100,6 +120,7 @@
     collectionView.showsHorizontalScrollIndicator = NO;
     [collectionView registerClass:[HP_PersonalCollectionCell class] forCellWithReuseIdentifier:@"personalCollectCell"];
     collectionView.backgroundColor = HPUIColorWithRGB(0xffffff, 1.0);
+    collectionView.userInteractionEnabled = NO;
     self.collectionView = collectionView;
     [self.contentView addSubview:collectionView];
 }
@@ -108,10 +129,10 @@
     __weak typeof (self) weakSelf = self;
     
     [self.collectionView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo (HPFit(10));
+        make.top.mas_equalTo (weakSelf.contentView.mas_top);
         make.left.mas_equalTo(0);
-        make.right.mas_equalTo (-HPFit(30));
-        make.bottom.mas_equalTo(weakSelf.contentView.mas_bottom).offset (-HPFit(10));
+        make.right.mas_equalTo (weakSelf.contentView.mas_right);
+        make.bottom.mas_equalTo(weakSelf.contentView.mas_bottom);
     }];
     
     [self.collectionView reloadData];
@@ -123,17 +144,22 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 5;
+    return self.dataSource.count;
 }
 
 #pragma mark - item宽高
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake((HPScreenW - HPFit(110))/3, HPFit(30));
-}
+//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+//    return CGSizeMake((self.contentView.width - HPFit(100))/3, HPFit(30));
+//}
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     HP_PersonalCollectionCell * collectionCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"personalCollectCell" forIndexPath:indexPath];
+    
+    collectionCell.text = self.dataSource[indexPath.item];
+    
+    NSLog(@"self.collectionView.collectionViewLayout.collectionViewContentSize.height = %lf",self.collectionView.collectionViewLayout.collectionViewContentSize.height);
+   
     return collectionCell;
 }
 

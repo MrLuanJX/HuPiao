@@ -28,7 +28,7 @@
     [self addSubview: self.img];
     
     [self.img mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo (self);
+        make.edges.mas_equalTo (self.contentView);
     }];
 }
 
@@ -46,7 +46,10 @@
 - (UIImageView *)img {
     if (!_img) {
         _img = [UIImageView new];
-        _img.backgroundColor = [UIColor redColor];
+        int R = (arc4random() % 256) ;
+        int G = (arc4random() % 256) ;
+        int B = (arc4random() % 256) ;
+        _img.backgroundColor = kSetUpCololor(R, G, B, 1.0);
     }
     return _img;
 }
@@ -90,10 +93,8 @@
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     // 行间距
     layout.minimumLineSpacing = HPFit(10);
-    layout.minimumInteritemSpacing = HPFit(10);
-    //设置每个item的大小
-//    layout.itemSize = CGSizeMake((HPScreenW - HPFit(90))/5, HPFit(50));
-    layout.sectionInset = UIEdgeInsetsMake(HPFit(10), HPFit(10), HPFit(10), HPFit(10)); //设置距离上 左 下 右
+    layout.minimumInteritemSpacing = 0;
+    layout.sectionInset = UIEdgeInsetsMake(0, HPFit(10), 0, HPFit(10)); //设置距离上 左 下 右
     UICollectionView * collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     collectionView.delegate = self;
     collectionView.dataSource = self;
@@ -101,6 +102,7 @@
     collectionView.showsHorizontalScrollIndicator = NO;
     [collectionView registerClass:[HP_CircleCollectionCell class] forCellWithReuseIdentifier:@"circleCollectCell"];
     collectionView.backgroundColor = HPUIColorWithRGB(0xffffff, 1.0);
+    collectionView.userInteractionEnabled = NO;
     self.collectionView = collectionView;
     [self.contentView addSubview:collectionView];
 }
@@ -108,15 +110,15 @@
 - (void) createConstrainte {
     __weak typeof (self) weakSelf = self;
     
-    [self.contentView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.left.right.mas_equalTo (0);
-    }];
+//    [self.contentView mas_remakeConstraints:^(MASConstraintMaker *make) {
+//        make.top.bottom.left.right.mas_equalTo (0);
+//    }];
     
     [self.collectionView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo (weakSelf.contentView.mas_top).mas_offset (HPFit(10));
+        make.top.mas_equalTo (weakSelf.contentView.mas_top);//.mas_offset (HPFit(10));
         make.left.mas_equalTo(0);
-        make.right.mas_equalTo (-HPFit(30));
-        make.bottom.mas_equalTo(weakSelf.contentView.mas_bottom).offset (-HPFit(10));
+        make.right.mas_equalTo (0);
+        make.bottom.mas_equalTo(weakSelf.contentView.mas_bottom);//.offset (-HPFit(10));
     }];
     
     [self.collectionView reloadData];
@@ -130,7 +132,6 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return 5;
 }
-
 
 #pragma mark - item宽高
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {

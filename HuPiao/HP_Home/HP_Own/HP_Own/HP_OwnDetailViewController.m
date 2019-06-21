@@ -14,6 +14,7 @@
 #import "HP_ImpressionTableCell.h"
 #import "HP_PersonalTableCell.h"
 #import "HP_EvaluateTableCell.h"
+#import "HP_IntimateViewController.h"
 
 /// 开启刷新头部高度
 #define kOpenRefreshHeaderViewHeight 0
@@ -28,6 +29,10 @@
 @property (nonatomic, assign) CGFloat placeHolderCellHeight;
 
 @property (nonatomic, strong) UIButton * evaluate;
+
+@property (nonatomic , strong) NSMutableArray *  dataSource;
+
+@property (nonatomic , assign) CGFloat collectHeight;
 
 @end
 
@@ -52,6 +57,9 @@
         [self.tableView reloadData];
     });
 //    [self addTableViewRefresh];
+    
+    self.dataSource = @[].mutableCopy;
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -176,13 +184,14 @@
 }
     
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return section == 6 ? 10 : 1;//self.dataArray.count;
+    return section == 6 ? 10 : 1;
 }
     
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+
     if (indexPath.row < self.dataArray.count) {
         if (indexPath.section == 4) {
-            return (HPScreenW - HPFit(70))/3 + HPFit(10);
+            return (HPScreenW - HPFit(40))/3 + HPFit(10);
         } else if (indexPath.section == 6) {
             return HPFit(60);
         } else
@@ -192,21 +201,31 @@
 }
     
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     if (indexPath.section == 2 || indexPath.section == 3 ) {
         HP_ImpressionTableCell * imCell = [tableView dequeueReusableCellWithIdentifier:@"im"];
-        imCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        imCell.accessoryType = indexPath.section == 3 ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
+        imCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        NSString  *text = @"神 美如天仙 爱不释手 一个让人着迷的 爱之初体验";
+        [self.dataSource addObjectsFromArray:[text componentsSeparatedByString:@" "]];
+        imCell.dataSource = self.dataSource;
         return imCell;
     } else if (indexPath.section == 4) {
         HP_PersonalTableCell * personalCell = [tableView dequeueReusableCellWithIdentifier:@"personal"];
-        personalCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        personalCell.accessoryType = UITableViewCellAccessoryNone;
+        personalCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        NSMutableArray * arr = [NSMutableArray arrayWithObjects:@"身高:170cm",@"体重:47kg",@"兴趣:跳舞",@"城市:北京",@"职业:国家公务员",@"星座:双鱼座", nil];
+        personalCell.dataSource = arr;
         return personalCell;
     } else if (indexPath.section == 6) {
         HP_EvaluateTableCell * evaluateCell = [tableView dequeueReusableCellWithIdentifier:@"evaluate"];
         evaluateCell.accessoryType = UITableViewCellAccessoryNone;
+        evaluateCell.selectionStyle = UITableViewCellSelectionStyleNone;
         return evaluateCell;
     } else {
         HP_CircleTableCell * cell = [tableView dequeueReusableCellWithIdentifier:@"id"];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
 }
@@ -215,6 +234,11 @@
 //    BaseViewController *baseVC = [BaseViewController new];
 //    baseVC.title = @"二级页面";
 //    [self.navigationController pushViewController:baseVC animated:YES];
+    NSLog(@"点击了第%ld区,第%ld行",(long)indexPath.section,(long)indexPath.row);
+    HP_IntimateViewController * intimateVC = [HP_IntimateViewController new];
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        [self.navigationController pushViewController:intimateVC animated:YES];
+    }
 }
     
 - (UITableView *)tableView {
@@ -223,7 +247,6 @@
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.delegate = self;
         _tableView.dataSource = self;
-//        _tableView.estimatedRowHeight = 0;
         [_tableView registerClass:[HP_CircleTableCell class] forCellReuseIdentifier:@"id"];
         [_tableView registerClass:[HP_ImpressionTableCell class] forCellReuseIdentifier:@"im"];
         [_tableView registerClass:[HP_PersonalTableCell class] forCellReuseIdentifier:@"personal"];

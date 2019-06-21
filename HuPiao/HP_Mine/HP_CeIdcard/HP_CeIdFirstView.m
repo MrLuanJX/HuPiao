@@ -51,7 +51,7 @@
     }];
     
     [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo (wSelf.textLabel.mas_bottom).offset (HPFit(30));
+        make.top.mas_equalTo (wSelf.textLabel.mas_bottom).offset (HPFit(20));
         make.left.right.mas_equalTo (0);
         make.bottom.mas_equalTo (0);
     }];
@@ -67,10 +67,6 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return section == 2 ? HPFit(80) : HPFit(50);
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return HPFit(40);
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
@@ -89,11 +85,15 @@
     return section == 2 ? view : nil;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return HPFit(40);
+}
+
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     NSMutableArray * arr = [NSMutableArray arrayWithObjects:@"真实姓名",@"手机号",@"微信号", nil];
 
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 50)];
-    UILabel * titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, self.frame.size.width - 40, 50)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, HPFit(40))];
+    UILabel * titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(HPFit(10), HPFit(10), self.frame.size.width - HPFit(40), HPFit(20))];
     titleLabel.text = arr[section];
     titleLabel.textColor = [UIColor blackColor];
     titleLabel.font = HPFontBoldSize(20);

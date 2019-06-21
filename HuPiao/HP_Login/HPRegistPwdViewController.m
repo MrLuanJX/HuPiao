@@ -148,7 +148,7 @@
     if (!_pwLabel) {
         _pwLabel = [UILabel new];
         _pwLabel.text = @"密     码";
-        _pwLabel.font = [UIFont boldSystemFontOfSize:25];
+        _pwLabel.font = HPFontBoldSize(20);
         _pwLabel.textColor = HPUIColorWithRGB(0xffffff, 1.0);
     }
     return _pwLabel;

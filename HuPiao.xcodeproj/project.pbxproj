@@ -40,6 +40,11 @@
 		009CEDF722BB538C00889FFD /* HP_RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CEDF622BB538C00889FFD /* HP_RegistViewController.m */; };
 		009CEDFA22BB7A5600889FFD /* HPRegistPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CEDF922BB7A5600889FFD /* HPRegistPwdViewController.m */; };
 		009CEDFD22BB86A300889FFD /* HP_UpdatePwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CEDFC22BB86A300889FFD /* HP_UpdatePwdViewController.m */; };
+		009CEEC522BC78F500889FFD /* HP_AccountSaftyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CEEC422BC78F500889FFD /* HP_AccountSaftyViewController.m */; };
+		009CEEC822BC7B8800889FFD /* HP_TouchIDCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CEEC722BC7B8800889FFD /* HP_TouchIDCell.m */; };
+		009CEECC22BCB4D800889FFD /* HP_IntimateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CEECB22BCB4D800889FFD /* HP_IntimateViewController.m */; };
+		009CEECF22BCB59400889FFD /* HP_IntimateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CEECE22BCB59400889FFD /* HP_IntimateCell.m */; };
+		009CEED222BCDC2000889FFD /* HP_PersonalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CEED122BCDC2000889FFD /* HP_PersonalModel.m */; };
 		00B9511422929C9F008D9411 /* HP_HomeBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B9511322929C9F008D9411 /* HP_HomeBaseViewController.m */; };
 		00B9511722929DA7008D9411 /* HP_HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B9511622929DA7008D9411 /* HP_HomeCell.m */; };
 		00B9512E2292AAE2008D9411 /* gfrz.png in Resources */ = {isa = PBXBuildFile; fileRef = 00B9512D2292AAE2008D9411 /* gfrz.png */; };
@@ -252,6 +257,16 @@
 		009CEDF922BB7A5600889FFD /* HPRegistPwdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HPRegistPwdViewController.m; sourceTree = "<group>"; };
 		009CEDFB22BB86A300889FFD /* HP_UpdatePwdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_UpdatePwdViewController.h; sourceTree = "<group>"; };
 		009CEDFC22BB86A300889FFD /* HP_UpdatePwdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_UpdatePwdViewController.m; sourceTree = "<group>"; };
+		009CEEC322BC78F500889FFD /* HP_AccountSaftyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_AccountSaftyViewController.h; sourceTree = "<group>"; };
+		009CEEC422BC78F500889FFD /* HP_AccountSaftyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_AccountSaftyViewController.m; sourceTree = "<group>"; };
+		009CEEC622BC7B8800889FFD /* HP_TouchIDCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_TouchIDCell.h; sourceTree = "<group>"; };
+		009CEEC722BC7B8800889FFD /* HP_TouchIDCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_TouchIDCell.m; sourceTree = "<group>"; };
+		009CEECA22BCB4D800889FFD /* HP_IntimateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_IntimateViewController.h; sourceTree = "<group>"; };
+		009CEECB22BCB4D800889FFD /* HP_IntimateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_IntimateViewController.m; sourceTree = "<group>"; };
+		009CEECD22BCB59400889FFD /* HP_IntimateCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_IntimateCell.h; sourceTree = "<group>"; };
+		009CEECE22BCB59400889FFD /* HP_IntimateCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_IntimateCell.m; sourceTree = "<group>"; };
+		009CEED022BCDC2000889FFD /* HP_PersonalModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_PersonalModel.h; sourceTree = "<group>"; };
+		009CEED122BCDC2000889FFD /* HP_PersonalModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_PersonalModel.m; sourceTree = "<group>"; };
 		00B9511222929C9F008D9411 /* HP_HomeBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_HomeBaseViewController.h; sourceTree = "<group>"; };
 		00B9511322929C9F008D9411 /* HP_HomeBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_HomeBaseViewController.m; sourceTree = "<group>"; };
 		00B9511522929DA7008D9411 /* HP_HomeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_HomeCell.h; sourceTree = "<group>"; };
@@ -588,6 +603,28 @@
 			path = HP_Photo;
 			sourceTree = "<group>";
 		};
+		009CEEC222BC78E400889FFD /* HP_AccountSafty */ = {
+			isa = PBXGroup;
+			children = (
+				009CEEC322BC78F500889FFD /* HP_AccountSaftyViewController.h */,
+				009CEEC422BC78F500889FFD /* HP_AccountSaftyViewController.m */,
+				009CEEC622BC7B8800889FFD /* HP_TouchIDCell.h */,
+				009CEEC722BC7B8800889FFD /* HP_TouchIDCell.m */,
+			);
+			path = HP_AccountSafty;
+			sourceTree = "<group>";
+		};
+		009CEEC922BCB4BE00889FFD /* HP_ Intimate */ = {
+			isa = PBXGroup;
+			children = (
+				009CEECA22BCB4D800889FFD /* HP_IntimateViewController.h */,
+				009CEECB22BCB4D800889FFD /* HP_IntimateViewController.m */,
+				009CEECD22BCB59400889FFD /* HP_IntimateCell.h */,
+				009CEECE22BCB59400889FFD /* HP_IntimateCell.m */,
+			);
+			path = "HP_ Intimate";
+			sourceTree = "<group>";
+		};
 		00B951182292A3EE008D9411 /* HP_Tool */ = {
 			isa = PBXGroup;
 			children = (
@@ -715,6 +752,7 @@
 		00B951C422968A10008D9411 /* HP_Own */ = {
 			isa = PBXGroup;
 			children = (
+				009CEEC922BCB4BE00889FFD /* HP_ Intimate */,
 				009CEEC022BB976E00889FFD /* HP_Own */,
 				009CEEC122BB986800889FFD /* HP_Photo */,
 				00EEA35A22BA28BB0038A521 /* HP_HomeDy */,
@@ -907,6 +945,8 @@
 				00D2F0B322AE62EA008D52D9 /* HP_PersonalTableCell.m */,
 				00D2F0B522AE661C008D52D9 /* HP_EvaluateTableCell.h */,
 				00D2F0B622AE661C008D52D9 /* HP_EvaluateTableCell.m */,
+				009CEED022BCDC2000889FFD /* HP_PersonalModel.h */,
+				009CEED122BCDC2000889FFD /* HP_PersonalModel.m */,
 			);
 			path = HP_OwnCells;
 			sourceTree = "<group>";
@@ -1292,6 +1332,7 @@
 		DDFE7120229106000029C425 /* HP_Mine */ = {
 			isa = PBXGroup;
 			children = (
+				009CEEC222BC78E400889FFD /* HP_AccountSafty */,
 				00D2F09D22A91C8E008D52D9 /* HP_Wallet */,
 				00D2F09922A91468008D52D9 /* HP_FollowAndFans */,
 				00D2EFF822A8FC56008D52D9 /* HP_CeIdcard */,
@@ -1550,6 +1591,7 @@
 				00EEA34A22BA0ADE0038A521 /* UIScrollView+XBZKeyBoard.m in Sources */,
 				00D2EFD922A75FE8008D52D9 /* INMUpdateView.m in Sources */,
 				00EEA34622BA0ADE0038A521 /* UIColor+XBZKeyBoard.m in Sources */,
+				009CEEC522BC78F500889FFD /* HP_AccountSaftyViewController.m in Sources */,
 				0082087322A1189A00EBEF4C /* HP_ImageListView.m in Sources */,
 				00B9517022963925008D9411 /* HJTabViewControllerPlugin_TabViewBar.m in Sources */,
 				00B9516E22963925008D9411 /* HJTabViewController.m in Sources */,
@@ -1565,7 +1607,9 @@
 				00EEA34922BA0ADE0038A521 /* NSString+XBZKeyBoard.m in Sources */,
 				00D2F0D822B0C4B5008D52D9 /* HP_CashWithdrawalViewController.m in Sources */,
 				00D2EFD622A75FE8008D52D9 /* INMRefreshGifHeader.m in Sources */,
+				009CEEC822BC7B8800889FFD /* HP_TouchIDCell.m in Sources */,
 				00D2F0A022A91CA3008D52D9 /* HP_WalletViewController.m in Sources */,
+				009CEECC22BCB4D800889FFD /* HP_IntimateViewController.m in Sources */,
 				00EEA35122BA0ADE0038A521 /* XBZChatEmojiView.m in Sources */,
 				008208E822A4F89900EBEF4C /* Moment.m in Sources */,
 				00EEA30422B8E36E0038A521 /* HP_CreateDyCell.m in Sources */,
@@ -1607,9 +1651,11 @@
 				008208CF22A4F4B300EBEF4C /* JKDBModel.m in Sources */,
 				00EEA35222BA0ADF0038A521 /* XBZChatMoreView.m in Sources */,
 				00B9516F22963925008D9411 /* HJTabViewController+ViewController.m in Sources */,
+				009CEECF22BCB59400889FFD /* HP_IntimateCell.m in Sources */,
 				DDFE712D22910C000029C425 /* KLTNavigationController.m in Sources */,
 				00B951CD22968AFF008D9411 /* HP_PhotoDetailViewController.m in Sources */,
 				0082086422A10B5300EBEF4C /* HP_HomeDetailOwnHeadView.m in Sources */,
+				009CEED222BCDC2000889FFD /* HP_PersonalModel.m in Sources */,
 				00B9517322963925008D9411 /* HJTabViewBar.m in Sources */,
 				00B9517122963925008D9411 /* HJTabViewControllerPlugin_BottomInset.m in Sources */,
 				00D2EFEE22A8B1DB008D52D9 /* HP_SeleteViewController.m in Sources */,

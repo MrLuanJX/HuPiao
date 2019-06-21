@@ -46,7 +46,10 @@
 - (UILabel *)title {
     if (!_title) {
         _title = [UILabel new];
-        _title.backgroundColor = [UIColor yellowColor];
+        int R = (arc4random() % 256) ;
+        int G = (arc4random() % 256) ;
+        int B = (arc4random() % 256) ;
+        _title.backgroundColor = kSetUpCololor(R, G, B, 1.0);
     }
     return _title;
 }
@@ -105,6 +108,7 @@
     collectionView.showsHorizontalScrollIndicator = NO;
     [collectionView registerClass:[HP_EvaluateCollectionCell class] forCellWithReuseIdentifier:@"evaluateCollectCell"];
     collectionView.backgroundColor = HPUIColorWithRGB(0xffffff, 1.0);
+    collectionView.userInteractionEnabled = NO;
     self.collectionView = collectionView;
     [self.contentView addSubview:collectionView];
     
@@ -114,14 +118,9 @@
 
 - (void) createConstrainte {
     __weak typeof (self) weakSelf = self;
-    
-    [self.contentView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.left.right.mas_equalTo (0);
-    }];
-    
+
     [self.icon mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.top.mas_equalTo(HPFit(10));
-        make.bottom.mas_equalTo (-HPFit(10));
         make.width.height.mas_equalTo (HPFit(40));
     }];
     
@@ -131,10 +130,10 @@
     }];
     
     [self.collectionView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo (weakSelf.contentView.mas_top).mas_offset (HPFit(10));
+        make.top.mas_equalTo (weakSelf.contentView.mas_top);//.mas_offset (HPFit(10));
         make.left.mas_equalTo(weakSelf.name.mas_right).offset(HPFit(10));
-        make.right.mas_equalTo (-HPFit(10));
-        make.bottom.mas_equalTo(weakSelf.contentView.mas_bottom).offset (-HPFit(10));
+        make.right.mas_equalTo (0);
+        make.bottom.mas_equalTo(weakSelf.contentView.mas_bottom);//.offset (-HPFit(10));
     }];
     
     [self.collectionView reloadData];
@@ -152,7 +151,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 5;
+    return 2;
 }
 
 #pragma mark - item宽高

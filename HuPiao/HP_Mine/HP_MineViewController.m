@@ -17,6 +17,8 @@
 #import "HP_FollowAndFansViewController.h"
 #import "HP_WalletViewController.h"
 #import "HP_CeIdcardBaseViewController.h"
+#import "HP_AccountSaftyViewController.h"
+#import "HP_UpdatePwdViewController.h"
 
 static CGFloat const imageBGHeight = 300; // 背景图片的高度
 
@@ -32,12 +34,17 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
 
 @property (nonatomic , strong) NSMutableArray * messageList;
 
-@property (nonatomic , strong) NSMutableArray * arr;
 @property (nonatomic , strong) NSMutableArray * array;
+
 @property (nonatomic , assign) CGFloat fileSize;
 
 @property (nonatomic , strong) UIButton * logoutBtn;
+
 @property (nonatomic , strong) UILabel *titleLabel;
+
+@property (nonatomic , strong) UIView * navBGView;
+
+@property (nonatomic , strong) UIButton * backBtn;
 
 @end
 
@@ -45,46 +52,47 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    //设置导航栏背景图片为一个无图的image，导航栏会加载空imgae，就自然透明掉了
-    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-
-    //同理透明掉导航栏下划线
-    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+    self.navigationController.navigationBar.hidden = YES;
     
     [self.messageList removeAllObjects];
     [self.messageList addObjectsFromArray:[MUser findAll]];
     self.user = [self.messageList objectAtIndex:1];
     self.headView.user = self.user;
-    self.titleLabel.text = self.user.name;//@"我的";
-    self.navigationItem.titleView = self.titleLabel;
+    self.titleLabel.text = self.user.name;
     [self.tableView reloadData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
+    self.navigationController.navigationBar.hidden = NO;
+
     //设置导航栏背景图片为一个无图的image，导航栏会加载空imgae，就自然透明掉了
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-    
+
     //同理透明掉导航栏下划线
     [self.navigationController.navigationBar setShadowImage:nil];
+    
+    [SVProgressHUD dismiss];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = kSetUpCololor(242, 242, 242, 1.0);
     
     [self addTableView];
 
     [self addDataSource];
     
     [self foldFileSize];
+    
+    [self navBar];
 }
 
 #pragma mark -  重点的地方在这里 滚动时候进行计算
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat offsetY = scrollView.contentOffset.y;
-    NSLog(@"offsetY = %lf",offsetY);
     CGFloat offsetH = imageBGHeight + offsetY ;
     if (offsetH < 0) {
         CGRect frame = self.headView.frame;
@@ -95,14 +103,15 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
     
     CGFloat alpha = offsetH / imageBGHeight*1.5;
     
-    if (scrollView.contentOffset.y > -k_top_height) {
+    if (scrollView.contentOffset.y > -k_top_height && k_iphone_x) {
         self.tableView.contentOffset = CGPointMake(0, -k_top_height);
+        [scrollView setContentOffset:CGPointMake(0, -k_top_height) animated:NO];
     }
     
     [self.navigationController.navigationBar setBackgroundImage:[self imageWithColor:[[UIColor whiteColor] colorWithAlphaComponent:alpha]] forBarMetrics:UIBarMetricsDefault];
+    self.navBGView.alpha = alpha;
     self.titleLabel.alpha = alpha;
 }
-
 
 - (void) foldFileSize {
     NSString *libPath = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES)[0];
@@ -216,7 +225,8 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return section == 0 ? self.arr.count : self.array.count; //self.dataArray.count;
+     NSArray * arr = self.array[section];
+    return arr.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -232,54 +242,67 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.detailTextLabel.font = HPFontSize(14);
 
+    cell.textLabel.text = self.array[indexPath.section][indexPath.row];
+    
     if (indexPath.section == 0) {
-        cell.textLabel.text = self.arr[indexPath.row];
-        if (indexPath.row == 1) {
+        if (indexPath.row == 2) {
             cell.detailTextLabel.text = @"未认证";
         }
     } else {
-        cell.textLabel.text = self.array[indexPath.row];
         if (indexPath.row == 0) {
            cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2lfM",self.fileSize];
-        } else if (indexPath.row == 4){
+        }
+        if (indexPath.row == 4) {
+//            cell.accessoryType = UITableViewCellAccessoryNone;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
             cell.detailTextLabel.text = APP_VERSION;
-            cell.accessoryType = UITableViewCellAccessoryNone;
-            cell.userInteractionEnabled = NO;
         }
     }
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+   
+    UITableViewCell * cell = (UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    HP_SignViewController * signVC = [HP_SignViewController new];
-//    HP_CeIdcardViewController * ceIdcardVC = [HP_CeIdcardViewController new];
-    HP_CeIdcardBaseViewController * ceIdcardVC = [HP_CeIdcardBaseViewController new];
     
-    if (indexPath.section == 0 && indexPath.row == 1) {         // 身份认证
+    HP_SignViewController * signVC = [HP_SignViewController new];
+    HP_CeIdcardBaseViewController * ceIdcardVC = [HP_CeIdcardBaseViewController new];
+    HP_UpdatePwdViewController * updatePwdVC = [HP_UpdatePwdViewController new];
+    
+    if (indexPath.section == 0 && indexPath.row == 0) {                 // 修改密码
+        NSLog(@"修改密码");
+        [self.navigationController pushViewController:updatePwdVC animated:YES];
+    } else
+        if (indexPath.section == 0 && indexPath.row == 1) {             // 我的钱包
+        [self jumpWalletVC];
+    } else if (indexPath.section == 0 && indexPath.row == 2) {          // 身份认证
         ceIdcardVC.title = @"身份认证";
         [self.navigationController pushViewController:ceIdcardVC animated:YES];
+    } else if (indexPath.section == 0 && indexPath.row == 3) {          // 邀请好友
+        
+    } else if (indexPath.section == 0 && indexPath.row == 4) {          // 我赞过的动态
+        
     }
 
-    if (indexPath.section == 1 && indexPath.row == 0) {         // 清理缓存
+    if (indexPath.section == 1 && indexPath.row == 0) {                 // 清理缓存
         [self clearFile];
-    }
-    if (indexPath.section == 1 && indexPath.row == 1) {
+    } else if (indexPath.section == 1 && indexPath.row == 1) {          // 意见反馈
         signVC.maxLength = 200;
         signVC.title = @"意见反馈";
         signVC.feedBack = YES;
         signVC.sendBtnTitle = @"提   交";
         [self.navigationController pushViewController:signVC animated:YES];
-    }
-    
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        [self jumpWalletVC];
-    }
-    
-    if (indexPath.section == 1 && indexPath.row == 2) {
+    } else if (indexPath.section == 1 && indexPath.row == 2) {          // 五星好评
         INMAlertView * alertView = [INMAlertView new];
         alertView.dataArray = [NSMutableArray arrayWithObjects:@"五星好评",@"我要吐槽",@"残忍拒绝", nil];
         [alertView show];
+    } else if (indexPath.section == 1 && indexPath.row == 3) {          // 关于我们
+      
+    } else if (indexPath.section == 1 && indexPath.row == 4) {          // 当前版本
+        
     }
 }
 
@@ -313,8 +336,7 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
 
 - (HP_MineHeadView *)headView {
     if (!_headView) {
-        _headView = [[HP_MineHeadView alloc] init]; // WithFrame:CGRectMake(0, 0, HPScreenW, HPFit(220))
-        _headView.backgroundColor = [UIColor clearColor];
+        _headView = [[HP_MineHeadView alloc] init];
         _headView.frame = CGRectMake(0, -imageBGHeight, HPScreenW, imageBGHeight);
         _headView.userInteractionEnabled = YES;
         _headView.contentMode = UIViewContentModeScaleAspectFill;
@@ -322,15 +344,9 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
     return _headView;
 }
 
-- (NSMutableArray *)arr {
-    if (!_arr) {
-        _arr = [NSMutableArray arrayWithObjects:@"我的钱包",@"身份认证",@"邀请好友", nil];
-    }
-    return _arr;
-}
 - (NSMutableArray *)array {
     if (!_array) {
-        _array = [NSMutableArray arrayWithObjects:@"清理缓存",@"意见反馈",@"五星好评",@"关于我们",@"当前版本", nil];
+        _array = [NSMutableArray arrayWithObjects:@[@"修改密码",@"我的钱包",@"身份认证",@"邀请好友",@"我赞过的动态"],@[@"清理缓存",@"意见反馈",@"五星好评",@"关于我们",@"当前版本"], nil];
     }
     return _array;
 }
@@ -390,7 +406,6 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
 /* 跳转钱包 */
 - (void) jumpWalletVC {
     HP_WalletViewController * walletVC = [HP_WalletViewController new];
-    walletVC.title = @"我的钱包";
     [self.navigationController pushViewController:walletVC animated:YES];
 }
 
@@ -447,5 +462,16 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
     return theImage;
 }
 
-
+- (void) navBar {
+    self.navBGView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, HPScreenW, k_top_height)];
+    self.navBGView.backgroundColor = [UIColor whiteColor];
+    
+    [self.navBGView  addSubview: self.titleLabel];
+    
+    [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo (self.navBGView.mas_width);
+        make.bottom.mas_equalTo (-HPFit(11));
+    }];
+    [self.view addSubview: self.navBGView];
+}
 @end

@@ -90,7 +90,9 @@
     static NSString *CellIdentifier = @"dyCell";
     
     HP_DyCell * dyCell = [HP_DyCell dequeueReusableCellWithTableView:tableView Identifier:CellIdentifier];
-
+    
+    dyCell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     dyCell.index = indexPath;
     
     dyCell.user = self.user;
@@ -166,7 +168,7 @@
 }
 
 #pragma mark - 相册预览
-- (void) photoBrowserURLArray:(NSMutableArray *)urlArr WithIndex:(int)index {
+- (void) photoBrowserURLArray:(NSArray *)urlArr WithIndex:(int)index {
     HZPhotoBrowser *browser = [[HZPhotoBrowser alloc] init];
     browser.isFullWidthForLandScape = YES;
     browser.isNeedLandscape = YES;

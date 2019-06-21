@@ -12,11 +12,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HP_PersonalCollectionCell : UICollectionViewCell
 
+@property (nonatomic , strong) UILabel * title;
+
 @end
 
 @interface HP_PersonalTableCell : UITableViewCell
 
 +(instancetype)dequeueReusableCellWithTableView:(UITableView*)tableView Identifier:(NSString*)identifier;
+
+@property (nonatomic , strong) NSMutableArray * dataSource;
+
+@property (nonatomic , copy) void (^collectHeight) (NSInteger height);
 
 @end
 

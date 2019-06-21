@@ -32,6 +32,13 @@
     IQKeyboardManager.sharedManager.enableAutoToolbar = NO;
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    IQKeyboardManager.sharedManager.enable = YES;
+    IQKeyboardManager.sharedManager.enableAutoToolbar = YES;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -40,6 +47,16 @@
     [self addTableView];
     
     [self initArray];
+    
+    [self setupRightNav];
+}
+
+- (void) setupRightNav {
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(shareAction) image:@"repost_video_20x20_" highImage:@"repost_video_press_20x20_" isLeftBtn:NO];
+}
+
+- (void) shareAction {
+    NSLog(@"分享");
 }
 
 - (void) initArray {
@@ -125,7 +142,7 @@
     if(indexPath.section == 0) {
         WS(wSelf);
         
-        static NSString *CellIdentifier = @"dyCell";
+        static NSString *CellIdentifier = @"dyCommentCell";
         
         HP_DyCell * dyCell = [HP_DyCell dequeueReusableCellWithTableView:tableView Identifier:CellIdentifier];
         
@@ -244,7 +261,7 @@
 }
 
 #pragma mark - 相册预览
-- (void) photoBrowserURLArray:(NSMutableArray *)urlArr WithIndex:(int)index {
+- (void) photoBrowserURLArray:(NSArray *)urlArr WithIndex:(int)index {
     HZPhotoBrowser *browser = [[HZPhotoBrowser alloc] init];
     browser.isFullWidthForLandScape = YES;
     browser.isNeedLandscape = YES;
