@@ -16,9 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HP_SeleteViewController : UIViewController
 
-@property (nonatomic , copy) void(^jobSeleteBlock)(NSIndexPath * index , NSString * seleteTitle);
+@property (nonatomic , copy) void(^jobSeleteBlock)(NSIndexPath * index , NSMutableArray * seleteItem);
 
-@property (nonatomic , copy) void(^interestSeleteBlock)(NSArray * seleteTitles);
+@property (nonatomic , copy) void(^interestSeleteBlock)(NSIndexPath * index , NSArray * seleteTitles);
 
 @property (nonatomic , strong) NSMutableArray * dataArray;
 

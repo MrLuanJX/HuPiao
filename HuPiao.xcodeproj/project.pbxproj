@@ -45,6 +45,10 @@
 		009CEECC22BCB4D800889FFD /* HP_IntimateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CEECB22BCB4D800889FFD /* HP_IntimateViewController.m */; };
 		009CEECF22BCB59400889FFD /* HP_IntimateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CEECE22BCB59400889FFD /* HP_IntimateCell.m */; };
 		009CEED222BCDC2000889FFD /* HP_PersonalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CEED122BCDC2000889FFD /* HP_PersonalModel.m */; };
+		009CEEDE22C0A18300889FFD /* HP_ReceivedGiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CEEDD22C0A18300889FFD /* HP_ReceivedGiftViewController.m */; };
+		009CEEE222C0AD6600889FFD /* HP_UserImpressionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CEEE122C0AD6600889FFD /* HP_UserImpressionViewController.m */; };
+		009CEEE522C0B63500889FFD /* JYEqualCellSpaceFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CEEE322C0B63400889FFD /* JYEqualCellSpaceFlowLayout.m */; };
+		009CEEE822C0D1D200889FFD /* PishumToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CEEE722C0D1D200889FFD /* PishumToast.m */; };
 		00B9511422929C9F008D9411 /* HP_HomeBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B9511322929C9F008D9411 /* HP_HomeBaseViewController.m */; };
 		00B9511722929DA7008D9411 /* HP_HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B9511622929DA7008D9411 /* HP_HomeCell.m */; };
 		00B9512E2292AAE2008D9411 /* gfrz.png in Resources */ = {isa = PBXBuildFile; fileRef = 00B9512D2292AAE2008D9411 /* gfrz.png */; };
@@ -267,6 +271,14 @@
 		009CEECE22BCB59400889FFD /* HP_IntimateCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_IntimateCell.m; sourceTree = "<group>"; };
 		009CEED022BCDC2000889FFD /* HP_PersonalModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_PersonalModel.h; sourceTree = "<group>"; };
 		009CEED122BCDC2000889FFD /* HP_PersonalModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_PersonalModel.m; sourceTree = "<group>"; };
+		009CEEDC22C0A18300889FFD /* HP_ReceivedGiftViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_ReceivedGiftViewController.h; sourceTree = "<group>"; };
+		009CEEDD22C0A18300889FFD /* HP_ReceivedGiftViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_ReceivedGiftViewController.m; sourceTree = "<group>"; };
+		009CEEE022C0AD6600889FFD /* HP_UserImpressionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_UserImpressionViewController.h; sourceTree = "<group>"; };
+		009CEEE122C0AD6600889FFD /* HP_UserImpressionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_UserImpressionViewController.m; sourceTree = "<group>"; };
+		009CEEE322C0B63400889FFD /* JYEqualCellSpaceFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYEqualCellSpaceFlowLayout.m; sourceTree = "<group>"; };
+		009CEEE422C0B63500889FFD /* JYEqualCellSpaceFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYEqualCellSpaceFlowLayout.h; sourceTree = "<group>"; };
+		009CEEE622C0D1D200889FFD /* PishumToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PishumToast.h; sourceTree = "<group>"; };
+		009CEEE722C0D1D200889FFD /* PishumToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PishumToast.m; sourceTree = "<group>"; };
 		00B9511222929C9F008D9411 /* HP_HomeBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_HomeBaseViewController.h; sourceTree = "<group>"; };
 		00B9511322929C9F008D9411 /* HP_HomeBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_HomeBaseViewController.m; sourceTree = "<group>"; };
 		00B9511522929DA7008D9411 /* HP_HomeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_HomeCell.h; sourceTree = "<group>"; };
@@ -625,9 +637,29 @@
 			path = "HP_ Intimate";
 			sourceTree = "<group>";
 		};
+		009CEEDB22C0A17000889FFD /* HP_ ReceivedGift */ = {
+			isa = PBXGroup;
+			children = (
+				009CEEDC22C0A18300889FFD /* HP_ReceivedGiftViewController.h */,
+				009CEEDD22C0A18300889FFD /* HP_ReceivedGiftViewController.m */,
+			);
+			path = "HP_ ReceivedGift";
+			sourceTree = "<group>";
+		};
+		009CEEDF22C0AD5900889FFD /* HP_UserImpression */ = {
+			isa = PBXGroup;
+			children = (
+				009CEEE022C0AD6600889FFD /* HP_UserImpressionViewController.h */,
+				009CEEE122C0AD6600889FFD /* HP_UserImpressionViewController.m */,
+			);
+			path = HP_UserImpression;
+			sourceTree = "<group>";
+		};
 		00B951182292A3EE008D9411 /* HP_Tool */ = {
 			isa = PBXGroup;
 			children = (
+				009CEEE422C0B63500889FFD /* JYEqualCellSpaceFlowLayout.h */,
+				009CEEE322C0B63400889FFD /* JYEqualCellSpaceFlowLayout.m */,
 				00D2F0C422AF97E9008D52D9 /* HP_GiftView */,
 				00D2F0A122ADFD7F008D52D9 /* Location(定位) */,
 				00D2EFD322A75FE8008D52D9 /* INMAlertView */,
@@ -674,6 +706,8 @@
 		00B951582296390F008D9411 /* HP_Command */ = {
 			isa = PBXGroup;
 			children = (
+				009CEEE622C0D1D200889FFD /* PishumToast.h */,
+				009CEEE722C0D1D200889FFD /* PishumToast.m */,
 				00EEA30A22BA0ADE0038A521 /* XBZChatKeyBoard */,
 				00EEA2F822B8A8400038A521 /* LLWPlusPopView */,
 				00D2F09722A90508008D52D9 /* Lyy_ImagePickerController.h */,
@@ -752,6 +786,8 @@
 		00B951C422968A10008D9411 /* HP_Own */ = {
 			isa = PBXGroup;
 			children = (
+				009CEEDF22C0AD5900889FFD /* HP_UserImpression */,
+				009CEEDB22C0A17000889FFD /* HP_ ReceivedGift */,
 				009CEEC922BCB4BE00889FFD /* HP_ Intimate */,
 				009CEEC022BB976E00889FFD /* HP_Own */,
 				009CEEC122BB986800889FFD /* HP_Photo */,
@@ -1524,6 +1560,12 @@
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 				"${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle",
+				"${PODS_ROOT}/WHToast/WHToast/wtoast_icon/whtoast_error.png",
+				"${PODS_ROOT}/WHToast/WHToast/wtoast_icon/whtoast_error@2x.png",
+				"${PODS_ROOT}/WHToast/WHToast/wtoast_icon/whtoast_error@3x.png",
+				"${PODS_ROOT}/WHToast/WHToast/wtoast_icon/whtoast_success.png",
+				"${PODS_ROOT}/WHToast/WHToast/wtoast_icon/whtoast_success@2x.png",
+				"${PODS_ROOT}/WHToast/WHToast/wtoast_icon/whtoast_success@3x.png",
 				"${PODS_ROOT}/YYStarView/YYStarView/YYStarView.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -1537,6 +1579,12 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TZImagePickerController.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/whtoast_error.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/whtoast_error@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/whtoast_error@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/whtoast_success.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/whtoast_success@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/whtoast_success@3x.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/YYStarView.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1592,6 +1640,7 @@
 				00D2EFD922A75FE8008D52D9 /* INMUpdateView.m in Sources */,
 				00EEA34622BA0ADE0038A521 /* UIColor+XBZKeyBoard.m in Sources */,
 				009CEEC522BC78F500889FFD /* HP_AccountSaftyViewController.m in Sources */,
+				009CEEDE22C0A18300889FFD /* HP_ReceivedGiftViewController.m in Sources */,
 				0082087322A1189A00EBEF4C /* HP_ImageListView.m in Sources */,
 				00B9517022963925008D9411 /* HJTabViewControllerPlugin_TabViewBar.m in Sources */,
 				00B9516E22963925008D9411 /* HJTabViewController.m in Sources */,
@@ -1601,6 +1650,7 @@
 				00EEA34E22BA0ADE0038A521 /* XBZKeyBoardTextView.m in Sources */,
 				00D2EFE222A794A9008D52D9 /* HP_OwnMessageViewController.m in Sources */,
 				008208F522A4FBD900EBEF4C /* JPinYinUtil.m in Sources */,
+				009CEEE522C0B63500889FFD /* JYEqualCellSpaceFlowLayout.m in Sources */,
 				DDFE71272291065A0029C425 /* HP_MessageViewController.m in Sources */,
 				00D2EFE822A794D1008D52D9 /* HP_AuthOwnView.m in Sources */,
 				00D2F0BA22AF505F008D52D9 /* HP_CeIdcardBaseViewController.m in Sources */,
@@ -1654,6 +1704,7 @@
 				009CEECF22BCB59400889FFD /* HP_IntimateCell.m in Sources */,
 				DDFE712D22910C000029C425 /* KLTNavigationController.m in Sources */,
 				00B951CD22968AFF008D9411 /* HP_PhotoDetailViewController.m in Sources */,
+				009CEEE222C0AD6600889FFD /* HP_UserImpressionViewController.m in Sources */,
 				0082086422A10B5300EBEF4C /* HP_HomeDetailOwnHeadView.m in Sources */,
 				009CEED222BCDC2000889FFD /* HP_PersonalModel.m in Sources */,
 				00B9517322963925008D9411 /* HJTabViewBar.m in Sources */,
@@ -1698,6 +1749,7 @@
 				DDFE71152290F5540029C425 /* HP_TabbarViewController.m in Sources */,
 				DDFE713D229115AF0029C425 /* UIButton+Extension.m in Sources */,
 				0082090522A5316200EBEF4C /* UIView+BorderLine.m in Sources */,
+				009CEEE822C0D1D200889FFD /* PishumToast.m in Sources */,
 				00D2F08C22A9020E008D52D9 /* IDInfo.m in Sources */,
 				00EEA35522BA0ADF0038A521 /* XBZEmojiCollectionViewCell.m in Sources */,
 				009CEDF422BB501C00889FFD /* HP_LoginViewController.m in Sources */,

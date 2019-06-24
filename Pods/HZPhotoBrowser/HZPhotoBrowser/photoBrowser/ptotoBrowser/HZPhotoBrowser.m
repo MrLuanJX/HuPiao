@@ -23,6 +23,11 @@
 @property (nonatomic,strong) HZPhotoBrowserView *photoBrowserView;
 @property (nonatomic,assign) UIDeviceOrientation orientation;
 @property (nonatomic,assign) HZPhotoBrowserStyle photoBrowserStyle;
+
+@property (nonatomic,strong) UIScrollView * textView;
+@property (nonatomic,strong) UILabel *textLabel;
+@property (nonatomic,assign) BOOL isShowText;
+@property (nonatomic,strong) UIButton * backBtn;
 @end
 @implementation HZPhotoBrowser 
 {
@@ -41,6 +46,7 @@
         self.backgroundColor = HZPhotoBrowserBackgrounColor;
         self.isFullWidthForLandScape = YES;
         self.isNeedLandscape = YES;
+        self.isShowText = YES;
     }
     return self;
 }
@@ -89,10 +95,17 @@
     if (!_hasShowedFistView) {
         [self showFirstImage];
     }
-    _indexLabel.frame = CGRectMake((self.bounds.size.width - 80)*0.5, kStatusBar_Height, 80, 30);
+    _indexLabel.frame = CGRectMake((self.bounds.size.width - 80)*0.5, kStatusBar_Height, 80, 30) ;
+   
+    _saveButton.frame = self.textArray.count > 0 ? CGRectMake(self.bounds.size.width - 80, kStatusBar_Height, 55, 30) : CGRectMake(20, self.bounds.size.height - 70, 55, 30);
     
-    _saveButton.frame = CGRectMake(30, self.bounds.size.height - 70, 55, 30);
     _tipLabel.frame = CGRectMake((self.bounds.size.width - 150)*0.5, (self.bounds.size.height - 40)*0.5, 150, 40);
+    
+    _textView.frame = self.textArray.count > 0 ? CGRectMake(0, self.bounds.size.height - 200, self.frame.size.width, 200) : CGRectMake(0, self.bounds.size.height, self.frame.size.width, 0);
+    
+    _textLabel.frame = self.textArray.count > 0 ? CGRectMake(10, 10, self.frame.size.width - 20, 180) : CGRectMake(0, self.bounds.size.height, self.frame.size.width, 0);
+    
+    _backBtn.frame = self.textArray.count > 0 ? CGRectMake(10, kStatusBar_Height,30, 30) : CGRectMake(0, self.bounds.size.height, self.frame.size.width, 0);
 }
 
 - (void)dealloc
@@ -112,6 +125,11 @@
     _imageCount = imageArray.count;
     _sourceImagesContainerView = nil;
     _photoBrowserStyle = HZPhotoBrowserStyleSimple;
+}
+
+- (void)setTextArray:(NSArray *)textArray {
+    _textArray = textArray;
+
 }
 
 #pragma mark getter settter
@@ -234,7 +252,7 @@
     UIButton *saveButton = [[UIButton alloc] init];
     [saveButton setTitle:@"保存" forState:UIControlStateNormal];
     [saveButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    saveButton.layer.borderWidth = 0.1;
+    saveButton.layer.borderWidth = 1.0;
     saveButton.layer.borderColor = [UIColor whiteColor].CGColor;
     saveButton.backgroundColor = [UIColor colorWithRed:0.1f green:0.1f blue:0.1f alpha:0.3f];
     saveButton.layer.cornerRadius = 2;
@@ -242,6 +260,33 @@
     [saveButton addTarget:self action:@selector(saveImage) forControlEvents:UIControlEventTouchUpInside];
     _saveButton = saveButton;
     [self addSubview:saveButton];
+    
+    // 文本
+    UIScrollView * textView = [UIScrollView new];
+    textView.contentSize = CGSizeMake(self.frame.size.width, 200);
+    textView.backgroundColor = [UIColor colorWithRed:0.1f green:0.1f blue:0.1f alpha:0.50f];
+    _textView = textView;
+    [self addSubview:textView];
+    
+    UILabel *textLabel = [[UILabel alloc] init]; // WithFrame:CGRectMake(10, 10, textView.frame.size.width - 20, textView.frame.size.height - 20)
+    _textLabel = textLabel;
+    textLabel.textColor = [UIColor whiteColor];
+//    textLabel.backgroundColor = [UIColor colorWithRed:0.1f green:0.1f blue:0.1f alpha:0.50f];
+    textLabel.font = [UIFont systemFontOfSize:15];
+    textLabel.numberOfLines = 0;
+    [textLabel sizeToFit];
+    textLabel.text = self.textArray.count > 0 ? self.textArray.firstObject : @"";
+    [textView addSubview:textLabel];
+    
+    UIButton *backBtn = [[UIButton alloc] init];
+    [backBtn setImage:[UIImage imageNamed:@"leftbackicon_white_titlebar_24x24_"] forState:UIControlStateNormal];
+    [backBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+    _backBtn = backBtn;
+    [self addSubview:backBtn];
+}
+
+- (void)backAction {
+    [self hidePhotoBrowser];
 }
 
 //保存图像
@@ -456,6 +501,7 @@
 - (NSURL *)highQualityImageURLForIndex:(NSInteger)index
 {
     if (_photoBrowserStyle == HZPhotoBrowserStyleDefault) {
+
         if ([self.delegate respondsToSelector:@selector(photoBrowser:highQualityImageURLForIndex:)]) {
             return [self.delegate photoBrowser:self highQualityImageURLForIndex:index];
         }
@@ -519,6 +565,8 @@
     [_contentView insertSubview:self.coverView belowSubview:self];
     _saveButton.hidden = YES;
     _indexLabel.hidden = YES;
+    _textView.hidden = YES;
+    _backBtn.hidden = YES;
     [self addSubview:self.tempView];
     _photoBrowserView.hidden = YES;
     self.backgroundColor = [UIColor clearColor];
@@ -539,6 +587,8 @@
         self.userInteractionEnabled = YES;
         self->_saveButton.hidden = NO;
         self->_indexLabel.hidden = NO;
+        self->_textView.hidden = NO;
+        self->_backBtn.hidden = NO;
         [self->_tempView removeFromSuperview];
         [self->_coverView removeFromSuperview];
         self->_tempView = nil;
@@ -552,11 +602,11 @@
 }
 
 #pragma mark - scrollview代理方法
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     NSInteger index = (scrollView.contentOffset.x + _scrollView.bounds.size.width * 0.5) / _scrollView.bounds.size.width;
     NSLog(@"%ld",(long)index);
     _indexLabel.text = [NSString stringWithFormat:@"%ld/%ld", index + 1, self.imageCount];
+    _textLabel.text = self.textArray[index];
     //预加载 前3张 后3张
     NSInteger left = index - 3;
     NSInteger right = index + 3;
@@ -588,7 +638,26 @@
 #pragma mark 单击
 - (void)photoClick:(UITapGestureRecognizer *)recognizer
 {
-    [self hidePhotoBrowser];
+//    [self hidePhotoBrowser];
+    
+    self.textArray.count > 0 ? [self showText] : [self hidePhotoBrowser];
+}
+
+- (void) showText {
+    __weak typeof (self) weakSelf = self;
+
+    if (self.isShowText == YES) {
+        [UIView animateWithDuration:0.3 animations:^{
+            weakSelf.textView.frame = CGRectMake(0, weakSelf.frame.size.height, weakSelf.frame.size.width , 200);
+        } completion:^(BOOL finished) {}];
+        self.isShowText = NO;
+    } else {
+        weakSelf.textView.frame = CGRectMake(0, weakSelf.frame.size.height, weakSelf.frame.size.width, 200);
+        [UIView animateWithDuration:0.3 animations:^{
+            weakSelf.textView.frame = CGRectMake(0, weakSelf.frame.size.height - 200, weakSelf.frame.size.width, 200);
+        } completion:^(BOOL finished) {}];
+        self.isShowText = YES;
+    }
 }
 
 #pragma mark 双击

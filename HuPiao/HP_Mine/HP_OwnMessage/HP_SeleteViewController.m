@@ -98,15 +98,9 @@
 - (void) sureAction : (UIBarButtonItem *) sender{
     NSLog(@"保存");
     
-    if (self.isJob == YES) {
+    if (self.jobSeleteBlock) {
         
-        if (self.jobSeleteBlock) {
-            self.jobSeleteBlock(self.selectTag, self.dataArray[self.selectTag.row]);
-        }
-    } else {
-        if (self.interestSeleteBlock) {
-            self.interestSeleteBlock(self.dataArray);
-        }
+        self.jobSeleteBlock(self.selectTag, self.dataArray);
     }
     
     [self.navigationController popViewControllerAnimated:YES];
@@ -134,22 +128,14 @@
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     if (self.dataArray.count > 0) {
-      
-        if (self.isJob == YES) {
-            cell.title.text =  self.dataArray[indexPath.row];
-        } else {
-            NSDictionary * dict = self.dataArray[indexPath.row];
-            cell.title.text = dict[@"title"];
-        }
-       
-        
+        NSDictionary * dict = self.dataArray[indexPath.row];
+        cell.title.text = dict[@"title"];
     }
-    if (self.isJob == NO) {
-        if ([self.dataArray[indexPath.row][@"seleted"] isEqualToString:@"0"]) {
-            cell.seleteImg.image = [UIImage imageNamed:@"normalmageSource"];
-        } else {
-            cell.seleteImg.image = [UIImage imageNamed:@"insEyeImageSource"];
-        }
+    if ([self.dataArray[indexPath.row][@"seleted"] isEqualToString:@"0"]) {
+        cell.seleteImg.image = [UIImage imageNamed:@"normalmageSource"];
+    } else {
+        cell.seleteImg.image = [UIImage imageNamed:@"insEyeImageSource"];
+        self.selectTag = indexPath;
     }
     return cell;
 }
@@ -157,25 +143,23 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    HP_SeleteCell *cell = [tableView cellForRowAtIndexPath: indexPath];
-    if (self.isJob == YES) {
-        if (self.selectTag) {
-            HP_SeleteCell *selectedCell = [tableView cellForRowAtIndexPath:self.selectTag];
-            selectedCell.accessoryType = UITableViewCellAccessoryNone;
-            selectedCell.seleteImg.image = [UIImage imageNamed:@"normalmageSource"];
-        }
-        self.selectTag = indexPath;
-        cell.seleteImg.image = [UIImage imageNamed:@"insEyeImageSource"];
-    } else {
-        NSDictionary *stateStr = self.dataArray[indexPath.row];
-        //连续点击的时候，两种状态进行切换
-        NSString *picName = [stateStr[@"seleted"] isEqualToString:@"0"] ? @"insEyeImageSource" : @"normalmageSource";
-        NSString *changeStateStr = [stateStr[@"seleted"] isEqualToString:@"0"] ? @"1" : @"0";
-        NSMutableDictionary * dict  = [NSMutableDictionary dictionaryWithDictionary:[self.dataArray objectAtIndex:indexPath.row]];
-        dict[@"seleted"] = changeStateStr;
-        [self.dataArray replaceObjectAtIndex:indexPath.row withObject:dict];
-        cell.seleteImg.image = [UIImage imageNamed:picName];
+    NSMutableDictionary * dictMut  = [NSMutableDictionary dictionaryWithDictionary:[self.dataArray objectAtIndex:indexPath.row]];
+    
+    NSMutableDictionary * seletedictMut  = [NSMutableDictionary dictionaryWithDictionary:[self.dataArray objectAtIndex:self.selectTag.row]];
+    
+    HP_SeleteCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+
+    if (self.selectTag) {
+        HP_SeleteCell *selectedCell = [tableView cellForRowAtIndexPath:self.selectTag];
+        selectedCell.accessoryType = UITableViewCellAccessoryNone;
+        selectedCell.seleteImg.image = [UIImage imageNamed:@"normalmageSource"];
+        seletedictMut[@"seleted"] = @"0";
+        [self.dataArray replaceObjectAtIndex:self.selectTag.row withObject:seletedictMut];
     }
+    self.selectTag = indexPath;
+    cell.seleteImg.image = [UIImage imageNamed:@"insEyeImageSource"];
+    dictMut[@"seleted"] = @"1";
+    [self.dataArray replaceObjectAtIndex:indexPath.row withObject:dictMut];
 }
 
 - (UITableView *)tableView {
@@ -197,6 +181,13 @@
         _dataArray = @[].mutableCopy;
     }
     return _dataArray;
+}
+
+- (NSMutableArray *)selectIndexs {
+    if (!_selectIndexs) {
+        _selectIndexs = @[].mutableCopy;
+    }
+    return _selectIndexs;
 }
 
 @end

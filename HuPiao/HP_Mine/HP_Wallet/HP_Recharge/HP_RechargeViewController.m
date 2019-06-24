@@ -30,7 +30,7 @@
     
     NSArray *array = [dataModel componentsSeparatedByString:@","];
     
-    self.title.attributedText = [self setUpmoney:array.firstObject danwei:array.lastObject];
+    self.title.attributedText = [HP_Label setUpFirstStr:array.firstObject FirstColor:HPUIColorWithRGB(0x666666, 1.0) FirstFont:HPFontBoldSize(14) SecondStr:array.lastObject SecondColor:HPUIColorWithRGB(0xCD3700, 1.0) SecondFont:HPFontSize(14)];
 }
 
 //创建cell
@@ -58,76 +58,21 @@
     [self.contentView addSubview: self.icon];
     [self.contentView addSubview: self.title];
     [self.contentView addSubview: self.chooseSign];
-    
-//    [self.icon mas_remakeConstraints:^(MASConstraintMaker *make) {
-//        make.top.left.mas_equalTo (HPFit(20));
-//        make.width.height.mas_equalTo (HPFit(20));
-//
-//        make.bottom.mas_equalTo (wSelf.contentView.mas_bottom).offset (-HPFit(10));
-//    }];
-    
+
     [self.title mas_remakeConstraints:^(MASConstraintMaker *make) {
-//        make.height.top.mas_equalTo (wSelf.icon);
-//        make.left.mas_equalTo (wSelf.icon.mas_right).offset(HPFit(10));
         make.top.left.mas_equalTo (HPFit(15));
         make.height.mas_equalTo (HPFit(20));
         make.right.mas_equalTo (-HPFit(15));
         
         make.bottom.mas_equalTo (wSelf.contentView.mas_bottom).offset (-HPFit(15));
     }];
-    
-//    [self.chooseSign mas_remakeConstraints:^(MASConstraintMaker *make) {
-//        make.centerY.mas_equalTo (wSelf.icon.mas_centerY);
-//        make.right.mas_equalTo (-HPFit(20));
-//        make.width.height.mas_equalTo (wSelf.icon);
-//    }];
-}
-
-- (UIImageView *)icon {
-    if (!_icon) {
-        _icon = [UIImageView new];
-        _icon.image = [UIImage imageNamed:@"HB"];
-    }
-    return _icon;
 }
 
 - (UILabel *)title {
     if (!_title) {
         _title = [UILabel new];
-        _title.attributedText = [self setUpmoney:@"6元买" danwei:@"60H币"];
-//        _title.font = HPFontSize(14);
-//        _title.textColor = HPUIColorWithRGB(0x666666, 1.0);
     }
     return _title;
-}
-
-- (UIImageView *)chooseSign {
-    if (!_chooseSign) {
-        _chooseSign = [UIImageView new];
-        _chooseSign.image = [UIImage imageNamed:@"normalmageSource"];
-    }
-    return _chooseSign;
-}
-
-- (NSMutableAttributedString*)setUpmoney:(NSString *)money danwei:(NSString *)danwei{
-    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@%@",money,danwei]];
-    
-    [str addAttribute:NSForegroundColorAttributeName
-                value:HPUIColorWithRGB(0x666666, 1.0)
-                range:NSMakeRange(0,[money length])];
-    [str addAttribute:NSForegroundColorAttributeName
-                value:HPUIColorWithRGB(0xCD3700, 1.0)
-                range:NSMakeRange([money length],[danwei length])];
-    
-    [str addAttribute:NSFontAttributeName
-                value:HPFontBoldSize(14)
-                range:NSMakeRange(0, [money length])];
-    [str addAttribute:NSFontAttributeName
-                value:HPFontSize(14)
-                range:NSMakeRange([money length], [danwei length])];
-    
-    
-    return str;
 }
 
 @end

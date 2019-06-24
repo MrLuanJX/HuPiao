@@ -19,4 +19,26 @@ static CGFloat kMLLabelFloatMax = 10000000.0f;
 }
 
 
++ (NSMutableAttributedString*)setUpFirstStr:(NSString *)firstStr FirstColor:(UIColor *)firstColor FirstFont:(UIFont *)firstFont SecondStr:(NSString *)secondStr SecondColor:(UIColor *)secondColor SecondFont:(UIFont *)secondFont {
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@%@",firstStr,secondStr]];
+    
+    [str addAttribute:NSForegroundColorAttributeName
+                value:firstColor
+                range:NSMakeRange(0,[firstStr length])];
+    [str addAttribute:NSForegroundColorAttributeName
+                value:secondColor
+                range:NSMakeRange([firstStr length],[secondStr length])];
+    
+    [str addAttribute:NSFontAttributeName
+                value:firstFont
+                range:NSMakeRange(0, [firstStr length])];
+    [str addAttribute:NSFontAttributeName
+                value:secondFont
+                range:NSMakeRange([firstStr length], [secondStr length])];
+    
+    
+    return str;
+}
+
+
 @end

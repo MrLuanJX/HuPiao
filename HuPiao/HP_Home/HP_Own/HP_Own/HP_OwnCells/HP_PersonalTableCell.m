@@ -59,18 +59,6 @@
     return _title;
 }
 
-#pragma mark — 实现自适应文字宽度的关键步骤:item的layoutAttributes
-- (UICollectionViewLayoutAttributes *)preferredLayoutAttributesFittingAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes{
-    
-    UICollectionViewLayoutAttributes *attributes = [super preferredLayoutAttributesFittingAttributes:layoutAttributes];
-    CGRect rect = [self.title.text boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, HPFit(20)) options:NSStringDrawingTruncatesLastVisibleLine| NSStringDrawingUsesFontLeading |NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: HPFontSize(14)} context:nil];
-    rect.size.height += HPFit(10);
-    rect.size.width  += rect.size.height *1.5;
-    attributes.frame = rect;
-    
-    return attributes;
-}
-
 @end
 
 @interface HP_PersonalTableCell() <UICollectionViewDelegate , UICollectionViewDataSource>
@@ -80,6 +68,13 @@
 @end
 
 @implementation HP_PersonalTableCell
+
+- (void)setDataSource:(NSMutableArray *)dataSource {
+    _dataSource = dataSource;
+    
+
+   
+}
 
 // 创建cell
 + (instancetype)dequeueReusableCellWithTableView:(UITableView*)tableView Identifier:(NSString*)identifier{
@@ -97,7 +92,7 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
         [self configUI];
-        
+
         [self createConstrainte];
     }
     return self;
@@ -111,7 +106,6 @@
     // 行间距
     layout.minimumLineSpacing = HPFit(10);
     layout.minimumInteritemSpacing = HPFit(10);
-    layout.estimatedItemSize = CGSizeMake(20, 30);
     layout.sectionInset = UIEdgeInsetsMake(HPFit(10), HPFit(10), HPFit(10), HPFit(10)); //设置距离上 左 下 右
     UICollectionView * collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     collectionView.delegate = self;
@@ -131,7 +125,7 @@
     [self.collectionView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo (weakSelf.contentView.mas_top);
         make.left.mas_equalTo(0);
-        make.right.mas_equalTo (weakSelf.contentView.mas_right);
+        make.right.mas_equalTo (weakSelf.contentView.mas_right).offset(-HPFit(30));
         make.bottom.mas_equalTo(weakSelf.contentView.mas_bottom);
     }];
     
@@ -147,20 +141,18 @@
     return self.dataSource.count;
 }
 
-#pragma mark - item宽高
-//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    return CGSizeMake((self.contentView.width - HPFit(100))/3, HPFit(30));
-//}
-
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     HP_PersonalCollectionCell * collectionCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"personalCollectCell" forIndexPath:indexPath];
     
     collectionCell.text = self.dataSource[indexPath.item];
     
-    NSLog(@"self.collectionView.collectionViewLayout.collectionViewContentSize.height = %lf",self.collectionView.collectionViewLayout.collectionViewContentSize.height);
-   
     return collectionCell;
+}
+
+#pragma mark - item宽高
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake((HPScreenW - HPFit(60))/2, HPFit(30));
 }
 
 /* 点击item */

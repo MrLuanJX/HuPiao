@@ -106,8 +106,8 @@
 - (NSMutableArray *)jobArr {
     if (!_jobArr) {
         _jobArr = [NSMutableArray array];
-        _jobArr = [NSMutableArray arrayWithObjects:@"高管",@"创始人",@"职业经理人",@"咨询顾问",@"市场",@"产品",@"运营",@"销售",@"技术",@"客服",@"商务",@"公关",@"人事",@"行政",@"法务",@"设计",@"策划",@"编辑",@"健身教练",@"空乘",@"公务员",@"分析师",@"创始人",@"翻译",@"科研人员",@"作家",@"律师",@"社会工作者",@"自由职业者",@"医生",@"护士",@"教师",@"无", nil];
-        /*
+//        _jobArr = [NSMutableArray arrayWithObjects:@"高管",@"创始人",@"职业经理人",@"咨询顾问",@"市场",@"产品",@"运营",@"销售",@"技术",@"客服",@"商务",@"公关",@"人事",@"行政",@"法务",@"设计",@"策划",@"编辑",@"健身教练",@"空乘",@"公务员",@"分析师",@"创始人",@"翻译",@"科研人员",@"作家",@"律师",@"社会工作者",@"自由职业者",@"医生",@"护士",@"教师",@"无", nil];
+
         NSArray * jobTitleArr = @[@"高管",@"创始人",@"职业经理人",@"咨询顾问",@"市场",@"产品",@"运营",@"销售",@"技术",@"客服",@"商务",@"公关",@"人事",@"行政",@"法务",@"设计",@"策划",@"编辑",@"健身教练",@"空乘",@"公务员",@"分析师",@"创始人",@"翻译",@"科研人员",@"作家",@"律师",@"社会工作者",@"自由职业者",@"医生",@"护士",@"教师",@"无"];
         for (int i = 0; i < jobTitleArr.count; i++) {
             NSDictionary * jobDict = @{
@@ -116,7 +116,7 @@
                                     @"seleted" : @"0"
                                     };
             [_jobArr addObject:jobDict];
-        }*/
+        }
     }
     return _jobArr;
 }
@@ -189,19 +189,22 @@
     seleteVC.title = index.row == 5 ? @"职业" : @"兴趣";
 
     // 职业回调
-    seleteVC.jobSeleteBlock = ^(NSIndexPath * _Nonnull index, NSString * _Nonnull seleteTitle) {
-        cell.detailTextLabel.text = seleteTitle;
+    seleteVC.jobSeleteBlock = ^(NSIndexPath * _Nonnull index, NSMutableArray * _Nonnull seleteItem) {
+        for (int i = 0; i < seleteItem.count; i++) {
+            NSDictionary * dict = seleteItem[i];
+            if ([dict[@"seleted"] isEqualToString:@"1"]) {
+                cell.detailTextLabel.text = dict[@"title"];
+            }
+        }
     };
     // 兴趣回调
-    seleteVC.interestSeleteBlock = ^(NSArray * _Nonnull seleteTitles) {
-        NSMutableArray * seletedArr = @[].mutableCopy;
+    seleteVC.interestSeleteBlock = ^(NSIndexPath * _Nonnull index, NSArray * _Nonnull seleteTitles) {
         for (int i = 0; i < seleteTitles.count; i++) {
             NSDictionary * dict = seleteTitles[i];
             if ([dict[@"seleted"] isEqualToString:@"1"]) {
-                [seletedArr addObject:dict[@"title"]];
+                cell.detailTextLabel.text = dict[@"title"];
             }
         }
-      cell.detailTextLabel.text = [seletedArr componentsJoinedByString:@","];
     };
     
     [self.navigationController pushViewController:seleteVC animated:YES];

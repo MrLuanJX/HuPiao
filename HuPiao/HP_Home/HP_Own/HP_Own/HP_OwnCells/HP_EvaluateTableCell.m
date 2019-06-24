@@ -98,9 +98,7 @@
     // 行间距
     layout.minimumLineSpacing = HPFit(10);
     layout.minimumInteritemSpacing = HPFit(10);
-    //设置每个item的大小
-    //    layout.itemSize = CGSizeMake((HPScreenW - HPFit(90))/5, HPFit(50));
-    layout.sectionInset = UIEdgeInsetsMake(HPFit(10), HPFit(10), HPFit(10), HPFit(10)); //设置距离上 左 下 右
+    layout.sectionInset = UIEdgeInsetsMake(0, HPFit(10), 0, HPFit(10)); //设置距离上 左 下 右
     UICollectionView * collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     collectionView.delegate = self;
     collectionView.dataSource = self;
@@ -130,10 +128,10 @@
     }];
     
     [self.collectionView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo (weakSelf.contentView.mas_top);//.mas_offset (HPFit(10));
+        make.top.mas_equalTo (weakSelf.contentView.mas_top).mas_offset (HPFit(10));
         make.left.mas_equalTo(weakSelf.name.mas_right).offset(HPFit(10));
         make.right.mas_equalTo (0);
-        make.bottom.mas_equalTo(weakSelf.contentView.mas_bottom);//.offset (-HPFit(10));
+        make.bottom.mas_equalTo(weakSelf.contentView.mas_bottom).offset (-HPFit(10));
     }];
     
     [self.collectionView reloadData];

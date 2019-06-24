@@ -50,5 +50,6 @@
 #import "LLWPlusPopView.h"
 #import "Lyy_ImagePickerController.h"
 #import "XBZKeyBoardDefine.h"
-
+#import "HP_Label.h"
+#import <WHToast.h>
 #endif /* PrefixHeader_pch */

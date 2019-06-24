@@ -159,6 +159,22 @@
             }
         }
         browser.imageArray = imgArr;
+        
+        NSMutableArray * textArray = @[].mutableCopy;
+        for (int i = 0; i < imgArr.count; i++) {
+        if (i < imgArr.count - 1) {
+            NSMutableArray * arr = @[].mutableCopy;
+            NSString * str = imgArr[i];
+            [arr addObject:str];
+            [textArray addObjectsFromArray:arr];
+        }
+            if (i == imgArr.count - 1) {
+                [textArray addObject:@"理科类691分以上有22人，684分以上累计有50人。理科高分优先投档线495分以上累计有77056人，理科本科线390分以上累计有208357人。\n25日12时前考生如对本人某科成绩有疑问，可携带准考证到所在中学或当地县(市、区)招生办公室(考试中心)提出复查分数的书面申请；29日8时起，考生可通过广东省教育考试院官微小程序或粤省事小程序自行下载并打印成绩证书。\n根据时间安排，高考放榜后，6月25日考生开始网上填报志愿，7月2日填报志愿结束，7月7日录取工作正式开始。请考生密切关注广东省教育厅官网(edu.gd.gov.cn)及官微(gdsjyt)，广东省教育考试院官网(eea.gd.gov.cn)及官微(gdsksy)和广东教育考试服务网(www.eesc.com.cn)，及时跟踪高考成绩、志愿填报、高校录取等信息发布动态。广东省教育考试院提醒，请考生按照广东省教育考试院提供的正规渠道查询成绩和录取结果，谨防通过非正规渠道查询导致个人信息泄露的风险或被误导，以免上当受骗。(完)"];
+            }
+        }
+        
+        browser.textArray = textArray;
+
     }
     [browser show];
 }

@@ -23,5 +23,6 @@
  pod 'BRPickerView'
  pod 'TZImagePickerController'
  pod  'FFDropDownMenu'
+ pod 'WHToast'
  end
 

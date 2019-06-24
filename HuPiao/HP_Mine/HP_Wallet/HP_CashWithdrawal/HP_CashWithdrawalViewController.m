@@ -153,7 +153,7 @@
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
     
     UILabel * titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, self.view.frame.size.width - 40, 40)];
-    titleLabel.attributedText = [self setUpmoney:@"●  " danwei:arr[section]];
+    titleLabel.attributedText = [HP_Label setUpFirstStr:@"●  " FirstColor:kSetUpCololor(185, 185, 185, 1.0) FirstFont:HPFontSize(10) SecondStr:arr[section] SecondColor:HPUIColorWithRGB(0x3333333, 1.0) SecondFont:HPFontBoldSize(17)];
 
     [view addSubview:titleLabel];
     
@@ -274,26 +274,6 @@
         [_tableView registerClass:[HP_CashWithdrawalCell class] forCellReuseIdentifier:@"cashCell"];
     }
     return _tableView;
-}
-
-- (NSMutableAttributedString*)setUpmoney:(NSString *)money danwei:(NSString *)danwei{
-    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@%@",money,danwei]];
-    
-    [str addAttribute:NSForegroundColorAttributeName
-                value: kSetUpCololor(185, 185, 185, 1.0)
-                range:NSMakeRange(0,[money length])];
-    [str addAttribute:NSForegroundColorAttributeName
-                value: HPUIColorWithRGB(0x3333333, 1.0)
-                range:NSMakeRange([money length],[danwei length])];
-    
-    [str addAttribute:NSFontAttributeName
-                value: HPFontSize(10)
-                range:NSMakeRange(0, [money length])];
-    [str addAttribute:NSFontAttributeName
-                value: HPFontBoldSize(17)
-                range:NSMakeRange([money length], [danwei length])];
-    
-    return str;
 }
 
 - (NSMutableArray *)dataSource {

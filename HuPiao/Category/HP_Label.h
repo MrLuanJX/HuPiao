@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (CGSize)preferredSizeWithMaxWidth:(CGFloat)maxWidth;
 
+// AttributedString
++ (NSMutableAttributedString*)setUpFirstStr:(NSString *)firstStr FirstColor:(UIColor *)firstColor FirstFont:(UIFont *)firstFont SecondStr:(NSString *)secondStr SecondColor:(UIColor *)secondColor SecondFont:(UIFont *)secondFont;
+
 @end
 
 NS_ASSUME_NONNULL_END

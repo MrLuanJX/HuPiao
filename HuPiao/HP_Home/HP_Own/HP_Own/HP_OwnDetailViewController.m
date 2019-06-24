@@ -15,6 +15,8 @@
 #import "HP_PersonalTableCell.h"
 #import "HP_EvaluateTableCell.h"
 #import "HP_IntimateViewController.h"
+#import "HP_ReceivedGiftViewController.h"
+#import "HP_UserImpressionViewController.h"
 
 /// 开启刷新头部高度
 #define kOpenRefreshHeaderViewHeight 0
@@ -32,7 +34,7 @@
 
 @property (nonatomic , strong) NSMutableArray *  dataSource;
 
-@property (nonatomic , assign) CGFloat collectHeight;
+@property (nonatomic , assign) CGFloat tagHeight;
 
 @end
 
@@ -42,6 +44,7 @@
     [super viewDidLoad];
     __weak typeof (self) weakSelf = self;
     
+    
     [self.view addSubview:self.tableView];
     
     [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -50,8 +53,8 @@
     
     self.dataArray = @[].mutableCopy;
     /// 加载数据
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        for (int i = 0; i < 3; i++) {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        for (int i = 0; i < 10; i++) {
             [weakSelf.dataArray addObject:@""];
         }
         [self.tableView reloadData];
@@ -59,7 +62,6 @@
 //    [self addTableViewRefresh];
     
     self.dataSource = @[].mutableCopy;
-
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -89,6 +91,7 @@
 #pragma mark - 评价
 - (void) evaluateAction:(UIButton *)sender {
     NSLog(@"立即评价");
+    [self jumpUserImVCWithTitle:@"立即评价"];
 }
 
 /// 添加下拉刷新
@@ -188,19 +191,20 @@
 }
     
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    if (indexPath.row < self.dataArray.count) {
+    NSMutableArray * arr = [NSMutableArray arrayWithObjects:@"身高:170cm",@"体重:47kg",@"兴趣:跳舞",@"城市:北京", nil]; // ,@"职业:国家公务员"
+    if (indexPath.row < self.dataSource.count) {
         if (indexPath.section == 4) {
-            return (HPScreenW - HPFit(40))/3 + HPFit(10);
+           return [self cellHeightWithArray:arr];
         } else if (indexPath.section == 6) {
             return HPFit(60);
         } else
-            return (HPScreenW - HPFit(90))/5 + HPFit(20);//kCellHeight;
+            return (HPScreenW - HPFit(90))/5 + HPFit(20);
     }
-    return HPFit(60);//self.placeHolderCellHeight;
+    return HPFit(60);
 }
     
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    WS(wSelf);
     
     if (indexPath.section == 2 || indexPath.section == 3 ) {
         HP_ImpressionTableCell * imCell = [tableView dequeueReusableCellWithIdentifier:@"im"];
@@ -209,12 +213,18 @@
         NSString  *text = @"神 美如天仙 爱不释手 一个让人着迷的 爱之初体验";
         [self.dataSource addObjectsFromArray:[text componentsSeparatedByString:@" "]];
         imCell.dataSource = self.dataSource;
+        
+        imCell.itemClickBlock = ^{
+            if (indexPath.section == 3) {
+                [wSelf jumpUserImVCWithTitle:@"用户印象"];
+            }
+        };
         return imCell;
     } else if (indexPath.section == 4) {
         HP_PersonalTableCell * personalCell = [tableView dequeueReusableCellWithIdentifier:@"personal"];
         personalCell.accessoryType = UITableViewCellAccessoryNone;
         personalCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        NSMutableArray * arr = [NSMutableArray arrayWithObjects:@"身高:170cm",@"体重:47kg",@"兴趣:跳舞",@"城市:北京",@"职业:国家公务员",@"星座:双鱼座", nil];
+        NSMutableArray * arr = [NSMutableArray arrayWithObjects:@"身高:170cm",@"体重:47kg",@"兴趣:跳舞",@"城市:北京", nil]; // @"职业:国家公务员",
         personalCell.dataSource = arr;
         return personalCell;
     } else if (indexPath.section == 6) {
@@ -231,13 +241,20 @@
 }
     
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    BaseViewController *baseVC = [BaseViewController new];
-//    baseVC.title = @"二级页面";
-//    [self.navigationController pushViewController:baseVC animated:YES];
+
     NSLog(@"点击了第%ld区,第%ld行",(long)indexPath.section,(long)indexPath.row);
     HP_IntimateViewController * intimateVC = [HP_IntimateViewController new];
-    if (indexPath.section == 0 && indexPath.row == 0) {
+    HP_ReceivedGiftViewController * receivedGiftVC = [HP_ReceivedGiftViewController new];
+    
+    if (indexPath.section == 0) {
         [self.navigationController pushViewController:intimateVC animated:YES];
+    }
+    if (indexPath.section == 3) {
+        [self jumpUserImVCWithTitle:@"用户印象"];
+    }
+    
+    if (indexPath.section == 5) {
+        [self.navigationController pushViewController:receivedGiftVC animated:YES];
     }
 }
     
@@ -264,5 +281,21 @@
     NSLog(@"----- %@ delloc", self.class);
 }
 
+- (CGFloat) cellHeightWithArray :(NSMutableArray *)array {
+    
+    BOOL judge = [[HPDivisableTool new] judgeDivisibleWithFirstNumber:array.count andSecondNumber:2];
+    
+    NSInteger count = judge == YES ? floor(array.count/2) : floor(array.count/2) + 1;
+    
+    CGFloat cellHeight = count * HPFit(30) + (count+1) * HPFit(10);
+   
+    return cellHeight;
+}
+
+- (void) jumpUserImVCWithTitle:(NSString *)title {
+    HP_UserImpressionViewController * userImVC = [HP_UserImpressionViewController new];
+    userImVC.title = title;
+    [self.navigationController pushViewController:userImVC animated:YES];
+}
 
 @end

@@ -12,14 +12,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HP_ImpressionCollectionCell : UICollectionViewCell
 
-@end
 
+@end
 
 @interface HP_ImpressionTableCell : UITableViewCell
 
 +(instancetype)dequeueReusableCellWithTableView:(UITableView*)tableView Identifier:(NSString*)identifier;
 
 @property (nonatomic , strong) NSMutableArray * dataSource;
+
+@property (nonatomic , copy) void (^itemClickBlock) (void);
 
 @end
 

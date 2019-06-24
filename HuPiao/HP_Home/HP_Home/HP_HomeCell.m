@@ -38,7 +38,7 @@
 - (void)setAddress:(NSString *)address {
     _address = address;
     
-    self.addressLabel.text = HPNULLString(address) ? self.index.row%3 == 0 ? @"距您 2km" : @"北京市 朝阳区" : address;
+    self.addressLabel.text = HPNULLString(address) ? self.index.section%3 == 0 ? @"距您 2km" : @"北京市 朝阳区" : address;
 }
 
 - (void)setIndex:(NSIndexPath *)index {

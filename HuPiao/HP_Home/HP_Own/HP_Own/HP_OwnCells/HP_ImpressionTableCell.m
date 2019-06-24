@@ -127,7 +127,6 @@
     collectionView.showsHorizontalScrollIndicator = NO;
     [collectionView registerClass:[HP_ImpressionCollectionCell class] forCellWithReuseIdentifier:@"imCollectCell"];
     collectionView.backgroundColor = HPUIColorWithRGB(0xffffff, 1.0);
-//    collectionView.userInteractionEnabled = NO;
     self.collectionView = collectionView;
     [self.contentView addSubview:collectionView];
 }
@@ -154,31 +153,24 @@
     return 5;
 }
 
-#pragma mark - item宽高
-//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    return CGSizeMake((HPScreenW - HPFit(80))/3.5, HPFit(30));
-//}
-
-
-
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     HP_ImpressionCollectionCell * collectionCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"imCollectCell" forIndexPath:indexPath];
     
     collectionCell.text = self.dataSource[indexPath.row];
     
-//    if (self.collectHeight) {
-//        self.collectHeight(self.collectionView.collectionViewLayout.collectionViewContentSize.height);
-//    }
-    
     return collectionCell;
 }
 
 /* 点击item */
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    
+
+    if (self.itemClickBlock) {
+        self.itemClickBlock();
+    }
 }
+
+
 
 - (NSMutableArray *)dataSource {
     if (!_dataSource) {

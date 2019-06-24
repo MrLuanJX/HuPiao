@@ -104,6 +104,12 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle"
   install_resource "${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
   install_resource "${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle"
+  install_resource "${PODS_ROOT}/WHToast/WHToast/wtoast_icon/whtoast_error.png"
+  install_resource "${PODS_ROOT}/WHToast/WHToast/wtoast_icon/whtoast_error@2x.png"
+  install_resource "${PODS_ROOT}/WHToast/WHToast/wtoast_icon/whtoast_error@3x.png"
+  install_resource "${PODS_ROOT}/WHToast/WHToast/wtoast_icon/whtoast_success.png"
+  install_resource "${PODS_ROOT}/WHToast/WHToast/wtoast_icon/whtoast_success@2x.png"
+  install_resource "${PODS_ROOT}/WHToast/WHToast/wtoast_icon/whtoast_success@3x.png"
   install_resource "${PODS_ROOT}/YYStarView/YYStarView/YYStarView.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -114,6 +120,12 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle"
   install_resource "${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
   install_resource "${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle"
+  install_resource "${PODS_ROOT}/WHToast/WHToast/wtoast_icon/whtoast_error.png"
+  install_resource "${PODS_ROOT}/WHToast/WHToast/wtoast_icon/whtoast_error@2x.png"
+  install_resource "${PODS_ROOT}/WHToast/WHToast/wtoast_icon/whtoast_error@3x.png"
+  install_resource "${PODS_ROOT}/WHToast/WHToast/wtoast_icon/whtoast_success.png"
+  install_resource "${PODS_ROOT}/WHToast/WHToast/wtoast_icon/whtoast_success@2x.png"
+  install_resource "${PODS_ROOT}/WHToast/WHToast/wtoast_icon/whtoast_success@3x.png"
   install_resource "${PODS_ROOT}/YYStarView/YYStarView/YYStarView.bundle"
 fi
 

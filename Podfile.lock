@@ -43,6 +43,7 @@ PODS:
     - SDWebImage/Core
   - SVProgressHUD (2.2.5)
   - TZImagePickerController (3.2.0)
+  - WHToast (0.0.2)
   - WMPageController (2.5.2)
   - YNPageViewController (0.2.6)
   - YYCache (1.0.4)
@@ -73,6 +74,7 @@ DEPENDENCIES:
   - SDWebImage
   - SVProgressHUD
   - TZImagePickerController
+  - WHToast
   - WMPageController
   - YNPageViewController
   - YYImage
@@ -99,6 +101,7 @@ SPEC REPOS:
     - SDWebImage
     - SVProgressHUD
     - TZImagePickerController
+    - WHToast
     - WMPageController
     - YNPageViewController
     - YYCache
@@ -124,6 +127,7 @@ SPEC CHECKSUMS:
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TZImagePickerController: 7850b158d025065b162a1a963d445040b828abc9
+  WHToast: b5b1c6c2a178b2e848e7416fd25ca6b25c7babf8
   WMPageController: 0c7624d2b48e4f1ab92371688cf6744ed701575d
   YNPageViewController: 33040d429adf0b415d4449ffeec848d8339934ea
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
@@ -131,6 +135,6 @@ SPEC CHECKSUMS:
   YYStarView: 88da305c4e86bc2468758e9313f2d25cce4f3ba3
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: 5c22b477256c7a65d1b12046a21a490761b56f91
+PODFILE CHECKSUM: d8d09d1721d294fe7789a8747e8b69116a161263
 
 COCOAPODS: 1.6.1

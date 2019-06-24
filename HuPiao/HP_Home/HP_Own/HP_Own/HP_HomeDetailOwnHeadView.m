@@ -110,7 +110,7 @@
 //        _contentLabel.textColor = kSetUpCololor(185, 185, 185, 1.0);
 //        _contentLabel.font = HPFontSize(14);
 //        _contentLabel.text = [NSString stringWithFormat:@"%@：%@",@"个性签名",@"不要以为这是👉白浅上神👈，这只是一只可爱的文须雀。"];
-        _contentLabel.attributedText = [self setUpmoney:@"Ta 说  " danwei:@"不要以为这是👉白浅上神👈，这只是一只可爱的文须雀。"];
+        _contentLabel.attributedText = [HP_Label setUpFirstStr:@"Ta 说  " FirstColor:HPUIColorWithRGB(0xCD2990, 1.0) FirstFont:HPFontBoldSize(20) SecondStr:@"不要以为这是👉白浅上神👈，这只是一只可爱的文须雀。" SecondColor:kSetUpCololor(185, 185, 185, 1.0) SecondFont:HPFontSize(14)];
         _contentLabel.numberOfLines = 0;
         [_contentLabel sizeToFit];
     }
@@ -199,8 +199,6 @@
         [_likeBtn setTitle:[NSString stringWithFormat:@"%u",(arc4random() % 2560)] forState:UIControlStateNormal];
         [_likeBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         [_likeBtn setImage:[UIImage imageNamed:@"huoshan_tabbar_press_32x32_"] forState:UIControlStateNormal];
-        //        [_likeBtn addTarget:self action:@selector(likeAction:) forControlEvents:UIControlEventTouchUpInside];
-        //        _likeBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
     }
     return _likeBtn;
 }
@@ -231,27 +229,6 @@
          NSLog(@"取消关注");
          [sender setBackgroundImage:[UIImage imageNamed:@"love_video_night_20x20_"] forState:UIControlStateNormal];
     }
-}
-
-- (NSMutableAttributedString*)setUpmoney:(NSString *)money danwei:(NSString *)danwei{
-    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@%@",money,danwei]];
-    
-    [str addAttribute:NSForegroundColorAttributeName
-                value:HPUIColorWithRGB(0xCD2990, 1.0)
-                range:NSMakeRange(0,[money length])];
-    [str addAttribute:NSForegroundColorAttributeName
-                value:kSetUpCololor(185, 185, 185, 1.0)
-                range:NSMakeRange([money length],[danwei length])];
-    
-    [str addAttribute:NSFontAttributeName
-                value:HPFontBoldSize(20)
-                range:NSMakeRange(0, [money length])];
-    [str addAttribute:NSFontAttributeName
-                value:HPFontSize(14)
-                range:NSMakeRange([money length], [danwei length])];
-    
-    
-    return str;
 }
 
 @end

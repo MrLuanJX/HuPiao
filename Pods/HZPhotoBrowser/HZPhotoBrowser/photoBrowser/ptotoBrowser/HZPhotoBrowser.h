@@ -26,6 +26,7 @@
 
 //第二种展示方式（退出时不能回到原来的位置，默认回到屏幕正中央）直接传url,图片url列表必传
 @property (nonatomic,strong) NSArray *imageArray;
+@property (nonatomic,strong) NSArray *textArray;
 
 //从第几张图片开始展示，默认 0（第一种或者第二种方式展示都必须传）
 @property (nonatomic, assign) int currentImageIndex;
