@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HP_SignViewController : UIViewController
 
+@property (nonatomic , copy) void (^signBlock) (NSString * signature);
+
 @property (nonatomic , assign) int maxLength;
 
 @property (nonatomic , assign) BOOL feedBack;

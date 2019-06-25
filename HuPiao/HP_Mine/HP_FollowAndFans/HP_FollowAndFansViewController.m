@@ -47,13 +47,20 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    NSLog(@"title ---- %@",self.title);
     HP_FollowAndFansCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if (!cell) {
-        cell = [[HP_FollowAndFansCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"id"];
+        cell = [[HP_FollowAndFansCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier: [self.title isEqualToString:@"我的关注"] ? @"careId" : @"funId"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
     cell.user = self.dataArray[indexPath.row];
+    
+    cell.isCaredBlock = ^(UIButton * _Nonnull isCaredBtn) {
+        [isCaredBtn setTitle:[self.title isEqualToString:@"我的关注"] ? @"关注" : @"取消关注" forState:UIControlStateNormal];
+        [isCaredBtn setTitleColor:[self.title isEqualToString:@"我的关注"] ? kSetUpCololor(61, 121, 253, 1.0) : HPUIColorWithRGB(0x999999, 1.0) forState:UIControlStateNormal];
+        isCaredBtn.layer.borderColor = [self.title isEqualToString:@"我的关注"] ? kSetUpCololor(61, 121, 253, 1.0).CGColor : HPUIColorWithRGB(0x999999, 1.0).CGColor;
+    };
     
     return cell;
 }
@@ -65,7 +72,8 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.tableFooterView = [UIView new];
-        [_tableView registerClass:[HP_FollowAndFansCell class] forCellReuseIdentifier:@"id"];
+        _tableView.estimatedRowHeight = HPFit(50);
+//        [_tableView registerClass:[HP_FollowAndFansCell class] forCellReuseIdentifier:@"id"];
     }
     return _tableView;
 }
@@ -81,8 +89,11 @@
 #pragma mark - cell
 @interface HP_FollowAndFansCell ()
 
-@property (nonatomic, strong) HP_ImageView * avatarImageV;
-@property (nonatomic, strong) UILabel * nameLabel;
+@property (nonatomic , strong) HP_ImageView * avatarImageV;
+
+@property (nonatomic , strong) UILabel * nameLabel;
+
+@property (nonatomic , strong) UIButton * isCaredBtn;
 
 @end
 
@@ -91,23 +102,27 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-
-        [self setupUI];
+        
+        [self setupUIWithID:reuseIdentifier];
     }
     return self;
 }
 
-- (void) setupUI {
+- (void) setupUIWithID:(NSString *)ID {
     WS(wSelf);
     
-    // 头像
-    [self.contentView addSubview:self.avatarImageV];
-    // 昵称
-    [self.contentView addSubview:self.nameLabel];
+    [self.isCaredBtn setTitle:[ID isEqualToString:@"careId"] ? @"取消关注" : @"被关注" forState:UIControlStateNormal];
+    [self.isCaredBtn setTitleColor:[ID isEqualToString:@"careId"] ? HPUIColorWithRGB(0x999999, 1.0) : kSetUpCololor(61, 121, 253, 1.0) forState:UIControlStateNormal];
+    self.isCaredBtn.layer.cornerRadius = HPFit(15);
+    self.isCaredBtn.layer.borderWidth = 1.0;
+    self.isCaredBtn.layer.borderColor = [ID isEqualToString:@"careId"] ? HPUIColorWithRGB(0x999999, 1.0).CGColor : kSetUpCololor(61, 121, 253, 1.0).CGColor;
     
-    [self.contentView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.left.right.mas_equalTo (0);
-    }];
+    // 头像
+    [self.contentView addSubview: self.avatarImageV];
+    // 昵称
+    [self.contentView addSubview: self.nameLabel];
+    // 关注
+    [self.contentView addSubview: self.isCaredBtn];
     
     [self.avatarImageV mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo (HPFit(15));
@@ -116,10 +131,17 @@
         make.bottom.mas_equalTo (wSelf.contentView.mas_bottom).offset(-HPFit(10));
     }];
     
+    [self.isCaredBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo (wSelf.avatarImageV.mas_centerY);
+        make.right.mas_equalTo (wSelf.contentView.mas_right).offset(-HPFit(15));
+        make.width.mas_equalTo (HPFit(80));
+        make.height.mas_equalTo (HPFit(30));
+    }];
+    
     [self.nameLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo (wSelf.avatarImageV.mas_centerY);
         make.left.mas_equalTo (wSelf.avatarImageV.mas_right).offset(HPFit(10));
-        make.right.mas_equalTo (-HPFit(15));
+        make.right.mas_equalTo (wSelf.isCaredBtn.mas_left).offset(-HPFit(10));
     }];
 }
 
@@ -150,4 +172,20 @@
     }
     return _nameLabel;
 }
+
+- (UIButton *)isCaredBtn {
+    if (!_isCaredBtn) {
+        _isCaredBtn = [UIButton new];
+        _isCaredBtn.titleLabel.font = HPFontSize(13);
+        [_isCaredBtn addTarget:self action:@selector(isCaredAction:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _isCaredBtn;
+}
+
+- (void) isCaredAction:(UIButton *) sender{
+    if (self.isCaredBlock) {
+        self.isCaredBlock(sender);
+    }
+}
+
 @end

@@ -253,7 +253,7 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
            cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2lfM",self.fileSize];
         }
         if (indexPath.row == 4) {
-//            cell.accessoryType = UITableViewCellAccessoryNone;
+            cell.accessoryType = UITableViewCellAccessoryNone;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
             cell.detailTextLabel.text = APP_VERSION;

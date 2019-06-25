@@ -24,7 +24,6 @@
 
 @interface Lyy_ImagePickerController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
-
 @end
 
 @implementation Lyy_ImagePickerController

@@ -49,6 +49,9 @@
 		009CEEE222C0AD6600889FFD /* HP_UserImpressionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CEEE122C0AD6600889FFD /* HP_UserImpressionViewController.m */; };
 		009CEEE522C0B63500889FFD /* JYEqualCellSpaceFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CEEE322C0B63400889FFD /* JYEqualCellSpaceFlowLayout.m */; };
 		009CEEE822C0D1D200889FFD /* PishumToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CEEE722C0D1D200889FFD /* PishumToast.m */; };
+		009CEEF222C1D50A00889FFD /* HP_HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CEEF122C1D50A00889FFD /* HP_HttpTool.m */; };
+		009CEEF522C1D54D00889FFD /* WBNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CEEF422C1D54D00889FFD /* WBNetWork.m */; };
+		009CEEF922C1D56D00889FFD /* ZZNetworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CEEF822C1D56D00889FFD /* ZZNetworkRequest.m */; };
 		00B9511422929C9F008D9411 /* HP_HomeBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B9511322929C9F008D9411 /* HP_HomeBaseViewController.m */; };
 		00B9511722929DA7008D9411 /* HP_HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B9511622929DA7008D9411 /* HP_HomeCell.m */; };
 		00B9512E2292AAE2008D9411 /* gfrz.png in Resources */ = {isa = PBXBuildFile; fileRef = 00B9512D2292AAE2008D9411 /* gfrz.png */; };
@@ -279,6 +282,12 @@
 		009CEEE422C0B63500889FFD /* JYEqualCellSpaceFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYEqualCellSpaceFlowLayout.h; sourceTree = "<group>"; };
 		009CEEE622C0D1D200889FFD /* PishumToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PishumToast.h; sourceTree = "<group>"; };
 		009CEEE722C0D1D200889FFD /* PishumToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PishumToast.m; sourceTree = "<group>"; };
+		009CEEF022C1D50A00889FFD /* HP_HttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HP_HttpTool.h; sourceTree = "<group>"; };
+		009CEEF122C1D50A00889FFD /* HP_HttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HP_HttpTool.m; sourceTree = "<group>"; };
+		009CEEF322C1D54C00889FFD /* WBNetWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNetWork.h; sourceTree = "<group>"; };
+		009CEEF422C1D54D00889FFD /* WBNetWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNetWork.m; sourceTree = "<group>"; };
+		009CEEF722C1D56D00889FFD /* ZZNetworkRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZNetworkRequest.h; sourceTree = "<group>"; };
+		009CEEF822C1D56D00889FFD /* ZZNetworkRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZNetworkRequest.m; sourceTree = "<group>"; };
 		00B9511222929C9F008D9411 /* HP_HomeBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_HomeBaseViewController.h; sourceTree = "<group>"; };
 		00B9511322929C9F008D9411 /* HP_HomeBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_HomeBaseViewController.m; sourceTree = "<group>"; };
 		00B9511522929DA7008D9411 /* HP_HomeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_HomeCell.h; sourceTree = "<group>"; };
@@ -655,9 +664,31 @@
 			path = HP_UserImpression;
 			sourceTree = "<group>";
 		};
+		009CEEEF22C1D4FB00889FFD /* HP_HttpTool */ = {
+			isa = PBXGroup;
+			children = (
+				009CEEF022C1D50A00889FFD /* HP_HttpTool.h */,
+				009CEEF122C1D50A00889FFD /* HP_HttpTool.m */,
+				009CEEF322C1D54C00889FFD /* WBNetWork.h */,
+				009CEEF422C1D54D00889FFD /* WBNetWork.m */,
+				009CEEF622C1D56D00889FFD /* ZZNetworkRequest */,
+			);
+			path = HP_HttpTool;
+			sourceTree = "<group>";
+		};
+		009CEEF622C1D56D00889FFD /* ZZNetworkRequest */ = {
+			isa = PBXGroup;
+			children = (
+				009CEEF722C1D56D00889FFD /* ZZNetworkRequest.h */,
+				009CEEF822C1D56D00889FFD /* ZZNetworkRequest.m */,
+			);
+			path = ZZNetworkRequest;
+			sourceTree = "<group>";
+		};
 		00B951182292A3EE008D9411 /* HP_Tool */ = {
 			isa = PBXGroup;
 			children = (
+				009CEEEF22C1D4FB00889FFD /* HP_HttpTool */,
 				009CEEE422C0B63500889FFD /* JYEqualCellSpaceFlowLayout.h */,
 				009CEEE322C0B63400889FFD /* JYEqualCellSpaceFlowLayout.m */,
 				00D2F0C422AF97E9008D52D9 /* HP_GiftView */,
@@ -1461,6 +1492,14 @@
 				TargetAttributes = {
 					DDFE70D82290F4270029C425 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.ApplePay = {
+								enabled = 0;
+							};
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 					DDFE70F02290F42A0029C425 = {
 						CreatedOnToolsVersion = 10.0;
@@ -1657,6 +1696,7 @@
 				00EEA34922BA0ADE0038A521 /* NSString+XBZKeyBoard.m in Sources */,
 				00D2F0D822B0C4B5008D52D9 /* HP_CashWithdrawalViewController.m in Sources */,
 				00D2EFD622A75FE8008D52D9 /* INMRefreshGifHeader.m in Sources */,
+				009CEEF522C1D54D00889FFD /* WBNetWork.m in Sources */,
 				009CEEC822BC7B8800889FFD /* HP_TouchIDCell.m in Sources */,
 				00D2F0A022A91CA3008D52D9 /* HP_WalletViewController.m in Sources */,
 				009CEECC22BCB4D800889FFD /* HP_IntimateViewController.m in Sources */,
@@ -1664,6 +1704,7 @@
 				008208E822A4F89900EBEF4C /* Moment.m in Sources */,
 				00EEA30422B8E36E0038A521 /* HP_CreateDyCell.m in Sources */,
 				008208E422A4F89100EBEF4C /* MLocation.m in Sources */,
+				009CEEF922C1D56D00889FFD /* ZZNetworkRequest.m in Sources */,
 				00D2F09822A90508008D52D9 /* Lyy_ImagePickerController.m in Sources */,
 				009CEDFA22BB7A5600889FFD /* HPRegistPwdViewController.m in Sources */,
 				008208EF22A4F9A000EBEF4C /* HP_ContactsViewController.m in Sources */,
@@ -1751,6 +1792,7 @@
 				0082090522A5316200EBEF4C /* UIView+BorderLine.m in Sources */,
 				009CEEE822C0D1D200889FFD /* PishumToast.m in Sources */,
 				00D2F08C22A9020E008D52D9 /* IDInfo.m in Sources */,
+				009CEEF222C1D50A00889FFD /* HP_HttpTool.m in Sources */,
 				00EEA35522BA0ADF0038A521 /* XBZEmojiCollectionViewCell.m in Sources */,
 				009CEDF422BB501C00889FFD /* HP_LoginViewController.m in Sources */,
 				00EEA36822BB20F30038A521 /* HP_ImpressionTableCell.m in Sources */,

@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic , strong) MUser * user;
 
+- (void) iconBtnUpdateImageWithImage:(UIImage *)img ;
+
 @end
 
 NS_ASSUME_NONNULL_END

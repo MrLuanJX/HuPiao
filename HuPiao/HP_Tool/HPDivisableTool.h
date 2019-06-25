@@ -11,6 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HPDivisableTool : NSObject
+@property (nonatomic , copy) void (^actionBlock) (void);
+@property (nonatomic , copy) void (^openpHotoalbumBlock) (void);
 
 // 是否能被整除
 -(BOOL)judgeDivisibleWithFirstNumber:(CGFloat)firstNumber andSecondNumber:(CGFloat)secondNumber;
@@ -27,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 // UIButton点击放大效果
 +(void) btnActionAnimationWithBtn:(UIButton *)sender;
+
 @end
 
 NS_ASSUME_NONNULL_END

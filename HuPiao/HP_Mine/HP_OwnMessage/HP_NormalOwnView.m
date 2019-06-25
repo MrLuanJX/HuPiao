@@ -22,6 +22,10 @@
 
 @implementation HP_NormalOwnView
 
+- (void) iconBtnUpdateImageWithImage:(UIImage *)img {
+    [self.iconBtn setImage:img forState:UIControlStateNormal];
+}
+
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         
@@ -86,6 +90,8 @@
 - (UIButton *)iconBtn {
     if (!_iconBtn) {
         _iconBtn = [UIButton new];
+        _iconBtn.imageView.contentMode = UIViewContentModeScaleAspectFill;
+        _iconBtn.imageView.clipsToBounds = YES;
         [_iconBtn addTarget:self action:@selector(iconAction:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _iconBtn;
@@ -109,7 +115,6 @@
         _commitBtn.titleLabel.font = HPFontSize(15);
         [_commitBtn addTarget:self action:@selector(commitAction:) forControlEvents:UIControlEventTouchUpInside];
         [_commitBtn addTarget:self action:@selector(commitDown:) forControlEvents:UIControlEventTouchDown];
-
     }
     return _commitBtn;
 }

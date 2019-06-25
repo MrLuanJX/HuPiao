@@ -96,10 +96,9 @@
 }
 
 - (void) sureAction : (UIBarButtonItem *) sender{
-    NSLog(@"保存");
+    NSLog(@"保存----%@",self.dataArray[self.selectTag.row]);
     
     if (self.jobSeleteBlock) {
-        
         self.jobSeleteBlock(self.selectTag, self.dataArray);
     }
     

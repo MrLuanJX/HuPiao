@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) MUser * user;
 
+@property (nonatomic , copy) void (^isCaredBlock) (UIButton * isCaredBtn);
+
 @end
 
 @interface HP_FollowAndFansViewController : UIViewController

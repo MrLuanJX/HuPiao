@@ -16,14 +16,4 @@
 // 创建ActionSheetController
 +(instancetype)actionSheetControllerWithTitle:(NSString *)title message:(NSString *)message okAction:(UIAlertAction *)okAction cancelAction:(UIAlertAction *)cancelAction;
 
-
-- (void)sp_didUserInfoFailed;
-
-- (void)sp_didGetInfoSuccess;
-
-- (void)sp_getLoginState;
-
-- (void)sp_checkInfo;
-
-- (void)sp_getUsersMostLikedSuccess;
 @end

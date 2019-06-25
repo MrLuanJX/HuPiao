@@ -22,18 +22,27 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
+        
         [self addTableView];
     }
     return self;
 }
 
 - (void) addTableView {
+    WS(wSelf);
+    
     [self addSubview: self.tableView];
     [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(self);
     }];
     
     self.tableView.tableHeaderView = self.collView;
+    
+    self.collView.collectSeleteBlock = ^(NSIndexPath * _Nonnull index, HP_AuthCollectCell * _Nonnull cell) {
+        if (wSelf.collectSeleteBlock) {
+            wSelf.collectSeleteBlock(index, cell);
+        }
+    };
 }
 
 #pragma mark - UITableViewDelegate  UITableViewDataSource
@@ -71,27 +80,6 @@
     if (self.cellSeleteBlock) {
         self.cellSeleteBlock(indexPath, cell);
     }
-    /*
-    if (indexPath.row == 1) {
-        // 开始展示时间（最小时间-选择器第一个）
-        NSDate *minDate = [NSDate br_setYear:1900 month:1 day:01];
-        // 结束时间 （最大时间-选择器最后一个）
-        NSDate *maxDate = [NSDate date];
-        [BRDatePickerView showDatePickerWithTitle:@"请选择出生日期" dateType:BRDatePickerModeYMD defaultSelValue:@"" minDate:minDate maxDate:maxDate isAutoSelect:NO themeColor:nil resultBlock:^(NSString *selectValue) {
-            // 选中结果
-            cell.detailTextLabel.text = selectValue;
-        } cancelBlock:^{
-            NSLog(@"点击了背景或取消按钮");
-        }];
-    } else if (indexPath.row == 2) {
-        
-        [self showPickerViewWithTitle:@"请选择身高" DataSource:self.heightArr WithCell:cell index:indexPath];
-       
-    } else if (indexPath.row == 3) {
-        
-        [self showPickerViewWithTitle:@"请选择体重" DataSource:self.weightArr WithCell:cell index:indexPath];
-    }
-     */
 }
 
 - (UITableView *)tableView {
@@ -120,6 +108,12 @@
         _titleArr = [NSMutableArray arrayWithObjects:@"昵称",@"出生日期",@"身高",@"体重",@"兴趣",@"职业",@"个性签名", nil];
     }
     return _titleArr;
+}
+
+- (void)setDataSource:(NSMutableArray *)dataSource {
+    _dataSource = dataSource;
+    
+    self.collView.dataSource = dataSource;
 }
 
 @end

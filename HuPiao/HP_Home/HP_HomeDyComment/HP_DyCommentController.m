@@ -57,6 +57,12 @@
 
 - (void) shareAction {
     NSLog(@"分享");
+    
+    [HP_HttpTool INMRequestWithType:POST_INM URL:@"" Paramer:nil SuccessBlock:^(id  _Nonnull obj) {
+        
+    } FailureBlock:^(NSError * _Nonnull error) {
+        
+    } IsCache:YES];
 }
 
 - (void) initArray {

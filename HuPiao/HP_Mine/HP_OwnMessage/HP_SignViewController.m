@@ -44,6 +44,14 @@
 - (void) feedbackAction {
     NSLog(@"保存");
     self.sendBtn.backgroundColor = kSetUpCololor(61, 121, 253, 1.0);
+    
+    if ([self.title isEqualToString:@"个性签名"]) {
+        if (self.signBlock) {
+            self.signBlock(self.FKTextView.text);
+        }
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    
 }
 
 - (void) feedbackDown {

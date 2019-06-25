@@ -52,4 +52,7 @@
 #import "XBZKeyBoardDefine.h"
 #import "HP_Label.h"
 #import <WHToast.h>
+#import "UIAlertController+Extend.h"
+#import "HP_HttpTool.h"
+
 #endif /* PrefixHeader_pch */

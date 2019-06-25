@@ -1,9 +1,9 @@
 //
 //  HP_CommentCell.h
-//  DJZJ
+//  HuPiao
 //
-//  Created by a on 2019/6/14.
-//  Copyright © 2019 a. All rights reserved.
+//  Created by a on 2019/6/19.
+//  Copyright © 2019 栾金鑫. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

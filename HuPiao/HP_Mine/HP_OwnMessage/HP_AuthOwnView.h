@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HP_AuthMessageHeadView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,7 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic , copy) void(^cellSeleteBlock)(NSIndexPath * index, UITableViewCell * cell);
 
+@property (nonatomic , copy) void(^collectSeleteBlock)(NSIndexPath * index, HP_AuthCollectCell * cell);
+
 @property (nonatomic , strong) MUser * user;
+
+@property (nonatomic , strong) NSMutableArray * dataSource;
 
 @end
 

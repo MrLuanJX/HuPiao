@@ -12,15 +12,19 @@
 
 @property (nonatomic , strong) NSIndexPath * index;
 
-@property (nonatomic , strong) UIImageView * image;
-
 @property (nonatomic , strong) UILabel * avatarImageLabel;
 
-@property (nonatomic , copy) NSString * imageData;
+@property (nonatomic , copy) UIImage * img;
 
 @end
 
 @implementation HP_AuthCollectCell
+
+- (void)setImg:(UIImage *)img {
+    _img = img;
+    
+    self.image.image = img;
+}
 
 - (void)setIndex:(NSIndexPath *)index {
     _index = index;
@@ -38,8 +42,10 @@
 -(void)setupItemUI{
     
     self.image = [UIImageView new];
-    self.image.backgroundColor = [UIColor colorWithRed:arc4random()%255/255.0 green:arc4random()%255/255.0 blue:arc4random()%255/255.0 alpha:1];
-
+    self.image.backgroundColor = kSetUpCololor(242, 242, 242, 1.0);//[UIColor colorWithRed:arc4random()%255/255.0 green:arc4random()%255/255.0 blue:arc4random()%255/255.0 alpha:1];
+    self.image.contentMode = UIViewContentModeScaleAspectFill;
+    self.image.clipsToBounds = YES;
+    
     [self.contentView addSubview:self.image];
     [self.contentView addSubview:self.avatarImageLabel];
     
@@ -52,13 +58,6 @@
         make.width.mas_equalTo (HPFit(40));
         make.height.mas_equalTo (HPFit(20));
     }];
-}
-
--(void)setImageData:(NSString *)imageData{
-    _imageData = imageData;
-    
-//    self.image.image = [UIImage imageNamed:imageData];
-    
 }
 
 - (void)drawRect:(CGRect)rect {
@@ -86,6 +85,7 @@
 
 @property (nonatomic , strong) UICollectionView * collectionView;
 @property (nonatomic , strong) NSMutableArray * images;
+
 @end
 
 @implementation HP_AuthMessageHeadView
@@ -122,8 +122,15 @@
     
     cell.index = indexPath;
     
-    if (self.images.count > 0) {
-//        cell.imageData = self.images[indexPath.item];
+    NSLog(@"dataSource = %@",self.dataSource);
+    
+    if (self.dataSource.count > 0) {
+        if (self.dataSource.count < 9) {
+            for (int i = 0; i < 9 - self.dataSource.count; i++) {
+                [self.dataSource addObject:[UIImage imageWithColor:kSetUpCololor(242, 242, 242, 1.0)]];
+            }
+        }
+        cell.img = self.dataSource[indexPath.item];
     }
     
     return cell;
@@ -131,7 +138,11 @@
 
 /* 点击item */
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    HP_AuthCollectCell * cell = (HP_AuthCollectCell *)[collectionView cellForItemAtIndexPath:indexPath];
     
+    if (self.collectSeleteBlock) {
+        self.collectSeleteBlock(indexPath,cell);
+    }
 }
 
 - (UICollectionView *)collectionView {
@@ -150,6 +161,14 @@
         _collectionView.backgroundColor = [UIColor whiteColor];
     }
     return _collectionView;
+}
+
+- (void)setDataSource:(NSMutableArray *)dataSource {
+    _dataSource = dataSource;
+    
+      NSLog(@"d----%@",dataSource);
+    
+    [self.collectionView reloadData];
 }
 
 @end

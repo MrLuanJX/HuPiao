@@ -33,24 +33,4 @@
     return [self alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleActionSheet okAction:okAction cancelAction:cancelAction];
 }
 
-
-- (void)sp_didUserInfoFailed {
-    NSLog(@"Get Info Success");
-}
-
-- (void)sp_didGetInfoSuccess {
-    NSLog(@"Check your Network");
-}
-
-- (void)sp_getLoginState {
-    NSLog(@"Get User Succrss");
-}
-
-- (void)sp_checkInfo {
-    NSLog(@"Check your Network");
-}
-
-- (void)sp_getUsersMostLikedSuccess {
-    NSLog(@"Check your Network");
-}
 @end

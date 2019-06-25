@@ -238,8 +238,8 @@
 - (UIImageView *)avatarImageView {
     if (!_avatarImageView) {
         _avatarImageView = [UIImageView new];
-//        _avatarImageView.backgroundColor = [UIColor greenColor];
-//        _avatarImageView.image = [UIImage imageNamed:@"moment_head"];
+        _avatarImageView.contentMode = UIViewContentModeScaleAspectFill;
+        _avatarImageView.clipsToBounds = YES;
     }
     return _avatarImageView;
 }

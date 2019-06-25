@@ -38,7 +38,6 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
-    
 }
 
 - (void)viewDidLoad {
@@ -167,7 +166,6 @@
 
 //打开相册
 -(void)openpHotoalbum {
-//    __weak typeof (self) weakSelf = self;
     self.againPhotoalbum = [[TZImagePickerController alloc] initWithMaxImagesCount:9 columnNumber:3 delegate:self pushPhotoPickerVc:YES];
     self.againPhotoalbum.allowTakeVideo = NO;
     self.againPhotoalbum.allowPickingVideo = NO;

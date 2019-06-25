@@ -22,9 +22,9 @@
 
 @interface AlertViewTool ()
 
-@property(copy,nonatomic)void (^cancelClicked)();
+@property(copy,nonatomic)void (^cancelClicked)(void);
 
-@property(copy,nonatomic)void (^confirmClicked)();
+@property(copy,nonatomic)void (^confirmClicked)(void);
 
 @end
 
