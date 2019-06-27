@@ -23,9 +23,9 @@
     
     self.window.backgroundColor = [UIColor whiteColor];
 
-//    HP_NavigationViewController * loginNav = [[HP_NavigationViewController alloc] initWithRootViewController:[HP_LoginViewController new]];
+    HP_NavigationViewController * loginNav = [[HP_NavigationViewController alloc] initWithRootViewController:[HP_LoginViewController new]];
     
-    self.window.rootViewController = [HP_TabbarViewController new];   // loginNav; //
+    self.window.rootViewController = loginNav; // [HP_TabbarViewController new];   //
     
     [self.window makeKeyAndVisible];
     

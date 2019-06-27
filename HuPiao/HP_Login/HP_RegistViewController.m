@@ -8,6 +8,7 @@
 
 #import "HP_RegistViewController.h"
 #import "HPRegistPwdViewController.h"
+#import "DJZJ_RequestTool.h"
 
 @interface HP_RegistViewController () <UITextFieldDelegate>
 
@@ -48,16 +49,14 @@
     
     //同理透明掉导航栏下划线
     [self.navigationController.navigationBar setShadowImage:nil];
-}
-
-- (void)setRegistOrForgotPwd:(NSString *)registOrForgotPwd {
-    _registOrForgotPwd = registOrForgotPwd;
+    
+    [self.view endEditing:YES];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = self.registOrForgotPwd;
+    self.title = @"注    册";;
         
     self.phoneTFEmpty = YES;
     self.codeTFEmpty = YES;
@@ -77,6 +76,35 @@
     [self setupRightNav];
 }
 
+- (void) requestCode {
+    NSDictionary * dict = @{
+                            @"phoneNumber" : @"18910795322",//self.nameTF.text,
+                            @"type" : @"register",
+                            @"t" : [HPDivisableTool currentdateInterval],
+                            @"code" : @"",
+                            @"sign" : [NSString md5:[NSString stringWithFormat:@"%@%@%@%@%@%@",@"code",@"phoneNumber",@"sign",@"t",@"type",HPKey]],
+                            };
+    NSLog(@"md5 =--- %@",[NSString stringWithFormat:@"%@%@%@%@%@%@",@"code",@"phoneNumber",@"sign",@"t",@"type",HPKey]);
+
+//    [DJZJ_RequestTool LJX_requestWithType:LJX_POST URL:HP_PhoneCode params:dict successBlock:^(id obj) {
+//
+//        NSLog(@"obj = %@",obj);
+//
+//    } failureBlock:^(NSError *error) {
+//
+//        NSLog(@"error = %@",error);
+//
+//    }];
+//
+    [HP_MemberHandler executeGetCode:dict Success:^(id  _Nonnull obj) {
+        NSLog(@"obj ==== %@",obj);
+
+    } Fail:^(id  _Nonnull obj) {
+
+    }];
+}
+
+#pragma mark -返回键
 - (void) setupRightNav {
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(back) image:@"leftbackicon_white_titlebar_24x24_" highImage:@"leftbackicon_white_titlebar_night_24x24_" isLeftBtn:YES];
 }
@@ -98,7 +126,7 @@
     }
     
     HPRegistPwdViewController * registPwdVC = [HPRegistPwdViewController new];
-    registPwdVC.registOrForgotPwd = self.registOrForgotPwd;
+    registPwdVC.registOrForgotPwd = @"注     册";
     [self.navigationController pushViewController:registPwdVC animated:YES];
 }
 -(void) registDown:(UIButton *)sender {
@@ -107,7 +135,13 @@
 
 #pragma mark - 验证码Action
 - (void) codeAcion:(UIButton *)sender {
+    [self requestCode];
+    
+    [self.view endEditing:YES];
+    
     [self.codeBtn setTitleColor:HPUIColorWithRGB(0xffffff, 1.0) forState:UIControlStateNormal];
+    
+    [self.codeBtn startWithTime:60 title:@"获取验证码" countDownTitle:@"秒" mainColor:HPUIColorWithRGB(0xffffff, 1.0) countColor:kSetUpCololor(225, 225, 225, 1.0)];
 }
 -(void) codeDown:(UIButton *)sender {
     [self.codeBtn setTitleColor:HPUIColorWithRGB(0x96CDCD, 1.0) forState:UIControlStateNormal];
@@ -178,7 +212,7 @@
 - (UITextField *)nameTF {
     if (!_nameTF) {
         _nameTF = [UITextField new];
-        _nameTF.font = [UIFont systemFontOfSize:14];
+        _nameTF.font = HPFontSize(16);
         _nameTF.backgroundColor = [UIColor clearColor];
         _nameTF.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, CGRectGetWidth(_nameTF.frame))];
         _nameTF.leftViewMode = UITextFieldViewModeAlways;

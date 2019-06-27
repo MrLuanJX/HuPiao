@@ -202,7 +202,7 @@
         [sender setTitle:@"103" forState:UIControlStateNormal];
         [sender setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
         
-        [self btnActionAnimationWithBtn:sender];
+        [HPDivisableTool btnActionAnimationWithBtn:sender FromValue:0.7 ToValue:1.3 Duration:0.2 RepeatCount:1];
         
         self.isLiked = NO;
     } else {
@@ -223,18 +223,6 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
-}
-
-- (void) btnActionAnimationWithBtn:(UIButton *)sender {
-    
-    CABasicAnimation*pulse = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-    pulse.timingFunction= [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    pulse.duration = 0.2;
-    pulse.repeatCount= 1;
-    pulse.autoreverses= YES;
-    pulse.fromValue= [NSNumber numberWithFloat:0.7];
-    pulse.toValue= [NSNumber numberWithFloat:1.3];
-    [[sender layer] addAnimation:pulse forKey:nil];
 }
     
 @end

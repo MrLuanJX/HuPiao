@@ -14,6 +14,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic , copy) NSString * registOrForgotPwd;
 
+@property (nonatomic , copy) NSString * phoneNum;
+
+@property (nonatomic , copy) NSString * code;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

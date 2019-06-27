@@ -11,6 +11,9 @@
 
 #define SAFE_AREA_INSETS_TOP safeAreaInsets().top
 #define SAFE_AREA_INSETS_BOTTOM safeAreaInsets().bottom
+
+#define HPKey @"1de29977f54b146d39ec593dad2cc778"
+
 /** 程序版本号 */
 #define APP_VERSION [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
 // 弱引用
@@ -83,4 +86,21 @@
 // 视图之间的间距
 #define kPaddingValue           8
 
+
+#pragma mark - Path
+#define     PATH_DOCUMENT                   [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]
+#define     PATH_CHATREC_IMAGE              [PATH_DOCUMENT stringByAppendingPathComponent:@"ChatRec/Images"]
+#define HEIGHT_CHATBOXVIEW  215// 更多 view
+#pragma mark - Color
+#define     DEFAULT_NAVBAR_COLOR             kSetUpCololor(20.0, 20.0, 20.0, 0.9)
+#define     DEFAULT_BACKGROUND_COLOR         kSetUpCololor(239.0, 239.0, 244.0, 1.0)
+
+#define     DEFAULT_CHAT_BACKGROUND_COLOR    kSetUpCololor(235.0, 235.0, 235.0, 1.0)
+#define     DEFAULT_CHATBOX_COLOR            kSetUpCololor(244.0, 244.0, 246.0, 1.0)
+#define     DEFAULT_SEARCHBAR_COLOR          kSetUpCololor(239.0, 239.0, 244.0, 1.0)
+#define     DEFAULT_GREEN_COLOR              kSetUpCololor(2.0, 187.0, 0.0, 1.0f)
+#define     DEFAULT_TEXT_GRAY_COLOR         [UIColor grayColor]
+#define     DEFAULT_LINE_GRAY_COLOR          kSetUpCololor(188.0, 188.0, 188.0, 0.6f)
+
+#define HEIGHT_TABBAR       49 // 标签
 #endif /* DefineFile_h */

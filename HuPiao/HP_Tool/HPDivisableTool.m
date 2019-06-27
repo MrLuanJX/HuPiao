@@ -120,17 +120,63 @@
     }
 }
 
-+ (void) btnActionAnimationWithBtn:(UIButton *)sender {
+/**
+ *  字典转换为字符串
+ *
+ *  @param dic 字典
+ *
+ *  @return 返回字符串
+ */
++ (NSString*)dictionaryToJson:(NSDictionary *)dic
+
+{
+    
+    NSError *parseError = nil;
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&parseError];
+    
+    return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+}
+
+
++ (void) btnActionAnimationWithBtn:(UIButton *)sender FromValue:(CGFloat)fromValue ToValue:(CGFloat)toValue Duration:(CGFloat)duration RepeatCount:(long)repeatCount {
     
     CABasicAnimation*pulse = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
     pulse.timingFunction= [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    pulse.duration = 0.2;
-    pulse.repeatCount= 1;
+    pulse.duration = duration;
+    pulse.repeatCount= repeatCount;
     pulse.autoreverses= YES;
-    pulse.fromValue= [NSNumber numberWithFloat:0.7];
-    pulse.toValue= [NSNumber numberWithFloat:1.3];
+    pulse.fromValue= [NSNumber numberWithFloat:fromValue];
+    pulse.toValue= [NSNumber numberWithFloat:toValue];
+    pulse.removedOnCompletion = NO;
     [[sender.titleLabel layer] addAnimation:pulse forKey:nil];
     [[sender.imageView layer] addAnimation:pulse forKey:nil];
 }
+
+// 获取当前时间戳
++(NSString *)getNowTimeTimestamp {
+    
+    NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
+    
+    NSTimeInterval a=[dat timeIntervalSince1970];
+    
+    NSString*timeString = [NSString stringWithFormat:@"%0.f", a];//转为字符型
+    
+    return timeString;
+    
+}
+
++(NSString *)currentdateInterval{
+    
+    NSDate *datenow = [NSDate date];
+    NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)([datenow timeIntervalSince1970]*1000)];
+    
+    return timeSp;
+    
+}
+
+
+
 
 @end

@@ -10,6 +10,7 @@
 #define PrefixHeader_pch
 
 #import "DefineFile.h"
+#import "URLDefine.h"
 
 /*** Lib ***/
 #import <AFNetworking.h>
@@ -27,9 +28,6 @@
 #import "HZPhotoBrowser.h"
 #import <SDCycleScrollView.h>
 #import "YNPageViewController.h"
-#import "HP_TabbarViewController.h"
-#import "HP_NavigationViewController.h"
-#import "HP_BaseViewController.h"
 #import "UIView+BorderLine.h"
 #import "NSString+trim.h"
 #import "TZImagePickerController.h"
@@ -38,21 +36,27 @@
 #import "UIImage+Extension.h"
 #import "UIView+Extension.h"
 #import "HP_ImageListView.h"
-#import "HZPhotoBrowser.h"
-#import "HPDivisableTool.h"
 #import <YYStarView.h>
 #import "BRDatePickerView.h"
 #import "BRStringPickerView.h"
-#import "MUser.h"
-#import "INMAlertView.h"
 #import "CLocationManager.h"
 #import <FFDropDownMenuView.h>
 #import "LLWPlusPopView.h"
 #import "Lyy_ImagePickerController.h"
 #import "XBZKeyBoardDefine.h"
-#import "HP_Label.h"
 #import <WHToast.h>
 #import "UIAlertController+Extend.h"
+#import "UIView+TL.h"
+
+
+#import "HP_TabbarViewController.h"
+#import "HP_NavigationViewController.h"
+#import "HP_BaseViewController.h"
+#import "HPDivisableTool.h"
+#import "MUser.h"
+#import "HP_MemberHandler.h"
 #import "HP_HttpTool.h"
+#import "HP_Label.h"
+#import "INMAlertView.h"
 
 #endif /* PrefixHeader_pch */

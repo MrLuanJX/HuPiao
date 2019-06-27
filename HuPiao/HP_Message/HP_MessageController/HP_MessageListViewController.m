@@ -11,6 +11,7 @@
 #import "HP_ImageListView.h"
 #import "SearchResultViewController.h"
 #import "HP_Utility.h"
+#import "HP_ChatViewController.h"
 
 @interface HP_MessageListViewController () <UITableViewDataSource , UITableViewDelegate>
 
@@ -103,6 +104,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    HP_Message * message = [self.messageList objectAtIndex:indexPath.row];
+    
+    HP_ChatViewController * chatVC = [HP_ChatViewController new];
+    chatVC.title = message.userName;
+    [self.navigationController pushViewController:chatVC animated:YES];
 }
 
 #pragma mark -

@@ -159,6 +159,29 @@
 		00EEA35922BA0BF80038A521 /* HP_CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEA35822BA0BF80038A521 /* HP_CommentCell.m */; };
 		00EEA36822BB20F30038A521 /* HP_ImpressionTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEA36422BB20F20038A521 /* HP_ImpressionTableCell.m */; };
 		00EEA36922BB20F30038A521 /* HP_CircleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEA36722BB20F30038A521 /* HP_CircleTableCell.m */; };
+		00FEAE4C22C34A3700FCDC93 /* HP_IntergralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEAE4B22C34A3700FCDC93 /* HP_IntergralViewController.m */; };
+		00FEAE4F22C34B1700FCDC93 /* HP_IntergralHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEAE4E22C34B1700FCDC93 /* HP_IntergralHeadView.m */; };
+		00FEAE5222C368F200FCDC93 /* HP_LoginAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEAE5122C368F200FCDC93 /* HP_LoginAuthViewController.m */; };
+		00FEAE5622C4590600FCDC93 /* HP_BaseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEAE5522C4590600FCDC93 /* HP_BaseHandler.m */; };
+		00FEAE5922C4594E00FCDC93 /* HP_MemberHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEAE5822C4594E00FCDC93 /* HP_MemberHandler.m */; };
+		00FEAE5C22C4650800FCDC93 /* DJZJ_RequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEAE5A22C4650700FCDC93 /* DJZJ_RequestTool.m */; };
+		00FEAE6A22C4A69C00FCDC93 /* HP_UserTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEAE6922C4A69C00FCDC93 /* HP_UserTool.m */; };
+		00FEAE6D22C4A6FA00FCDC93 /* ZXMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEAE6C22C4A6FA00FCDC93 /* ZXMessageModel.m */; };
+		00FEAE7022C4A7F100FCDC93 /* ZXChatHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEAE6F22C4A7F100FCDC93 /* ZXChatHelper.m */; };
+		00FEAE7522C4A82100FCDC93 /* ChatFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEAE7222C4A82000FCDC93 /* ChatFace.m */; };
+		00FEAE7622C4A82100FCDC93 /* ChatFaceHeleper.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEAE7422C4A82100FCDC93 /* ChatFaceHeleper.m */; };
+		00FEAE7A22C4A86000FCDC93 /* HP_ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEAE7922C4A86000FCDC93 /* HP_ChatViewController.m */; };
+		00FEAE7E22C4A8B800FCDC93 /* ZXChatBoxController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEAE7D22C4A8B800FCDC93 /* ZXChatBoxController.m */; };
+		00FEAE8C22C4A90F00FCDC93 /* ZXChatBoxFaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEAE8022C4A90D00FCDC93 /* ZXChatBoxFaceView.m */; };
+		00FEAE8D22C4A90F00FCDC93 /* ZXChatFaceItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEAE8122C4A90D00FCDC93 /* ZXChatFaceItemView.m */; };
+		00FEAE8E22C4A90F00FCDC93 /* ZXChatFaceMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEAE8222C4A90E00FCDC93 /* ZXChatFaceMenuView.m */; };
+		00FEAE8F22C4A90F00FCDC93 /* ZXChatBoxMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEAE8922C4A90F00FCDC93 /* ZXChatBoxMoreView.m */; };
+		00FEAE9022C4A90F00FCDC93 /* ZXChatBoxItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEAE8A22C4A90F00FCDC93 /* ZXChatBoxItemView.m */; };
+		00FEAE9122C4A90F00FCDC93 /* ZXChatBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEAE8B22C4A90F00FCDC93 /* ZXChatBoxView.m */; };
+		00FEAE9422C4A96A00FCDC93 /* UIView+TL.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEAE9222C4A96900FCDC93 /* UIView+TL.m */; };
+		00FEAE9722C4AB9600FCDC93 /* ZXChatMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEAE9622C4AB9600FCDC93 /* ZXChatMessageController.m */; };
+		00FEAE9D22C4AD2700FCDC93 /* ZXMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEAE9922C4AD2700FCDC93 /* ZXMessageCell.m */; };
+		00FEAE9E22C4AD2700FCDC93 /* ZXTextMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEAE9B22C4AD2700FCDC93 /* ZXTextMessageCell.m */; };
 		6FA88AE52053FD530287571A /* libPods-HuPiao.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1F0D25849DB2562E24DED4 /* libPods-HuPiao.a */; };
 		DDFE70DE2290F4270029C425 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFE70DD2290F4270029C425 /* AppDelegate.m */; };
 		DDFE70E12290F4270029C425 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFE70E02290F4270029C425 /* ViewController.m */; };
@@ -482,6 +505,53 @@
 		00EEA36522BB20F20038A521 /* HP_CircleTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HP_CircleTableCell.h; sourceTree = "<group>"; };
 		00EEA36622BB20F20038A521 /* HP_ImpressionTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HP_ImpressionTableCell.h; sourceTree = "<group>"; };
 		00EEA36722BB20F30038A521 /* HP_CircleTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HP_CircleTableCell.m; sourceTree = "<group>"; };
+		00FEAE4A22C34A3700FCDC93 /* HP_IntergralViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_IntergralViewController.h; sourceTree = "<group>"; };
+		00FEAE4B22C34A3700FCDC93 /* HP_IntergralViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_IntergralViewController.m; sourceTree = "<group>"; };
+		00FEAE4D22C34B1700FCDC93 /* HP_IntergralHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_IntergralHeadView.h; sourceTree = "<group>"; };
+		00FEAE4E22C34B1700FCDC93 /* HP_IntergralHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_IntergralHeadView.m; sourceTree = "<group>"; };
+		00FEAE5022C368F200FCDC93 /* HP_LoginAuthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_LoginAuthViewController.h; sourceTree = "<group>"; };
+		00FEAE5122C368F200FCDC93 /* HP_LoginAuthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_LoginAuthViewController.m; sourceTree = "<group>"; };
+		00FEAE5322C457A600FCDC93 /* URLDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = URLDefine.h; sourceTree = "<group>"; };
+		00FEAE5422C4590600FCDC93 /* HP_BaseHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_BaseHandler.h; sourceTree = "<group>"; };
+		00FEAE5522C4590600FCDC93 /* HP_BaseHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_BaseHandler.m; sourceTree = "<group>"; };
+		00FEAE5722C4594E00FCDC93 /* HP_MemberHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_MemberHandler.h; sourceTree = "<group>"; };
+		00FEAE5822C4594E00FCDC93 /* HP_MemberHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_MemberHandler.m; sourceTree = "<group>"; };
+		00FEAE5A22C4650700FCDC93 /* DJZJ_RequestTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJZJ_RequestTool.m; sourceTree = "<group>"; };
+		00FEAE5B22C4650800FCDC93 /* DJZJ_RequestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJZJ_RequestTool.h; sourceTree = "<group>"; };
+		00FEAE6822C4A69C00FCDC93 /* HP_UserTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_UserTool.h; sourceTree = "<group>"; };
+		00FEAE6922C4A69C00FCDC93 /* HP_UserTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_UserTool.m; sourceTree = "<group>"; };
+		00FEAE6B22C4A6FA00FCDC93 /* ZXMessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXMessageModel.h; sourceTree = "<group>"; };
+		00FEAE6C22C4A6FA00FCDC93 /* ZXMessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXMessageModel.m; sourceTree = "<group>"; };
+		00FEAE6E22C4A7F100FCDC93 /* ZXChatHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXChatHelper.h; sourceTree = "<group>"; };
+		00FEAE6F22C4A7F100FCDC93 /* ZXChatHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXChatHelper.m; sourceTree = "<group>"; };
+		00FEAE7122C4A82000FCDC93 /* ChatFace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatFace.h; sourceTree = "<group>"; };
+		00FEAE7222C4A82000FCDC93 /* ChatFace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatFace.m; sourceTree = "<group>"; };
+		00FEAE7322C4A82000FCDC93 /* ChatFaceHeleper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatFaceHeleper.h; sourceTree = "<group>"; };
+		00FEAE7422C4A82100FCDC93 /* ChatFaceHeleper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatFaceHeleper.m; sourceTree = "<group>"; };
+		00FEAE7822C4A86000FCDC93 /* HP_ChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_ChatViewController.h; sourceTree = "<group>"; };
+		00FEAE7922C4A86000FCDC93 /* HP_ChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_ChatViewController.m; sourceTree = "<group>"; };
+		00FEAE7C22C4A8B800FCDC93 /* ZXChatBoxController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXChatBoxController.h; sourceTree = "<group>"; };
+		00FEAE7D22C4A8B800FCDC93 /* ZXChatBoxController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXChatBoxController.m; sourceTree = "<group>"; };
+		00FEAE8022C4A90D00FCDC93 /* ZXChatBoxFaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXChatBoxFaceView.m; sourceTree = "<group>"; };
+		00FEAE8122C4A90D00FCDC93 /* ZXChatFaceItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXChatFaceItemView.m; sourceTree = "<group>"; };
+		00FEAE8222C4A90E00FCDC93 /* ZXChatFaceMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXChatFaceMenuView.m; sourceTree = "<group>"; };
+		00FEAE8322C4A90E00FCDC93 /* ZXChatBoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXChatBoxView.h; sourceTree = "<group>"; };
+		00FEAE8422C4A90E00FCDC93 /* ZXChatBoxMoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXChatBoxMoreView.h; sourceTree = "<group>"; };
+		00FEAE8522C4A90E00FCDC93 /* ZXChatBoxItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXChatBoxItemView.h; sourceTree = "<group>"; };
+		00FEAE8622C4A90E00FCDC93 /* ZXChatFaceMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXChatFaceMenuView.h; sourceTree = "<group>"; };
+		00FEAE8722C4A90E00FCDC93 /* ZXChatFaceItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXChatFaceItemView.h; sourceTree = "<group>"; };
+		00FEAE8822C4A90F00FCDC93 /* ZXChatBoxFaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXChatBoxFaceView.h; sourceTree = "<group>"; };
+		00FEAE8922C4A90F00FCDC93 /* ZXChatBoxMoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXChatBoxMoreView.m; sourceTree = "<group>"; };
+		00FEAE8A22C4A90F00FCDC93 /* ZXChatBoxItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXChatBoxItemView.m; sourceTree = "<group>"; };
+		00FEAE8B22C4A90F00FCDC93 /* ZXChatBoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXChatBoxView.m; sourceTree = "<group>"; };
+		00FEAE9222C4A96900FCDC93 /* UIView+TL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TL.m"; sourceTree = "<group>"; };
+		00FEAE9322C4A96A00FCDC93 /* UIView+TL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TL.h"; sourceTree = "<group>"; };
+		00FEAE9522C4AB9600FCDC93 /* ZXChatMessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXChatMessageController.h; sourceTree = "<group>"; };
+		00FEAE9622C4AB9600FCDC93 /* ZXChatMessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXChatMessageController.m; sourceTree = "<group>"; };
+		00FEAE9922C4AD2700FCDC93 /* ZXMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXMessageCell.m; sourceTree = "<group>"; };
+		00FEAE9A22C4AD2700FCDC93 /* ZXMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXMessageCell.h; sourceTree = "<group>"; };
+		00FEAE9B22C4AD2700FCDC93 /* ZXTextMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXTextMessageCell.m; sourceTree = "<group>"; };
+		00FEAE9C22C4AD2700FCDC93 /* ZXTextMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXTextMessageCell.h; sourceTree = "<group>"; };
 		7A1F0D25849DB2562E24DED4 /* libPods-HuPiao.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HuPiao.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDBCA537C9F607AC2A70D980 /* Pods-HuPiao.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuPiao.release.xcconfig"; path = "Target Support Files/Pods-HuPiao/Pods-HuPiao.release.xcconfig"; sourceTree = "<group>"; };
 		DDFE70D92290F4270029C425 /* HuPiao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HuPiao.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -591,12 +661,16 @@
 			children = (
 				009CEDF222BB501C00889FFD /* HP_LoginViewController.h */,
 				009CEDF322BB501C00889FFD /* HP_LoginViewController.m */,
+				00FEAE5022C368F200FCDC93 /* HP_LoginAuthViewController.h */,
+				00FEAE5122C368F200FCDC93 /* HP_LoginAuthViewController.m */,
 				009CEDF522BB538C00889FFD /* HP_RegistViewController.h */,
 				009CEDF622BB538C00889FFD /* HP_RegistViewController.m */,
 				009CEDF822BB7A5600889FFD /* HPRegistPwdViewController.h */,
 				009CEDF922BB7A5600889FFD /* HPRegistPwdViewController.m */,
 				009CEDFB22BB86A300889FFD /* HP_UpdatePwdViewController.h */,
 				009CEDFC22BB86A300889FFD /* HP_UpdatePwdViewController.m */,
+				00FEAE5722C4594E00FCDC93 /* HP_MemberHandler.h */,
+				00FEAE5822C4594E00FCDC93 /* HP_MemberHandler.m */,
 			);
 			path = HP_Login;
 			sourceTree = "<group>";
@@ -667,11 +741,11 @@
 		009CEEEF22C1D4FB00889FFD /* HP_HttpTool */ = {
 			isa = PBXGroup;
 			children = (
+				009CEEF622C1D56D00889FFD /* ZZNetworkRequest */,
 				009CEEF022C1D50A00889FFD /* HP_HttpTool.h */,
 				009CEEF122C1D50A00889FFD /* HP_HttpTool.m */,
 				009CEEF322C1D54C00889FFD /* WBNetWork.h */,
 				009CEEF422C1D54D00889FFD /* WBNetWork.m */,
-				009CEEF622C1D56D00889FFD /* ZZNetworkRequest */,
 			);
 			path = HP_HttpTool;
 			sourceTree = "<group>";
@@ -688,6 +762,8 @@
 		00B951182292A3EE008D9411 /* HP_Tool */ = {
 			isa = PBXGroup;
 			children = (
+				00FEAE5B22C4650800FCDC93 /* DJZJ_RequestTool.h */,
+				00FEAE5A22C4650700FCDC93 /* DJZJ_RequestTool.m */,
 				009CEEEF22C1D4FB00889FFD /* HP_HttpTool */,
 				009CEEE422C0B63500889FFD /* JYEqualCellSpaceFlowLayout.h */,
 				009CEEE322C0B63400889FFD /* JYEqualCellSpaceFlowLayout.m */,
@@ -1251,6 +1327,87 @@
 			path = HP_HomeDy;
 			sourceTree = "<group>";
 		};
+		00FEAE4922C34A2300FCDC93 /* HP_Integral */ = {
+			isa = PBXGroup;
+			children = (
+				00FEAE4A22C34A3700FCDC93 /* HP_IntergralViewController.h */,
+				00FEAE4B22C34A3700FCDC93 /* HP_IntergralViewController.m */,
+				00FEAE4D22C34B1700FCDC93 /* HP_IntergralHeadView.h */,
+				00FEAE4E22C34B1700FCDC93 /* HP_IntergralHeadView.m */,
+			);
+			path = HP_Integral;
+			sourceTree = "<group>";
+		};
+		00FEAE6722C4A68400FCDC93 /* HP_User */ = {
+			isa = PBXGroup;
+			children = (
+				00FEAE7122C4A82000FCDC93 /* ChatFace.h */,
+				00FEAE7222C4A82000FCDC93 /* ChatFace.m */,
+				00FEAE7322C4A82000FCDC93 /* ChatFaceHeleper.h */,
+				00FEAE7422C4A82100FCDC93 /* ChatFaceHeleper.m */,
+				00FEAE6E22C4A7F100FCDC93 /* ZXChatHelper.h */,
+				00FEAE6F22C4A7F100FCDC93 /* ZXChatHelper.m */,
+				00FEAE6B22C4A6FA00FCDC93 /* ZXMessageModel.h */,
+				00FEAE6C22C4A6FA00FCDC93 /* ZXMessageModel.m */,
+				00FEAE6822C4A69C00FCDC93 /* HP_UserTool.h */,
+				00FEAE6922C4A69C00FCDC93 /* HP_UserTool.m */,
+			);
+			path = HP_User;
+			sourceTree = "<group>";
+		};
+		00FEAE7722C4A85100FCDC93 /* HP_Chat */ = {
+			isa = PBXGroup;
+			children = (
+				00FEAE9822C4AD2200FCDC93 /* HP_ChatMessageCell */,
+				00FEAE7F22C4A8F500FCDC93 /* HP_ChatBoxView */,
+				00FEAE7B22C4A8A400FCDC93 /* HP_ChatBoxController */,
+			);
+			path = HP_Chat;
+			sourceTree = "<group>";
+		};
+		00FEAE7B22C4A8A400FCDC93 /* HP_ChatBoxController */ = {
+			isa = PBXGroup;
+			children = (
+				00FEAE9522C4AB9600FCDC93 /* ZXChatMessageController.h */,
+				00FEAE9622C4AB9600FCDC93 /* ZXChatMessageController.m */,
+				00FEAE7822C4A86000FCDC93 /* HP_ChatViewController.h */,
+				00FEAE7922C4A86000FCDC93 /* HP_ChatViewController.m */,
+				00FEAE7C22C4A8B800FCDC93 /* ZXChatBoxController.h */,
+				00FEAE7D22C4A8B800FCDC93 /* ZXChatBoxController.m */,
+			);
+			path = HP_ChatBoxController;
+			sourceTree = "<group>";
+		};
+		00FEAE7F22C4A8F500FCDC93 /* HP_ChatBoxView */ = {
+			isa = PBXGroup;
+			children = (
+				00FEAE8822C4A90F00FCDC93 /* ZXChatBoxFaceView.h */,
+				00FEAE8022C4A90D00FCDC93 /* ZXChatBoxFaceView.m */,
+				00FEAE8522C4A90E00FCDC93 /* ZXChatBoxItemView.h */,
+				00FEAE8A22C4A90F00FCDC93 /* ZXChatBoxItemView.m */,
+				00FEAE8422C4A90E00FCDC93 /* ZXChatBoxMoreView.h */,
+				00FEAE8922C4A90F00FCDC93 /* ZXChatBoxMoreView.m */,
+				00FEAE8322C4A90E00FCDC93 /* ZXChatBoxView.h */,
+				00FEAE8B22C4A90F00FCDC93 /* ZXChatBoxView.m */,
+				00FEAE8722C4A90E00FCDC93 /* ZXChatFaceItemView.h */,
+				00FEAE8122C4A90D00FCDC93 /* ZXChatFaceItemView.m */,
+				00FEAE8622C4A90E00FCDC93 /* ZXChatFaceMenuView.h */,
+				00FEAE8222C4A90E00FCDC93 /* ZXChatFaceMenuView.m */,
+			);
+			path = HP_ChatBoxView;
+			sourceTree = "<group>";
+		};
+		00FEAE9822C4AD2200FCDC93 /* HP_ChatMessageCell */ = {
+			isa = PBXGroup;
+			children = (
+				00FEAE9A22C4AD2700FCDC93 /* ZXMessageCell.h */,
+				00FEAE9922C4AD2700FCDC93 /* ZXMessageCell.m */,
+				00FEAE9C22C4AD2700FCDC93 /* ZXTextMessageCell.h */,
+				00FEAE9B22C4AD2700FCDC93 /* ZXTextMessageCell.m */,
+			);
+			path = HP_ChatMessageCell;
+			sourceTree = "<group>";
+		};
 		20BAD2B593F7BD9618E9A655 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1293,6 +1450,8 @@
 		DDFE70DB2290F4270029C425 /* HuPiao */ = {
 			isa = PBXGroup;
 			children = (
+				00FEAE7722C4A85100FCDC93 /* HP_Chat */,
+				00FEAE6722C4A68400FCDC93 /* HP_User */,
 				009CEDF122BB4FFD00889FFD /* HP_Login */,
 				DDFE711F229105F40029C425 /* HP_Home */,
 				00B951A322965A67008D9411 /* HP_Dynamic */,
@@ -1338,6 +1497,8 @@
 				DDFE71172290F5690029C425 /* HP_NavigationViewController.m */,
 				DDFE71132290F5540029C425 /* HP_TabbarViewController.h */,
 				DDFE71142290F5540029C425 /* HP_TabbarViewController.m */,
+				00FEAE5422C4590600FCDC93 /* HP_BaseHandler.h */,
+				00FEAE5522C4590600FCDC93 /* HP_BaseHandler.m */,
 			);
 			path = HP_BaseViewController;
 			sourceTree = "<group>";
@@ -1361,6 +1522,7 @@
 				DDFE70EB2290F42A0029C425 /* main.m */,
 				DDFE71192290F5960029C425 /* PrefixHeader.pch */,
 				DDFE7134229111230029C425 /* DefineFile.h */,
+				00FEAE5322C457A600FCDC93 /* URLDefine.h */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -1368,6 +1530,8 @@
 		DDFE711D2290F9B20029C425 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				00FEAE9322C4A96A00FCDC93 /* UIView+TL.h */,
+				00FEAE9222C4A96900FCDC93 /* UIView+TL.m */,
 				00D2EFF522A8F04F008D52D9 /* NSString+trim.h */,
 				00D2EFF622A8F04F008D52D9 /* NSString+trim.m */,
 				0082090322A5316200EBEF4C /* UIView+BorderLine.h */,
@@ -1399,6 +1563,7 @@
 		DDFE7120229106000029C425 /* HP_Mine */ = {
 			isa = PBXGroup;
 			children = (
+				00FEAE4922C34A2300FCDC93 /* HP_Integral */,
 				009CEEC222BC78E400889FFD /* HP_AccountSafty */,
 				00D2F09D22A91C8E008D52D9 /* HP_Wallet */,
 				00D2F09922A91468008D52D9 /* HP_FollowAndFans */,
@@ -1665,6 +1830,9 @@
 				00EEA34822BA0ADE0038A521 /* UIView+XBZKeyBoard.m in Sources */,
 				00EEA34D22BA0ADE0038A521 /* XBZChatMoreItem.m in Sources */,
 				00D2EFF422A8ECC5008D52D9 /* HP_UpdateNickNameViewController.m in Sources */,
+				00FEAE9022C4A90F00FCDC93 /* ZXChatBoxItemView.m in Sources */,
+				00FEAE7E22C4A8B800FCDC93 /* ZXChatBoxController.m in Sources */,
+				00FEAE5922C4594E00FCDC93 /* HP_MemberHandler.m in Sources */,
 				00D2F08B22A9020E008D52D9 /* JQIDCardScaningView.m in Sources */,
 				0082089F22A1243100EBEF4C /* HP_Label.m in Sources */,
 				008208E522A4F89100EBEF4C /* MPicture.m in Sources */,
@@ -1681,23 +1849,32 @@
 				009CEEC522BC78F500889FFD /* HP_AccountSaftyViewController.m in Sources */,
 				009CEEDE22C0A18300889FFD /* HP_ReceivedGiftViewController.m in Sources */,
 				0082087322A1189A00EBEF4C /* HP_ImageListView.m in Sources */,
+				00FEAE4F22C34B1700FCDC93 /* HP_IntergralHeadView.m in Sources */,
 				00B9517022963925008D9411 /* HJTabViewControllerPlugin_TabViewBar.m in Sources */,
 				00B9516E22963925008D9411 /* HJTabViewController.m in Sources */,
 				00D2F0A722AE24DA008D52D9 /* HP_WalletHeadView.m in Sources */,
+				00FEAE9E22C4AD2700FCDC93 /* ZXTextMessageCell.m in Sources */,
 				0082090822A6023500EBEF4C /* GXUpvoteButton.m in Sources */,
 				00D2EFE522A794BE008D52D9 /* HP_NormalOwnView.m in Sources */,
+				00FEAE5622C4590600FCDC93 /* HP_BaseHandler.m in Sources */,
 				00EEA34E22BA0ADE0038A521 /* XBZKeyBoardTextView.m in Sources */,
+				00FEAE4C22C34A3700FCDC93 /* HP_IntergralViewController.m in Sources */,
 				00D2EFE222A794A9008D52D9 /* HP_OwnMessageViewController.m in Sources */,
 				008208F522A4FBD900EBEF4C /* JPinYinUtil.m in Sources */,
 				009CEEE522C0B63500889FFD /* JYEqualCellSpaceFlowLayout.m in Sources */,
 				DDFE71272291065A0029C425 /* HP_MessageViewController.m in Sources */,
+				00FEAE8E22C4A90F00FCDC93 /* ZXChatFaceMenuView.m in Sources */,
 				00D2EFE822A794D1008D52D9 /* HP_AuthOwnView.m in Sources */,
 				00D2F0BA22AF505F008D52D9 /* HP_CeIdcardBaseViewController.m in Sources */,
 				00EEA34922BA0ADE0038A521 /* NSString+XBZKeyBoard.m in Sources */,
 				00D2F0D822B0C4B5008D52D9 /* HP_CashWithdrawalViewController.m in Sources */,
 				00D2EFD622A75FE8008D52D9 /* INMRefreshGifHeader.m in Sources */,
+				00FEAE7A22C4A86000FCDC93 /* HP_ChatViewController.m in Sources */,
 				009CEEF522C1D54D00889FFD /* WBNetWork.m in Sources */,
+				00FEAE9D22C4AD2700FCDC93 /* ZXMessageCell.m in Sources */,
+				00FEAE7022C4A7F100FCDC93 /* ZXChatHelper.m in Sources */,
 				009CEEC822BC7B8800889FFD /* HP_TouchIDCell.m in Sources */,
+				00FEAE9122C4A90F00FCDC93 /* ZXChatBoxView.m in Sources */,
 				00D2F0A022A91CA3008D52D9 /* HP_WalletViewController.m in Sources */,
 				009CEECC22BCB4D800889FFD /* HP_IntimateViewController.m in Sources */,
 				00EEA35122BA0ADE0038A521 /* XBZChatEmojiView.m in Sources */,
@@ -1715,8 +1892,10 @@
 				DDFE70E12290F4270029C425 /* ViewController.m in Sources */,
 				00D2F0B422AE62EA008D52D9 /* HP_PersonalTableCell.m in Sources */,
 				00B9516C22963925008D9411 /* HJDefaultTabViewBar.m in Sources */,
+				00FEAE8D22C4A90F00FCDC93 /* ZXChatFaceItemView.m in Sources */,
 				008208C922A4F3C600EBEF4C /* HP_MessageListViewController.m in Sources */,
 				00EEA35922BA0BF80038A521 /* HP_CommentCell.m in Sources */,
+				00FEAE7622C4A82100FCDC93 /* ChatFaceHeleper.m in Sources */,
 				008208BF22A4BB1000EBEF4C /* HPDivisableTool.m in Sources */,
 				00D2F0C322AF7BA3008D52D9 /* HP_CeIdSecondView.m in Sources */,
 				00D2F08F22A9020E008D52D9 /* LHSIDCardScaningView.m in Sources */,
@@ -1737,6 +1916,7 @@
 				DDFE71182290F5690029C425 /* HP_NavigationViewController.m in Sources */,
 				00D2EFEB22A7A82F008D52D9 /* HP_AuthMessageHeadView.m in Sources */,
 				00B9516D22963925008D9411 /* HJTabViewControllerPlugin_HeaderScroll.m in Sources */,
+				00FEAE8C22C4A90F00FCDC93 /* ZXChatBoxFaceView.m in Sources */,
 				0082086D22A1160A00EBEF4C /* HP_DyCell.m in Sources */,
 				00D2F0C722AF9807008D52D9 /* HP_GiftView.m in Sources */,
 				008208CF22A4F4B300EBEF4C /* JKDBModel.m in Sources */,
@@ -1749,9 +1929,11 @@
 				0082086422A10B5300EBEF4C /* HP_HomeDetailOwnHeadView.m in Sources */,
 				009CEED222BCDC2000889FFD /* HP_PersonalModel.m in Sources */,
 				00B9517322963925008D9411 /* HJTabViewBar.m in Sources */,
+				00FEAE5C22C4650800FCDC93 /* DJZJ_RequestTool.m in Sources */,
 				00B9517122963925008D9411 /* HJTabViewControllerPlugin_BottomInset.m in Sources */,
 				00D2EFEE22A8B1DB008D52D9 /* HP_SeleteViewController.m in Sources */,
 				00D2EFF122A8E885008D52D9 /* HP_SignViewController.m in Sources */,
+				00FEAE9422C4A96A00FCDC93 /* UIView+TL.m in Sources */,
 				00D2EFD822A75FE8008D52D9 /* INMRefreshHeader.m in Sources */,
 				DDFE7140229115AF0029C425 /* UIImage+Extension.m in Sources */,
 				009CEDF722BB538C00889FFD /* HP_RegistViewController.m in Sources */,
@@ -1770,6 +1952,7 @@
 				00B9511722929DA7008D9411 /* HP_HomeCell.m in Sources */,
 				008208D322A4F4CA00EBEF4C /* HP_Message.m in Sources */,
 				DDFE713F229115AF0029C425 /* UIBarButtonItem+Extension.m in Sources */,
+				00FEAE6D22C4A6FA00FCDC93 /* ZXMessageModel.m in Sources */,
 				DDFE713322910D1C0029C425 /* AnimationContoller.m in Sources */,
 				00EEA34722BA0ADE0038A521 /* UIImage+XBZKeyBoard.m in Sources */,
 				00D2F0C022AF6B53008D52D9 /* HP_CeIdFirstCell.m in Sources */,
@@ -1780,15 +1963,19 @@
 				00B951A622965A78008D9411 /* HP_DynamicViewController.m in Sources */,
 				DDFE713E229115AF0029C425 /* UIView+Extension.m in Sources */,
 				00D2F0AA22AE37D7008D52D9 /* HP_ExpenditureViewController.m in Sources */,
+				00FEAE8F22C4A90F00FCDC93 /* ZXChatBoxMoreView.m in Sources */,
 				00EEA34F22BA0ADE0038A521 /* XBZVoiceAnimationView.m in Sources */,
+				00FEAE7522C4A82100FCDC93 /* ChatFace.m in Sources */,
 				008207F1229D359800EBEF4C /* HP_InsertBGView.m in Sources */,
 				00B9517222963925008D9411 /* HJTabViewControllerPlugin_Base.m in Sources */,
 				008208D922A4F7D500EBEF4C /* MomentUtil.m in Sources */,
 				008208DF22A4F86C00EBEF4C /* Comment.m in Sources */,
+				00FEAE9722C4AB9600FCDC93 /* ZXChatMessageController.m in Sources */,
 				00D2F09122A9020E008D52D9 /* RectManager.m in Sources */,
 				00EEA34C22BA0ADE0038A521 /* XBZEmojiModel.m in Sources */,
 				DDFE71152290F5540029C425 /* HP_TabbarViewController.m in Sources */,
 				DDFE713D229115AF0029C425 /* UIButton+Extension.m in Sources */,
+				00FEAE5222C368F200FCDC93 /* HP_LoginAuthViewController.m in Sources */,
 				0082090522A5316200EBEF4C /* UIView+BorderLine.m in Sources */,
 				009CEEE822C0D1D200889FFD /* PishumToast.m in Sources */,
 				00D2F08C22A9020E008D52D9 /* IDInfo.m in Sources */,
@@ -1798,6 +1985,7 @@
 				00EEA36822BB20F30038A521 /* HP_ImpressionTableCell.m in Sources */,
 				00D2F08D22A9020E008D52D9 /* AVCaptureViewController.m in Sources */,
 				00D2EFFE22A8FD2B008D52D9 /* HP_CerIdcardTabCell.m in Sources */,
+				00FEAE6A22C4A69C00FCDC93 /* HP_UserTool.m in Sources */,
 				DDFE71122290F53A0029C425 /* HP_BaseViewController.m in Sources */,
 				008208C522A4F35500EBEF4C /* HP_TableView.m in Sources */,
 			);
@@ -1971,6 +2159,8 @@
 			baseConfigurationReference = F1F14D77EC8D00089509BD59 /* Pods-HuPiao.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BDWZ7YXJ5N;
 				ENABLE_BITCODE = NO;
@@ -1990,6 +2180,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zecaifu-luanjinxin.HuPiao";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1999,6 +2190,8 @@
 			baseConfigurationReference = CDBCA537C9F607AC2A70D980 /* Pods-HuPiao.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BDWZ7YXJ5N;
 				ENABLE_BITCODE = NO;
@@ -2018,6 +2211,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zecaifu-luanjinxin.HuPiao";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

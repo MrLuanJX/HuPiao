@@ -12,7 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HP_RegistViewController : UIViewController
 
-@property (nonatomic , copy) NSString * registOrForgotPwd;
 
 @end
 

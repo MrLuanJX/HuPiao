@@ -19,6 +19,7 @@
 #import "HP_CeIdcardBaseViewController.h"
 #import "HP_AccountSaftyViewController.h"
 #import "HP_UpdatePwdViewController.h"
+#import "HP_IntergralViewController.h"
 
 static CGFloat const imageBGHeight = 300; // 背景图片的高度
 
@@ -208,6 +209,13 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, HPFit(80))];
     
+    UILabel * versionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, HPFit(10), self.view.frame.size.width, HPFit(20))];
+    versionLabel.textColor = HPUIColorWithRGB(0xD4D4D4, 1.0);
+    versionLabel.font = HPFontSize(14);
+    versionLabel.textAlignment = NSTextAlignmentCenter;
+    versionLabel.text = [NSString stringWithFormat:@"当前版本：%@",APP_VERSION];
+    [view addSubview: versionLabel];
+    
     self.logoutBtn = [[UIButton alloc] initWithFrame:CGRectMake(HPFit(15), view.frame.size.height - HPFit(40), self.view.frame.size.width - HPFit(30), HPFit(40))];
     [self.logoutBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.logoutBtn setTitle:@"退 出 登 录" forState:UIControlStateNormal];
@@ -252,12 +260,12 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
         if (indexPath.row == 0) {
            cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2lfM",self.fileSize];
         }
-        if (indexPath.row == 4) {
-            cell.accessoryType = UITableViewCellAccessoryNone;
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
-            cell.detailTextLabel.text = APP_VERSION;
-        }
+//        if (indexPath.row == 4) {
+//            cell.accessoryType = UITableViewCellAccessoryNone;
+//            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//
+//            cell.detailTextLabel.text = APP_VERSION;
+//        }
     }
     return cell;
 }
@@ -271,6 +279,7 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
     HP_SignViewController * signVC = [HP_SignViewController new];
     HP_CeIdcardBaseViewController * ceIdcardVC = [HP_CeIdcardBaseViewController new];
     HP_UpdatePwdViewController * updatePwdVC = [HP_UpdatePwdViewController new];
+    HP_IntergralViewController * intergralVC = [HP_IntergralViewController new];
     
     if (indexPath.section == 0 && indexPath.row == 0) {                 // 修改密码
         NSLog(@"修改密码");
@@ -281,8 +290,9 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
     } else if (indexPath.section == 0 && indexPath.row == 2) {          // 身份认证
         ceIdcardVC.title = @"身份认证";
         [self.navigationController pushViewController:ceIdcardVC animated:YES];
-    } else if (indexPath.section == 0 && indexPath.row == 3) {          // 邀请好友
-        
+    } else if (indexPath.section == 0 && indexPath.row == 3) {          // 我的积分
+        intergralVC.title = @"我的积分";
+        [self.navigationController pushViewController:intergralVC animated:YES];
     } else if (indexPath.section == 0 && indexPath.row == 4) {          // 我赞过的动态
         
     }
@@ -295,14 +305,14 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
         signVC.feedBack = YES;
         signVC.sendBtnTitle = @"提   交";
         [self.navigationController pushViewController:signVC animated:YES];
-    } else if (indexPath.section == 1 && indexPath.row == 2) {          // 五星好评
+    } else if (indexPath.section == 1 && indexPath.row == 2) {          // 邀请好友
+        
+    } else if (indexPath.section == 1 && indexPath.row == 3) {          // 五星好评
         INMAlertView * alertView = [INMAlertView new];
         alertView.dataArray = [NSMutableArray arrayWithObjects:@"五星好评",@"我要吐槽",@"残忍拒绝", nil];
         [alertView show];
-    } else if (indexPath.section == 1 && indexPath.row == 3) {          // 关于我们
+    } else if (indexPath.section == 1 && indexPath.row == 4) {          // 关于我们
       
-    } else if (indexPath.section == 1 && indexPath.row == 4) {          // 当前版本
-        
     }
 }
 
@@ -346,7 +356,7 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
 
 - (NSMutableArray *)array {
     if (!_array) {
-        _array = [NSMutableArray arrayWithObjects:@[@"修改密码",@"我的钱包",@"身份认证",@"邀请好友",@"我赞过的动态"],@[@"清理缓存",@"意见反馈",@"五星好评",@"关于我们",@"当前版本"], nil];
+        _array = [NSMutableArray arrayWithObjects:@[@"修改密码",@"我的钱包",@"身份认证",@"我的积分",@"我赞过的动态"],@[@"清理缓存",@"意见反馈",@"邀请好友",@"五星好评",@"关于我们"], nil];
     }
     return _array;
 }
@@ -395,10 +405,8 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
 
 -(void)clearCacheSuccess{
     NSLog(@"清理成功");
-    [SVProgressHUD showSuccessWithStatus:@"清理成功"];
-    [SVProgressHUD setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.5]];
-    [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
-    [SVProgressHUD setGraceTimeInterval:1.0];
+    [WHToast showSuccessWithMessage:@"清理成功" duration:1.0 finishHandler:nil];
+
     self.fileSize = 0;
     [self.tableView reloadData];
 }

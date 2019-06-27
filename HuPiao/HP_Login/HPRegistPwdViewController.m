@@ -173,7 +173,7 @@
 - (UILabel *)pwAgainLabel {
     if (!_pwAgainLabel) {
         _pwAgainLabel = [UILabel new];
-        _pwAgainLabel.text = @"确认密码";
+        _pwAgainLabel.text = @"昵    称";
         _pwAgainLabel.font = _pwLabel.font;
         _pwAgainLabel.textColor = _pwLabel.textColor;
     }
@@ -203,7 +203,7 @@
         _registBtn.layer.borderColor = kSetUpCololor(195, 195, 195, 1.0).CGColor;
         _registBtn.layer.borderWidth = 1.0f;
         _registBtn.backgroundColor = kSetUpCololor(195, 195, 195, 1.0);
-        [_registBtn setTitle:[self.registOrForgotPwd isEqualToString:@"忘记密码"] ? @"立即找回" : @"立即注册" forState:UIControlStateNormal];
+        [_registBtn setTitle:@"立即注册" forState:UIControlStateNormal];
         [_registBtn addTarget:self action:@selector(registAcion:) forControlEvents:UIControlEventTouchUpInside];
         [_registBtn addTarget:self action:@selector(registDown:) forControlEvents:UIControlEventTouchDown];
         [_registBtn setTitleColor:kSetUpCololor(225, 225, 225, 1.0) forState:UIControlStateNormal];
@@ -221,7 +221,7 @@
         self.pwTFEmpty = self.pwTF.text.length > 0 ? NO : YES;
     }
     if (self.pwAgainTF == textField) {
-        NSLog(@"确认密码");
+        NSLog(@"昵称");
         self.pwAgainTFEmpty = self.pwAgainTF.text.length > 0 ? NO : YES;
     }
     
@@ -243,8 +243,11 @@
         return YES;
     }
     
-    if (self.pwTF == textField || self.pwAgainTF == textField) {
-        if (textField.text.length > 15) return NO;   // 当前是密码
+    if (self.pwTF == textField ) {
+        if (textField.text.length > 8) return NO;   // 当前是密码
+    }
+    if (self.pwAgainTF == textField) {
+        if (textField.text.length > 6) return NO;   // 当前是昵称
     }
     
     return YES;

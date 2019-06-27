@@ -9,6 +9,9 @@
 #import "HP_CeIdcardBaseViewController.h"
 #import "HP_CeIdFirstView.h"
 #import "HP_CeIdSecondView.h"
+#import "AVCaptureViewController.h"
+#import "JQAVCaptureViewController.h"
+#import "IDInfo.h"
 
 @interface HP_CeIdcardBaseViewController () <UIScrollViewDelegate>
 
@@ -25,6 +28,7 @@
 
 @property (nonatomic , strong) HP_CeIdFirstView * firstView;
 @property (nonatomic , strong) HP_CeIdSecondView * secondView;
+@property(nonatomic , strong) TZImagePickerController * photoalbum;
 
 @end
 
@@ -36,6 +40,26 @@
     [self addScrollView];
     [self setupRightNavBtn];
     [self blockBackAction];
+    
+    [self authSeleted];
+}
+
+- (void) authSeleted {
+    WS(wSelf);
+    self.secondView.cellSeletedBlock = ^(NSIndexPath * _Nonnull index) {
+        if (index.section == 0) {
+            // 身份证正面
+            [wSelf fontIDCardInfoAction];
+        }
+        if (index.section == 1) {
+            //身份证反面
+            [wSelf backIDCardInfoAction];
+        }
+        if (index.section == 2) {
+            // 手持身份证
+            [wSelf didClickTakePhoto];
+        }
+    };
 }
 
 - (void) addScrollView {
@@ -228,6 +252,78 @@
         _secondView.userInteractionEnabled = YES;
     }
     return _secondView;
+}
+
+- (void) fontIDCardInfoAction {
+    __weak typeof (self) weakSelf = self;
+    
+    AVCaptureViewController *AVCaptureVC = [[AVCaptureViewController alloc] init];
+    AVCaptureVC.CaptureInfo = ^(IDInfo *idInfo, UIImage *oriangImage, UIImage *subImage) {
+        
+    };
+    [self.navigationController pushViewController:AVCaptureVC animated:YES];
+}
+
+#pragma mark 点击反面拍照
+-(void) backIDCardInfoAction{
+    
+    JQAVCaptureViewController *JQAVCaptureVC = [[JQAVCaptureViewController alloc] init];
+    
+    JQAVCaptureVC.CaptureInfo = ^(IDInfo *idInfo, UIImage *oriangImage, UIImage *subImage) {
+        
+    };
+    [self.navigationController pushViewController:JQAVCaptureVC animated:YES];
+}
+
+//打开相册
+-(void)openpHotoalbum {
+    __weak typeof (self) weakSelf = self;
+    [self.photoalbum setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+        
+    }];
+    [self presentViewController:self.photoalbum
+                       animated:YES completion:nil];
+}
+
+-(void)didClickTakePhoto {
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    [alert addAction:[UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [alert dismissViewControllerAnimated:nil completion:nil];
+        [self takePhoto];
+    }]];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [alert dismissViewControllerAnimated:nil completion:nil];
+        [self openpHotoalbum];
+    }]];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [alert dismissViewControllerAnimated:nil completion:nil];
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+//打开相机
+-(void)takePhoto {
+    __weak typeof (self) weakSelf = self;
+    Lyy_ImagePickerController *controlelr = [[Lyy_ImagePickerController alloc]init];
+    controlelr.presentViewController = self;
+    controlelr.finishCallback = ^(UIImage * _Nonnull img,PHAsset *asset) {
+        
+    };
+    [controlelr takePhoto];
+}
+
+-(TZImagePickerController *)photoalbum {
+    if (_photoalbum == nil) {
+        _photoalbum = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:self];
+        _photoalbum.allowTakeVideo = NO;
+        _photoalbum.allowPickingVideo = NO;
+        _photoalbum.allowPickingGif = NO;
+        _photoalbum.showSelectBtn = YES;
+    }
+    return _photoalbum;
 }
 
 @end

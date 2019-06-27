@@ -77,13 +77,13 @@
         if(count == 4 || count == 2) {
             rowNum = i / 2;
             colNum = i % 2;
-            imageY = rowNum * ((HPScreenW- HPFit(40))/2 + HPFit(10));
-            imageX = colNum * ((HPScreenW- HPFit(40))/2 + HPFit(10));
-            frame = CGRectMake(imageX, imageY, (HPScreenW- HPFit(40))/2 , (HPScreenW- HPFit(40))/2);
+            imageY = rowNum * ((HPScreenW- HPFit(30))/2 + HPFit(5));
+            imageX = colNum * ((HPScreenW- HPFit(30))/2 + HPFit(5));
+            frame = CGRectMake(imageX, imageY, (HPScreenW- HPFit(30))/2 , (HPScreenW- HPFit(30))/2);
         } else {
-            imageY = rowNum * ((HPScreenW- HPFit(50))/3 + HPFit(10));
-            imageX = colNum * ((HPScreenW- HPFit(50))/3 + HPFit(10));
-            frame = CGRectMake(imageX, imageY, (HPScreenW- HPFit(50))/3 , (HPScreenW- HPFit(50))/3);
+            imageY = rowNum * ((HPScreenW- HPFit(40))/3 + HPFit(5));
+            imageX = colNum * ((HPScreenW- HPFit(40))/3 + HPFit(5));
+            frame = CGRectMake(imageX, imageY, (HPScreenW- HPFit(40))/3 , (HPScreenW- HPFit(40))/3);
         }
         // 单张图片需计算实际显示size
         if (count == 1) {

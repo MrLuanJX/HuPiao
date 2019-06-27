@@ -12,4 +12,6 @@
 
 -(NSString *) trim;
 
++ (NSString *)md5:(NSString *)string;
+
 @end

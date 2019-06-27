@@ -149,7 +149,7 @@ static int maxLength = 200;
     [self.collectionView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo (wSelf.stringlenghtLab.mas_bottom).offset (HPFit(15));
         make.left.right.mas_equalTo(0);
-        make.height.mas_greaterThanOrEqualTo ((HPScreenW - HPFit(40))/3 * 3 + HPFit(30));
+        make.height.mas_greaterThanOrEqualTo ((HPScreenW - HPFit(30))/3 * 3 + HPFit(30));
 
         make.bottom.mas_equalTo (wSelf.contentView.mas_bottom).offset(-HPFit(15));
     }];
@@ -274,9 +274,9 @@ static int maxLength = 200;
         //设置布局方向为垂直流布局
         layout.scrollDirection = UICollectionViewScrollDirectionVertical;
         // 行间距
-        layout.minimumLineSpacing = HPFit(10);
-        layout.minimumInteritemSpacing = HPFit(10);
-        layout.itemSize = CGSizeMake((HPScreenW - HPFit(40))/3, (HPScreenW - HPFit(40))/3);
+        layout.minimumLineSpacing = HPFit(5);
+        layout.minimumInteritemSpacing = 0;
+        layout.itemSize = CGSizeMake((HPScreenW - HPFit(30))/3, (HPScreenW - HPFit(30))/3);
         layout.sectionInset = UIEdgeInsetsMake(HPFit(10), HPFit(10), HPFit(10), HPFit(10)); //设置距离上 左 下 右
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
         _collectionView.showsVerticalScrollIndicator = NO;

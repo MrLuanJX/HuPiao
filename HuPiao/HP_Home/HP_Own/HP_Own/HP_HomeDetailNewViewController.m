@@ -325,7 +325,7 @@
 
 #pragma mark - SDCycleScrollViewDelegate
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index {
-    NSLog(@"----click 轮播图 index %ld", index);
+    NSLog(@"----click 轮播图 index %ld", (long)index);
 }
     
 //- (NSString *)pageViewController:(YNPageViewController *)pageViewController customCacheKeyForIndex:(NSInteger)index {
@@ -333,7 +333,7 @@
 //}
     
 - (void)pageViewController:(YNPageViewController *)pageViewController didScrollMenuItem:(UIButton *)itemButton index:(NSInteger)index {
-    NSLog(@"didScrollMenuItem index %ld", index);
+    NSLog(@"didScrollMenuItem index %ld", (long)index);
 }
 
 

@@ -27,26 +27,29 @@ static AFHTTPSessionManager *_sessionManager;
 
 //初始化请求管理者
 + (void)initialize {
+
     _sessionManager = [AFHTTPSessionManager manager];
-    
+
     //设置请求参数的类型:JSON (AFJSONRequestSerializer,AFHTTPRequestSerializer)
-    AFJSONResponseSerializer *response = [AFJSONResponseSerializer serializer];
+//    AFJSONResponseSerializer *response = [AFJSONResponseSerializer serializer];
     /*! 这里是去掉了键值对里空对象的键值 */
     //response.removesKeysWithNullValues = YES;
-    _sessionManager.responseSerializer = response;
-    _sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
-    
-    _sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
-    _sessionManager.responseSerializer = [AFJSONResponseSerializer serializer];
-    
+//    _sessionManager.responseSerializer = response;
+//    _sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
+//
+//    _sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
+//    _sessionManager.responseSerializer = [AFJSONResponseSerializer serializer];
+
     _sessionManager.responseSerializer.acceptableContentTypes =
     [NSSet setWithObjects:@"application/json", @"text/html", @"text/json",
      @"text/plain", @"text/javascript", @"text/xml", @"image/*", nil];
+    [_sessionManager.requestSerializer setValue:@"application/x-www-form-urlencoded;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+
     //设置请求的超时时间
     _sessionManager.requestSerializer.timeoutInterval = 30.f;
     //打开状态栏的等待菊花
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
-    
+
     /*! https 参数配置 */
     /*!
      采用默认的defaultPolicy就可以了. AFN默认的securityPolicy就是它, 不必另写代码. AFSecurityPolicy类中会调用苹果security.framework的机制去自行验证本次请求服务端放回的证书是否是经过正规签名.
@@ -55,6 +58,8 @@ static AFHTTPSessionManager *_sessionManager;
     securityPolicy.allowInvalidCertificates = YES;
     securityPolicy.validatesDomainName = NO;
     _sessionManager.securityPolicy = securityPolicy;
+    
+    
 }
 
 +(void)headerRequest{
@@ -74,8 +79,6 @@ static AFHTTPSessionManager *_sessionManager;
                           parameters:(NSDictionary *)parameters successBlock:(ZZRequestSuccess)successBlock
                         failureBlock:(ZZRequestFailed)failureBlock {
     
-    [ZZNetworkRequest headerRequest];
-    
     return [self zz_requestType:type URL:url parameters:parameters responseCache:nil
                    successBlock:successBlock failureBlock:failureBlock];
 }
@@ -90,6 +93,11 @@ static AFHTTPSessionManager *_sessionManager;
     }
     url = [url stringByReplacingOccurrencesOfString:@" " withString:@""];//出去URL中的空格
     NSString *urlString = [NSURL URLWithString:url] ? url : [self stringUTF8Encoding:url];//检测地址中是否混有中文
+    
+    //请求的参数
+    if (parameters) {
+        parameters=@{@"paramJson":[HPDivisableTool dictionaryToJson:parameters]};
+    }
     
     NSURLSessionTask *sessionTask = nil;
     switch (type) {
@@ -571,7 +579,10 @@ static YYCache *_dataCache;
     [strM appendString:@"}\n"];
     return strM;
 }
+
 @end
+
+
 
 #endif
 

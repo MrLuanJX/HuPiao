@@ -123,7 +123,7 @@
         // 行间距
         layout.minimumLineSpacing = 5;
         layout.minimumInteritemSpacing = 0;
-        layout.itemSize = CGSizeMake((HPScreenW - 40)/3, (HPScreenW - 40)/3);
+        layout.itemSize = CGSizeMake((HPScreenW - 30)/3, (HPScreenW - 30)/3);
         layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10); //设置距离上 左 下 右
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
         _collectionView.showsVerticalScrollIndicator = NO;

@@ -46,11 +46,6 @@
     [self.title setBorderWithCornerRadius:self.title.height/2 borderWidth:0 borderColor:HPClearColor type:UIRectCornerAllCorners];
 }
 
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    
-}
-
 - (UILabel *)title {
     if (!_title) {
         _title = [UILabel new];
@@ -169,8 +164,6 @@
         self.itemClickBlock();
     }
 }
-
-
 
 - (NSMutableArray *)dataSource {
     if (!_dataSource) {

@@ -50,19 +50,10 @@
     }];
 }
 
+#pragma mark - UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
 }
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    HP_CerIdcardTabCell *cell = [tableView dequeueReusableCellWithIdentifier:@"creIdCardCell"];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.indexPath = indexPath;
-    //    cell.model = self.listData[indexPath.section];
-    return cell;
-}
-
-#pragma mark - UITableViewDelegate
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 3;//self.listData.count;
@@ -83,6 +74,21 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     return nil;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    HP_CerIdcardTabCell *cell = [tableView dequeueReusableCellWithIdentifier:@"creIdCardCell"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.indexPath = indexPath;
+    //    cell.model = self.listData[indexPath.section];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"点击的第%ld区",indexPath.section);
+    if (self.cellSeletedBlock) {
+        self.cellSeletedBlock(indexPath);
+    }
 }
 
 -(UILabel *)textLabel {

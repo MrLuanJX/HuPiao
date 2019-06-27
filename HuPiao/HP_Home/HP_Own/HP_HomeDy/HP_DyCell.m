@@ -74,7 +74,6 @@
         rowHeight = bottom;
     } else {
         rowHeight = self.btmBtnsView.bottom;
-//         = bottom;
     }
     
     // 这样做就是起到缓存行高的作用，省去重复计算!!!
@@ -212,6 +211,7 @@
     [_leftBtn setImage:[UIImage imageNamed:@"details_like_icon_press_20x20_"] forState:UIControlStateSelected];
     [_leftBtn addTarget:self action:@selector(likeAction:) forControlEvents:UIControlEventTouchUpInside];
     _leftBtn.titleEdgeInsets = UIEdgeInsetsMake(0, HPFit(10), 0, 0);
+    _leftBtn.titleLabel.font = HPFontSize(13);
     [wSelf.btmBtnsView addSubview:_leftBtn];
     
     _midBtn = [UIButton new];
@@ -221,6 +221,7 @@
     [_midBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     _midBtn.titleEdgeInsets = UIEdgeInsetsMake(0, HPFit(10), 0, 0);
     _midBtn.userInteractionEnabled = NO;
+    _midBtn.titleLabel.font = _leftBtn.titleLabel.font;
     [wSelf.btmBtnsView addSubview:_midBtn];
     
     _rightBtn = [UIButton new];
@@ -229,6 +230,7 @@
     [_rightBtn setImage:[UIImage imageNamed:@"分享"] forState:UIControlStateNormal];
     [_rightBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     _rightBtn.titleEdgeInsets = UIEdgeInsetsMake(0, HPFit(10), 0, 0);
+    _rightBtn.titleLabel.font = _leftBtn.titleLabel.font;
     [wSelf.btmBtnsView addSubview:_rightBtn];
     
     [@[wSelf.leftBtn, wSelf.midBtn, wSelf.rightBtn] mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:1 leadSpacing:0 tailSpacing:0];
@@ -278,7 +280,7 @@
 - (void) likeAction :(UIButton *) sender{
     sender.selected = !sender.selected;
     if (sender.selected) {
-        [HPDivisableTool btnActionAnimationWithBtn:sender];
+        [HPDivisableTool btnActionAnimationWithBtn:sender FromValue:0.7 ToValue:1.3 Duration:0.2 RepeatCount:1];
         
         [sender setImage:[UIImage imageNamed:@"details_like_icon_press_20x20_"] forState:UIControlStateSelected];
         [sender setTitleColor:[UIColor redColor] forState:UIControlStateSelected];

@@ -182,6 +182,7 @@
 }
 
 #pragma mark - UIImagePickerController
+/*
 - (void)takePhoto {
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
     if (authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied) {
@@ -208,6 +209,17 @@
     } else {
         [self openPhoto];
     }
+}
+*/
+
+-(void)takePhoto {
+    Lyy_ImagePickerController *controlelr = [[Lyy_ImagePickerController alloc]init];
+    controlelr.presentViewController = self;
+    __weak typeof (self) weakself = self;
+    controlelr.finishCallback = ^(UIImage * _Nonnull img,PHAsset *asset) {
+        [self refreshCollectionViewWithAddedAsset:asset image:img];
+    };
+    [controlelr takePhoto];
 }
 
 // 调用相机
@@ -267,19 +279,22 @@
 }
 
 - (void)refreshCollectionViewWithAddedAsset:(PHAsset *)asset image:(UIImage *)image {
-    [_selectedAssets addObject:asset];
-    [_selectedPhotos addObject:image];
+    [self.selectedAssets addObject:asset];
+    [self.selectedPhotos addObject:image];
+ 
+    // 1.打印图片名字
+    if ([asset isKindOfClass:[PHAsset class]]) {
+        PHAsset *phAsset = asset;
+        NSLog(@"location:%@",phAsset.location);
+    }
+    
+    NSLog(@"selectedAssets ==== %@------%@",self.selectedAssets,self.selectedPhotos);
     NSArray <HP_CreateDyCell *> *cellArray = [self.tableView visibleCells];
     if (cellArray) {
         HP_CreateDyCell *cell = (HP_CreateDyCell *)[cellArray firstObject];
         cell.selectedPhotos = self.selectedPhotos;
         cell.selectedAssets = self.selectedAssets;
         [cell reload];
-    }
-    
-    if ([asset isKindOfClass:[PHAsset class]]) {
-        PHAsset *phAsset = asset;
-        NSLog(@"location:%@",phAsset.location);
     }
 }
 
@@ -344,5 +359,26 @@
     } view:self.view] ;
 }
 
+- (UIImagePickerController *)imagePickerVc {
+    if (!_imagePickerVc) {
+        _imagePickerVc = [UIImagePickerController new];
+        _imagePickerVc.delegate = self;
+    }
+    return _imagePickerVc;
+}
+
+- (NSMutableArray *)selectedPhotos {
+    if (!_selectedPhotos) {
+        _selectedPhotos = @[].mutableCopy;
+    }
+    return _selectedPhotos;
+}
+
+- (NSMutableArray *)selectedAssets {
+    if (!_selectedAssets) {
+        _selectedAssets = @[].mutableCopy;
+    }
+    return _selectedAssets;
+}
 
 @end

@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HP_CeIdSecondView : UIView
 
+@property (nonatomic , copy) void (^cellSeletedBlock) (NSIndexPath * index);
+
 @end
 
 NS_ASSUME_NONNULL_END

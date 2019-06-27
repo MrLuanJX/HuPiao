@@ -121,9 +121,7 @@
     HP_AuthCollectCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"detailCollectCell" forIndexPath:indexPath];
     
     cell.index = indexPath;
-    
-    NSLog(@"dataSource = %@",self.dataSource);
-    
+        
     if (self.dataSource.count > 0) {
         if (self.dataSource.count < 9) {
             for (int i = 0; i < 9 - self.dataSource.count; i++) {
@@ -165,8 +163,6 @@
 
 - (void)setDataSource:(NSMutableArray *)dataSource {
     _dataSource = dataSource;
-    
-      NSLog(@"d----%@",dataSource);
     
     [self.collectionView reloadData];
 }

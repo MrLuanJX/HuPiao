@@ -22,10 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic , strong) NSMutableArray * selectedAssets;
 
-//@property (nonatomic , copy) void (^photoClickAction) (NSMutableArray * selectedArray,NSMutableArray * selectedPhotoArray , UICollectionView * collectionView);
-
 @property (nonatomic , strong) UICollectionView * collectionView;
-
 
 @property (nonatomic , copy) void (^photoClickAction) (NSIndexPath * index);
 

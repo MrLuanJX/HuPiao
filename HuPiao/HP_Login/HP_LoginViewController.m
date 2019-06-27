@@ -8,6 +8,7 @@
 
 #import "HP_LoginViewController.h"
 #import "HP_RegistViewController.h"
+#import "HP_LoginAuthViewController.h"
 
 @interface HP_LoginViewController () <UITextFieldDelegate>
 
@@ -20,6 +21,8 @@
 @property (nonatomic , strong) UITextField * pwTF;
 
 @property (nonatomic , strong) UIButton * loginBtn;
+
+@property (nonatomic , strong) UIButton * authLoginBtn;
 
 @property (nonatomic , strong) UIButton * registBtn;
 
@@ -50,6 +53,8 @@
     
     //同理透明掉导航栏下划线
     [self.navigationController.navigationBar setShadowImage:nil];
+    
+    [self.view endEditing:YES];
 }
 
 - (void)viewDidLoad {
@@ -71,12 +76,15 @@
     [UIView getGradientWithFirstColor:HPUIColorWithRGB(0xA2B5CD, 1.0) SecondColor:HPUIColorWithRGB(0x66CDAA, 1.0) WithView:self.view];
     
     [self configUI];
+    
+    [self authBtnAnimate];
 }
 
 #pragma mark - 注册Action
 - (void) registAction {
     NSLog(@"注册");
-    [self jumpRegistOrForgotPwdVCWithTitle:@"注    册"];
+    HP_RegistViewController * registVC = [HP_RegistViewController new];
+    [self.navigationController pushViewController:registVC animated:YES];
 }
 
 #pragma mark - 忘记密码
@@ -87,8 +95,17 @@
 
 #pragma mark - 登录Action
 - (void) loginAcion:(UIButton *)sender {
-    self.loginBtn.backgroundColor = HPUIColorWithRGB(0x96CDCD, 1.0);
+    [self.view endEditing:YES];
     
+    NSLog(@"pwTF = %@-----%@",[NSString md5:self.pwTF.text],[HPDivisableTool getNowTimeTimestamp]);
+    
+    sender.userInteractionEnabled = NO;
+    sender.backgroundColor = kSetUpCololor(195, 195, 195, 1.0);
+    
+    [SVProgressHUD showWithStatus:@"正在登录..."];
+    [SVProgressHUD setBackgroundColor:HPUIColorWithRGB(0x000000, 0.8)];
+    [SVProgressHUD setForegroundColor:HPUIColorWithRGB(0xffffff, 1.0)];
+        
     if (self.nameTF.text.length == 0) {
         [SVProgressHUD showErrorWithStatus:@"请先填写用户名"];
         return;
@@ -97,9 +114,35 @@
         [SVProgressHUD showErrorWithStatus:@"请先填写密码"];
         return;
     }
+    
+    if ([self.nameTF.text isEqualToString:@"12345678910"] && [self.pwTF.text isEqualToString:@"111111"]) {
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [SVProgressHUD dismiss];
+            
+            sender.userInteractionEnabled = YES;
+            sender.backgroundColor = HPUIColorWithRGB(0x96CDCD, 1.0);
+            
+            [UIApplication sharedApplication].keyWindow.rootViewController = [HP_TabbarViewController new];
+            
+            [[UIApplication sharedApplication].keyWindow makeKeyAndVisible];
+        });
+    } else {
+         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+             [SVProgressHUD dismiss];
+             sender.userInteractionEnabled = YES;
+             sender.backgroundColor = HPUIColorWithRGB(0x96CDCD, 1.0);
+             
+             [WHToast showErrorWithMessage:@"账号或密码错误，请重新输入" duration:1.5 finishHandler:nil];
+         });
+    }
 }
 -(void) loginDown:(UIButton *)sender {
     self.loginBtn.backgroundColor = HPUIColorWithRGB(0x000000, 0.5);
+}
+// 瓢虫登录
+- (void) authLoginAcion:(UIButton *) sender {
+    [self jumpRegistOrForgotPwdVCWithTitle:@"登  录"];
 }
 
 - (void) configUI {
@@ -112,6 +155,7 @@
     [self.view addSubview: self.loginBtn];
     [self.view addSubview: self.forgetBtn];
     [self.view addSubview: self.registBtn];
+    [self.view addSubview: self.authLoginBtn];
     
     [self.nameLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo (weakSelf.view.height/5);
@@ -149,6 +193,11 @@
     
     [self.loginBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo (weakSelf.forgetBtn.mas_bottom).offset (HPFit(50));
+        make.height.left.right.mas_equalTo (weakSelf.nameLabel);
+    }];
+    
+    [self.authLoginBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo (weakSelf.loginBtn.mas_bottom).offset (HPFit(30));
         make.height.left.right.mas_equalTo (weakSelf.nameLabel);
     }];
 }
@@ -229,6 +278,16 @@
     return _loginBtn;
 }
 
+- (UIButton *)authLoginBtn {
+    if (!_authLoginBtn) {
+        _authLoginBtn = [UIButton new];
+        [_authLoginBtn setTitle:@"瓢虫登录请点这里" forState:UIControlStateNormal];
+        [_authLoginBtn setTitleColor:HPUIColorWithRGB(0xffffff, 1.0) forState:UIControlStateNormal];
+        [_authLoginBtn addTarget:self action:@selector(authLoginAcion:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _authLoginBtn;
+}
+
 - (UIButton *)registBtn {
     if (!_registBtn) {
         _registBtn = [UIButton new];
@@ -296,9 +355,15 @@
 }
 
 - (void) jumpRegistOrForgotPwdVCWithTitle:(NSString *)title {
-    HP_RegistViewController * registVC = [HP_RegistViewController new];
-    registVC.registOrForgotPwd = title;
-    [self.navigationController pushViewController:registVC animated:YES];
+    
+    HP_LoginAuthViewController * loginVC = [HP_LoginAuthViewController new];
+    loginVC.loginOrForgotPwd = title;
+    [self.navigationController pushViewController:loginVC animated:YES];
+}
+
+- (void) authBtnAnimate {
+
+    [HPDivisableTool btnActionAnimationWithBtn:self.authLoginBtn FromValue:0.9 ToValue:1.3 Duration:1.0 RepeatCount:(long)10000000000];
 }
 
 @end

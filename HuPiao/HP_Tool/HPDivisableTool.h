@@ -28,7 +28,15 @@ NS_ASSUME_NONNULL_BEGIN
 + (id)toArrayOrNSDictionary:(NSData *)jsonData;
 
 // UIButton点击放大效果
-+(void) btnActionAnimationWithBtn:(UIButton *)sender;
++ (void) btnActionAnimationWithBtn:(UIButton *)sender FromValue:(CGFloat)fromValue ToValue:(CGFloat)toValue Duration:(CGFloat)duration RepeatCount:(long)repeatCount;
+
+// 获取当前时间戳
++(NSString *)getNowTimeTimestamp;
+
++(NSString *)currentdateInterval;
+
++ (NSString*)dictionaryToJson:(NSDictionary *)dic;
+
 
 @end
 

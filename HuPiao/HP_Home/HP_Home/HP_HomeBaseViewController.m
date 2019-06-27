@@ -124,18 +124,6 @@
     [self.navigationController pushViewController:detailVC animated:YES];
 }
     
-- (void) btnActionAnimationWithBtn:(UIButton *)sender {
-    
-    CABasicAnimation*pulse = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-    pulse.timingFunction= [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    pulse.duration = 0.2;
-    pulse.repeatCount= 1;
-    pulse.autoreverses= YES;
-    pulse.fromValue= [NSNumber numberWithFloat:0.7];
-    pulse.toValue= [NSNumber numberWithFloat:1.3];
-    [[sender layer] addAnimation:pulse forKey:nil];
-}
-
 - (NSMutableArray *)messageList {
     if (!_messageList) {
         _messageList = [[NSMutableArray alloc] init];
