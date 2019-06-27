@@ -14,7 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  聊天用户数据模型
  */
-@property (nonatomic, strong)MUser *user;
+@property (nonatomic, strong)MUser * user;
+@property (nonatomic, copy)NSString * navTitle;
 
 @end
 

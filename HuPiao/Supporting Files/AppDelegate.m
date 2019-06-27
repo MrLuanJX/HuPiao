@@ -25,7 +25,7 @@
 
     HP_NavigationViewController * loginNav = [[HP_NavigationViewController alloc] initWithRootViewController:[HP_LoginViewController new]];
     
-    self.window.rootViewController = loginNav; // [HP_TabbarViewController new];   //
+    self.window.rootViewController =  [HP_TabbarViewController new];   // loginNav; //
     
     [self.window makeKeyAndVisible];
     

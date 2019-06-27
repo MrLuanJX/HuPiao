@@ -330,7 +330,7 @@
 {
     // 6 的初始化 0.0.375.49
     if (_chatBox == nil) {
-        _chatBox = [[ZXChatBoxView alloc] initWithFrame:CGRectMake(0, 0, HPScreenW, k_bar_height)];
+        _chatBox = [[ZXChatBoxView alloc] initWithFrame:CGRectMake(0, 0, HPScreenW, HEIGHT_TABBAR)];
         [_chatBox setDelegate:self]; // 0 0 宽 49
     }
     
@@ -375,8 +375,7 @@
 }
 
 
--(ZXChatBoxFaceView *) chatBoxFaceView
-{
+-(ZXChatBoxFaceView *) chatBoxFaceView {
     if (_chatBoxFaceView == nil) {
         _chatBoxFaceView = [[ZXChatBoxFaceView alloc] initWithFrame:CGRectMake(0, k_bar_height, HPScreenW, HEIGHT_CHATBOXVIEW)];
         [_chatBoxFaceView setDelegate:self];

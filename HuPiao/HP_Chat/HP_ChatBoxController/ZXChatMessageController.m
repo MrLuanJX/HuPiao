@@ -123,8 +123,8 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     ZXMessageModel  * messageModel = _data[section];
 
-    UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 20)];
-    UILabel * time = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 20)];
+    UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 40)];
+    UILabel * time = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, [UIScreen mainScreen].bounds.size.width, 20)];
     time.textColor = [UIColor lightGrayColor];
     time.font = [UIFont systemFontOfSize:13];
     time.textAlignment = NSTextAlignmentCenter;
@@ -146,7 +146,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return section%2 != 0 ? 0 : 20;
+    return section%2 != 0 ? 0 : 40;
 }
 
 #pragma mark - Event Response

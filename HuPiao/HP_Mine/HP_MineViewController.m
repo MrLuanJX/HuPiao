@@ -210,7 +210,7 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, HPFit(80))];
     
     UILabel * versionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, HPFit(10), self.view.frame.size.width, HPFit(20))];
-    versionLabel.textColor = HPUIColorWithRGB(0xD4D4D4, 1.0);
+    versionLabel.textColor = [UIColor lightGrayColor];//HPUIColorWithRGB(0xD4D4D4, 1.0);
     versionLabel.font = HPFontSize(14);
     versionLabel.textAlignment = NSTextAlignmentCenter;
     versionLabel.text = [NSString stringWithFormat:@"当前版本：%@",APP_VERSION];

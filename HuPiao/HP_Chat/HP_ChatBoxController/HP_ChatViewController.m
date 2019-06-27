@@ -39,8 +39,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
+
+    self.navigationItem.title = self.navTitle;
+
     [self setupBase];
 }
 
@@ -60,7 +61,7 @@
 #pragma mark - TLChatBoxViewControllerDelegate
 - (void)chatBoxViewController:(ZXChatBoxController *)chatboxViewController sendMessage:(ZXMessageModel *)message {
     // TLMessage 发送的消息数据模型
-    message.from = [HP_UserTool sharedUserHelper].user;
+    message.from = self.user;//[HP_UserTool sharedUserHelper].user;
     /**
      *  这个控制器添加了 chatMessageVC 这个控制器作为子控制器。在这个子控制器上面添加聊天消息的cell
      TLChatBox 的代理 TLChatBoxViewController 实现了它的代理方法
@@ -72,7 +73,7 @@
      *   TLMessage 是一条消息的数据模型。纪录消息的各种属性
      就因为又有下面的这个，所以就有了你发一条，又会多一条的显示效果！！
      */
-    
+    /*
     ZXMessageModel *recMessage = [[ZXMessageModel alloc] init];
     recMessage.messageType = message.messageType;
     recMessage.ownerTyper = ZXMessageOwnerTypeOther;
@@ -81,7 +82,7 @@
     recMessage.imagePath = message.imagePath;
     recMessage.from = message.from;
     [self.chatMessageVC addNewMessage:recMessage];
-    
+    */
     /**
      *  滚动插入的消息，使他始终处于一个可以看得见的位置
      */
@@ -108,9 +109,7 @@
 /**
  *  两个聊天界面控制器
  */
--(ZXChatMessageController *)chatMessageVC
-{
-    
+-(ZXChatMessageController *)chatMessageVC {
     if (_chatMessageVC == nil) {
         _chatMessageVC = [[ZXChatMessageController  alloc] init];
         [_chatMessageVC.view setFrame:CGRectMake(0, k_status_height + k_nav_height, HPScreenW, self.viewHeight - k_bar_height)];// 0  状态 + 导航 宽 viweH - tabbarH

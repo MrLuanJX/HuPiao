@@ -54,7 +54,7 @@ typedef NS_ENUM(NSUInteger, ZXMessageReadState) {
 
 @interface ZXMessageModel : NSObject
 
-@property (nonatomic, strong) MUser *from;                         // 发送者信息
+@property (nonatomic, strong) MUser *from;                          // 发送者信息
 @property (nonatomic, strong) NSDate *date;                         // 发送时间
 @property (nonatomic, strong) NSString *dateString;                 // 格式化的发送时间
 @property (nonatomic, assign) ZXMessageType messageType;            // 消息类型

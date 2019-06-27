@@ -17,6 +17,7 @@
 
 @property (nonatomic, strong) HP_TableView * tableView;
 @property (nonatomic, strong) NSMutableArray * messageList;
+@property (nonatomic, strong) NSMutableArray * userList;
 
 @end
 
@@ -31,11 +32,12 @@
 - (void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
+    [self.userList removeAllObjects];
     [self.messageList removeAllObjects];
     [self.messageList addObjectsFromArray:[HP_Message findAll]];
+    [self.userList addObjectsFromArray:[MUser findAll]];
     [self.tableView reloadData];
 }
-
 
 #pragma mark - lazy load
 - (HP_TableView *)tableView {
@@ -75,6 +77,13 @@
     return _messageList;
 }
 
+- (NSMutableArray *)userList {
+    if (!_userList) {
+        _userList = @[].mutableCopy;
+    }
+    return _userList;
+}
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -106,9 +115,11 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     HP_Message * message = [self.messageList objectAtIndex:indexPath.row];
+    MUser * user = [self.userList objectAtIndex:indexPath.row];
     
     HP_ChatViewController * chatVC = [HP_ChatViewController new];
-    chatVC.title = message.userName;
+    chatVC.navTitle = message.userName;
+    chatVC.user = user;
     [self.navigationController pushViewController:chatVC animated:YES];
 }
 

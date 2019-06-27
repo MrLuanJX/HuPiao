@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)suspendCenterPageVCWithConfig:(YNPageConfigration *)config WithUser:(MUser *)user IsOwn:(NSString *)isOwn;
 
+@property(nonatomic , strong) MUser * user;
+
 @end
 
 NS_ASSUME_NONNULL_END

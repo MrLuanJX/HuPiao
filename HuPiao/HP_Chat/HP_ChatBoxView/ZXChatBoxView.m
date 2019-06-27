@@ -415,8 +415,8 @@
     return _textView;
 }
 
-- (UIButton *) faceButton
-{ // CGRectMake(self.moreButton.originX - CHATBOX_BUTTON_WIDTH, (HEIGHT_TABBAR - CHATBOX_BUTTON_WIDTH) / 2, CHATBOX_BUTTON_WIDTH, CHATBOX_BUTTON_WIDTH)
+- (UIButton *) faceButton {
+    // CGRectMake(self.moreButton.originX - CHATBOX_BUTTON_WIDTH, (HEIGHT_TABBAR - CHATBOX_BUTTON_WIDTH) / 2, CHATBOX_BUTTON_WIDTH, CHATBOX_BUTTON_WIDTH)
     if (_faceButton == nil) {
         _faceButton = [[UIButton alloc] initWithFrame:CGRectMake(HPScreenW - CHATBOX_BUTTON_WIDTH, (HEIGHT_TABBAR - CHATBOX_BUTTON_WIDTH) / 2, CHATBOX_BUTTON_WIDTH, CHATBOX_BUTTON_WIDTH)];
         [_faceButton setImage:[UIImage imageNamed:@"ToolViewEmotion"] forState:UIControlStateNormal];

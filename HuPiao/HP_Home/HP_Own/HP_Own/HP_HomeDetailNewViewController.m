@@ -14,6 +14,7 @@
 #import "HP_GiftView.h"
 #import "HP_RechargeViewController.h"
 #import "HP_CreateDyViewController.h"
+#import "HP_ChatViewController.h"
 
 @interface HP_HomeDetailNewViewController () <YNPageViewControllerDataSource, YNPageViewControllerDelegate, SDCycleScrollViewDelegate,TZImagePickerControllerDelegate>
     
@@ -46,7 +47,6 @@
 // 相册
 @property(nonatomic , strong) TZImagePickerController * photoalbum;
 
-@property(nonatomic , strong) MUser * user;
 
 @property(nonatomic , strong) UIView * navBGView;
 
@@ -71,11 +71,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [SVProgressHUD show];
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [SVProgressHUD dismiss];
+    });
+    
     self.isCared = NO;
     
     [self setupBackBtn];
 //    [self setupRightNav];
-    
+        
     [self navBar];
 }
 
@@ -104,6 +111,10 @@
 #pragma mark - 聊天
 - (void) talkAction {
     NSLog(@"聊天");
+    HP_ChatViewController * chatVC = [HP_ChatViewController new];
+    chatVC.navTitle = self.user.name;
+    chatVC.user = self.user;
+    [self.navigationController pushViewController:chatVC animated:YES];
 }
 
 #pragma mark - 关注

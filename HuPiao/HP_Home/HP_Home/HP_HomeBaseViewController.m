@@ -119,6 +119,7 @@
     MUser * user = [self.messageList objectAtIndex:indexPath.section];
 
     HP_HomeDetailNewViewController * detailVC = [HP_HomeDetailNewViewController suspendCenterPageVCWithUser:user IsOwn:@"Home"];
+    detailVC.user = user;
     detailVC.hidesBottomBarWhenPushed = YES;
     detailVC.title = user.name;
     [self.navigationController pushViewController:detailVC animated:YES];
