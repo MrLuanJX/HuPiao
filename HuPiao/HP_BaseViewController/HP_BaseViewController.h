@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HP_BaseViewController : UIViewController
 
+@property (nonatomic , copy) NSString * pageLogStr;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -40,6 +40,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.pageLogStr = @"ChatPage";
+    
     self.navigationItem.title = self.navTitle;
 
     [self setupBase];

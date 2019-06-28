@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HP_DyViewController : UIViewController
+@interface HP_DyViewController : HP_BaseViewController
 
 @property (nonatomic , strong) UITableView *tableView;
 

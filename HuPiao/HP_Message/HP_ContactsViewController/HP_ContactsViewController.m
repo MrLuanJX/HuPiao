@@ -29,6 +29,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // 极光统计界面log
+    self.pageLogStr = @"ContactsPage";
+    
     self.view.backgroundColor = k_background_color;
     [self configData];
     [self.view addSubview:self.tableView];

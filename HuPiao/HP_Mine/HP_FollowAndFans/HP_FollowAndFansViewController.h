@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface HP_FollowAndFansViewController : UIViewController
+@interface HP_FollowAndFansViewController : HP_BaseViewController
 
 @property (nonatomic , assign) BOOL fans;
 

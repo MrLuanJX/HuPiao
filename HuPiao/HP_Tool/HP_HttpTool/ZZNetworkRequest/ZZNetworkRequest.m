@@ -40,9 +40,7 @@ static AFHTTPSessionManager *_sessionManager;
 //    _sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
 //    _sessionManager.responseSerializer = [AFJSONResponseSerializer serializer];
 
-    _sessionManager.responseSerializer.acceptableContentTypes =
-    [NSSet setWithObjects:@"application/json", @"text/html", @"text/json",
-     @"text/plain", @"text/javascript", @"text/xml", @"image/*", nil];
+    _sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/html",@"text/json",@"text/javascript",@"text/plain",@"image/gif", nil];
     [_sessionManager.requestSerializer setValue:@"application/x-www-form-urlencoded;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
 
     //设置请求的超时时间
@@ -54,12 +52,10 @@ static AFHTTPSessionManager *_sessionManager;
     /*!
      采用默认的defaultPolicy就可以了. AFN默认的securityPolicy就是它, 不必另写代码. AFSecurityPolicy类中会调用苹果security.framework的机制去自行验证本次请求服务端放回的证书是否是经过正规签名.
      */
-    AFSecurityPolicy *securityPolicy = [AFSecurityPolicy defaultPolicy];
-    securityPolicy.allowInvalidCertificates = YES;
-    securityPolicy.validatesDomainName = NO;
-    _sessionManager.securityPolicy = securityPolicy;
-    
-    
+    _sessionManager.requestSerializer.timeoutInterval = 15.0f;
+    _sessionManager.securityPolicy = [AFSecurityPolicy defaultPolicy];
+    _sessionManager.securityPolicy.allowInvalidCertificates = YES;
+    _sessionManager.securityPolicy.validatesDomainName = NO;
 }
 
 +(void)headerRequest{
@@ -78,6 +74,16 @@ static AFHTTPSessionManager *_sessionManager;
 + (NSURLSessionTask *)zz_requestType:(REQUESTTYPE)type URL:(NSString *)url
                           parameters:(NSDictionary *)parameters successBlock:(ZZRequestSuccess)successBlock
                         failureBlock:(ZZRequestFailed)failureBlock {
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    //无条件的信任服务器上的证书
+    AFSecurityPolicy *securityPolicy =  [AFSecurityPolicy defaultPolicy];
+    // 客户端是否信任非法证书
+    securityPolicy.allowInvalidCertificates = YES;
+    // 是否在证书域字段中验证域名
+    securityPolicy.validatesDomainName = NO;
+    manager.securityPolicy = securityPolicy;
+
     
     return [self zz_requestType:type URL:url parameters:parameters responseCache:nil
                    successBlock:successBlock failureBlock:failureBlock];

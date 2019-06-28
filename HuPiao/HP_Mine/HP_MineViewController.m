@@ -12,7 +12,6 @@
 #import "HP_HomeDetailNewViewController.h"
 #import "HP_MineHeadView.h"
 #import "HP_OwnMessageViewController.h"
-#import "HP_CeIdcardViewController.h"
 #import "HP_SignViewController.h"
 #import "HP_FollowAndFansViewController.h"
 #import "HP_WalletViewController.h"
@@ -79,6 +78,8 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.pageLogStr = @"MinePage";
     
     self.view.backgroundColor = kSetUpCololor(242, 242, 242, 1.0);
     
@@ -168,6 +169,7 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
             dispatch_async(dispatch_get_main_queue(), ^{
                 HP_FollowAndFansViewController * followVC = [HP_FollowAndFansViewController new];
                 followVC.title = tag == 0 ? @"我的关注" : @"我的粉丝";
+                followVC.fans = tag == 0 ? NO : YES;
                 [weakSelf.navigationController pushViewController:followVC animated:YES];
             });
         }

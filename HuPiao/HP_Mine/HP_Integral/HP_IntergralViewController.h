@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HP_IntergralViewController : UIViewController
+@interface HP_IntergralViewController : HP_BaseViewController
 
 @end
 

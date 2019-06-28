@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F76F13E8F2D529DBABC7840284544935"
+               BlueprintIdentifier = "C38244F991868AB2E30C00C5DCBEE476"
                BuildableName = "libPrintBeautifulLog.a"
                BlueprintName = "PrintBeautifulLog"
                ReferencedContainer = "container:Pods.xcodeproj">

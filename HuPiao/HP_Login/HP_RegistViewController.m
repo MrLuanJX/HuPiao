@@ -76,31 +76,12 @@
     [self setupRightNav];
 }
 
+#pragma mark - 获取验证码
 - (void) requestCode {
-    NSDictionary * dict = @{
-                            @"phoneNumber" : @"18910795322",//self.nameTF.text,
-                            @"type" : @"register",
-                            @"t" : [HPDivisableTool currentdateInterval],
-                            @"code" : @"",
-                            @"sign" : [NSString md5:[NSString stringWithFormat:@"%@%@%@%@%@%@",@"code",@"phoneNumber",@"sign",@"t",@"type",HPKey]],
-                            };
-    NSLog(@"md5 =--- %@",[NSString stringWithFormat:@"%@%@%@%@%@%@",@"code",@"phoneNumber",@"sign",@"t",@"type",HPKey]);
-
-//    [DJZJ_RequestTool LJX_requestWithType:LJX_POST URL:HP_PhoneCode params:dict successBlock:^(id obj) {
-//
-//        NSLog(@"obj = %@",obj);
-//
-//    } failureBlock:^(NSError *error) {
-//
-//        NSLog(@"error = %@",error);
-//
-//    }];
-//
-    [HP_MemberHandler executeGetCode:dict Success:^(id  _Nonnull obj) {
-        NSLog(@"obj ==== %@",obj);
-
+    [HP_MemberHandler executeGetCodeWithReuqestPhoneNum:self.nameTF.text type:@"register" Success:^(id  _Nonnull obj) {
+        
     } Fail:^(id  _Nonnull obj) {
-
+        
     }];
 }
 
@@ -126,7 +107,8 @@
     }
     
     HPRegistPwdViewController * registPwdVC = [HPRegistPwdViewController new];
-    registPwdVC.registOrForgotPwd = @"注     册";
+    registPwdVC.phoneNum = [self.nameTF.text trim];
+    registPwdVC.code = [self.codeTF.text trim];
     [self.navigationController pushViewController:registPwdVC animated:YES];
 }
 -(void) registDown:(UIButton *)sender {
@@ -296,7 +278,7 @@
     }
     if (self.codeTF == textField) {
         NSLog(@"验证码");
-        self.codeTFEmpty = self.codeTF.text.length == 6 ? NO : YES;
+        self.codeTFEmpty = self.codeTF.text.length == 4 ? NO : YES;
     }
     
     [self tfChanged];
@@ -310,7 +292,6 @@
     [self.registBtn setTitleColor:self.phoneTFEmpty == NO && self.codeTFEmpty == NO ? HPUIColorWithRGB(0xffffff, 1.0) : kSetUpCololor(225, 225, 225, 1.0) forState:UIControlStateNormal];
 }
 
-
 #pragma mark textfield的代理
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
 
@@ -322,7 +303,7 @@
     if (self.nameTF == textField) {
         if (textField.text.length > 10) return NO;  // 当前是手机号码
     } else if (self.codeTF == textField) {
-        if (textField.text.length > 5) return NO;   // 当前是验证码
+        if (textField.text.length > 3) return NO;   // 当前是验证码
     }
 
     return YES;

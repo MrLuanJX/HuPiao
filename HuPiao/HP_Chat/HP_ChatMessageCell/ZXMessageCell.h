@@ -1,7 +1,7 @@
 //
 //  ZXMessageCell.h
 //  ZXDNLLTest
-//
+//  00008020-001809641A62002E
 //  Created by mxsm on 16/5/18.
 //  Copyright © 2016年 mxsm. All rights reserved.
 //
@@ -12,7 +12,6 @@
 @interface ZXMessageCell : UITableViewCell
 
 @property(nonatomic,strong) ZXMessageModel * messageModel;
-
 /**
  *  其他的cell 继承与这个cell，这个cell中只有头像是共有的，就只写头像，其他的就在各自cell中去写。
  */

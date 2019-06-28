@@ -17,35 +17,61 @@
  @param success 成功
  @param fail 失败
  */
-+(void)executeLogIn:(NSDictionary*)param Success:(Success)success Fail:(Failed)fail{
++(void)executeLogIn:(NSDictionary*)param Success:(Success)success Fail:(Failed)fail {
     
     
 }
 
 /**
- 发送验证码
- 
- @param param 参数
+ 注册
+ @param param 注册参数
  @param success 成功
  @param fail 失败
  */
-+(void)executeGetCode:(NSDictionary*)param Success:(Success)success Fail:(Failed)fail{
++(void)executeRegist:(NSDictionary*)param Success:(Success)success Fail:(Failed)fail {
     
-    NSLog(@"HP_PhoneCode = %@----%@",HP_PhoneCode,param);
-    
-    
-    [HP_HttpTool INMRequestWithType:POST_INM URL:HP_PhoneCode Paramer:param SuccessBlock:^(id  _Nonnull obj) {
-        NSLog(@"phoneCodeObj - %@",obj);
+    [DJZJ_RequestTool LJX_requestWithType:LJX_POST URL:HP_Regist params:param successBlock:^(id obj) {
+        NSLog(@"obj = %@",obj);
         
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if ([obj[@"errorCode"] integerValue] == 0) {
+            success(obj);
+        } else {
+            fail(obj);
+        }
+    } failureBlock:^(NSError *error) {
+        fail(error);
+    }];
+}
+
+
+/**
+ 发送验证码
+ @param phoneNum 参数
+ @param type 参数     register forgetpwd login
+ @param success 成功
+ @param fail 失败
+ */
++(void)executeGetCodeWithReuqestPhoneNum:(NSString *)phoneNum type:(NSString *)type Success:(Success)success Fail:(Failed)fail {
+    NSDictionary * dict = @{
+                            @"phoneNumber" : [phoneNum trim],
+                            @"type" : type,
+                            @"t" : [HPDivisableTool currentdateInterval],
+                            @"code" : @"",
+                            @"sign" : [NSString md5:[NSString stringWithFormat:@"%@%@%@%@%@",@"",[phoneNum trim],[HPDivisableTool currentdateInterval],type,HPKey]],
+                            };
+    
+    [DJZJ_RequestTool LJX_requestWithType:LJX_POST URL:HP_PhoneCode params:dict successBlock:^(id obj) {
+        NSLog(@"obj = %@",obj);
+        if ([obj[@"errorCode"] integerValue] == 0) {
             [WHToast showMessage:@"短信验证码已发送" duration:1.5 finishHandler:nil];
-        });
-        success(obj);
-    } FailureBlock:^(NSError * _Nonnull error) {
-         NSLog(@"phoneCodeError - %@",error);
-        
-    } IsCache:NO];
+            success(obj);
+        } else {
+            [WHToast showMessage:@"短信验证码发送失败，请稍后再试" duration:1.5 finishHandler:nil];
+            fail(obj);
+        }
+    } failureBlock:^(NSError *error) {
+        fail(error);
+    }];
 }
 
 @end

@@ -101,7 +101,6 @@
 		00D2EFF122A8E885008D52D9 /* HP_SignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2EFF022A8E885008D52D9 /* HP_SignViewController.m */; };
 		00D2EFF422A8ECC5008D52D9 /* HP_UpdateNickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2EFF322A8ECC5008D52D9 /* HP_UpdateNickNameViewController.m */; };
 		00D2EFF722A8F04F008D52D9 /* NSString+trim.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2EFF622A8F04F008D52D9 /* NSString+trim.m */; };
-		00D2EFFB22A8FC67008D52D9 /* HP_CeIdcardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2EFFA22A8FC67008D52D9 /* HP_CeIdcardViewController.m */; };
 		00D2EFFE22A8FD2B008D52D9 /* HP_CerIdcardTabCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D2EFFD22A8FD2B008D52D9 /* HP_CerIdcardTabCell.m */; };
 		00D2F08922A9020E008D52D9 /* libexidcardios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D2F07522A9020E008D52D9 /* libexidcardios.a */; };
 		00D2F08A22A9020E008D52D9 /* zocr0.lib in Resources */ = {isa = PBXBuildFile; fileRef = 00D2F07722A9020E008D52D9 /* zocr0.lib */; };
@@ -534,8 +533,6 @@
 		00D2EFF322A8ECC5008D52D9 /* HP_UpdateNickNameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_UpdateNickNameViewController.m; sourceTree = "<group>"; };
 		00D2EFF522A8F04F008D52D9 /* NSString+trim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+trim.h"; sourceTree = "<group>"; };
 		00D2EFF622A8F04F008D52D9 /* NSString+trim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+trim.m"; sourceTree = "<group>"; };
-		00D2EFF922A8FC67008D52D9 /* HP_CeIdcardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_CeIdcardViewController.h; sourceTree = "<group>"; };
-		00D2EFFA22A8FC67008D52D9 /* HP_CeIdcardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_CeIdcardViewController.m; sourceTree = "<group>"; };
 		00D2EFFC22A8FD2B008D52D9 /* HP_CerIdcardTabCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_CerIdcardTabCell.h; sourceTree = "<group>"; };
 		00D2EFFD22A8FD2B008D52D9 /* HP_CerIdcardTabCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_CerIdcardTabCell.m; sourceTree = "<group>"; };
 		00D2F07522A9020E008D52D9 /* libexidcardios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libexidcardios.a; sourceTree = "<group>"; };
@@ -840,6 +837,7 @@
 		DDE6994E22C5005A0071A92F /* [多云]@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "[多云]@2x.png"; sourceTree = "<group>"; };
 		DDE6995022C5005A0071A92F /* [抠鼻]@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "[抠鼻]@2x.png"; sourceTree = "<group>"; };
 		DDE6995222C5005A0071A92F /* [发抖]@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "[发抖]@2x.png"; sourceTree = "<group>"; };
+		DDE699E122C5D57A0071A92F /* HuPiao.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HuPiao.entitlements; sourceTree = "<group>"; };
 		DDFE70D92290F4270029C425 /* HuPiao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HuPiao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDFE70DC2290F4270029C425 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DDFE70DD2290F4270029C425 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -1258,8 +1256,6 @@
 			children = (
 				00D2F0B822AF505F008D52D9 /* HP_CeIdcardBaseViewController.h */,
 				00D2F0B922AF505F008D52D9 /* HP_CeIdcardBaseViewController.m */,
-				00D2EFF922A8FC67008D52D9 /* HP_CeIdcardViewController.h */,
-				00D2EFFA22A8FC67008D52D9 /* HP_CeIdcardViewController.m */,
 				00D2EFFC22A8FD2B008D52D9 /* HP_CerIdcardTabCell.h */,
 				00D2EFFD22A8FD2B008D52D9 /* HP_CerIdcardTabCell.m */,
 				00D2F0BB22AF5AA8008D52D9 /* HP_CeIdFirstView.h */,
@@ -3021,6 +3017,7 @@
 		DDFE70DB2290F4270029C425 /* HuPiao */ = {
 			isa = PBXGroup;
 			children = (
+				DDE699E122C5D57A0071A92F /* HuPiao.entitlements */,
 				00FEAE7722C4A85100FCDC93 /* HP_Chat */,
 				00FEAE6722C4A68400FCDC93 /* HP_User */,
 				009CEDF122BB4FFD00889FFD /* HP_Login */,
@@ -3235,6 +3232,12 @@
 								enabled = 0;
 							};
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.Wallet = {
 								enabled = 0;
 							};
 						};
@@ -3655,7 +3658,6 @@
 				009CEDF722BB538C00889FFD /* HP_RegistViewController.m in Sources */,
 				00EEA35322BA0ADF0038A521 /* XBZChatMoreCollectionViewCell.m in Sources */,
 				00B9511422929C9F008D9411 /* HP_HomeBaseViewController.m in Sources */,
-				00D2EFFB22A8FC67008D52D9 /* HP_CeIdcardViewController.m in Sources */,
 				0082087622A11BAB00EBEF4C /* HP_Utility.m in Sources */,
 				00EEA34422BA0ADE0038A521 /* XBZChatKeyBoardView.m in Sources */,
 				00D2EFDC22A75FE8008D52D9 /* INMAlertView.m in Sources */,
@@ -3876,9 +3878,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = HuPiao/HuPiao.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BDWZ7YXJ5N;
+				DEVELOPMENT_TEAM = SXXMLUC6VF;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HuPiao/Supporting Files/PrefixHeader.pch";
@@ -3894,7 +3897,7 @@
 					"$(PROJECT_DIR)/HuPiao/HP_Command/Third/libexidcard",
 					"$(PROJECT_DIR)/HuPiao/HP_Command/XBZChatKeyBoard/Lame",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.zecaifu-luanjinxin.HuPiao";
+				PRODUCT_BUNDLE_IDENTIFIER = com.camgo.hulupiao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3907,9 +3910,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = HuPiao/HuPiao.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BDWZ7YXJ5N;
+				DEVELOPMENT_TEAM = SXXMLUC6VF;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HuPiao/Supporting Files/PrefixHeader.pch";
@@ -3925,7 +3929,7 @@
 					"$(PROJECT_DIR)/HuPiao/HP_Command/Third/libexidcard",
 					"$(PROJECT_DIR)/HuPiao/HP_Command/XBZChatKeyBoard/Lame",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.zecaifu-luanjinxin.HuPiao";
+				PRODUCT_BUNDLE_IDENTIFIER = com.camgo.hulupiao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

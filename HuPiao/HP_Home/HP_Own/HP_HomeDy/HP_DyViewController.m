@@ -35,7 +35,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.pageLogStr = [self.isOwn isEqualToString:@"Own"] ? @"OwnDynamicPage" : @"DynamicPage";
+
     [self setupUI];
     
     [self configData];

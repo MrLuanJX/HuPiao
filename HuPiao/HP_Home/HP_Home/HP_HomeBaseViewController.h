@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HP_HomeBaseViewController : UIViewController
+@interface HP_HomeBaseViewController : HP_BaseViewController
 
 @end
 

@@ -335,6 +335,22 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
+## JAnalytics
+
+Copyright jiguang.cn
+
+## JCore
+
+Copyright jpush.cn
+
+## JPush
+
+Copyright jiguang.cn
+
+## JShare
+
+Copyright jiguang.cn
+
 ## KRVideoPlayer
 
 Copyright (c) 2015 aidenluo <aidenluo177@gmail.com>

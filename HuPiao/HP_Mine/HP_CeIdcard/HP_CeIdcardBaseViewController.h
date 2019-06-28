@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HP_CeIdcardBaseViewController : UIViewController
+@interface HP_CeIdcardBaseViewController : HP_BaseViewController
 
 @end
 

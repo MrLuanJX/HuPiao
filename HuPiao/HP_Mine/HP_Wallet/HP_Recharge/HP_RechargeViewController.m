@@ -94,6 +94,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.pageLogStr = @"RechargePage";
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self addTableView];

@@ -22,7 +22,11 @@
  pod 'YYStarView'
  pod 'BRPickerView'
  pod 'TZImagePickerController'
- pod  'FFDropDownMenu'
+ pod 'FFDropDownMenu'
  pod 'WHToast'
+ pod 'JShare'
+ pod 'JAnalytics'
+ pod 'JMessage'
+ pod 'JPush'
  end
 

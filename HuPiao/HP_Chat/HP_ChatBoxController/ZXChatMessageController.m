@@ -50,16 +50,14 @@
     
 }
 
--(void)didReceiveMemoryWarning
-{
+-(void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 
 #pragma mark - Public Methods
-- (void) addNewMessage:(ZXMessageModel *)message
-{
+- (void) addNewMessage:(ZXMessageModel *)message {
     
     /**
      *  数据源添加一条消息，刷新数据
@@ -69,8 +67,7 @@
     
 }
 
-- (void) scrollToBottom
-{
+- (void) scrollToBottom {
     if (_data.count > 0) {
         // tableView 定位到的cell 滚动到相应的位置，后面的 atScrollPosition 是一个枚举类型
         [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:_data.count - 1] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
@@ -102,15 +99,13 @@
 }
 
 #pragma mark - UITableViewCellDelegate
-- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     ZXMessageModel *message = [_data objectAtIndex:indexPath.section];
     return message.cellHeight;
 }
 
 #pragma mark - UIScrollViewDelegate
-- (void) scrollViewDidScroll:(UIScrollView *)scrollView
-{
+- (void) scrollViewDidScroll:(UIScrollView *)scrollView {
     
 //    if (_delegate && [_delegate respondsToSelector:@selector(didTapChatMessageView:)]) {
 //        
@@ -138,7 +133,7 @@
     
     NSDateFormatter *dateFormat=[[NSDateFormatter alloc]init];
     
-    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [dateFormat setDateFormat:@"HH:mm"];
     
     NSString* string=[dateFormat stringFromDate:date];
     
@@ -150,27 +145,23 @@
 }
 
 #pragma mark - Event Response
-- (void) didTapView
-{
+- (void) didTapView {
     if (_delegate && [_delegate respondsToSelector:@selector(didTapChatMessageView:)]) {
        
         [_delegate didTapChatMessageView:self];
         
     }
-    
 }
 
 #pragma mark - Getter
-- (UITapGestureRecognizer *) tapGR
-{
+- (UITapGestureRecognizer *) tapGR {
     if (_tapGR == nil) {
         _tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapView)];
     }
     return _tapGR;
 }
 
-- (NSMutableArray *) data
-{
+- (NSMutableArray *) data {
     if (_data == nil) {
         _data = [[NSMutableArray alloc] init];
     }

@@ -18,6 +18,88 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.0</string>
+<key>LSApplicationQueriesSchemes</key>
+<array>
+    <!-- 微信 URL Scheme 白名单-->
+    <string>wechat</string>
+    <string>weixin</string>
+
+    <!-- 新浪微博 URL Scheme 白名单-->
+    <string>sinaweibohd</string>
+    <string>sinaweibo</string>
+    <string>sinaweibosso</string>
+    <string>weibosdk</string>
+    <string>weibosdk2.5</string>
+
+    <!-- QQ、Qzone URL Scheme 白名单-->
+    <string>mqqapi</string>
+    <string>mqq</string>
+    <string>mqqOpensdkSSoLogin</string>
+    <string>mqqconnect</string>
+    <string>mqqopensdkdataline</string>
+    <string>mqqopensdkgrouptribeshare</string>
+    <string>mqqopensdkfriend</string>
+    <string>mqqopensdkapi</string>
+    <string>mqqopensdkapiV2</string>
+    <string>mqqopensdkapiV3</string>
+    <string>mqqopensdkapiV4</string>
+    <string>mqzoneopensdk</string>
+    <string>wtloginmqq</string>
+    <string>wtloginmqq2</string>
+    <string>mqqwpa</string>
+    <string>mqzone</string>
+    <string>mqzonev2</string>
+    <string>mqzoneshare</string>
+    <string>wtloginqzone</string>
+    <string>mqzonewx</string>
+    <string>mqzoneopensdkapiV2</string>
+    <string>mqzoneopensdkapi19</string>
+    <string>mqzoneopensdkapi</string>
+    <string>mqqbrowser</string>
+    <string>mttbrowser</string>
+
+    <!-- Facebook URL Scheme 白名单-->
+    <string>fbapi</string>
+    <string>fb-messenger-api</string>
+    <string>fbauth2</string>
+    <string>fbshareextension</string>
+
+    <!-- Twitter URL Scheme 白名单-->
+    <string>twitter</string>
+    <string>twitterauth</string>
+
+    <!-- JChatPro URL Scheme 白名单-->
+    <string>JChatPro</string>
+</array>
+
+
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wx7197abfb087c1e3d</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wb313189981</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>QQ101417766</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -37,6 +119,12 @@
 	<string>胡撸儿瓢会在扫描身份证,拍照等服务中使用您的相相册存储权限</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>胡撸儿瓢会在上传图片服务中使用您的相册权限</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>location</string>
+		<string>remote-notification</string>
+	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>

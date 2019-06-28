@@ -34,6 +34,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.pageLogStr = @"IntergralPage";
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self addScrollView];

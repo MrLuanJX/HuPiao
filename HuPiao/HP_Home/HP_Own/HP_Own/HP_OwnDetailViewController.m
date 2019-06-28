@@ -44,6 +44,7 @@
     [super viewDidLoad];
     __weak typeof (self) weakSelf = self;
     
+    self.pageLogStr = @"OwnPage";
     
     [self.view addSubview:self.tableView];
     

@@ -31,12 +31,13 @@
     [self.messageList addObjectsFromArray:[MUser findAll]];
     [self.tableView reloadData];
 }
-
+// 获取定位
 - (void) getlocation {
     WS(wSelf);
     [[CLocationManager shareLocation] getLocationCoordinate:^(CLLocationCoordinate2D locationCorrrdinate) {
         NSLog(@"latitude = %f --- %f",locationCorrrdinate.latitude,locationCorrrdinate.longitude);
-        
+        // 极光统计位置信息
+        [JANALYTICSService setLatitude:locationCorrrdinate.latitude longitude:locationCorrrdinate.longitude];
     } withAddress:^(NSString *addressString) {
         NSLog(@"addressString = %@",addressString);
         wSelf.address = addressString;
@@ -50,6 +51,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.pageLogStr = @"HomePage";
+    
     self.isLiked = YES;
     
     self.view.backgroundColor = [UIColor whiteColor];

@@ -39,7 +39,7 @@
     }];
     
     [self.moneyLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo (wSelf.mas_centerY).offset (-HPFit(30));
+        make.top.mas_equalTo (wSelf.mas_centerY).offset (-HPFit(50));
         make.left.right.mas_equalTo (0);
     }];
     

@@ -63,7 +63,6 @@ static AFHTTPSessionManager *_sessionManager;
         return nil;
     }
     requestURL = [requestURL stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-//    requestURL = [requestURL stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     NSString *urlString = [NSURL URLWithString:requestURL] ? requestURL : [self stringUTF8Encoding:requestURL];//检测地址中是否混有中文
 
     NSLog(@"urlString = %@",urlString);

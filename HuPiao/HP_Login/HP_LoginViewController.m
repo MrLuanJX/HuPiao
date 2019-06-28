@@ -348,7 +348,7 @@
     if (self.nameTF == textField) {
         if (textField.text.length > 10) return NO;  // 当前是手机号码
     } else if (self.pwTF == textField) {
-        if (textField.text.length > 15) return NO;   // 当前是密码
+        if (textField.text.length > 7) return NO;   // 当前是密码
     }
     
     return YES;

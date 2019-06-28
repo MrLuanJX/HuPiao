@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface HP_CashWithdrawalViewController : UIViewController
+@interface HP_CashWithdrawalViewController : HP_BaseViewController
 
 @end
 

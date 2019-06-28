@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface HP_RechargeViewController : UIViewController
+@interface HP_RechargeViewController : HP_BaseViewController
 
 @end
 

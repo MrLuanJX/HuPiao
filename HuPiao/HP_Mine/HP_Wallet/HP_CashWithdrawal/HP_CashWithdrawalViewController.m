@@ -119,6 +119,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.pageLogStr = @"CashWithdrawalPage";
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self addTableView];

@@ -37,6 +37,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.pageLogStr = @"MaterialPage";
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self setupUI];

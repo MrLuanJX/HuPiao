@@ -299,7 +299,7 @@
     }
     
     if (self.pwTF == textField || self.pwAgainTF == textField || self.pwOldTF == textField) {
-        if (textField.text.length > 15) return NO;   // 当前是密码
+        if (textField.text.length > 7) return NO;   // 当前是密码
     }
     
     return YES;

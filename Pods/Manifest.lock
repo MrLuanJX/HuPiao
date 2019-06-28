@@ -23,6 +23,15 @@ PODS:
   - HZPhotoBrowser (1.0.1):
     - SDWebImage/GIF
   - IQKeyboardManager (6.3.0)
+  - JAnalytics (2.0.0):
+    - JCore (< 3.0.0, >= 1.2.0)
+  - JCore (2.0.1)
+  - JMessage (3.9.0):
+    - JCore (< 3.0.0, >= 1.0.0)
+  - JPush (3.2.0):
+    - JCore (< 3.0.0, >= 2.0.0)
+  - JShare (1.6.0):
+    - JCore (< 3.0.0, >= 1.2.0)
   - KRVideoPlayer (1.0.1)
   - Masonry (1.1.0)
   - MJExtension (3.0.17)
@@ -64,6 +73,10 @@ DEPENDENCIES:
   - FMDB
   - HZPhotoBrowser
   - IQKeyboardManager
+  - JAnalytics
+  - JMessage
+  - JPush
+  - JShare
   - KRVideoPlayer
   - Masonry
   - MJExtension
@@ -91,6 +104,11 @@ SPEC REPOS:
     - FMDB
     - HZPhotoBrowser
     - IQKeyboardManager
+    - JAnalytics
+    - JCore
+    - JMessage
+    - JPush
+    - JShare
     - KRVideoPlayer
     - Masonry
     - MJExtension
@@ -117,6 +135,11 @@ SPEC CHECKSUMS:
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   HZPhotoBrowser: 6ed34b8d447a82b9d535574bd24e6ee0689ebf1f
   IQKeyboardManager: 2ca9d64893247556f53523dcd8d78641f0ba7c23
+  JAnalytics: ec34148f72109c75acefc0606f6bc6f20040dffc
+  JCore: 8425fb3f85f1400f9bc8ccf8121cd5694a790f3b
+  JMessage: 27e036df9d3dfe45db526c51e677c4a77642c7bf
+  JPush: 8459e7a709ad86f95884fcb49cbd57a6da24744e
+  JShare: a25b46aa9fd327ba86fe2ebaf02e5441441d5212
   KRVideoPlayer: 08918da1b99cae35fd4c15b2ec2b49358d4c985f
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 74ec83124a68891619fb7ba9c5c811bbf1691076
@@ -135,6 +158,6 @@ SPEC CHECKSUMS:
   YYStarView: 88da305c4e86bc2468758e9313f2d25cce4f3ba3
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: d8d09d1721d294fe7789a8747e8b69116a161263
+PODFILE CHECKSUM: 79de3aee3b3b1d1dc9aa7d40a4d729e7aba7cd18
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.6.2

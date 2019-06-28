@@ -45,7 +45,6 @@
         if (index < self.faceViewArray.count) {
             
             button = [self.faceViewArray objectAtIndex:index];
-        
         }
         else
         {

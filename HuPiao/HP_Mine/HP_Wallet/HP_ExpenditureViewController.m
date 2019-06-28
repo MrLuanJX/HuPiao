@@ -20,6 +20,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.pageLogStr = self.isIncome == YES ? @"InComePage" : @"OutPutPage";
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     [self addTableView];
     
     [self setupRightNav];

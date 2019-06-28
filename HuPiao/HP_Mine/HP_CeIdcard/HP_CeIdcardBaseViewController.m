@@ -37,6 +37,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.pageLogStr = @"CeIdCardPage";
+    
     [self addScrollView];
     [self setupRightNavBtn];
     [self blockBackAction];

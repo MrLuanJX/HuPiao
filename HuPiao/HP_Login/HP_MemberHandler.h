@@ -20,15 +20,23 @@ NS_ASSUME_NONNULL_BEGIN
  */
 +(void)executeLogIn:(NSDictionary*)param Success:(Success)success Fail:(Failed)fail;
 
-
 /**
- 发送验证码
- 
- @param param 参数
+ 注册
+ @param param 注册参数
  @param success 成功
  @param fail 失败
  */
-+(void)executeGetCode:(NSDictionary*)param Success:(Success)success Fail:(Failed)fail;
++(void)executeRegist:(NSDictionary*)param Success:(Success)success Fail:(Failed)fail;
+
+/**
+ 发送验证码
+
+ @param phoneNum 参数
+ @param type 参数     register forgetpwd login
+ @param success 成功
+ @param fail 失败
+ */
++(void)executeGetCodeWithReuqestPhoneNum:(NSString *)phoneNum type:(NSString *)type Success:(Success)success Fail:(Failed)fail;
 
 
 @end

@@ -290,7 +290,7 @@
     if (self.nameTF == textField) {
         if (textField.text.length > 10) return NO;  // 当前是手机号码
     } else if (self.codeTF == textField) {
-        if (textField.text.length > 5) return NO;   // 当前是验证码
+        if (textField.text.length > 3) return NO;   // 当前是验证码
     }
     
     return YES;

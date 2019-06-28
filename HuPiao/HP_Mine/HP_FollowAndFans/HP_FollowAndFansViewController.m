@@ -29,6 +29,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.pageLogStr = self.fans == YES ? @"FansPage" : @"FollowPage";
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self addViews];

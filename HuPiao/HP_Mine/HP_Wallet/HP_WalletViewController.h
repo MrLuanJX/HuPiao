@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HP_WalletViewController : UIViewController
+@interface HP_WalletViewController : HP_BaseViewController
 
 @end
 

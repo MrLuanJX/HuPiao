@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HP_MineViewController : UIViewController
+@interface HP_MineViewController : HP_BaseViewController
 
 @end
 

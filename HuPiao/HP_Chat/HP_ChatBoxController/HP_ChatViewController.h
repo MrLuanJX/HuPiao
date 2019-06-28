@@ -10,12 +10,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HP_ChatViewController : UIViewController
+@interface HP_ChatViewController : HP_BaseViewController
 /**
  *  聊天用户数据模型
  */
-@property (nonatomic, strong)MUser * user;
-@property (nonatomic, copy)NSString * navTitle;
+@property (nonatomic , strong) MUser * user;
+@property (nonatomic , copy) NSString * navTitle;
 
 @end
 

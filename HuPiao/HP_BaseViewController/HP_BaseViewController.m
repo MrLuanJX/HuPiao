@@ -14,6 +14,16 @@
 
 @implementation HP_BaseViewController
 
+- (void)viewDidAppear:(BOOL)animated {
+    NSLog(@"pageLogStr --- %@",self.pageLogStr);
+    [JANALYTICSService startLogPageView:self.pageLogStr];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    NSLog(@"DispageLogStr --- %@",self.pageLogStr);
+    [JANALYTICSService stopLogPageView:self.pageLogStr];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

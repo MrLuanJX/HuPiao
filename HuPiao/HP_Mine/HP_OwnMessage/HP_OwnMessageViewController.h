@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HP_OwnMessageViewController : UIViewController
+@interface HP_OwnMessageViewController : HP_BaseViewController
 
 @property (nonatomic , strong) MUser * user;
 

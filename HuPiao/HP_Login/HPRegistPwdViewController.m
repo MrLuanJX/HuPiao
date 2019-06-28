@@ -51,7 +51,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = self.registOrForgotPwd;
+    self.title = @"注    册";
     
     self.pwTFEmpty = YES;
     self.pwAgainTFEmpty = YES;
@@ -70,11 +70,34 @@
     
     [self setupRightNav];
 }
-
-- (void)setRegistOrForgotPwd:(NSString *)registOrForgotPwd {
-    _registOrForgotPwd = registOrForgotPwd;
+/*
+ *  注册
+ */
+- (void) requestRegist {
+    if (self.pwTF.text.length < 6) {
+        [WHToast showErrorWithMessage:@"请输入6-8位密码" duration:1.5 finishHandler:nil];
+        return;
+    }
+    if (self.pwAgainTF.text.length < 2) {
+        [WHToast showErrorWithMessage:@"请输入2-6个字昵称" duration:1.5 finishHandler:nil];
+        return;
+    }
+    
+    NSDictionary * dict = @{
+                            @"username" : [self.phoneNum trim],
+                            @"password" : [self.pwTF.text trim],
+                            @"phoneCode" : [self.code trim],
+                            @"nickname" : [self.pwAgainTF.text trim],
+                            @"invitationCode" : @"",
+                            @"t" : [HPDivisableTool getNowTimeTimestamp],
+                            @"sign" : [NSString md5:[NSString stringWithFormat:@"%@%@%@%@%@%@%@",@"",[self.pwAgainTF.text trim],[self.pwTF.text trim],[self.code trim],[HPDivisableTool getNowTimeTimestamp],[self.phoneNum trim],HPKey]],
+                            };
+    [HP_MemberHandler executeRegist:dict Success:^(id  _Nonnull obj) {
+        
+    } Fail:^(id  _Nonnull obj) {
+        
+    }];
 }
-
 
 - (void) setupRightNav {
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(back) image:@"leftbackicon_white_titlebar_24x24_" highImage:@"leftbackicon_white_titlebar_night_24x24_" isLeftBtn:YES];
@@ -157,7 +180,7 @@
 - (UITextField *)pwTF {
     if (!_pwTF) {
         _pwTF = [UITextField new];
-        _pwTF.font = [UIFont systemFontOfSize:14];
+        _pwTF.font = HPFontSize(16);
         _pwTF.backgroundColor = [UIColor clearColor];
         _pwTF.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, CGRectGetWidth(_pwTF.frame))];
         _pwTF.leftViewMode = UITextFieldViewModeAlways;
@@ -166,6 +189,7 @@
         _pwTF.clearButtonMode = UITextFieldViewModeWhileEditing;
         _pwTF.delegate = self;
         [_pwTF addTarget:self action:@selector(changedTextField:) forControlEvents:UIControlEventAllEditingEvents];
+        _pwTF.placeholder = @"请输入6-8位密码";
     }
     return _pwTF;
 }
@@ -183,15 +207,15 @@
 - (UITextField *)pwAgainTF{
     if (!_pwAgainTF) {
         _pwAgainTF = [UITextField new];
-        _pwAgainTF.font = [UIFont systemFontOfSize:14];
+        _pwAgainTF.font = _pwTF.font;
         _pwAgainTF.backgroundColor = [UIColor clearColor];
         _pwAgainTF.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, CGRectGetWidth(_pwTF.frame))];
         _pwAgainTF.leftViewMode = UITextFieldViewModeAlways;
         _pwAgainTF.textColor = [UIColor whiteColor];
-        _pwAgainTF.secureTextEntry = YES;
         _pwAgainTF.clearButtonMode = UITextFieldViewModeWhileEditing;
         _pwAgainTF.delegate = self;
         [_pwAgainTF addTarget:self action:@selector(changedTextField:) forControlEvents:UIControlEventAllEditingEvents];
+        _pwAgainTF.placeholder = @"请输入2-6个字的昵称";
     }
     return _pwAgainTF;
 }
@@ -244,10 +268,10 @@
     }
     
     if (self.pwTF == textField ) {
-        if (textField.text.length > 8) return NO;   // 当前是密码
+        if (textField.text.length > 7) return NO;   // 当前是密码
     }
     if (self.pwAgainTF == textField) {
-        if (textField.text.length > 6) return NO;   // 当前是昵称
+        if (textField.text.length > 5) return NO;   // 当前是昵称
     }
     
     return YES;

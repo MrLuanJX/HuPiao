@@ -25,10 +25,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.pageLogStr = @"WalletPage";
+    
     self.title = @"我的钱包";
     
     self.view.backgroundColor = [UIColor whiteColor];
-    
+
     [self addScrollView];
 }
 
@@ -57,7 +59,7 @@
     
     NSMutableArray * titleArr = [NSMutableArray arrayWithObjects:@"充值",@"支出明细",@"收入明细",@"提现", nil];
     
-    UIView * btnView = [UIView CreateViewWithFrame:CGRectMake(HPFit(50), CGRectGetMaxY(self.headView.frame) - HPFit(20), HPScreenW - HPFit(100), titleArr.count * HPFit(60)) BackgroundColor:[UIColor whiteColor] InteractionEnabled:YES];
+    UIView * btnView = [UIView CreateViewWithFrame:CGRectMake(HPFit(50), CGRectGetMaxY(self.headView.frame) - HPFit(30), HPScreenW - HPFit(100), titleArr.count * HPFit(60)) BackgroundColor:[UIColor whiteColor] InteractionEnabled:YES];
     
     [btnView setBorderWithCornerRadius:HPFit(10) borderWidth:0 borderColor:HPClearColor type:UIRectCornerAllCorners];
     [self.scrollView addSubview: btnView];
@@ -99,7 +101,7 @@
 
 - (HP_WalletHeadView *)headView {
     if (!_headView) {
-        _headView = [[HP_WalletHeadView alloc] initWithFrame:CGRectMake(0, 0, HPScreenW, HPFit(200))];
+        _headView = [[HP_WalletHeadView alloc] initWithFrame:CGRectMake(0, 0, HPScreenW, HPFit(240))];
     }
     return _headView;
 }

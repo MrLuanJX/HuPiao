@@ -42,6 +42,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.pageLogStr = @"DynamicCommentPage";
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self addTableView];

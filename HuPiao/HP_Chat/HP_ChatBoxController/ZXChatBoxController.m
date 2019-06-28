@@ -28,15 +28,13 @@
      *  添加两个键盘回收通知
      */
     // 即将隐藏
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     // 键盘的Frame值即将发生变化的时候创建的额监听
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardFrameWillChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
     
 }
 
-- (void) viewDidDisappear:(BOOL)animated
-{
+- (void) viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [self resignFirstResponder];
 }
@@ -46,11 +44,9 @@
  *  回收键盘方法
  *  @return
  */
-- (BOOL) resignFirstResponder
-{
+- (BOOL) resignFirstResponder {
     
-    if (self.chatBox.status != TLChatBoxStatusNothing && self.chatBox.status != TLChatBoxStatusShowVoice)
-    {
+    if (self.chatBox.status != TLChatBoxStatusNothing && self.chatBox.status != TLChatBoxStatusShowVoice) {
         // 回收键盘
         [self.chatBox resignFirstResponder];
         /**
@@ -59,11 +55,9 @@
          */
         self.chatBox.status = (self.chatBox.status == TLChatBoxStatusShowVoice ? self.chatBox.status : TLChatBoxStatusNothing);
         
-        if (_delegate && [_delegate respondsToSelector:@selector(chatBoxViewController:didChangeChatBoxHeight:)])
-        {
+        if (_delegate && [_delegate respondsToSelector:@selector(chatBoxViewController:didChangeChatBoxHeight:)]) {
             [UIView animateWithDuration:0.3 animations:^{
-                
-                [_delegate chatBoxViewController:self didChangeChatBoxHeight:self.chatBox.curHeight];
+                [self.delegate chatBoxViewController:self didChangeChatBoxHeight:self.chatBox.curHeight];
                 
             } completion:^(BOOL finished) {
                 
@@ -85,8 +79,7 @@
  *  @param chatBox     <#chatBox description#>
  *  @param textMessage 发送的消息
  */
-- (void) chatBox:(ZXChatBoxView *)chatBox sendTextMessage:(NSString *)textMessage
-{
+- (void) chatBox:(ZXChatBoxView *)chatBox sendTextMessage:(NSString *)textMessage {
     
     ZXMessageModel *message = [[ZXMessageModel alloc] init];
     message.messageType = ZXMessageTypeText;
@@ -100,8 +93,7 @@
     }
 }
 
-- (void)chatBox:(ZXChatBoxView *)chatBox changeChatBoxHeight:(CGFloat)height
-{
+- (void)chatBox:(ZXChatBoxView *)chatBox changeChatBoxHeight:(CGFloat)height {
     self.chatBoxFaceView.originY = height;
     self.chatBoxMoreView.originY = height;
     if (_delegate && [_delegate respondsToSelector:@selector(chatBoxViewController:didChangeChatBoxHeight:)])
@@ -140,9 +132,9 @@
         // 从显示更多或表情状态 到 显示语音状态需要动画
         if (fromStatus == TLChatBoxStatusShowMore || fromStatus == TLChatBoxStatusShowFace) {
             [UIView animateWithDuration:0.3 animations:^{
-                if (_delegate && [_delegate respondsToSelector:@selector(chatBoxViewController:didChangeChatBoxHeight:)]) {
+                if (self.delegate && [self.delegate respondsToSelector:@selector(chatBoxViewController:didChangeChatBoxHeight:)]) {
                     
-                    [_delegate chatBoxViewController:self didChangeChatBoxHeight:k_bar_height];
+                    [self.delegate chatBoxViewController:self didChangeChatBoxHeight:k_bar_height];
                     
                 }
             } completion:^(BOOL finished) {
@@ -154,9 +146,9 @@
         else {
             
             [UIView animateWithDuration:0.3 animations:^{
-                if (_delegate && [_delegate respondsToSelector:@selector(chatBoxViewController:didChangeChatBoxHeight:)]) {
+                if (self.delegate && [self.delegate respondsToSelector:@selector(chatBoxViewController:didChangeChatBoxHeight:)]) {
                     
-                    [_delegate chatBoxViewController:self didChangeChatBoxHeight:k_bar_height];
+                    [self.delegate chatBoxViewController:self didChangeChatBoxHeight:k_bar_height];
                 }
             }];
         }
@@ -173,9 +165,9 @@
             [self.view addSubview:self.chatBoxFaceView];
             [UIView animateWithDuration:0.3 animations:^{
                 
-                if (_delegate && [_delegate respondsToSelector:@selector(chatBoxViewController:didChangeChatBoxHeight:)]) {
+                if (self.delegate && [self.delegate respondsToSelector:@selector(chatBoxViewController:didChangeChatBoxHeight:)]) {
                     
-                    [_delegate chatBoxViewController:self didChangeChatBoxHeight:self.chatBox.curHeight + HEIGHT_CHATBOXVIEW];
+                    [self.delegate chatBoxViewController:self didChangeChatBoxHeight:self.chatBox.curHeight + HEIGHT_CHATBOXVIEW];
                 }
             }];
         }
@@ -192,8 +184,8 @@
             if (fromStatus != TLChatBoxStatusShowMore) {
                 
                 [UIView animateWithDuration:0.2 animations:^{
-                    if (_delegate && [_delegate respondsToSelector:@selector(chatBoxViewController:didChangeChatBoxHeight:)]) {
-                        [_delegate chatBoxViewController:self didChangeChatBoxHeight:self.chatBox.curHeight + HEIGHT_CHATBOXVIEW];
+                    if (self.delegate && [self.delegate respondsToSelector:@selector(chatBoxViewController:didChangeChatBoxHeight:)]) {
+                        [self.delegate chatBoxViewController:self didChangeChatBoxHeight:self.chatBox.curHeight + HEIGHT_CHATBOXVIEW];
                     }
                 }];
             }
@@ -207,8 +199,8 @@
             [self.view addSubview:self.chatBoxMoreView];
             
             [UIView animateWithDuration:0.3 animations:^{
-                if (_delegate && [_delegate respondsToSelector:@selector(chatBoxViewController:didChangeChatBoxHeight:)]) {
-                    [_delegate chatBoxViewController:self didChangeChatBoxHeight:self.chatBox.curHeight + HEIGHT_CHATBOXVIEW];
+                if (self.delegate && [self.delegate respondsToSelector:@selector(chatBoxViewController:didChangeChatBoxHeight:)]) {
+                    [self.delegate chatBoxViewController:self didChangeChatBoxHeight:self.chatBox.curHeight + HEIGHT_CHATBOXVIEW];
                 }
             }];
         }
@@ -225,8 +217,8 @@
             if (fromStatus != TLChatBoxStatusShowFace) {
                 
                 [UIView animateWithDuration:0.2 animations:^{
-                    if (_delegate && [_delegate respondsToSelector:@selector(chatBoxViewController:didChangeChatBoxHeight:)]) {
-                        [_delegate chatBoxViewController:self didChangeChatBoxHeight:self.chatBox.curHeight + HEIGHT_CHATBOXVIEW];
+                    if (self.delegate && [self.delegate respondsToSelector:@selector(chatBoxViewController:didChangeChatBoxHeight:)]) {
+                        [self.delegate chatBoxViewController:self didChangeChatBoxHeight:self.chatBox.curHeight + HEIGHT_CHATBOXVIEW];
                     }
                 }];
             }
@@ -326,8 +318,7 @@
 }
 
 #pragma mark - Getter
-- (ZXChatBoxView *) chatBox
-{
+- (ZXChatBoxView *) chatBox {
     // 6 的初始化 0.0.375.49
     if (_chatBox == nil) {
         _chatBox = [[ZXChatBoxView alloc] initWithFrame:CGRectMake(0, 0, HPScreenW, HEIGHT_TABBAR)];
@@ -339,8 +330,7 @@
 }
 
 // 添加创建更多View
-- (ZXChatBoxMoreView *) chatBoxMoreView
-{
+- (ZXChatBoxMoreView *) chatBoxMoreView {
     if (_chatBoxMoreView == nil) {
         _chatBoxMoreView = [[ZXChatBoxMoreView alloc] initWithFrame:CGRectMake(0, k_bar_height, HPScreenW, HEIGHT_CHATBOXVIEW)];
         // [_chatBoxMoreView setDelegate:self];
@@ -389,7 +379,7 @@
  *  @return <#return value description#>
  */
 #pragma mark - Private Methods
-- (void)keyboardWillHide:(NSNotification *)notification{
+- (void)keyboardWillHide:(NSNotification *)notification {
     self.keyboardFrame = CGRectZero;
     if (_chatBox.status == TLChatBoxStatusShowFace || _chatBox.status == TLChatBoxStatusShowMore) {
         return;
@@ -432,7 +422,6 @@
 }
 
 - (void)dealloc{
-    
     /**
      *  移除键盘通知
      */

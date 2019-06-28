@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HP_MessageListViewController : UIViewController
+@interface HP_MessageListViewController : HP_BaseViewController
 
 @end
 
