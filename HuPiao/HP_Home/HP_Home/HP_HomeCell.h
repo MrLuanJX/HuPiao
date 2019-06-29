@@ -8,20 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "MUser.h"
+#import "HP_HomeModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HP_HomeCell : UITableViewCell
 
 + (instancetype)dequeueReusableCellWithTableView:(UITableView*)tableView Identifier:(NSString*)identifier;
-    
-@property (nonatomic , strong) NSIndexPath * index;
 
-@property (nonatomic , copy) void(^likeBtnActionBlock)(UIButton * button);
-
-@property (nonatomic , strong) MUser * user;
-
-@property (nonatomic , copy) NSString * address;
+@property (nonatomic , strong) HP_HomeModel * homeModel;
 
 @end
 

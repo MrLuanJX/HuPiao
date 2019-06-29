@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic , copy) void(^weChatActionBlock)(void);
 
-@property (nonatomic , strong) MUser * user;
+@property (nonatomic , strong) HP_HomeModel * user;
 
 @property (nonatomic , strong) UIButton * weChatBtn;                // 微信
 

@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HP_CsoGiftSendMemberColl.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HP_IntimateViewController : UIViewController
+
+@property(nonatomic,copy)NSArray <HP_CsoGiftSendMemberColl *>* csoGiftSendMemberColl;
 
 @end
 

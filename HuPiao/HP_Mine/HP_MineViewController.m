@@ -436,7 +436,6 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
                 value:HPFontSize(16)
                 range:NSMakeRange([money length], [danwei length])];
     
-    
     return str;
 }
 

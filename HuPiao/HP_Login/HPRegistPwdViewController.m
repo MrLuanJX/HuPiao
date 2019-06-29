@@ -83,17 +83,11 @@
         return;
     }
     
-    NSDictionary * dict = @{
-                            @"username" : [self.phoneNum trim],
-                            @"password" : [self.pwTF.text trim],
-                            @"phoneCode" : [self.code trim],
-                            @"nickname" : [self.pwAgainTF.text trim],
-                            @"invitationCode" : @"",
-                            @"t" : [HPDivisableTool getNowTimeTimestamp],
-                            @"sign" : [NSString md5:[NSString stringWithFormat:@"%@%@%@%@%@%@%@",@"",[self.pwAgainTF.text trim],[self.pwTF.text trim],[self.code trim],[HPDivisableTool getNowTimeTimestamp],[self.phoneNum trim],HPKey]],
-                            };
-    [HP_MemberHandler executeRegist:dict Success:^(id  _Nonnull obj) {
-        
+    // 注册   /* 邀请码、手机号、密码、短信验证码、昵称*/
+    [HP_MemberHandler executeRegistWithiInvitationCode:@"" UserName:[self.phoneNum trim] Password:[self.pwTF.text trim] PhoneCode:[self.code trim] NickName:[self.pwAgainTF.text trim] Success:^(id  _Nonnull obj) {
+        // 给单例赋值属性
+        HP_UserTool * configs = [HP_UserTool sharedUserHelper];
+        [configs saveUser];
     } Fail:^(id  _Nonnull obj) {
         
     }];
@@ -115,9 +109,10 @@
         return;
     }
     if (self.pwAgainTF.text.length == 0) {
-        [SVProgressHUD showErrorWithStatus:@"请先填写确认密码"];
+        [SVProgressHUD showErrorWithStatus:@"请先填写昵称"];
         return;
     }
+    [self requestRegist];
 }
 -(void) registDown:(UIButton *)sender {
     self.registBtn.backgroundColor = HPUIColorWithRGB(0x000000, 0.5);

@@ -174,8 +174,6 @@ typedef void(^ButtonActionBlock) (UIButton *button);
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     self.frame = window.bounds;
     
-    NSLog(@"dataArray = %@",self.dataArray);
-    
     self.alertContentView.btnTitleArr = self.dataArray;
     
     [self.alertContentView mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -206,7 +204,7 @@ typedef void(^ButtonActionBlock) (UIButton *button);
     if (close) {
         [self close];
     }
-    NSString  * nsStringToOpen = [NSString  stringWithFormat: @"itms-apps://itunes.apple.com/app/id%@?action=write-review",@"1041804461"];//替换为对应的APPID
+    NSString  * nsStringToOpen = [NSString  stringWithFormat: @"itms-apps://itunes.apple.com/app/id%@?action=write-review",@"1470596959"];//替换为对应的APPID
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:nsStringToOpen]];
 }
 

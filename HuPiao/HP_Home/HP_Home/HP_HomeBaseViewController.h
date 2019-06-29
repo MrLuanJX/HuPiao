@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HP_HomeBaseViewController : HP_BaseViewController
 
+@property (nonatomic , assign) NSInteger currentIndex;
+
 @end
 
 NS_ASSUME_NONNULL_END

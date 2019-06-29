@@ -35,8 +35,9 @@
         self.titleColorNormal = HPUIColorWithRGB(0x3D79FD, 1.0);//HPUIColorWithRGB(0xffffff, 1.0);
         self.titleColorSelected = HPUIColorWithRGB(0x3D79FD, 1.0);
         self.itemMargin = 10;
-        self.menuItemWidth = HPFit(80);
-        self.progressWidth = HPFit(50);
+        self.automaticallyCalculatesItemWidths = YES;
+//        self.menuItemWidth = HPFit(80);
+//        self.progressWidth = HPFit(50);
     }
     return self;
 }
@@ -51,6 +52,8 @@
     
 - (__kindof UIViewController *)pageController:(WMPageController *)pageController viewControllerAtIndex:(NSInteger)index {
     HP_HomeBaseViewController * detailVC = [[HP_HomeBaseViewController alloc]init];
+    
+    detailVC.currentIndex = index;
     
     return detailVC;
 }
@@ -85,7 +88,7 @@
     
 -(NSMutableArray *)models{
     if (!_models) {
-        _models = [NSMutableArray arrayWithObjects:@"热门",@"排行榜", nil];
+        _models = [NSMutableArray arrayWithObjects:@"推荐",@"关注",@"新人",@"热门", nil];
     }
     return _models;
 }

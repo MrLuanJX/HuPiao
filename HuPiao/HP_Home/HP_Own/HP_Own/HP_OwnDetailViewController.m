@@ -36,6 +36,8 @@
 
 @property (nonatomic , assign) CGFloat tagHeight;
 
+@property (nonatomic , strong) HP_AnchorOwnModel * ownModel;
+
 @end
 
 @implementation HP_OwnDetailViewController
@@ -45,6 +47,8 @@
     __weak typeof (self) weakSelf = self;
     
     self.pageLogStr = @"OwnPage";
+    // 请求数据
+    [self requestOwnData];
     
     [self.view addSubview:self.tableView];
     
@@ -89,6 +93,23 @@
     [super viewDidDisappear:animated];
     NSLog(@"--%@--%@", [self class], NSStringFromSelector(_cmd));
 }
+
+#pragma mark - 请求个人主页
+- (void) requestOwnData {
+    WS(wSelf);
+    
+    [HP_OwnHandler executeAnchorOwnRequestWithIndexNO:self.user.INDEX_NO Success:^(id  _Nonnull obj) {
+
+        wSelf.ownModel = [HP_AnchorOwnModel mj_objectWithKeyValues:obj[@"data"]];
+        
+        NSLog(@"csoGiftSendMemberColl --- %@",wSelf.ownModel.csoGiftSendMemberColl);
+        
+        [wSelf.tableView reloadData];
+    } Fail:^(id  _Nonnull obj) {
+        
+    }];
+}
+
 #pragma mark - 评价
 - (void) evaluateAction:(UIButton *)sender {
     NSLog(@"立即评价");
@@ -238,6 +259,11 @@
         HP_CircleTableCell * cell = [tableView dequeueReusableCellWithIdentifier:@"id"];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        if (indexPath.section == 0) {
+            cell.csoGiftSendMemberColl = self.ownModel.csoGiftSendMemberColl;
+        }
+        
         return cell;
     }
 }
@@ -249,6 +275,7 @@
     HP_ReceivedGiftViewController * receivedGiftVC = [HP_ReceivedGiftViewController new];
     
     if (indexPath.section == 0) {
+        intimateVC.csoGiftSendMemberColl = self.ownModel.csoGiftSendMemberColl;
         [self.navigationController pushViewController:intimateVC animated:YES];
     }
     if (indexPath.section == 3) {
@@ -298,6 +325,13 @@
     HP_UserImpressionViewController * userImVC = [HP_UserImpressionViewController new];
     userImVC.title = title;
     [self.navigationController pushViewController:userImVC animated:YES];
+}
+
+- (HP_AnchorOwnModel *)ownModel {
+    if (!_ownModel) {
+        _ownModel = [HP_AnchorOwnModel new];
+    }
+    return _ownModel;
 }
 
 @end

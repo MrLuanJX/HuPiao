@@ -20,34 +20,21 @@
 
 @property (nonatomic , strong) UIButton * likeBtn;
 
-@property (nonatomic , assign) BOOL isLiked;
-
 @property (nonatomic , strong) YYStarView * starView;               // 五星
 
 @end
 
 @implementation HP_HomeCell
 
-- (void)setUser:(MUser *)user {
-    _user = user;
-       
-    self.titleLabel.text = user.name;
-    [self.iconImg sd_setImageWithURL:[NSURL URLWithString:user.portrait] placeholderImage:[UIImage imageNamed:@""]]; // 1.jpg
+- (void)setHomeModel:(HP_HomeModel *)homeModel {
+    _homeModel = homeModel;
+    
+    self.titleLabel.text = HPNULLString(homeModel.nickname) ? homeModel.NICKNAME : homeModel.nickname;
+    [self.iconImg sd_setImageWithURL:[NSURL URLWithString:homeModel.HRADER_IMG] placeholderImage:[UIImage imageNamed:@""]];
+    self.addressLabel.text = homeModel.CITY;
+    [self.likeBtn setTitle:homeModel.FOLLOW_COUNT forState:UIControlStateNormal];
 }
 
-- (void)setAddress:(NSString *)address {
-    _address = address;
-    
-    self.addressLabel.text = HPNULLString(address) ? self.index.section%3 == 0 ? @"距您 2km" : @"北京市 朝阳区" : address;
-}
-
-- (void)setIndex:(NSIndexPath *)index {
-    _index = index;
-    
-//    self.authImg.hidden = index.row%3 == 0 ? YES : NO;
-//    self.titleLabel.text = [NSString stringWithFormat:@"第%ld位昵称",index.row + 1];
-}
-    
 //创建cell
 + (instancetype)dequeueReusableCellWithTableView:(UITableView*)tableView Identifier:(NSString*)identifier {
     
@@ -62,8 +49,6 @@
     
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        
-        self.isLiked = YES;
         
         [self setupUI];
         [self createConstrainte];
@@ -92,7 +77,7 @@
     
     [self.iconImg mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.mas_equalTo(0);
-        make.height.mas_equalTo(wid/1.5);
+        make.height.mas_equalTo(wid);
         make.bottom.mas_equalTo (weakSelf.contentView.mas_bottom);
     }];
     
@@ -188,41 +173,6 @@
         _starView.starBrightImageName = @"star_bright";
     }
     return _starView;
-}
-
-- (void) likeAction: (UIButton *) sender {
-    NSLog(@"--------action");
-    
-    if (self.likeBtnActionBlock) {
-        self.likeBtnActionBlock(sender);
-    }
-    
-    if (self.isLiked == YES) {
-        [sender setImage:[UIImage imageNamed:@"details_like_icon_press_20x20_"] forState:UIControlStateNormal];
-        [sender setTitle:@"103" forState:UIControlStateNormal];
-        [sender setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-        
-        [HPDivisableTool btnActionAnimationWithBtn:sender FromValue:0.7 ToValue:1.3 Duration:0.2 RepeatCount:1];
-        
-        self.isLiked = NO;
-    } else {
-        [_likeBtn setImage:[UIImage imageNamed:@"details_like_icon_20x20_"] forState:UIControlStateNormal];
-        [sender setTitle:@"102" forState:UIControlStateNormal];
-        [sender setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-
-        self.isLiked = YES;
-    }
-}
-    
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
     
 @end

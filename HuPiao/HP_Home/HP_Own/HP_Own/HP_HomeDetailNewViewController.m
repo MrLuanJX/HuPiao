@@ -112,8 +112,8 @@
 - (void) talkAction {
     NSLog(@"聊天");
     HP_ChatViewController * chatVC = [HP_ChatViewController new];
-    chatVC.navTitle = self.user.name;
-    chatVC.user = self.user;
+//    chatVC.navTitle = self.user.name;
+//    chatVC.user = self.user;
     [self.navigationController pushViewController:chatVC animated:YES];
 }
 
@@ -184,7 +184,7 @@
 }
 
 #pragma mark - Public Function
-+ (instancetype)suspendCenterPageVCWithUser:(MUser *)user IsOwn:(NSString *)isOwn{
++ (instancetype)suspendCenterPageVCWithUser:(HP_HomeModel *)user IsOwn:(NSString *)isOwn{
     
     YNPageConfigration *configration = [YNPageConfigration defaultConfig];
    
@@ -214,7 +214,7 @@
     return [self suspendCenterPageVCWithConfig:configration WithUser:user IsOwn:isOwn];
 }
     
-+ (instancetype)suspendCenterPageVCWithConfig:(YNPageConfigration *)config WithUser:(MUser *)user IsOwn:(NSString *)isOwn{
++ (instancetype)suspendCenterPageVCWithConfig:(YNPageConfigration *)config WithUser:(HP_HomeModel *)user IsOwn:(NSString *)isOwn{
 //    WS(wSelf);
     
     HP_HomeDetailNewViewController *vc = [HP_HomeDetailNewViewController pageViewControllerWithControllers:[self getArrayVCsWithUser:user isOwn:isOwn] titles:[self getArrayTitles] config:config];
@@ -229,7 +229,8 @@
     SDCycleScrollView * autoScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, HPScreenW,HPFit(400)) delegate:vc placeholderImage:[UIImage imageNamed:@"1.jpg"]];
     autoScrollView.bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
     autoScrollView.autoScrollTimeInterval = 5.0;
-    autoScrollView.localizationImageNamesGroup = vc.imgArray;
+//    autoScrollView.localizationImageNamesGroup = vc.imgArray;
+    autoScrollView.imageURLStringsGroup = @[user.HRADER_IMG];
     autoScrollView.clipsToBounds = YES;
     [headView addSubview:autoScrollView];
     
@@ -269,7 +270,7 @@
     return vc;
 }
 
-+ (NSArray *)getArrayVCsWithUser:(MUser *)user isOwn:(NSString *)isOwn{
++ (NSArray *)getArrayVCsWithUser:(HP_HomeModel *)user isOwn:(NSString *)isOwn{
     
     HP_OwnDetailViewController * ownVC = [[HP_OwnDetailViewController alloc] init];
     ownVC.user = user;
@@ -441,8 +442,8 @@
     return _giftBtn;
 }
 
-- (void) alertShow: (MUser *) user {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:@"购买 %@ 联系方式需要消耗您 %@ H币",user.name,@"108"] preferredStyle:UIAlertControllerStyleAlert];
+- (void) alertShow: (HP_HomeModel *) user {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:@"购买 %@ 联系方式需要消耗您 %@ H币",HPNULLString(user.nickname) ? user.NICKNAME : user.nickname,@"108"] preferredStyle:UIAlertControllerStyleAlert];
     [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
         NSLog(@"点击取消");
@@ -471,7 +472,7 @@
     titleLabel.font = HPFontSize(18);
     titleLabel.textColor = HPUIColorWithRGB(0x282828,1.0);
     titleLabel.textAlignment = NSTextAlignmentCenter;
-    titleLabel.text = self.user.name;
+    titleLabel.text = HPNULLString(self.user.nickname) ? self.user.NICKNAME : self.user.nickname;
     [self.navBGView addSubview:titleLabel];
     
     UIButton * backBtn = [[UIButton alloc] init];

@@ -12,9 +12,17 @@
 
 @property (nonatomic , strong) UIImageView * img;
 
+@property (nonatomic , strong) HP_CsoGiftSendMemberColl * csoGiftSendMemberColl;
+
 @end
 
 @implementation HP_CircleCollectionCell
+
+- (void)setCsoGiftSendMemberColl:(HP_CsoGiftSendMemberColl *)csoGiftSendMemberColl {
+    _csoGiftSendMemberColl = csoGiftSendMemberColl;
+    
+    [self.img sd_setImageWithURL:[NSURL URLWithString:csoGiftSendMemberColl.strHardimg] placeholderImage:[UIImage imageNamed:@""]];
+}
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -36,11 +44,6 @@
     [super drawRect:rect];
     
     [self.img setBorderWithCornerRadius:self.img.width/2 borderWidth:0 borderColor:HPClearColor type:UIRectCornerAllCorners];
-}
-
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    
 }
 
 - (UIImageView *)img {
@@ -88,40 +91,18 @@
 
 - (void) configUI {
     
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    //设置布局方向为垂直流布局
-    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    // 行间距
-    layout.minimumLineSpacing = HPFit(10);
-    layout.minimumInteritemSpacing = 0;
-    layout.sectionInset = UIEdgeInsetsMake(0, HPFit(10), 0, HPFit(10)); //设置距离上 左 下 右
-    UICollectionView * collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
-    collectionView.delegate = self;
-    collectionView.dataSource = self;
-    collectionView.showsVerticalScrollIndicator = NO;
-    collectionView.showsHorizontalScrollIndicator = NO;
-    [collectionView registerClass:[HP_CircleCollectionCell class] forCellWithReuseIdentifier:@"circleCollectCell"];
-    collectionView.backgroundColor = HPUIColorWithRGB(0xffffff, 1.0);
-    collectionView.userInteractionEnabled = NO;
-    self.collectionView = collectionView;
-    [self.contentView addSubview:collectionView];
+    [self.contentView addSubview:self.collectionView];
 }
 
 - (void) createConstrainte {
     __weak typeof (self) weakSelf = self;
-    
-//    [self.contentView mas_remakeConstraints:^(MASConstraintMaker *make) {
-//        make.top.bottom.left.right.mas_equalTo (0);
-//    }];
-    
+
     [self.collectionView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo (weakSelf.contentView.mas_top);//.mas_offset (HPFit(10));
+        make.top.mas_equalTo (weakSelf.contentView.mas_top);
         make.left.mas_equalTo(0);
         make.right.mas_equalTo (0);
-        make.bottom.mas_equalTo(weakSelf.contentView.mas_bottom);//.offset (-HPFit(10));
-    }];
-    
-    [self.collectionView reloadData];
+        make.bottom.mas_equalTo(weakSelf.contentView.mas_bottom);
+    }];    
 }
 
 #pragma mark - <UICollectionViewDataSource>
@@ -130,7 +111,8 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 5;
+    NSLog(@"count = ---%lu",(unsigned long)self.csoGiftSendMemberColl.count);
+    return self.csoGiftSendMemberColl.count > 5 ? 5 : self.csoGiftSendMemberColl.count;
 }
 
 #pragma mark - item宽高
@@ -141,6 +123,12 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     HP_CircleCollectionCell * collectionCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"circleCollectCell" forIndexPath:indexPath];
+    
+    if (self.csoGiftSendMemberColl.count > 0) {
+        
+        collectionCell.csoGiftSendMemberColl = self.csoGiftSendMemberColl[indexPath.row];
+    }
+    
     return collectionCell;
 }
 
@@ -148,6 +136,36 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     
+}
+
+- (UICollectionView *)collectionView {
+    if (!_collectionView) {
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+        //设置布局方向为垂直流布局
+        layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        // 行间距
+        layout.minimumLineSpacing = HPFit(10);
+        layout.minimumInteritemSpacing = 0;
+        layout.sectionInset = UIEdgeInsetsMake(0, HPFit(10), 0, HPFit(10)); //设置距离上 左 下 右
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+        _collectionView.delegate = self;
+        _collectionView.dataSource = self;
+        _collectionView.showsVerticalScrollIndicator = NO;
+        _collectionView.showsHorizontalScrollIndicator = NO;
+        [_collectionView registerClass:[HP_CircleCollectionCell class] forCellWithReuseIdentifier:@"circleCollectCell"];
+        _collectionView.backgroundColor = HPUIColorWithRGB(0xffffff, 1.0);
+        _collectionView.userInteractionEnabled = NO;
+    }
+    return _collectionView;
+}
+
+- (void)setCsoGiftSendMemberColl:(NSArray<HP_CsoGiftSendMemberColl *> *)csoGiftSendMemberColl {
+    _csoGiftSendMemberColl = csoGiftSendMemberColl;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        [self.collectionView reloadData];
+    });
 }
 
 @end

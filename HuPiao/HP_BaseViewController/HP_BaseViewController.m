@@ -21,7 +21,7 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     NSLog(@"DispageLogStr --- %@",self.pageLogStr);
-    [JANALYTICSService stopLogPageView:self.pageLogStr];
+    [JANALYTICSService stopLogPageView:self.pageLogStr];    
 }
 
 - (void)viewDidLoad {

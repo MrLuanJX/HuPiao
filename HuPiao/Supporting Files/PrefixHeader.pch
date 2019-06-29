@@ -62,5 +62,11 @@
 #import "HP_Label.h"
 #import "INMAlertView.h"
 #import "DJZJ_RequestTool.h"
+#import "HP_UserTool.h"
+#import "AppDelegate.h"
+#import "HP_HomeModel.h"
+#import "HP_OwnHandler.h"
+#import "HP_AnchorOwnModel.h"
+
 
 #endif /* PrefixHeader_pch */

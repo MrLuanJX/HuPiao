@@ -13,11 +13,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HP_HomeDetailNewViewController : YNPageViewController
     
-+ (instancetype)suspendCenterPageVCWithUser:(MUser *)user IsOwn:(NSString *)isOwn;
++ (instancetype)suspendCenterPageVCWithUser:(HP_HomeModel *)user IsOwn:(NSString *)isOwn;
 
-+ (instancetype)suspendCenterPageVCWithConfig:(YNPageConfigration *)config WithUser:(MUser *)user IsOwn:(NSString *)isOwn;
++ (instancetype)suspendCenterPageVCWithConfig:(YNPageConfigration *)config WithUser:(HP_HomeModel *)user IsOwn:(NSString *)isOwn;
 
-@property(nonatomic , strong) MUser * user;
+@property(nonatomic , strong) HP_HomeModel * user;
 
 @end
 

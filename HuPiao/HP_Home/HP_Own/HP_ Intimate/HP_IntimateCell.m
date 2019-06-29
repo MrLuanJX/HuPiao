@@ -24,14 +24,21 @@
 
 @implementation HP_IntimateCell
 
+- (void)setCsoGiftModel:(HP_CsoGiftSendMemberColl *)csoGiftModel {
+    _csoGiftModel = csoGiftModel;
+    
+    self.name.text = [NSString stringWithFormat:@"%@",csoGiftModel.strNickName];
+    
+    [self.icon sd_setImageWithURL:[NSURL URLWithString:csoGiftModel.strHardimg] placeholderImage:[UIImage imageNamed:@""]];
+    
+    [self.hot setTitle:csoGiftModel.strBranch forState:UIControlStateNormal];
+}
+
 - (void)setIndex:(NSIndexPath *)index {
     _index = index;
     
     self.numLabel.text = [NSString stringWithFormat:@"NO.%ld",index.row+1];
     
-    self.name.text = [NSString stringWithFormat:@"用户名----%ld",index.row+1];
-//    self.numImg.hidden = index.row == 0 || index.row == 1 || index.row == 2 ? NO : YES;
-
     if (index.row == 0) {
         self.numLabel.textColor = HPUIColorWithRGB(0xCD2626, 1.0);
     } else if (index.row == 1) {
@@ -59,6 +66,12 @@
         [self configUI];
     }
     return self;
+}
+
+- (void)drawRect:(CGRect)rect {
+    [super drawRect:rect];
+    
+    [self.icon setBorderWithCornerRadius:self.icon.width/2 borderWidth:0 borderColor:HPClearColor type:UIRectCornerAllCorners];
 }
 
 - (void) configUI {

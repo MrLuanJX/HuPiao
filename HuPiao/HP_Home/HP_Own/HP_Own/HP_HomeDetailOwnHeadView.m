@@ -22,9 +22,12 @@
 
 @implementation HP_HomeDetailOwnHeadView
 
-- (void)setUser:(MUser *)user {
+- (void)setUser:(HP_HomeModel *)user {
     
-    self.nameLabel.text = user.name;
+    self.nameLabel.text = HPNULLString(user.nickname) ? user.NICKNAME : user.nickname;
+    self.contentLabel.attributedText = [HP_Label setUpFirstStr:@"Ta 说  " FirstColor:HPUIColorWithRGB(0xCD2990, 1.0) FirstFont:HPFontBoldSize(20) SecondStr:user.PROFILE SecondColor:kSetUpCololor(185, 185, 185, 1.0) SecondFont:HPFontSize(14)];
+    [self.likeBtn setTitle:user.FOLLOW_COUNT forState:UIControlStateNormal];
+
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {

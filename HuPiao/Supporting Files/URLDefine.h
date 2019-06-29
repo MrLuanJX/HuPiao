@@ -20,4 +20,9 @@
 
 #define HP_Login [NSString stringWithFormat:@"%@%@",HP_MemberURL,@"login.aspx"]
 
+// 首页
+#define HP_Home [NSString stringWithFormat:@"%@%@",HP_BaseURL,@"common/interface/index/getlist.aspx"]
+// 个人主页
+#define HP_Anchor [NSString stringWithFormat:@"%@%@",HP_BaseURL,@"common/interface/Anchor/detail.aspx"]
+
 #endif /* URLDefine_h */

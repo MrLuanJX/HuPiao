@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param success 成功
  @param fail 失败
  */
-+(void)executeLogIn:(NSDictionary*)param Success:(Success)success Fail:(Failed)fail;
++(void)executeLogInWithType:(NSString*)type UserName:(NSString *)userName Password:(NSString *)password loginCode:(NSString *)loginCode Success:(Success)success Fail:(Failed)fail;
 
 /**
  注册
@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param success 成功
  @param fail 失败
  */
-+(void)executeRegist:(NSDictionary*)param Success:(Success)success Fail:(Failed)fail;
++(void)executeRegistWithiInvitationCode:(NSString *)invitationCode UserName:(NSString *)userName Password:(NSString *)password PhoneCode:(NSString *)phoneCode NickName:(NSString *)nickName Success:(Success)success Fail:(Failed)fail;
 
 /**
  发送验证码

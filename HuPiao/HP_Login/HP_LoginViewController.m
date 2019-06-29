@@ -55,6 +55,7 @@
     [self.navigationController.navigationBar setShadowImage:nil];
     
     [self.view endEditing:YES];
+    [SVProgressHUD dismiss];
 }
 
 - (void)viewDidLoad {
@@ -97,24 +98,22 @@
 - (void) loginAcion:(UIButton *)sender {
     [self.view endEditing:YES];
     
-    NSLog(@"pwTF = %@-----%@",[NSString md5:self.pwTF.text],[HPDivisableTool getNowTimeTimestamp]);
-    
+    if ([self.nameTF.text trim].length == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请先填写手机号"];
+        return;
+    }
+    if ([self.pwTF.text trim].length == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请先填写密码"];
+        return;
+    }
     sender.userInteractionEnabled = NO;
     sender.backgroundColor = kSetUpCololor(195, 195, 195, 1.0);
     
     [SVProgressHUD showWithStatus:@"正在登录..."];
     [SVProgressHUD setBackgroundColor:HPUIColorWithRGB(0x000000, 0.8)];
     [SVProgressHUD setForegroundColor:HPUIColorWithRGB(0xffffff, 1.0)];
-        
-    if (self.nameTF.text.length == 0) {
-        [SVProgressHUD showErrorWithStatus:@"请先填写用户名"];
-        return;
-    }
-    if (self.pwTF.text.length == 0) {
-        [SVProgressHUD showErrorWithStatus:@"请先填写密码"];
-        return;
-    }
     
+    /*
     if ([self.nameTF.text isEqualToString:@"12345678910"] && [self.pwTF.text isEqualToString:@"111111"]) {
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -136,6 +135,24 @@
              [WHToast showErrorWithMessage:@"账号或密码错误，请重新输入" duration:1.5 finishHandler:nil];
          });
     }
+     */
+    
+    // 用户登录
+    [HP_MemberHandler executeLogInWithType:@"user" UserName:[self.nameTF.text trim] Password:[self.pwTF.text trim] loginCode:@"" Success:^(id  _Nonnull obj) {
+        [SVProgressHUD dismiss];
+        // 存
+        [HP_UserTool saveUserInfo:obj];
+        // 给单例赋值属性
+        HP_UserTool * configs = [HP_UserTool sharedUserHelper];
+        [configs saveUser];
+        
+        AppDelegate * zecfappDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+        zecfappDelegate.window.rootViewController = HP_TabbarViewController.new;
+        
+    } Fail:^(id  _Nonnull obj) {
+        [SVProgressHUD dismiss];
+    }];
+    
 }
 -(void) loginDown:(UIButton *)sender {
     self.loginBtn.backgroundColor = HPUIColorWithRGB(0x000000, 0.5);

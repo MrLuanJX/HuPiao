@@ -17,7 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *cellTitle;
 
-@property (nonatomic , strong) MUser * user;
+//@property (nonatomic , strong) MUser * user;
+
+@property (nonatomic , strong) HP_HomeModel * user;
+
 
 @end
 

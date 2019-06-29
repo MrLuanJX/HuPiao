@@ -17,24 +17,24 @@
  @param success 成功
  @param fail 失败
  */
-+(void)executeLogIn:(NSDictionary*)param Success:(Success)success Fail:(Failed)fail {
++(void)executeLogInWithType:(NSString*)type UserName:(NSString *)userName Password:(NSString *)password loginCode:(NSString *)loginCode Success:(Success)success Fail:(Failed)fail {
     
+    NSDictionary * param = @{
+                            @"username" : userName,
+                            @"password" : password,
+                            @"loginCode" : loginCode,
+                            @"type" : type,
+                            @"t" : [HPDivisableTool getNowTimeTimestamp],
+                            @"sign" : [NSString md5:[NSString stringWithFormat:@"%@%@%@%@%@%@",loginCode,password,[HPDivisableTool getNowTimeTimestamp],type,userName,HPKey]],
+                            };
     
-}
+    [DJZJ_RequestTool LJX_requestWithType:LJX_POST URL:HP_Login params:param successBlock:^(id obj) {
+        NSLog(@"loginObj = %@",obj);
 
-/**
- 注册
- @param param 注册参数
- @param success 成功
- @param fail 失败
- */
-+(void)executeRegist:(NSDictionary*)param Success:(Success)success Fail:(Failed)fail {
-    
-    [DJZJ_RequestTool LJX_requestWithType:LJX_POST URL:HP_Regist params:param successBlock:^(id obj) {
-        NSLog(@"obj = %@",obj);
-        
         if ([obj[@"errorCode"] integerValue] == 0) {
-            success(obj);
+            MUser * user = [MUser mj_objectWithKeyValues:obj[@"data"]];
+            NSLog(@"user ------ %@",user);
+            success(user);
         } else {
             fail(obj);
         }
@@ -43,6 +43,37 @@
     }];
 }
 
+/**
+ 注册
+ @param param 注册参数
+ @param success 成功
+ @param fail 失败
+ */
++(void)executeRegistWithiInvitationCode:(NSString *)invitationCode UserName:(NSString *)userName Password:(NSString *)password PhoneCode:(NSString *)phoneCode NickName:(NSString *)nickName Success:(Success)success Fail:(Failed)fail {
+
+    NSDictionary * param = @{
+                            @"username" : userName,
+                            @"password" : password,
+                            @"phoneCode" : phoneCode,
+                            @"nickname" : nickName,
+                            @"invitationCode" : invitationCode,
+                            @"t" : [HPDivisableTool getNowTimeTimestamp],
+                            @"sign" : [NSString md5:[NSString stringWithFormat:@"%@%@%@%@%@%@%@",invitationCode,nickName,password,phoneCode,[HPDivisableTool getNowTimeTimestamp],userName,HPKey]],
+                            };
+    NSLog(@"param ---- %@---%@",param,[NSString stringWithFormat:@"%@%@%@%@%@%@%@",invitationCode,nickName,password,phoneCode,[HPDivisableTool getNowTimeTimestamp],userName,HPKey]);
+    [DJZJ_RequestTool LJX_requestWithType:LJX_POST URL:HP_Regist params:param successBlock:^(id obj) {
+        NSLog(@"registObj = %@",obj);
+        if ([obj[@"errorCode"] integerValue] == 0) {
+            MUser * user = [MUser mj_objectWithKeyValues:obj[@"data"]];
+            NSLog(@"user ------ %@",user);
+            success(user);
+        } else {
+            fail(obj);
+        }
+    } failureBlock:^(NSError *error) {
+        fail(error);
+    }];
+}
 
 /**
  发送验证码

@@ -15,7 +15,7 @@
 #endif
 #import <CoreLocation/CoreLocation.h>
 
-@interface AppDelegate () <UIApplicationDelegate,JMessageDelegate,JPUSHRegisterDelegate>
+@interface AppDelegate () <JMessageDelegate,JPUSHRegisterDelegate>
 
 @end
 
@@ -23,7 +23,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
+    // 定位
+    [self getlocation];
+    // 注册极光
     [self registJG:launchOptions];
     // 监听
     [self onDBMigrateStart];
@@ -41,6 +43,10 @@
     self.window.rootViewController = loginNav; //[HP_TabbarViewController new];   // 
     
     [self.window makeKeyAndVisible];
+    
+    // 给单例赋值属性
+    HP_UserTool * configs = [HP_UserTool sharedUserHelper];
+    [configs saveUser];
     
     return YES;
 }
@@ -239,5 +245,19 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSLog(@"onDBmigrateStart in appdelegate");
 //    _isDBMigrating = YES;
 }
+
+// 获取定位
+- (void) getlocation {
+    [[CLocationManager shareLocation] getLocationCoordinate:^(CLLocationCoordinate2D locationCorrrdinate) {
+        NSLog(@"latitude = %f --- %f",locationCorrrdinate.latitude,locationCorrrdinate.longitude);
+        // 极光统计位置信息
+        [JANALYTICSService setLatitude:locationCorrrdinate.latitude longitude:locationCorrrdinate.longitude];
+    } withAddress:^(NSString *addressString) {
+        NSLog(@"addressString = %@",addressString);
+    } FirstTime:^{
+        NSLog(@"first");
+    }];
+}
+
 
 @end

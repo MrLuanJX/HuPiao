@@ -8,25 +8,44 @@
 
 #import "HP_UserTool.h"
 
-static HP_UserTool *userHelper = nil;
-
 @implementation HP_UserTool
 
-+ (HP_UserTool *)sharedUserHelper {
-    if (userHelper == nil) {
-        userHelper = [[HP_UserTool alloc] init];
-    }
-    return userHelper;
++(HP_UserTool *)sharedUserHelper {
+    static HP_UserTool *_userHelper = nil;
+    static dispatch_once_t configsOnce;
+    dispatch_once(&configsOnce, ^{
+        _userHelper = [[HP_UserTool alloc] init];
+    });
+    return _userHelper;
 }
 
-- (MUser *) user {
-    if (_user == nil) {
-        _user = [[MUser alloc] init];
-        _user.username = @"Bay、栢";// 名字
-        _user.userID = @"li-bokun";// ID
-        _user.avatarURL = @"0.jpg";// 图片
-    }
-    return _user;
++ (void)saveUserInfo:(MUser *)userInfo {
+    NSUserDefaults * tokenUDF = [NSUserDefaults standardUserDefaults];
+    [tokenUDF setValue:userInfo.strAccount forKey:@"strAccount"];
+    [tokenUDF setValue:userInfo.iMemberNo forKey:@"iMemberNo"];
+    [tokenUDF setValue:userInfo.strPhone forKey:@"strPhone"];
+    [tokenUDF setValue:userInfo.strHeaderImg forKey:@"strHeaderImg"];
+    [tokenUDF setValue:userInfo.strUserId forKey:@"strUserId"];
+    [tokenUDF synchronize];
 }
+
+- (void)saveUser {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.strAccount = [defaults objectForKey:@"strAccount"];
+    self.iMemberNo = [defaults objectForKey:@"iMemberNo"];
+    self.strPhone = [defaults objectForKey:@"strPhone"];
+    self.strHeaderImg = [defaults objectForKey:@"strHeaderImg"];
+    self.strUserId = [defaults objectForKey:@"strUserId"];
+}
+
+//- (MUser *) user {
+//    if (_user == nil) {
+//        _user = [[MUser alloc] init];
+//        _user.username = @"Bay、栢";// 名字
+//        _user.userID = @"li-bokun";// ID
+//        _user.avatarURL = @"0.jpg";// 图片
+//    }
+//    return _user;
+//}
 
 @end

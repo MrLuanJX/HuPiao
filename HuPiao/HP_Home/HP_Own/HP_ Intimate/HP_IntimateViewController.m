@@ -36,7 +36,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.csoGiftSendMemberColl.count > 0 ? self.csoGiftSendMemberColl.count : 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -44,16 +44,18 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    WS(wSelf);
     
     static NSString *CellIdentifier = @"intimateCell";
     
     HP_IntimateCell * intimateCell = [HP_IntimateCell dequeueReusableCellWithTableView:tableView Identifier:CellIdentifier];
     
     intimateCell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-    intimateCell.index = indexPath;
-    
+    if (self.csoGiftSendMemberColl.count > 0) {
+        intimateCell.csoGiftModel = self.csoGiftSendMemberColl[indexPath.row];
+        
+        intimateCell.index = indexPath;
+    }
+
     return intimateCell;
 }
 

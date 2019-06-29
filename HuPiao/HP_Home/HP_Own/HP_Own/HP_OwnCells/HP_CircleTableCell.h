@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HP_CsoGiftSendMemberColl.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(instancetype)dequeueReusableCellWithTableView:(UITableView*)tableView Identifier:(NSString*)identifier;
 
+
+@property(nonatomic,copy)NSArray <HP_CsoGiftSendMemberColl *>* csoGiftSendMemberColl;
 
 @end
 

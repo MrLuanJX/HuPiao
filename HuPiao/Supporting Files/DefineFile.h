@@ -12,6 +12,8 @@
 #define SAFE_AREA_INSETS_TOP safeAreaInsets().top
 #define SAFE_AREA_INSETS_BOTTOM safeAreaInsets().bottom
 
+#define AppStoreID @"1470596959"
+
 #define JGAppKey @"e18cd46cc6ee8779d9190a3c"
 
 #define HPKey @"1de29977f54b146d39ec593dad2cc778"

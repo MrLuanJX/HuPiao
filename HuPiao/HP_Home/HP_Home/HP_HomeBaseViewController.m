@@ -10,6 +10,8 @@
 #import "HP_HomeCell.h"
 #import "HP_HomeDetailNewViewController.h"
 #import "MUser.h"
+#import "HP_HomeHandler.h"
+#import "HP_HomeModel.h"
 
 @interface HP_HomeBaseViewController () <UITableViewDelegate , UITableViewDataSource>
 
@@ -20,6 +22,9 @@
 @property (nonatomic , strong) NSMutableArray * messageList;
 
 @property (nonatomic , copy) NSString * address;
+
+@property (nonatomic , assign) NSInteger currentPage;
+
 @end
 
 @implementation HP_HomeBaseViewController
@@ -27,39 +32,76 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    [self.messageList removeAllObjects];
-    [self.messageList addObjectsFromArray:[MUser findAll]];
-    [self.tableView reloadData];
+//    [self.messageList removeAllObjects];
+//    [self.messageList addObjectsFromArray:[MUser findAll]];
+//    [self.tableView reloadData];
 }
-// 获取定位
-- (void) getlocation {
-    WS(wSelf);
-    [[CLocationManager shareLocation] getLocationCoordinate:^(CLLocationCoordinate2D locationCorrrdinate) {
-        NSLog(@"latitude = %f --- %f",locationCorrrdinate.latitude,locationCorrrdinate.longitude);
-        // 极光统计位置信息
-        [JANALYTICSService setLatitude:locationCorrrdinate.latitude longitude:locationCorrrdinate.longitude];
-    } withAddress:^(NSString *addressString) {
-        NSLog(@"addressString = %@",addressString);
-        wSelf.address = addressString;
-    } FirstTime:^{
-        NSLog(@"first");
-        [self.messageList removeAllObjects];
-        [self.messageList addObjectsFromArray:[MUser findAll]];
-        [self.tableView reloadData];
-    }];
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.pageLogStr = @"HomePage";
     
+    self.currentPage = 1;
+    
     self.isLiked = YES;
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self addTableView];
+    [self requestData];
     
-    [self getlocation];
+    [self addTableView];
+
+    [self addRefresh];
+    
+    [self.tableView.mj_header beginRefreshing];
+}
+
+-(void) addRefresh {
+    __weak typeof (self) weakSelf = self;
+    
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        weakSelf.currentPage = 1;
+        [weakSelf.messageList removeAllObjects];
+        [weakSelf requestData];
+    }];
+    
+//    MJRefreshAutoNormalFooter 才可以显示出来 没有更多了
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [weakSelf requestData];
+    }];
+    [self.tableView.mj_footer beginRefreshing];
+}
+
+#pragma mark - 请求数据
+- (void) requestData {
+    WS(wSelf);
+    
+    [HP_HomeHandler executeHomeRequestWithIndex:self.currentIndex CurrentPage:self.currentPage MemberNO:[HP_UserTool sharedUserHelper].iMemberNo Success:^(id  _Nonnull obj) {
+        
+        [wSelf.tableView.mj_header endRefreshing];
+        [wSelf.tableView.mj_footer endRefreshing];
+
+        NSMutableArray * dataArray = [HP_HomeModel mj_objectArrayWithKeyValuesArray:obj[@"data"]];
+        if (dataArray.count > 0) {
+            [wSelf.messageList addObjectsFromArray:dataArray];
+        } else {
+            [wSelf.tableView.mj_footer endRefreshingWithNoMoreData];
+        }
+        
+        [wSelf.tableView reloadData];
+        wSelf.currentPage += 1;
+    } Fail:^(id  _Nonnull obj) {
+        [wSelf.tableView.mj_header endRefreshing];
+        [wSelf.tableView.mj_footer endRefreshing];
+
+    }];
 }
 
 -(void)addTableView{
@@ -106,25 +148,20 @@
     static NSString * identifier = @"homeCell";
     
     HP_HomeCell * homeCell = [HP_HomeCell dequeueReusableCellWithTableView:tableView Identifier:identifier];
-
-    MUser * user = [self.messageList objectAtIndex:indexPath.section];
-    
-    homeCell.user = user;
-    
-    homeCell.index = indexPath;
-    
-    homeCell.address = self.address;
+    if (self.messageList.count > 0) {
+        homeCell.homeModel = self.messageList[indexPath.section];
+    }
     
     return homeCell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    MUser * user = [self.messageList objectAtIndex:indexPath.section];
+    HP_HomeModel * user = [self.messageList objectAtIndex:indexPath.section];
 
     HP_HomeDetailNewViewController * detailVC = [HP_HomeDetailNewViewController suspendCenterPageVCWithUser:user IsOwn:@"Home"];
+    detailVC.title = HPNULLString(user.nickname) ? user.NICKNAME : user.nickname;
     detailVC.user = user;
     detailVC.hidesBottomBarWhenPushed = YES;
-    detailVC.title = user.name;
     [self.navigationController pushViewController:detailVC animated:YES];
 }
     
@@ -142,6 +179,8 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.estimatedRowHeight = 50;
+        _tableView.estimatedSectionHeaderHeight = 0;
+        _tableView.estimatedSectionFooterHeight = 0;
     }
     return _tableView;
 }

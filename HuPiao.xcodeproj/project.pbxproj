@@ -325,6 +325,15 @@
 		DDE699DE22C5005A0071A92F /* [多云]@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDE6994E22C5005A0071A92F /* [多云]@2x.png */; };
 		DDE699DF22C5005A0071A92F /* [抠鼻]@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDE6995022C5005A0071A92F /* [抠鼻]@2x.png */; };
 		DDE699E022C5005A0071A92F /* [发抖]@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDE6995222C5005A0071A92F /* [发抖]@2x.png */; };
+		DDE699E622C759090071A92F /* HP_HomeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE699E522C759090071A92F /* HP_HomeHandler.m */; };
+		DDE699E922C75FB10071A92F /* HP_HomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE699E822C75FB10071A92F /* HP_HomeModel.m */; };
+		DDE699EC22C774820071A92F /* HP_OwnHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE699EB22C774820071A92F /* HP_OwnHandler.m */; };
+		DDE699EF22C777140071A92F /* HP_AnchorOwnModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE699EE22C777140071A92F /* HP_AnchorOwnModel.m */; };
+		DDE699F322C779D30071A92F /* HP_CsoGiftSendMemberColl.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE699F222C779D30071A92F /* HP_CsoGiftSendMemberColl.m */; };
+		DDE699F622C779EB0071A92F /* HP_CsoCommentLColl.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE699F522C779EB0071A92F /* HP_CsoCommentLColl.m */; };
+		DDE699F922C77A640071A92F /* HP_CsoFreeImageColl.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE699F822C77A640071A92F /* HP_CsoFreeImageColl.m */; };
+		DDE699FC22C77B2B0071A92F /* HP_CsoImageColl.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE699FB22C77B2B0071A92F /* HP_CsoImageColl.m */; };
+		DDE69A0222C77BE30071A92F /* HP_CsoGiftColl.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE69A0122C77BE30071A92F /* HP_CsoGiftColl.m */; };
 		DDFE70DE2290F4270029C425 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFE70DD2290F4270029C425 /* AppDelegate.m */; };
 		DDFE70E12290F4270029C425 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFE70E02290F4270029C425 /* ViewController.m */; };
 		DDFE70E42290F4270029C425 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDFE70E22290F4270029C425 /* Main.storyboard */; };
@@ -838,6 +847,24 @@
 		DDE6995022C5005A0071A92F /* [抠鼻]@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "[抠鼻]@2x.png"; sourceTree = "<group>"; };
 		DDE6995222C5005A0071A92F /* [发抖]@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "[发抖]@2x.png"; sourceTree = "<group>"; };
 		DDE699E122C5D57A0071A92F /* HuPiao.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HuPiao.entitlements; sourceTree = "<group>"; };
+		DDE699E422C759090071A92F /* HP_HomeHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_HomeHandler.h; sourceTree = "<group>"; };
+		DDE699E522C759090071A92F /* HP_HomeHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_HomeHandler.m; sourceTree = "<group>"; };
+		DDE699E722C75FB10071A92F /* HP_HomeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_HomeModel.h; sourceTree = "<group>"; };
+		DDE699E822C75FB10071A92F /* HP_HomeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_HomeModel.m; sourceTree = "<group>"; };
+		DDE699EA22C774820071A92F /* HP_OwnHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_OwnHandler.h; sourceTree = "<group>"; };
+		DDE699EB22C774820071A92F /* HP_OwnHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_OwnHandler.m; sourceTree = "<group>"; };
+		DDE699ED22C777140071A92F /* HP_AnchorOwnModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_AnchorOwnModel.h; sourceTree = "<group>"; };
+		DDE699EE22C777140071A92F /* HP_AnchorOwnModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_AnchorOwnModel.m; sourceTree = "<group>"; };
+		DDE699F122C779D30071A92F /* HP_CsoGiftSendMemberColl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_CsoGiftSendMemberColl.h; sourceTree = "<group>"; };
+		DDE699F222C779D30071A92F /* HP_CsoGiftSendMemberColl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_CsoGiftSendMemberColl.m; sourceTree = "<group>"; };
+		DDE699F422C779EB0071A92F /* HP_CsoCommentLColl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_CsoCommentLColl.h; sourceTree = "<group>"; };
+		DDE699F522C779EB0071A92F /* HP_CsoCommentLColl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_CsoCommentLColl.m; sourceTree = "<group>"; };
+		DDE699F722C77A640071A92F /* HP_CsoFreeImageColl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_CsoFreeImageColl.h; sourceTree = "<group>"; };
+		DDE699F822C77A640071A92F /* HP_CsoFreeImageColl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_CsoFreeImageColl.m; sourceTree = "<group>"; };
+		DDE699FA22C77B2B0071A92F /* HP_CsoImageColl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_CsoImageColl.h; sourceTree = "<group>"; };
+		DDE699FB22C77B2B0071A92F /* HP_CsoImageColl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_CsoImageColl.m; sourceTree = "<group>"; };
+		DDE69A0022C77BE30071A92F /* HP_CsoGiftColl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_CsoGiftColl.h; sourceTree = "<group>"; };
+		DDE69A0122C77BE30071A92F /* HP_CsoGiftColl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_CsoGiftColl.m; sourceTree = "<group>"; };
 		DDFE70D92290F4270029C425 /* HuPiao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HuPiao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDFE70DC2290F4270029C425 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DDFE70DD2290F4270029C425 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -962,6 +989,7 @@
 		009CEEC022BB976E00889FFD /* HP_Own */ = {
 			isa = PBXGroup;
 			children = (
+				DDE699F022C779BA0071A92F /* HP_AnchorModel */,
 				00D2F0AB22AE46D3008D52D9 /* HP_OwnCells */,
 				00B951C522968A20008D9411 /* HP_HomeDetailNewViewController.h */,
 				00B951C622968A20008D9411 /* HP_HomeDetailNewViewController.m */,
@@ -969,6 +997,8 @@
 				00B951C922968AEA008D9411 /* HP_OwnDetailViewController.m */,
 				0082086222A10B5300EBEF4C /* HP_HomeDetailOwnHeadView.h */,
 				0082086322A10B5300EBEF4C /* HP_HomeDetailOwnHeadView.m */,
+				DDE699EA22C774820071A92F /* HP_OwnHandler.h */,
+				DDE699EB22C774820071A92F /* HP_OwnHandler.m */,
 			);
 			path = HP_Own;
 			sourceTree = "<group>";
@@ -1436,6 +1466,10 @@
 				00B951C222967CDC008D9411 /* HP_HomeViewController.m */,
 				00B9511522929DA7008D9411 /* HP_HomeCell.h */,
 				00B9511622929DA7008D9411 /* HP_HomeCell.m */,
+				DDE699E722C75FB10071A92F /* HP_HomeModel.h */,
+				DDE699E822C75FB10071A92F /* HP_HomeModel.m */,
+				DDE699E422C759090071A92F /* HP_HomeHandler.h */,
+				DDE699E522C759090071A92F /* HP_HomeHandler.m */,
 			);
 			path = HP_Home;
 			sourceTree = "<group>";
@@ -2992,6 +3026,25 @@
 			path = "[发抖].imageset";
 			sourceTree = "<group>";
 		};
+		DDE699F022C779BA0071A92F /* HP_AnchorModel */ = {
+			isa = PBXGroup;
+			children = (
+				DDE699ED22C777140071A92F /* HP_AnchorOwnModel.h */,
+				DDE699EE22C777140071A92F /* HP_AnchorOwnModel.m */,
+				DDE699F122C779D30071A92F /* HP_CsoGiftSendMemberColl.h */,
+				DDE699F222C779D30071A92F /* HP_CsoGiftSendMemberColl.m */,
+				DDE699F422C779EB0071A92F /* HP_CsoCommentLColl.h */,
+				DDE699F522C779EB0071A92F /* HP_CsoCommentLColl.m */,
+				DDE699F722C77A640071A92F /* HP_CsoFreeImageColl.h */,
+				DDE699F822C77A640071A92F /* HP_CsoFreeImageColl.m */,
+				DDE699FA22C77B2B0071A92F /* HP_CsoImageColl.h */,
+				DDE699FB22C77B2B0071A92F /* HP_CsoImageColl.m */,
+				DDE69A0022C77BE30071A92F /* HP_CsoGiftColl.h */,
+				DDE69A0122C77BE30071A92F /* HP_CsoGiftColl.m */,
+			);
+			path = HP_AnchorModel;
+			sourceTree = "<group>";
+		};
 		DDFE70D02290F4270029C425 = {
 			isa = PBXGroup;
 			children = (
@@ -3557,6 +3610,7 @@
 				008208E522A4F89100EBEF4C /* MPicture.m in Sources */,
 				00EEA2EF22B875FB0038A521 /* HP_RechargeViewController.m in Sources */,
 				00D2EFDA22A75FE8008D52D9 /* INMUpdateModel.m in Sources */,
+				DDE699EC22C774820071A92F /* HP_OwnHandler.m in Sources */,
 				008208F222A4FBBD00EBEF4C /* NSString+Letter.m in Sources */,
 				00D2F0B722AE661C008D52D9 /* HP_EvaluateTableCell.m in Sources */,
 				00EEA2FD22B8A8400038A521 /* LLWCustomButton.m in Sources */,
@@ -3564,15 +3618,18 @@
 				009CEDFD22BB86A300889FFD /* HP_UpdatePwdViewController.m in Sources */,
 				00EEA34A22BA0ADE0038A521 /* UIScrollView+XBZKeyBoard.m in Sources */,
 				00D2EFD922A75FE8008D52D9 /* INMUpdateView.m in Sources */,
+				DDE699E622C759090071A92F /* HP_HomeHandler.m in Sources */,
 				00EEA34622BA0ADE0038A521 /* UIColor+XBZKeyBoard.m in Sources */,
 				009CEEC522BC78F500889FFD /* HP_AccountSaftyViewController.m in Sources */,
 				009CEEDE22C0A18300889FFD /* HP_ReceivedGiftViewController.m in Sources */,
 				0082087322A1189A00EBEF4C /* HP_ImageListView.m in Sources */,
 				00FEAE4F22C34B1700FCDC93 /* HP_IntergralHeadView.m in Sources */,
 				00B9517022963925008D9411 /* HJTabViewControllerPlugin_TabViewBar.m in Sources */,
+				DDE699F622C779EB0071A92F /* HP_CsoCommentLColl.m in Sources */,
 				00B9516E22963925008D9411 /* HJTabViewController.m in Sources */,
 				00D2F0A722AE24DA008D52D9 /* HP_WalletHeadView.m in Sources */,
 				00FEAE9E22C4AD2700FCDC93 /* ZXTextMessageCell.m in Sources */,
+				DDE699F922C77A640071A92F /* HP_CsoFreeImageColl.m in Sources */,
 				0082090822A6023500EBEF4C /* GXUpvoteButton.m in Sources */,
 				00D2EFE522A794BE008D52D9 /* HP_NormalOwnView.m in Sources */,
 				00FEAE5622C4590600FCDC93 /* HP_BaseHandler.m in Sources */,
@@ -3581,6 +3638,7 @@
 				00D2EFE222A794A9008D52D9 /* HP_OwnMessageViewController.m in Sources */,
 				008208F522A4FBD900EBEF4C /* JPinYinUtil.m in Sources */,
 				009CEEE522C0B63500889FFD /* JYEqualCellSpaceFlowLayout.m in Sources */,
+				DDE699E922C75FB10071A92F /* HP_HomeModel.m in Sources */,
 				DDFE71272291065A0029C425 /* HP_MessageViewController.m in Sources */,
 				00FEAE8E22C4A90F00FCDC93 /* ZXChatFaceMenuView.m in Sources */,
 				00D2EFE822A794D1008D52D9 /* HP_AuthOwnView.m in Sources */,
@@ -3633,6 +3691,8 @@
 				00EEA36922BB20F30038A521 /* HP_CircleTableCell.m in Sources */,
 				00D2EFD722A75FE8008D52D9 /* INMHomeRefreshHeader.m in Sources */,
 				DDFE71182290F5690029C425 /* HP_NavigationViewController.m in Sources */,
+				DDE699F322C779D30071A92F /* HP_CsoGiftSendMemberColl.m in Sources */,
+				DDE699FC22C77B2B0071A92F /* HP_CsoImageColl.m in Sources */,
 				00D2EFEB22A7A82F008D52D9 /* HP_AuthMessageHeadView.m in Sources */,
 				00B9516D22963925008D9411 /* HJTabViewControllerPlugin_HeaderScroll.m in Sources */,
 				00FEAE8C22C4A90F00FCDC93 /* ZXChatBoxFaceView.m in Sources */,
@@ -3676,8 +3736,10 @@
 				00D2F0C022AF6B53008D52D9 /* HP_CeIdFirstCell.m in Sources */,
 				00D2F0BD22AF5AA8008D52D9 /* HP_CeIdFirstView.m in Sources */,
 				00D2F09C22A91480008D52D9 /* HP_FollowAndFansViewController.m in Sources */,
+				DDE69A0222C77BE30071A92F /* HP_CsoGiftColl.m in Sources */,
 				008208D022A4F4B300EBEF4C /* JKDBHelper.m in Sources */,
 				00EEA34B22BA0ADE0038A521 /* XBZChatKeyBoardManager.m in Sources */,
+				DDE699EF22C777140071A92F /* HP_AnchorOwnModel.m in Sources */,
 				00B951A622965A78008D9411 /* HP_DynamicViewController.m in Sources */,
 				DDFE713E229115AF0029C425 /* UIView+Extension.m in Sources */,
 				00D2F0AA22AE37D7008D52D9 /* HP_ExpenditureViewController.m in Sources */,
