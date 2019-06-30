@@ -216,7 +216,7 @@
     
     MUser * user = [[self.userList objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
 
-    [self.navigationController pushViewController:[HP_HomeDetailNewViewController suspendCenterPageVCWithUser:user IsOwn:@"contacts"] animated:YES];
+    [self.navigationController pushViewController:[HP_HomeDetailNewViewController suspendCenterPageVCWithUser:user IsOwn:@"contacts" WithOwnModel:@""] animated:YES];
     
     /*
     MUser * user = [[self.userList objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];

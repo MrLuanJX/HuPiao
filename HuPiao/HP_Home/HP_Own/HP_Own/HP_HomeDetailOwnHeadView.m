@@ -83,17 +83,19 @@
         make.centerY.mas_equalTo(wSelf.nameLabel.mas_centerY);
     }];
     
+    [self.weChatBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(wSelf.likeBtn.mas_right);
+        make.top.mas_equalTo (wSelf.authImg.mas_bottom).offset(HPFit(10));
+        make.width.height.mas_equalTo (HPFit(40));
+    }];
+    
     [self.contentLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo (wSelf.authImg.mas_left);
-        make.top.mas_equalTo (wSelf.authImg.mas_bottom).offset(HPFit(10));
+        make.centerY.mas_equalTo (wSelf.weChatBtn.mas_centerY);
         make.right.mas_equalTo (-HPFit(65));
     }];
     
-    [self.weChatBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(wSelf.likeBtn.mas_right);
-        make.centerY.mas_equalTo (wSelf.contentLabel.mas_centerY);
-        make.width.height.mas_equalTo (HPFit(40));
-    }];
+  
 }
 
 - (UILabel *)nameLabel {

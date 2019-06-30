@@ -50,6 +50,9 @@
 
 @property(nonatomic , strong) UIView * navBGView;
 
+@property(nonatomic , strong) SDCycleScrollView * autoScrollView;
+
+
 @end
 
 @implementation HP_HomeDetailNewViewController
@@ -71,17 +74,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [SVProgressHUD show];
-    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [SVProgressHUD dismiss];
-    });
+//    [SVProgressHUD show];
+//    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+//
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [SVProgressHUD dismiss];
+//    });
     
     self.isCared = NO;
     
     [self setupBackBtn];
-//    [self setupRightNav];
         
     [self navBar];
 }
@@ -184,7 +186,7 @@
 }
 
 #pragma mark - Public Function
-+ (instancetype)suspendCenterPageVCWithUser:(HP_HomeModel *)user IsOwn:(NSString *)isOwn{
++ (instancetype)suspendCenterPageVCWithUser:(HP_HomeModel *)user IsOwn:(NSString *)isOwn WithOwnModel:(HP_AnchorOwnModel *) ownModel {
     
     YNPageConfigration *configration = [YNPageConfigration defaultConfig];
    
@@ -211,13 +213,13 @@
     configration.selectedItemColor = HPUIColorWithRGB(0x3D79FD, 1.0);
     configration.normalItemColor = HPUIColorWithRGB(0x3D79FD, 1.0);
     configration.lineColor = configration.selectedItemColor;
-    return [self suspendCenterPageVCWithConfig:configration WithUser:user IsOwn:isOwn];
+    return [self suspendCenterPageVCWithConfig:configration WithUser:user IsOwn:isOwn WithOwnModel:ownModel];
 }
     
-+ (instancetype)suspendCenterPageVCWithConfig:(YNPageConfigration *)config WithUser:(HP_HomeModel *)user IsOwn:(NSString *)isOwn{
++ (instancetype)suspendCenterPageVCWithConfig:(YNPageConfigration *)config WithUser:(HP_HomeModel *)user IsOwn:(NSString *)isOwn WithOwnModel:(HP_AnchorOwnModel *) ownModel {
 //    WS(wSelf);
     
-    HP_HomeDetailNewViewController *vc = [HP_HomeDetailNewViewController pageViewControllerWithControllers:[self getArrayVCsWithUser:user isOwn:isOwn] titles:[self getArrayTitles] config:config];
+    HP_HomeDetailNewViewController *vc = [HP_HomeDetailNewViewController pageViewControllerWithControllers:[self getArrayVCsWithUser:user isOwn:isOwn WithOwnModel: ownModel] titles:[self getArrayTitles] config:config];
     vc.dataSource = vc;
     vc.delegate = vc;
     
@@ -226,23 +228,29 @@
     UIView * headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, HPScreenW, HPFit(500))];
     headView.backgroundColor = [UIColor redColor];
     
-    SDCycleScrollView * autoScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, HPScreenW,HPFit(400)) delegate:vc placeholderImage:[UIImage imageNamed:@"1.jpg"]];
-    autoScrollView.bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
-    autoScrollView.autoScrollTimeInterval = 5.0;
-//    autoScrollView.localizationImageNamesGroup = vc.imgArray;
-    autoScrollView.imageURLStringsGroup = @[user.HRADER_IMG];
-    autoScrollView.clipsToBounds = YES;
-    [headView addSubview:autoScrollView];
+    __weak HP_HomeDetailNewViewController* wself = vc;
     
-    vc.ownHeadView.frame = CGRectMake(0, CGRectGetMaxY(autoScrollView.frame), HPScreenW, HPFit(100));
+    NSMutableArray * arr = @[].mutableCopy;
+    for (HP_CsoFreeImageColl * imgModel in ownModel.csoFreeImageColl) {
+        [arr addObject:imgModel.strUrl];
+    }
+    
+    vc.autoScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, HPScreenW,HPFit(400)) delegate:vc placeholderImage:[UIImage imageNamed:@"1.jpg"]];
+    vc.autoScrollView.bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
+    vc.autoScrollView.autoScrollTimeInterval = 5.0;
+//    autoScrollView.localizationImageNamesGroup = vc.imgArray;
+    vc.autoScrollView.imageURLStringsGroup = arr;
+    vc.autoScrollView.clipsToBounds = YES;
+    [headView addSubview:vc.autoScrollView];
+    
+    vc.ownHeadView.frame = CGRectMake(0, CGRectGetMaxY(vc.autoScrollView.frame), HPScreenW, HPFit(100));
     vc.ownHeadView.user = user;
     
-   __weak HP_HomeDetailNewViewController* wself = vc;
 #pragma mark - 微信
     /* 微信Action */
     vc.ownHeadView.weChatActionBlock = ^{
         NSLog(@"微信");
-        [wself alertShow:user];
+        [wself alertShow:user WithOwnModel:ownModel];
     };
     [headView addSubview: vc.ownHeadView];
     
@@ -270,10 +278,12 @@
     return vc;
 }
 
-+ (NSArray *)getArrayVCsWithUser:(HP_HomeModel *)user isOwn:(NSString *)isOwn{
-    
++ (NSArray *)getArrayVCsWithUser:(HP_HomeModel *)user isOwn:(NSString *)isOwn WithOwnModel:(HP_AnchorOwnModel *) ownModel{
+
     HP_OwnDetailViewController * ownVC = [[HP_OwnDetailViewController alloc] init];
     ownVC.user = user;
+    ownVC.ownModel = ownModel;
+    
     HP_PhotoDetailViewController * photoVC = [[HP_PhotoDetailViewController alloc] init];
     photoVC.user = user;
     HP_DyViewController * dyVC = [[HP_DyViewController alloc] init];
@@ -442,8 +452,8 @@
     return _giftBtn;
 }
 
-- (void) alertShow: (HP_HomeModel *) user {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:@"购买 %@ 联系方式需要消耗您 %@ H币",HPNULLString(user.nickname) ? user.NICKNAME : user.nickname,@"108"] preferredStyle:UIAlertControllerStyleAlert];
+- (void) alertShow: (HP_HomeModel *) user WithOwnModel:(HP_AnchorOwnModel *)ownModel {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:@"购买 %@ 联系方式需要消耗您 %@ H币",HPNULLString(user.nickname) ? user.NICKNAME : user.nickname,ownModel.iWechatPrice] preferredStyle:UIAlertControllerStyleAlert];
     [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
         NSLog(@"点击取消");

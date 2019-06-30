@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HP_CsoGiftColl.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -25,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface HP_ReceivedGiftViewController : UIViewController
+
+@property(nonatomic,copy)NSArray <HP_CsoGiftColl *>* giftColl;
 
 @end
 

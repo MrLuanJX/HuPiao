@@ -36,7 +36,7 @@
 
 @property (nonatomic , assign) CGFloat tagHeight;
 
-@property (nonatomic , strong) HP_AnchorOwnModel * ownModel;
+@property (nonatomic , strong) NSMutableArray *  signArr;
 
 @end
 
@@ -47,8 +47,8 @@
     __weak typeof (self) weakSelf = self;
     
     self.pageLogStr = @"OwnPage";
-    // 请求数据
-    [self requestOwnData];
+    
+    self.signArr = [NSMutableArray arrayWithObjects:[NSString stringWithFormat:@"城市:%@",self.ownModel.strCity],[NSString stringWithFormat:@"学历:%@",self.ownModel.strEducation],[NSString stringWithFormat:@"身高:%@",self.ownModel.strHeight],[NSString stringWithFormat:@"体重:%@",self.ownModel.strWeight],[NSString stringWithFormat:@"星座:%@",self.ownModel.strConstellation],[NSString stringWithFormat:@"三围:%@",self.ownModel.strMeasurement], nil];
     
     [self.view addSubview:self.tableView];
     
@@ -64,7 +64,6 @@
         }
         [self.tableView reloadData];
     });
-//    [self addTableViewRefresh];
     
     self.dataSource = @[].mutableCopy;
 }
@@ -94,21 +93,7 @@
     NSLog(@"--%@--%@", [self class], NSStringFromSelector(_cmd));
 }
 
-#pragma mark - 请求个人主页
-- (void) requestOwnData {
-    WS(wSelf);
-    
-    [HP_OwnHandler executeAnchorOwnRequestWithIndexNO:self.user.INDEX_NO Success:^(id  _Nonnull obj) {
 
-        wSelf.ownModel = [HP_AnchorOwnModel mj_objectWithKeyValues:obj[@"data"]];
-        
-        NSLog(@"csoGiftSendMemberColl --- %@",wSelf.ownModel.csoGiftSendMemberColl);
-        
-        [wSelf.tableView reloadData];
-    } Fail:^(id  _Nonnull obj) {
-        
-    }];
-}
 
 #pragma mark - 评价
 - (void) evaluateAction:(UIButton *)sender {
@@ -165,7 +150,7 @@
 }
     
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    NSMutableArray * arr = [NSMutableArray arrayWithObjects:@"与我亲密的",@"我的荣誉",@"主播形象",@"用户印象",@"个人资料",@"礼物柜",@"用户评价", nil];
+    NSMutableArray * arr = [NSMutableArray arrayWithObjects:@"与我亲密的",@"个性标签",@"用户印象",@"个人资料",@"礼物柜",@"用户评价", nil]; // ,@"我的荣誉"
     int R = (arc4random() % 256) ;
     int G = (arc4random() % 256) ;
     int B = (arc4random() % 256) ;
@@ -189,7 +174,7 @@
     self.evaluate.titleLabel.font = HPFontSize(15);
     self.evaluate.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     [self.evaluate addTarget:self action:@selector(evaluateAction:) forControlEvents:UIControlEventTouchUpInside];
-    self.evaluate.hidden = section == 6 ? NO : YES;
+    self.evaluate.hidden = section == 5 ? NO : YES;
 
     [view addSubview: self.evaluate];
 
@@ -205,20 +190,18 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 7;
+    return 6;
 }
     
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return section == 6 ? 10 : 1;
+    return section == 5 ? self.ownModel.csoCommentLColl.count : 1;
 }
     
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSMutableArray * arr = [NSMutableArray arrayWithObjects:@"身高:170cm",@"体重:47kg",@"兴趣:跳舞",@"城市:北京", nil]; // ,@"职业:国家公务员"
-    if (indexPath.row < self.dataSource.count) {
-        if (indexPath.section == 4) {
-           return [self cellHeightWithArray:arr];
-//            return HPFit(90);
-        } else if (indexPath.section == 6) {
+    if (indexPath.row < self.signArr.count) {
+        if (indexPath.section == 3) {
+            return [self cellHeightWithArray:self.signArr];
+        } else if (indexPath.section == 5) {
             return HPFit(60);
         } else
             return (HPScreenW - HPFit(90))/5 + HPFit(20);
@@ -229,39 +212,44 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     WS(wSelf);
     
-    if (indexPath.section == 2 || indexPath.section == 3 ) {
+    if (indexPath.section == 1 || indexPath.section == 2 ) {
         HP_ImpressionTableCell * imCell = [tableView dequeueReusableCellWithIdentifier:@"im"];
-        imCell.accessoryType = indexPath.section == 3 ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
+        imCell.accessoryType = indexPath.section == 2 ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
         imCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        NSString  *text = @"神 美如天仙 爱不释手 一个让人着迷的 爱之初体验";
-        [self.dataSource addObjectsFromArray:[text componentsSeparatedByString:@" "]];
-        imCell.dataSource = self.dataSource;
+
+        imCell.dataSource = indexPath.section == 1 ? self.ownModel.csoLableText : self.ownModel.csoLabelColl;
         
         imCell.itemClickBlock = ^{
-            if (indexPath.section == 3) {
+            if (indexPath.section == 2) {
                 [wSelf jumpUserImVCWithTitle:@"用户印象"];
             }
         };
         return imCell;
-    } else if (indexPath.section == 4) {
+    } else if (indexPath.section == 3) {
         HP_PersonalTableCell * personalCell = [tableView dequeueReusableCellWithIdentifier:@"personal"];
         personalCell.accessoryType = UITableViewCellAccessoryNone;
         personalCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        NSMutableArray * arr = [NSMutableArray arrayWithObjects:@"身高:170cm",@"体重:47kg",@"兴趣:跳舞",@"城市:北京", nil]; // @"职业:国家公务员",
-        personalCell.dataSource = arr;
+        personalCell.dataSource = self.signArr;
         return personalCell;
-    } else if (indexPath.section == 6) {
+    } else if (indexPath.section == 5) {
         HP_EvaluateTableCell * evaluateCell = [tableView dequeueReusableCellWithIdentifier:@"evaluate"];
         evaluateCell.accessoryType = UITableViewCellAccessoryNone;
         evaluateCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        evaluateCell.commentModel = self.ownModel.csoCommentLColl[indexPath.row];
         return evaluateCell;
     } else {
-        HP_CircleTableCell * cell = [tableView dequeueReusableCellWithIdentifier:@"id"];
+        HP_CircleTableCell * cell = [tableView dequeueReusableCellWithIdentifier: @"GiftSend"];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
+        cell.index = indexPath;
+        
         if (indexPath.section == 0) {
             cell.csoGiftSendMemberColl = self.ownModel.csoGiftSendMemberColl;
+        }
+        
+        if (indexPath.section == 4) {
+            cell.csoGiftColl = self.ownModel.csoGiftColl;
         }
         
         return cell;
@@ -270,7 +258,6 @@
     
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    NSLog(@"点击了第%ld区,第%ld行",(long)indexPath.section,(long)indexPath.row);
     HP_IntimateViewController * intimateVC = [HP_IntimateViewController new];
     HP_ReceivedGiftViewController * receivedGiftVC = [HP_ReceivedGiftViewController new];
     
@@ -278,11 +265,12 @@
         intimateVC.csoGiftSendMemberColl = self.ownModel.csoGiftSendMemberColl;
         [self.navigationController pushViewController:intimateVC animated:YES];
     }
-    if (indexPath.section == 3) {
+    if (indexPath.section == 2) {
         [self jumpUserImVCWithTitle:@"用户印象"];
     }
     
-    if (indexPath.section == 5) {
+    if (indexPath.section == 4) {
+        receivedGiftVC.giftColl = self.ownModel.csoGiftColl;
         [self.navigationController pushViewController:receivedGiftVC animated:YES];
     }
 }
@@ -293,7 +281,7 @@
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        [_tableView registerClass:[HP_CircleTableCell class] forCellReuseIdentifier:@"id"];
+        [_tableView registerClass:[HP_CircleTableCell class] forCellReuseIdentifier:@"GiftSend"];
         [_tableView registerClass:[HP_ImpressionTableCell class] forCellReuseIdentifier:@"im"];
         [_tableView registerClass:[HP_PersonalTableCell class] forCellReuseIdentifier:@"personal"];
         [_tableView registerClass:[HP_EvaluateTableCell class] forCellReuseIdentifier:@"evaluate"];
@@ -323,15 +311,16 @@
 
 - (void) jumpUserImVCWithTitle:(NSString *)title {
     HP_UserImpressionViewController * userImVC = [HP_UserImpressionViewController new];
+    userImVC.csoLabelColl = self.ownModel.csoLabelColl;
     userImVC.title = title;
     [self.navigationController pushViewController:userImVC animated:YES];
 }
 
-- (HP_AnchorOwnModel *)ownModel {
-    if (!_ownModel) {
-        _ownModel = [HP_AnchorOwnModel new];
+- (NSMutableArray *)signArr {
+    if (!_signArr) {
+        _signArr = @[].mutableCopy;
     }
-    return _ownModel;
+    return _signArr;
 }
 
 @end

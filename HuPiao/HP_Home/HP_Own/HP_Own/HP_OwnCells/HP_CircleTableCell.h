@@ -22,6 +22,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,copy)NSArray <HP_CsoGiftSendMemberColl *>* csoGiftSendMemberColl;
 
+@property(nonatomic,copy)NSArray <HP_CsoGiftColl *>* csoGiftColl;
+
+@property (nonatomic , strong) NSIndexPath * index;
+
 @end
 
 NS_ASSUME_NONNULL_END

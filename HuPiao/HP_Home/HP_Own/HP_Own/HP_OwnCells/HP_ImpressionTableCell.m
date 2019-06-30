@@ -65,7 +65,7 @@
 - (UICollectionViewLayoutAttributes *)preferredLayoutAttributesFittingAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes{
 
     UICollectionViewLayoutAttributes *attributes = [super preferredLayoutAttributesFittingAttributes:layoutAttributes];
-    CGRect rect = [self.title.text boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, HPFit(20)) options:NSStringDrawingTruncatesLastVisibleLine| NSStringDrawingUsesFontLeading |NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: HPFontSize(14)} context:nil];
+    CGRect rect = [self.title.text boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, HPFit(20)) options:NSStringDrawingTruncatesLastVisibleLine| NSStringDrawingUsesFontLeading |NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: HPFontSize(15)} context:nil];
     rect.size.height+= HPFit(10);
     rect.size.width += rect.size.height *1.5;
     attributes.frame = rect;
@@ -145,7 +145,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 5;
+    return self.dataSource.count > 5 ? 5 : self.dataSource.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -165,9 +165,9 @@
     }
 }
 
-- (NSMutableArray *)dataSource {
+- (NSArray *)dataSource {
     if (!_dataSource) {
-        _dataSource = @[].mutableCopy;
+        _dataSource = @[].copy;
     }
     return _dataSource;
 }

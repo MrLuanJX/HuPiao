@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HP_UserImpressionViewController : UIViewController
 
+@property (nonatomic, copy) NSArray * csoLabelColl;
+
 @end
 
 NS_ASSUME_NONNULL_END

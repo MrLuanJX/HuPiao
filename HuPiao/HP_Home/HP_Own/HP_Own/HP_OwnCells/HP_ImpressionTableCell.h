@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(instancetype)dequeueReusableCellWithTableView:(UITableView*)tableView Identifier:(NSString*)identifier;
 
-@property (nonatomic , strong) NSMutableArray * dataSource;
+@property (nonatomic , copy) NSArray * dataSource;
 
 @property (nonatomic , copy) void (^itemClickBlock) (void);
 

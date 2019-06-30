@@ -93,10 +93,6 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.dataSource = @[].mutableCopy;
-    NSString  *text = @"神 美如天仙 爱不释手 一个让人着迷的 爱之初体验 神 美如天仙 爱不释手 一个让人着迷的 爱之初体验 神 美如天仙 爱不释手 一个让人着迷的 爱之初体验 神 美如天仙 爱不释手 一个让人着迷的 爱之初体验 北京时间 6月24日 昨天下午苏宁易购官宣了 收购家乐福中国 80%的股份 随后 苏宁快消集团总裁 卞农在接受采访时 表示 苏宁此次 之所以选择收购家乐福中国 主要是因为双方 在业务上形成了互补 而收购之后也能够 极大的促进苏宁的营收能力 根据时间安排 高考放榜后 6月25日考生开始网上填报志愿 7月2日填报志愿结束 7月7日录取工作正式开始 请考生密切关注广东省教育厅官网 (edu.gd.gov.cn) 及官微(gdsjyt) 广东省教育考试院官网 (eea.gd.gov.cn) 及官微(gdsksy) 和 广东教育考试服务网 (www.eesc.com.cn) 及时跟踪高考成绩 志愿填报 高校录取等信息发布动态";
-    [self.dataSource addObjectsFromArray:[text componentsSeparatedByString:@" "]];
-    
     [self addViews];
     
     [self createConstraint];
@@ -133,14 +129,14 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.dataSource.count;
+    return self.csoLabelColl.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     HP_UserImpressionCell * collectionCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"uimCollectCell" forIndexPath:indexPath];
     
-    collectionCell.text = self.dataSource[indexPath.item];
+    collectionCell.text = self.csoLabelColl[indexPath.item];
     
     return collectionCell;
 }
@@ -164,12 +160,12 @@
    
     cell.title.attributedText = [HP_Label setUpFirstStr:@"√  " FirstColor:HPUIColorWithRGB(0xffffff, 1.0) FirstFont:HPFontSize(15) SecondStr:cell.title.text SecondColor:HPUIColorWithRGB(0xffffff, 1.0) SecondFont:HPFontSize(15)];
     
-    [self.selectedArray addObject:self.dataSource[indexPath.item]];
+    [self.selectedArray addObject:self.csoLabelColl[indexPath.item]];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
     HP_UserImpressionCell * cell = (HP_UserImpressionCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    cell.title.text = self.dataSource[indexPath.item];
+    cell.title.text = self.csoLabelColl[indexPath.item];
     
     [self.selectedArray removeObject:cell.title.text];
 }

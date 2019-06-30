@@ -7,16 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HP_CsoCommentLColl.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
-@interface HP_EvaluateCollectionCell : UICollectionViewCell
-
-@end
 
 @interface HP_EvaluateTableCell : UITableViewCell
 
 +(instancetype)dequeueReusableCellWithTableView:(UITableView*)tableView Identifier:(NSString*)identifier;
+
+@property (nonatomic , strong) HP_CsoCommentLColl * commentModel;
+
 
 @end
 

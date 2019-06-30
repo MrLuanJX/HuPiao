@@ -12,6 +12,7 @@
 #import "MUser.h"
 #import "HP_HomeHandler.h"
 #import "HP_HomeModel.h"
+#import "HP_AnchorOwnModel.h"
 
 @interface HP_HomeBaseViewController () <UITableViewDelegate , UITableViewDataSource>
 
@@ -24,6 +25,8 @@
 @property (nonatomic , copy) NSString * address;
 
 @property (nonatomic , assign) NSInteger currentPage;
+
+@property (nonatomic , strong) HP_AnchorOwnModel * ownModel;
 
 @end
 
@@ -60,7 +63,7 @@
 
     [self addRefresh];
     
-    [self.tableView.mj_header beginRefreshing];
+//    [self.tableView.mj_header beginRefreshing];
 }
 
 -(void) addRefresh {
@@ -158,13 +161,31 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     HP_HomeModel * user = [self.messageList objectAtIndex:indexPath.section];
 
-    HP_HomeDetailNewViewController * detailVC = [HP_HomeDetailNewViewController suspendCenterPageVCWithUser:user IsOwn:@"Home"];
-    detailVC.title = HPNULLString(user.nickname) ? user.NICKNAME : user.nickname;
-    detailVC.user = user;
-    detailVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:detailVC animated:YES];
+    [self requestOwnDataWithUser:user];
 }
+
+#pragma mark - 请求个人主页
+- (void) requestOwnDataWithUser:(HP_HomeModel *)homeModel {
+    WS(wSelf);
     
+    [HP_OwnHandler executeAnchorOwnRequestWithIndexNO:homeModel.INDEX_NO Success:^(id  _Nonnull obj) {
+        
+        wSelf.ownModel = [HP_AnchorOwnModel mj_objectWithKeyValues:obj[@"data"]];
+        
+        // 3.GCD
+        dispatch_async(dispatch_get_main_queue(), ^{
+            HP_HomeDetailNewViewController * detailVC = [HP_HomeDetailNewViewController suspendCenterPageVCWithUser:homeModel IsOwn:@"Home" WithOwnModel:wSelf.ownModel];
+            detailVC.title = HPNULLString(homeModel.nickname) ? homeModel.NICKNAME : homeModel.nickname;
+            detailVC.user = homeModel;
+            detailVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:detailVC animated:YES];
+        });
+        
+    } Fail:^(id  _Nonnull obj) {
+        
+    }];
+}
+
 - (NSMutableArray *)messageList {
     if (!_messageList) {
         _messageList = [[NSMutableArray alloc] init];
@@ -183,6 +204,13 @@
         _tableView.estimatedSectionFooterHeight = 0;
     }
     return _tableView;
+}
+
+- (HP_AnchorOwnModel *)ownModel {
+    if (!_ownModel) {
+        _ownModel = [HP_AnchorOwnModel new];
+    }
+    return _ownModel;
 }
 
 @end

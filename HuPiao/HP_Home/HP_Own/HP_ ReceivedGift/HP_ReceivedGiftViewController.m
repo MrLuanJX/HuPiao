@@ -8,6 +8,7 @@
 
 
 #import "HP_ReceivedGiftViewController.h"
+#import "HP_CsoGiftColl.h"
 
 @interface HP_ReceivedGiftModel ()
 
@@ -25,20 +26,20 @@
 
 @property (nonatomic , strong) UILabel * count;
 
-@property (nonatomic , strong) HP_ReceivedGiftModel * giftModel;
+@property (nonatomic , strong) HP_CsoGiftColl * giftModel;
 
 @end
 
 @implementation HP_ReceivedGiftCell
 
-- (void)setGiftModel:(HP_ReceivedGiftModel *)giftModel {
+- (void)setGiftModel:(HP_CsoGiftColl *)giftModel {
     _giftModel = giftModel;
     
-    [self.icon sd_setImageWithURL:[NSURL URLWithString:giftModel.icon] placeholderImage:[UIImage imageWithColor:[UIColor yellowColor]]];
+    [self.icon sd_setImageWithURL:[NSURL URLWithString:giftModel.strImgagUrl] placeholderImage:[UIImage imageWithColor:kSetUpCololor(195, 195, 195, 1.0)]];
     
-    self.name.text = giftModel.name;
+    self.name.text = giftModel.strName;
     
-    self.count.text = [NSString stringWithFormat:@"x%@",giftModel.count];
+    self.count.text = [NSString stringWithFormat:@"x%@",giftModel.iCount];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -79,7 +80,8 @@
 - (UIImageView *)icon {
     if (!_icon) {
         _icon = [UIImageView new];
-        _icon.backgroundColor = [UIColor yellowColor];
+//        _icon.backgroundColor = [UIColor yellowColor];
+        _icon.contentMode = UIViewContentModeScaleAspectFit;
     }
     return _icon;
 }
@@ -126,29 +128,27 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"礼物柜";
     
-    self.dataSource = [NSMutableArray arrayWithObjects:[HP_ReceivedGiftModel mj_objectWithKeyValues:@{@"icon":@"",@"name":@"黄瓜",@"count":@"132"}],[HP_ReceivedGiftModel mj_objectWithKeyValues:@{@"icon":@"",@"name":@"飞机",@"count":@"332"}],[HP_ReceivedGiftModel mj_objectWithKeyValues:@{@"icon":@"",@"name":@"游艇",@"count":@"155"}],[HP_ReceivedGiftModel mj_objectWithKeyValues:@{@"icon":@"",@"name":@"火箭",@"count":@"587"}],[HP_ReceivedGiftModel mj_objectWithKeyValues:@{@"icon":@"",@"name":@"1314",@"count":@"442"}],[HP_ReceivedGiftModel mj_objectWithKeyValues:@{@"icon":@"",@"name":@"玫瑰",@"count":@"900"}],[HP_ReceivedGiftModel mj_objectWithKeyValues:@{@"icon":@"",@"name":@"跑车",@"count":@"1001"}],[HP_ReceivedGiftModel mj_objectWithKeyValues:@{@"icon":@"",@"name":@"么么哒",@"count":@"332"}],[HP_ReceivedGiftModel mj_objectWithKeyValues:@{@"icon":@"",@"name":@"蓝色妖姬",@"count":@"764"}],[HP_ReceivedGiftModel mj_objectWithKeyValues:@{@"icon":@"",@"name":@"海洋之恋",@"count":@"465"}],[HP_ReceivedGiftModel mj_objectWithKeyValues:@{@"icon":@"",@"name":@"城堡",@"count":@"342"}],[HP_ReceivedGiftModel mj_objectWithKeyValues:@{@"icon":@"",@"name":@"香蕉",@"count":@"332"}],[HP_ReceivedGiftModel mj_objectWithKeyValues:@{@"icon":@"",@"name":@"墨镜",@"count":@"1242"}],nil];
-    
     [self addViews];
     
     [self createConstraint];
 }
 
 - (void) addViews {
-    [self.view addSubview: self.textLabel];
+//    [self.view addSubview: self.textLabel];
     [self.view addSubview: self.collectionView];
 }
 
 -(void)createConstraint {
     WS(wSelf);
     
-    [self.textLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(HPFit(15)+k_top_height);
-        make.left.mas_equalTo(HPFit(10));
-        make.right.mas_equalTo(-HPFit(10));
-    }];
+//    [self.textLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+//        make.top.mas_equalTo(HPFit(15)+k_top_height);
+//        make.left.mas_equalTo(HPFit(10));
+//        make.right.mas_equalTo(-HPFit(10));
+//    }];
     
     [self.collectionView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo (wSelf.textLabel.mas_bottom).offset (HPFit(15));
+        make.top.mas_equalTo (HPFit(15)+k_top_height);//.offset (HPFit(15));
         make.left.right.mas_equalTo (0);
         make.bottom.mas_equalTo (0);
     }];
@@ -160,26 +160,25 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.dataSource.count;
+    return self.giftColl.count > 0 ? self.giftColl.count : 0;
 }
 
 #pragma mark - item宽高
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake((HPScreenW - HPFit(60))/5, (HPScreenW - HPFit(60))/5 + HPFit(60));
+    return CGSizeMake((HPScreenW - HPFit(50))/4, (HPScreenW - HPFit(50))/4 + HPFit(60));
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     HP_ReceivedGiftCell * collectionCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"receivedGiftCell" forIndexPath:indexPath];
     
-    collectionCell.giftModel = self.dataSource[indexPath.item];
+    collectionCell.giftModel = self.giftColl[indexPath.item];
     
     return collectionCell;
 }
 
 /* 点击item */
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
     
 }
 

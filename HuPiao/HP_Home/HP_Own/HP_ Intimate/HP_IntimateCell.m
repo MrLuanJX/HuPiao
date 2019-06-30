@@ -29,9 +29,9 @@
     
     self.name.text = [NSString stringWithFormat:@"%@",csoGiftModel.strNickName];
     
-    [self.icon sd_setImageWithURL:[NSURL URLWithString:csoGiftModel.strHardimg] placeholderImage:[UIImage imageNamed:@""]];
+    [self.icon sd_setImageWithURL:[NSURL URLWithString:csoGiftModel.strHardimg] placeholderImage:[UIImage imageWithColor:kSetUpCololor(195, 195, 195, 1.0)]];
     
-    [self.hot setTitle:csoGiftModel.strBranch forState:UIControlStateNormal];
+    [self.hot setTitle:[NSString stringWithFormat:@"+%@",csoGiftModel.strBranch] forState:UIControlStateNormal];
 }
 
 - (void)setIndex:(NSIndexPath *)index {
@@ -138,10 +138,10 @@
 - (UIImageView *)icon {
     if (!_icon) {
         _icon = [UIImageView new];
-        int R = (arc4random() % 256) ;
-        int G = (arc4random() % 256) ;
-        int B = (arc4random() % 256) ;
-        _icon.backgroundColor = kSetUpCololor(R, G, B, 1.0);
+//        int R = (arc4random() % 256) ;
+//        int G = (arc4random() % 256) ;
+//        int B = (arc4random() % 256) ;
+//        _icon.backgroundColor = kSetUpCololor(R, G, B, 1.0);
     }
     return _icon;
 }
@@ -159,12 +159,9 @@
 - (UIButton *)hot {
     if (!_hot) {
         _hot = [UIButton new];
-        int x = arc4random() % 10000;
-        [_hot setTitle:[NSString stringWithFormat:@"%d",x] forState:UIControlStateNormal];
-        [_hot setImage:[UIImage imageNamed:@"huoshan_tabbar_press_32x32_"] forState:UIControlStateNormal];
-        [_hot setTitleColor:HPUIColorWithRGB(0x666666, 1.0) forState:UIControlStateNormal];
-        _hot.titleLabel.font = HPFontSize(13);
-        _hot.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        [_hot setTitleColor:HPUIColorWithRGB(0x32CD32, 1.0) forState:UIControlStateNormal];
+        _hot.titleLabel.font = HPFontBoldSize(16);
+        _hot.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     }
     return _hot;
 }

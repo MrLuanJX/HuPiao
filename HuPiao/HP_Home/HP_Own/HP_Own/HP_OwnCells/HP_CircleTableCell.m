@@ -14,14 +14,22 @@
 
 @property (nonatomic , strong) HP_CsoGiftSendMemberColl * csoGiftSendMemberColl;
 
+@property (nonatomic , strong) HP_CsoGiftColl * giftColl;
+
 @end
 
 @implementation HP_CircleCollectionCell
 
+- (void)setGiftColl:(HP_CsoGiftColl *)giftColl {
+    _giftColl = giftColl;
+    
+    [self.img sd_setImageWithURL:[NSURL URLWithString:giftColl.strImgagUrl] placeholderImage:[UIImage imageWithColor:kSetUpCololor(195, 195, 195, 1.0)]];
+}
+
 - (void)setCsoGiftSendMemberColl:(HP_CsoGiftSendMemberColl *)csoGiftSendMemberColl {
     _csoGiftSendMemberColl = csoGiftSendMemberColl;
     
-    [self.img sd_setImageWithURL:[NSURL URLWithString:csoGiftSendMemberColl.strHardimg] placeholderImage:[UIImage imageNamed:@""]];
+    [self.img sd_setImageWithURL:[NSURL URLWithString:csoGiftSendMemberColl.strHardimg] placeholderImage:[UIImage imageWithColor:kSetUpCololor(195, 195, 195, 1.0)]];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -49,10 +57,7 @@
 - (UIImageView *)img {
     if (!_img) {
         _img = [UIImageView new];
-        int R = (arc4random() % 256) ;
-        int G = (arc4random() % 256) ;
-        int B = (arc4random() % 256) ;
-        _img.backgroundColor = kSetUpCololor(R, G, B, 1.0);
+        _img.contentMode = UIViewContentModeScaleAspectFit;
     }
     return _img;
 }
@@ -63,13 +68,19 @@
 
 @property (nonatomic , strong) UICollectionView * collectionView;
 
+@property (nonatomic , copy) NSString * cellId;
+
 @end
 
 @implementation HP_CircleTableCell
 
+- (void)setIndex:(NSIndexPath *)index {
+    _index = index;
+}
+
 // 创建cell
 + (instancetype)dequeueReusableCellWithTableView:(UITableView*)tableView Identifier:(NSString*)identifier{
-    
+   
     HP_CircleTableCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
         cell = [[HP_CircleTableCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] ;
@@ -81,7 +92,7 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        
+                
         [self configUI];
         
         [self createConstrainte];
@@ -111,8 +122,11 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSLog(@"count = ---%lu",(unsigned long)self.csoGiftSendMemberColl.count);
-    return self.csoGiftSendMemberColl.count > 5 ? 5 : self.csoGiftSendMemberColl.count;
+    if (self.index.section == 0) {
+        return self.csoGiftSendMemberColl.count > 5 ? 5 : self.csoGiftSendMemberColl.count;
+    } else {
+        return self.csoGiftColl.count > 5 ? 5 : self.csoGiftColl.count;
+    }
 }
 
 #pragma mark - item宽高
@@ -125,8 +139,11 @@
     HP_CircleCollectionCell * collectionCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"circleCollectCell" forIndexPath:indexPath];
     
     if (self.csoGiftSendMemberColl.count > 0) {
-        
         collectionCell.csoGiftSendMemberColl = self.csoGiftSendMemberColl[indexPath.row];
+    }
+    
+    if (self.csoGiftColl.count > 0) {
+        collectionCell.giftColl = self.csoGiftColl[indexPath.item];
     }
     
     return collectionCell;
@@ -159,11 +176,17 @@
     return _collectionView;
 }
 
+- (void)setCsoGiftColl:(NSArray<HP_CsoGiftColl *> *)csoGiftColl {
+    _csoGiftColl = csoGiftColl;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.collectionView reloadData];
+    });
+}
+
 - (void)setCsoGiftSendMemberColl:(NSArray<HP_CsoGiftSendMemberColl *> *)csoGiftSendMemberColl {
     _csoGiftSendMemberColl = csoGiftSendMemberColl;
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        
         [self.collectionView reloadData];
     });
 }

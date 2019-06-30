@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString * strNotLikeCount;
 
 @property (nonatomic, copy) NSArray * csoLabelColl;
-@property (nonatomic, copy) NSString * csoLableText;
+@property (nonatomic, copy) NSArray * csoLableText;
 
 @property(nonatomic,copy)NSArray <HP_CsoGiftSendMemberColl *>* csoGiftSendMemberColl;
 @property(nonatomic,copy)NSArray <HP_CsoCommentLColl *>* csoCommentLColl;

@@ -21,6 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic , strong) HP_HomeModel * user;
 
+@property (nonatomic , copy) void (^reloadBlock) (NSArray <HP_CsoFreeImageColl *>* csoFreeImageColl);
+
+@property (nonatomic , strong) HP_AnchorOwnModel * ownModel;
 
 @end
 
