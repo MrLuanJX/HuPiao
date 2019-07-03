@@ -72,15 +72,15 @@
     
 //    [self.contentView mas_remakeConstraints:^(MASConstraintMaker *make) {
 //        make.top.left.right.mas_equalTo(0);
-//        make.bottom.mas_equalTo(-10);
+//        make.bottom.mas_equalTo(0);
 //    }];
     
     [self.iconImg mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.mas_equalTo(0);
         make.height.mas_equalTo(wid);
-        make.bottom.mas_equalTo (weakSelf.contentView.mas_bottom);
+        make.bottom.mas_equalTo (weakSelf.contentView.bottom).offset(0);
     }];
-    
+   
     [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(HPFit(10));
         make.bottom.mas_equalTo(-HPFit(40));
@@ -108,7 +108,7 @@
         make.width.mas_equalTo(80);
         make.centerY.mas_equalTo(weakSelf.addressLabel.mas_centerY);
     }];
-     
+    
 }
 
 - (UIImageView *)iconImg {
@@ -157,8 +157,6 @@
         [_likeBtn setTitle:[NSString stringWithFormat:@"%u",(arc4random() % 2560)] forState:UIControlStateNormal];
         [_likeBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_likeBtn setImage:[UIImage imageNamed:@"huoshan_tabbar_press_32x32_"] forState:UIControlStateNormal];
-//        [_likeBtn addTarget:self action:@selector(likeAction:) forControlEvents:UIControlEventTouchUpInside];
-//        _likeBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
     }
     return _likeBtn;
 }

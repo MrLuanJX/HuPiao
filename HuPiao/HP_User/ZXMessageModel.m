@@ -28,13 +28,10 @@ static UILabel *label = nil;
 }
 
 #pragma mark - Setter
--(void) setText:(NSString *)text
-{
+-(void) setText:(NSString *)text {
     _text = text;
     if (text.length > 0) {
-        
         _attrText = [ZXChatHelper formatMessageString:text];
-        
     }
 }
 

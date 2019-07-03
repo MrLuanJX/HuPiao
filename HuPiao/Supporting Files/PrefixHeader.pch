@@ -51,6 +51,9 @@
 #import "JANALYTICSService.h"
 #import "JPUSHService.h"
 #import <JMessage/JMessage.h>
+#import <StoreKit/StoreKit.h>
+#import "NSString+KJTime.h"
+
 
 #import "HP_TabbarViewController.h"
 #import "HP_NavigationViewController.h"

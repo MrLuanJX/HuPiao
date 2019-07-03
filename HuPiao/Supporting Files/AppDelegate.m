@@ -23,6 +23,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [JPUSHService setDebugMode]; //在 application 里面调用，设置开启 JPush 日志
+    [JMessage setDebugMode]; //在
     // 定位
     [self getlocation];
     // 注册极光
@@ -96,6 +99,15 @@
     [JPUSHService registrationIDCompletionHandler:^(int resCode, NSString *registrationID) {
         NSLog(@"registrationID ----- %@",registrationID);
     }];
+    // 推送别名
+    [JPUSHService setAlias:[HP_UserTool sharedUserHelper].strDisplayName completion:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
+        
+        NSLog(@"%@",iAlias);
+        
+        if (iResCode == 0) {
+            NSLog(@"添加别名成功");
+        }
+    } seq:1];
     // 分享
     JSHARELaunchConfig *shareConfig = [[JSHARELaunchConfig alloc] init];
     shareConfig.appKey = JGAppKey;
@@ -258,6 +270,5 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
         NSLog(@"first");
     }];
 }
-
 
 @end

@@ -11,8 +11,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HP_OwnHandler : HP_BaseHandler
-
+// 个人主页
 +(void)executeAnchorOwnRequestWithIndexNO:(NSString *)indexNO Success:(Success)success Fail:(Failed)fail;
+
+// 关注/取消关注
++(void)executeFollowRequestWithIndexNO:(NSString *)indexNO Type:(NSInteger)type Success:(Success)success Fail:(Failed)fail;
 
 
 @end

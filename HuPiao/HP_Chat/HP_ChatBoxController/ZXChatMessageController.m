@@ -50,6 +50,11 @@
     
 }
 
+- (void) reload {
+    
+    [self.tableView reloadData];
+}
+
 -(void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -85,12 +90,11 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    
     ZXMessageModel  * messageModel = _data[indexPath.section];
     /**
      *  id类型的cell 通过取出来Model的类型，判断要显示哪一种类型的cell
      */
+    
     id cell = [tableView dequeueReusableCellWithIdentifier:messageModel.cellIndentify forIndexPath:indexPath];
     // 给cell赋值
     [cell setMessageModel:messageModel];
@@ -123,22 +127,13 @@
     time.textColor = [UIColor lightGrayColor];
     time.font = [UIFont systemFontOfSize:13];
     time.textAlignment = NSTextAlignmentCenter;
-    time.text = [self time_dateToString:messageModel.date];
+    time.text = [NSString time_dateToString:messageModel.date];
     [view addSubview: time];
     
     return view;
 }
 
-- (NSString *)time_dateToString:(NSDate *)date{
-    
-    NSDateFormatter *dateFormat=[[NSDateFormatter alloc]init];
-    
-    [dateFormat setDateFormat:@"HH:mm"];
-    
-    NSString* string=[dateFormat stringFromDate:date];
-    
-    return string;
-}
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return section%2 != 0 ? 0 : 40;
@@ -149,7 +144,6 @@
     if (_delegate && [_delegate respondsToSelector:@selector(didTapChatMessageView:)]) {
        
         [_delegate didTapChatMessageView:self];
-        
     }
 }
 

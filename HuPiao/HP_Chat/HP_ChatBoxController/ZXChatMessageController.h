@@ -34,5 +34,5 @@
  */
 - (void) scrollToBottom;
 
-
+- (void) reload;
 @end

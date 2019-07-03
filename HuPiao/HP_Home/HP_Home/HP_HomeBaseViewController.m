@@ -28,6 +28,8 @@
 
 @property (nonatomic , strong) HP_AnchorOwnModel * ownModel;
 
+@property (nonatomic , strong) NSMutableDictionary * cellHightDict;
+
 @end
 
 @implementation HP_HomeBaseViewController
@@ -49,6 +51,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"strUserId --- %@",[HP_UserTool sharedUserHelper].strUserId);
+    
     self.pageLogStr = @"HomePage";
     
     self.currentPage = 1;
@@ -57,11 +61,15 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self requestData];
+//    [self requestData];
     
     [self addTableView];
 
     [self addRefresh];
+    // 注册极光用户
+//    [self registJGIMUser];
+    // 登录极光用户
+    [self loginJGIMUser];
     
 //    [self.tableView.mj_header beginRefreshing];
 }
@@ -146,11 +154,10 @@
     return  [UIView new];
 }
 
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    static NSString * identifier = @"homeCell";
-    
-    HP_HomeCell * homeCell = [HP_HomeCell dequeueReusableCellWithTableView:tableView Identifier:identifier];
+    static NSString * cellId = @"homeCell";
+    HP_HomeCell * homeCell = [HP_HomeCell dequeueReusableCellWithTableView:tableView Identifier:cellId];
     if (self.messageList.count > 0) {
         homeCell.homeModel = self.messageList[indexPath.section];
     }
@@ -169,18 +176,16 @@
     WS(wSelf);
     
     [HP_OwnHandler executeAnchorOwnRequestWithIndexNO:homeModel.INDEX_NO Success:^(id  _Nonnull obj) {
-        
         wSelf.ownModel = [HP_AnchorOwnModel mj_objectWithKeyValues:obj[@"data"]];
-        
         // 3.GCD
         dispatch_async(dispatch_get_main_queue(), ^{
             HP_HomeDetailNewViewController * detailVC = [HP_HomeDetailNewViewController suspendCenterPageVCWithUser:homeModel IsOwn:@"Home" WithOwnModel:wSelf.ownModel];
             detailVC.title = HPNULLString(homeModel.nickname) ? homeModel.NICKNAME : homeModel.nickname;
             detailVC.user = homeModel;
+            detailVC.ownModel = wSelf.ownModel;
             detailVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:detailVC animated:YES];
         });
-        
     } Fail:^(id  _Nonnull obj) {
         
     }];
@@ -200,8 +205,14 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.estimatedRowHeight = 50;
+        _tableView.rowHeight = UITableViewAutomaticDimension;
         _tableView.estimatedSectionHeaderHeight = 0;
         _tableView.estimatedSectionFooterHeight = 0;
+        if (@available(iOS 11.0, *)) {
+            _tableView.contentInsetAdjustmentBehavior =UIScrollViewContentInsetAdjustmentNever;
+            _tableView.contentInset =UIEdgeInsetsMake(kStatusBarHeight,0,k_bar_height,0);//64和49自己看效果，是否应该改成0
+            _tableView.scrollIndicatorInsets =_tableView.contentInset;
+        }
     }
     return _tableView;
 }
@@ -211,6 +222,29 @@
         _ownModel = [HP_AnchorOwnModel new];
     }
     return _ownModel;
+}
+
+// 极光用户注册
+- (void) registJGIMUser { // [HP_UserTool sharedUserHelper].strUserId @"11111"
+    [JMSGUser registerWithUsername:[HP_UserTool sharedUserHelper].strUserId password:[HP_UserTool sharedUserHelper].strUserId completionHandler:^(id resultObject, NSError *error) {
+        NSLog(@"resultObject --- %@===%@",resultObject,error);
+        if (!HPNULLString(resultObject)) {
+            [self loginJGIMUser];
+        }
+    }];
+}
+
+- (void) loginJGIMUser {
+    [JMSGUser loginWithUsername:[HP_UserTool sharedUserHelper].strUserId password:[HP_UserTool sharedUserHelper].strUserId completionHandler:^(id resultObject, NSError *error) {
+        NSLog(@"login --- %@-----%@", resultObject, error);
+        // 查看自己IM的个人信息
+        JMSGUser * jgUser = [JMSGUser myInfo];
+        NSLog(@"jgUser ------ %@",jgUser);
+        if (error != nil) {
+            [self loginJGIMUser];
+        }
+        NSLog(@"loginError = %@",error);
+    }];
 }
 
 @end

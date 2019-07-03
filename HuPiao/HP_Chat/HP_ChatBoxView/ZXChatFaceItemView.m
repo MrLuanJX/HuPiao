@@ -76,7 +76,6 @@
     
     [_delButton setHidden:fromIndex >= group.facesArray.count];
     [_delButton setFrame:CGRectMake(x, y, w, h)];
-
 }
 
 -(void) addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents

@@ -183,6 +183,7 @@
 		00FEAE9E22C4AD2700FCDC93 /* ZXTextMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FEAE9B22C4AD2700FCDC93 /* ZXTextMessageCell.m */; };
 		6FA88AE52053FD530287571A /* libPods-HuPiao.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1F0D25849DB2562E24DED4 /* libPods-HuPiao.a */; };
 		DD197C1122C4FCBC000E53E1 /* normal_face.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD197C1022C4FCBC000E53E1 /* normal_face.plist */; };
+		DD1F2F3422CC73FF0063236E /* NSString+KJTime.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1F2F3322CC73FF0063236E /* NSString+KJTime.m */; };
 		DDE6995322C5005A0071A92F /* [彩带]@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDE6983822C500590071A92F /* [彩带]@2x.png */; };
 		DDE6995422C5005A0071A92F /* [挥手]@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDE6983A22C500590071A92F /* [挥手]@2x.png */; };
 		DDE6995522C5005A0071A92F /* [鄙视]@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDE6983C22C500590071A92F /* [鄙视]@2x.png */; };
@@ -334,6 +335,7 @@
 		DDE699F922C77A640071A92F /* HP_CsoFreeImageColl.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE699F822C77A640071A92F /* HP_CsoFreeImageColl.m */; };
 		DDE699FC22C77B2B0071A92F /* HP_CsoImageColl.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE699FB22C77B2B0071A92F /* HP_CsoImageColl.m */; };
 		DDE69A0222C77BE30071A92F /* HP_CsoGiftColl.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE69A0122C77BE30071A92F /* HP_CsoGiftColl.m */; };
+		DDFCD84122CB240400BE46CA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDFCD84022CB240400BE46CA /* StoreKit.framework */; };
 		DDFE70DE2290F4270029C425 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFE70DD2290F4270029C425 /* AppDelegate.m */; };
 		DDFE70E12290F4270029C425 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFE70E02290F4270029C425 /* ViewController.m */; };
 		DDFE70E42290F4270029C425 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDFE70E22290F4270029C425 /* Main.storyboard */; };
@@ -704,6 +706,8 @@
 		7A1F0D25849DB2562E24DED4 /* libPods-HuPiao.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HuPiao.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDBCA537C9F607AC2A70D980 /* Pods-HuPiao.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuPiao.release.xcconfig"; path = "Target Support Files/Pods-HuPiao/Pods-HuPiao.release.xcconfig"; sourceTree = "<group>"; };
 		DD197C1022C4FCBC000E53E1 /* normal_face.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = normal_face.plist; sourceTree = "<group>"; };
+		DD1F2F3222CC73FF0063236E /* NSString+KJTime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+KJTime.h"; sourceTree = "<group>"; };
+		DD1F2F3322CC73FF0063236E /* NSString+KJTime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+KJTime.m"; sourceTree = "<group>"; };
 		DDE6983822C500590071A92F /* [彩带]@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "[彩带]@2x.png"; sourceTree = "<group>"; };
 		DDE6983A22C500590071A92F /* [挥手]@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "[挥手]@2x.png"; sourceTree = "<group>"; };
 		DDE6983C22C500590071A92F /* [鄙视]@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "[鄙视]@2x.png"; sourceTree = "<group>"; };
@@ -865,6 +869,7 @@
 		DDE699FB22C77B2B0071A92F /* HP_CsoImageColl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_CsoImageColl.m; sourceTree = "<group>"; };
 		DDE69A0022C77BE30071A92F /* HP_CsoGiftColl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HP_CsoGiftColl.h; sourceTree = "<group>"; };
 		DDE69A0122C77BE30071A92F /* HP_CsoGiftColl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HP_CsoGiftColl.m; sourceTree = "<group>"; };
+		DDFCD84022CB240400BE46CA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		DDFE70D92290F4270029C425 /* HuPiao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HuPiao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDFE70DC2290F4270029C425 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DDFE70DD2290F4270029C425 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -916,6 +921,7 @@
 				00EEA34322BA0ADE0038A521 /* libmp3lame.a in Frameworks */,
 				6FA88AE52053FD530287571A /* libPods-HuPiao.a in Frameworks */,
 				00D2F08922A9020E008D52D9 /* libexidcardios.a in Frameworks */,
+				DDFCD84122CB240400BE46CA /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1120,6 +1126,8 @@
 				008208F022A4FBBD00EBEF4C /* NSString+Letter.m */,
 				008208F322A4FBD900EBEF4C /* JPinYinUtil.h */,
 				008208F422A4FBD900EBEF4C /* JPinYinUtil.m */,
+				DD1F2F3222CC73FF0063236E /* NSString+KJTime.h */,
+				DD1F2F3322CC73FF0063236E /* NSString+KJTime.m */,
 			);
 			path = HP_Tool;
 			sourceTree = "<group>";
@@ -1727,6 +1735,7 @@
 		20BAD2B593F7BD9618E9A655 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DDFCD84022CB240400BE46CA /* StoreKit.framework */,
 				7A1F0D25849DB2562E24DED4 /* libPods-HuPiao.a */,
 			);
 			name = Frameworks;
@@ -3287,6 +3296,9 @@
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -3684,6 +3696,7 @@
 				008208C222A4C2AA00EBEF4C /* HP_DyModel.m in Sources */,
 				00EEA35022BA0ADE0038A521 /* XBZAudioRecorder.m in Sources */,
 				00EEA2FE22B8A8400038A521 /* LLWPlusPopView.m in Sources */,
+				DD1F2F3422CC73FF0063236E /* NSString+KJTime.m in Sources */,
 				008208DC22A4F83C00EBEF4C /* MUser.m in Sources */,
 				00D2F0A422ADFD80008D52D9 /* CLocationManager.m in Sources */,
 				00D2EFDB22A75FE8008D52D9 /* INMLoadingView.m in Sources */,

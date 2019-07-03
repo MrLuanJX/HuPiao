@@ -151,6 +151,12 @@
         
     } Fail:^(id  _Nonnull obj) {
         [SVProgressHUD dismiss];
+        if ([obj[@"errorCode"] integerValue] != 0) {
+            [WHToast showErrorWithMessage:obj[@"errorMessage"] duration:1.0 finishHandler:^{
+                self.loginBtn.userInteractionEnabled = YES;
+                sender.backgroundColor = HPUIColorWithRGB(0x96CDCD, 1.0);
+            }];
+        }
     }];
     
 }

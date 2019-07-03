@@ -36,8 +36,7 @@
 }
 
 #pragma mark - Getter and Setter
--(void)setMessageModel:(ZXMessageModel *)messageModel
-{
+-(void)setMessageModel:(ZXMessageModel *)messageModel {
     [super setMessageModel:messageModel];
     [_messageTextLabel setAttributedText:messageModel.attrText];
     _messageTextLabel.size = messageModel.messageSize;

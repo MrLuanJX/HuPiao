@@ -12,7 +12,7 @@
 #import "ZXMessageModel.h"
 #import "HP_UserTool.h"
 
-@interface HP_ChatViewController () <ZXChatMessageControllerDelegate,ZXChatBoxViewControllerDelegate>
+@interface HP_ChatViewController () <JMessageDelegate,ZXChatMessageControllerDelegate,ZXChatBoxViewControllerDelegate>
 
 @property(nonatomic,strong)ZXChatMessageController * chatMessageVC;
 @property(nonatomic,strong)ZXChatBoxController * chatBoxVC;
@@ -30,6 +30,8 @@
      UIApplication 一个APP只有一个，你在这里可以设置应用级别的设置，就像上面的实例一样，详细见http://www.cnblogs.com/wendingding/p/3766347.html
      */
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    
+    [self getMessages:@"11111"]; // [HP_UserTool sharedUserHelper].strUserId
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -44,6 +46,9 @@
     
     self.navigationItem.title = self.navTitle;
 
+    // nil表示所有会话的回调都接收
+    [JMessage addDelegate:self withConversation:nil];
+    
     [self setupBase];
 }
 
@@ -54,7 +59,6 @@
 - (void) didTapChatMessageView:(ZXChatMessageController *)chatMessageViewController {
     
     [self.chatBoxVC resignFirstResponder];
-    
 }
 
 /**
@@ -62,6 +66,9 @@
  */
 #pragma mark - TLChatBoxViewControllerDelegate
 - (void)chatBoxViewController:(ZXChatBoxController *)chatboxViewController sendMessage:(ZXMessageModel *)message {
+    
+    [self sendJGSingleMessage:message.text];
+    
     // TLMessage 发送的消息数据模型
     message.from = self.user;//[HP_UserTool sharedUserHelper].user;
     /**
@@ -103,9 +110,9 @@
 
 // 进set 方法设置导航名字
 #pragma mark - Getter and Setter
--(void)setUser:(MUser *)user {
+-(void)setUser:(HP_HomeModel *)user {
     _user = user;
-    [self.navigationItem setTitle:user.username];
+    [self.navigationItem setTitle:HPNULLString(user.nickname) ? user.NICKNAME : user.nickname];
 }
 
 /**
@@ -119,7 +126,6 @@
     }
     
     return _chatMessageVC;
-    
 }
 
 
@@ -165,6 +171,107 @@
     
     [self.view  addSubview:self.chatBoxVC.view];
     [self addChildViewController:self.chatBoxVC];
+}
+// 极光IM发送消息回调
+- (void)onSendMessageResponse:(JMSGMessage *)message
+                        error:(NSError *)error {
+    NSLog(@"message = %@-----error = %@", message, error);
+}
+
+// 极光IM接收消息
+- (void)onReceiveMessage:(JMSGMessage *)message
+                   error:(NSError *)error {
+    NSLog(@"onReceivemessage = %@-----error = %@", message, error);
+    
+    JMSGTextContent *textContent = (JMSGTextContent *)message.content;
+    NSString *msgText = textContent.text;
+    NSLog(@"content = %@----",msgText);
+    
+    ZXMessageModel *recMessage = [[ZXMessageModel alloc] init];
+    recMessage.messageType = ZXMessageTypeText;
+    recMessage.ownerTyper = ZXMessageOwnerTypeOther;
+    recMessage.date = [NSDate date];// 当前时间
+    recMessage.text = msgText;
+    recMessage.imagePath = recMessage.imagePath;
+    recMessage.from = self.user; // 对方的UserModel
+    [self.chatMessageVC addNewMessage:recMessage];
+    /**
+     *  滚动插入的消息，使他始终处于一个可以看得见的位置
+     */
+    [self.chatMessageVC scrollToBottom];
+    
+    if (error != nil) {
+        return;
+    }
+}
+
+- (void)onSyncOfflineMessageConversation:(JMSGConversation *)conversation
+                         offlineMessages:(NSArray JMSG_GENERIC(__kindof JMSGMessage *)*)offlineMessages {
+    NSLog(@"conversation --- %@----offlineMessages --- %@",conversation , offlineMessages);
+
+    
+}
+
+- (void)onSyncRoamingMessageConversation:(JMSGConversation *)conversation {
+    NSLog(@"conversation --- %@",conversation);
+    
+}
+
+// 极光IM发送消息
+- (void) sendJGSingleMessage:(NSString *)message {
+    [JMSGMessage sendSingleTextMessage:message toUser:@"11111"]; //
+}
+
+// 极光发送消息
+/*
+- (void) sendMessageJGWithMessage:(NSString *)jgMessage {
+    // 对方的Id
+    NSString *targetId = @"11111";//[HP_UserTool sharedUserHelper].strUserId;//
+    JMSGTextContent *textContent = [[JMSGTextContent alloc] initWithText:jgMessage];
+    JMSGMessage *message = [JMSGMessage createSingleMessageWithContent:textContent username:targetId];
+    [JMSGMessage sendMessage:message];
+}
+*/
+- (void) getMessages:(NSString *)userName {
+    
+    JMSGConversation * conversation = [JMSGConversation singleConversationWithUsername:userName];
+
+    NSArray * array = [conversation messageArrayFromNewestWithOffset:nil limit:nil];
+    
+    NSLog(@"array === %@",array);
+    
+    // 数组倒序
+    NSArray *strRevArray = [[array reverseObjectEnumerator] allObjects];
+
+    for (JMSGMessage *message in strRevArray) {
+        JMSGTextContent *textContent = (JMSGTextContent *)message.content;
+        NSString *msgText = textContent.text;
+        ZXMessageModel *recMessage = [[ZXMessageModel alloc] init];
+        recMessage.messageType = ZXMessageTypeText;
+        recMessage.text = msgText;
+        recMessage.imagePath = recMessage.imagePath;
+        recMessage.from = self.user;
+        
+        if ([message.fromUser.username isEqualToString:[HP_UserTool sharedUserHelper].strUserId]) {
+            recMessage.ownerTyper = ZXMessageOwnerTypeSelf;
+        } else {
+            recMessage.ownerTyper = ZXMessageOwnerTypeOther;
+        }
+        
+        NSDate *date=[NSDate dateWithTimeIntervalSince1970:[message.timestamp doubleValue]/1000];
+        recMessage.date = date;
+        
+        [self.chatMessageVC addNewMessage:recMessage];
+    }
+    /**
+     *  滚动插入的消息，使他始终处于一个可以看得见的位置
+     */
+    [self.chatMessageVC scrollToBottom];
+
+}
+
+- (void)allMessages:(JMSGCompletionHandler)handler {
+    NSLog(@"handler ----- %@",handler);
 }
 
 @end

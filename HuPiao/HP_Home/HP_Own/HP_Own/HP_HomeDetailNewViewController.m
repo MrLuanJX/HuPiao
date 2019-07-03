@@ -86,6 +86,8 @@
     [self setupBackBtn];
         
     [self navBar];
+    
+    [self canMakePayments];
 }
 
 - (void) setupRightNav {
@@ -114,28 +116,31 @@
 - (void) talkAction {
     NSLog(@"聊天");
     HP_ChatViewController * chatVC = [HP_ChatViewController new];
-//    chatVC.navTitle = self.user.name;
-//    chatVC.user = self.user;
+    chatVC.navTitle = HPNULLString(self.user.nickname) ? self.user.NICKNAME : self.user.nickname;
+    chatVC.user = self.user;
     [self.navigationController pushViewController:chatVC animated:YES];
 }
 
 #pragma mark - 关注
 - (void) careAction : (UIButton *)sender {
     sender.selected = !sender.selected;
-    if (sender.selected) {
-        NSLog(@"Button关注");
-        sender.backgroundColor = HPUIColorWithRGB(0x000000, 0.3);
-        [sender setTitle:@"已关注" forState:UIControlStateNormal];
-        
+    [self.careBtn setTitle:self.ownModel.bIsFollow == 0 ? @"已关注" : @"关注" forState:UIControlStateNormal];
+    self.careBtn.backgroundColor = self.ownModel.bIsFollow == 0 ? HPUIColorWithRGB(0x000000, 0.5) : kSetUpCololor(61, 121, 253, 0.8);
+    if (self.ownModel.bIsFollow == 0) {
+        [self requestFollowWithType:0];
+        self.ownModel.bIsFollow = 1;
     } else {
-        NSLog(@"Button取消关注");
-        sender.backgroundColor = kSetUpCololor(61, 121, 253, 0.8);
-        [sender setTitle:@"关 注" forState:UIControlStateNormal];
+        [self requestFollowWithType:1];
+        self.ownModel.bIsFollow = 0;
     }
 }
 
 #pragma mark - 创建视图
 - (void) setupBackBtn {
+    
+    [self.careBtn setTitle:self.ownModel.bIsFollow == 0 ? @"关注" : @"已关注" forState:UIControlStateNormal];
+    self.careBtn.backgroundColor = self.ownModel.bIsFollow == 0 ? kSetUpCololor(61, 121, 253, 0.8) : HPUIColorWithRGB(0x000000, 0.5);
+    
     [self.view addSubview: self.careBtn];
     [self.view addSubview: self.createDyBtn];
     [self.view addSubview: self.backBtn];
@@ -231,10 +236,11 @@
     __weak HP_HomeDetailNewViewController* wself = vc;
     
     NSMutableArray * arr = @[].mutableCopy;
+   
     for (HP_CsoFreeImageColl * imgModel in ownModel.csoFreeImageColl) {
         [arr addObject:imgModel.strUrl];
     }
-    
+   
     vc.autoScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, HPScreenW,HPFit(400)) delegate:vc placeholderImage:[UIImage imageNamed:@"1.jpg"]];
     vc.autoScrollView.bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
     vc.autoScrollView.autoScrollTimeInterval = 5.0;
@@ -405,8 +411,6 @@
 - (UIButton *) careBtn {
     if (!_careBtn) {
         _careBtn = [UIButton new];
-        _careBtn.backgroundColor = kSetUpCololor(61, 121, 253, 0.8);
-        [_careBtn setTitle:@"关 注" forState:UIControlStateNormal];
         [_careBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         _careBtn.titleLabel.font = HPFontSize(15);
         [_careBtn addTarget:self action:@selector(careAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -514,5 +518,21 @@
     
     [self.view addSubview:self.navBGView];
 }
+
+#pragma mark - 请求关注/取消关注
+- (void) requestFollowWithType:(NSInteger)type {
+    [HP_OwnHandler executeFollowRequestWithIndexNO:self.user.INDEX_NO Type:type Success:^(id  _Nonnull obj) {} Fail:^(id  _Nonnull obj) {}];
+}
+// iOS 内购权限
+- (void) canMakePayments {
+    if ([SKPaymentQueue canMakePayments]) {
+        //允许应用内付费购买
+        NSLog(@"允许");
+    }else {
+        //用户禁止应用内付费购买.
+        NSLog(@"禁止");
+    }
+}
+
 
 @end

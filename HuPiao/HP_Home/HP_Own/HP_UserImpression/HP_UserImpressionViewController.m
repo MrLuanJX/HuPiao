@@ -149,18 +149,18 @@
 /* 点击item */
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (self.selectedArray.count >= 2) {
-        [WHToast showMessage:@"最多只能选择2条评价" duration:1.5 finishHandler:^{
-            NSLog(@"省略n行代码");
-        }];
-        return;
-    }
-    
-    HP_UserImpressionCell * cell = (HP_UserImpressionCell *)[collectionView cellForItemAtIndexPath:indexPath];
-   
-    cell.title.attributedText = [HP_Label setUpFirstStr:@"√  " FirstColor:HPUIColorWithRGB(0xffffff, 1.0) FirstFont:HPFontSize(15) SecondStr:cell.title.text SecondColor:HPUIColorWithRGB(0xffffff, 1.0) SecondFont:HPFontSize(15)];
-    
-    [self.selectedArray addObject:self.csoLabelColl[indexPath.item]];
+//    if (self.selectedArray.count >= 2) {
+//        [WHToast showMessage:@"最多只能选择2条评价" duration:1.5 finishHandler:^{
+//            NSLog(@"省略n行代码");
+//        }];
+//        return;
+//    }
+//    
+//    HP_UserImpressionCell * cell = (HP_UserImpressionCell *)[collectionView cellForItemAtIndexPath:indexPath];
+//
+//    cell.title.attributedText = [HP_Label setUpFirstStr:@"√  " FirstColor:HPUIColorWithRGB(0xffffff, 1.0) FirstFont:HPFontSize(15) SecondStr:cell.title.text SecondColor:HPUIColorWithRGB(0xffffff, 1.0) SecondFont:HPFontSize(15)];
+//
+//    [self.selectedArray addObject:self.csoLabelColl[indexPath.item]];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {

@@ -23,11 +23,11 @@
 - (void)setCommentModel:(HP_CsoCommentLColl *)commentModel {
     _commentModel = commentModel;
     
-    [self.icon sd_setBackgroundImageWithURL:[NSURL URLWithString:commentModel.strHardimg] forState:UIControlStateNormal];
+    [self.icon sd_setBackgroundImageWithURL:[NSURL URLWithString:commentModel.strHardimg] forState:UIControlStateNormal placeholderImage:[UIImage imageWithColor:kSetUpCololor(195, 195, 195, 1.0)]];
     
     self.title.text = commentModel.strLabString;
     
-   CGFloat width = [self getWidthWithText:commentModel.strLabString height:HPFit(30) font:15];
+    CGFloat width = [self getWidthWithText:commentModel.strLabString height:HPFit(30) font:15];
     
     [self.title mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo (self.icon.mas_centerY);

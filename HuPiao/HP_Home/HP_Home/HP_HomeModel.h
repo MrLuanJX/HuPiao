@@ -47,6 +47,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL EMAIL_VALIDATE;
 @property (nonatomic, copy) NSString * time;            // 出生日期格式化
 
+@property (nonatomic, assign) NSInteger cellHeight;            
+
+
 @end
 
 NS_ASSUME_NONNULL_END

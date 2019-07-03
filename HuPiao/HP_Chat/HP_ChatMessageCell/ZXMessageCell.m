@@ -44,8 +44,7 @@
     }
 }
 
--(void)setMessageModel:(ZXMessageModel *)messageModel
-{
+-(void)setMessageModel:(ZXMessageModel *)messageModel {
     
     _messageModel = messageModel;
     
@@ -56,7 +55,7 @@
              */
             [self.avatarImageView setHidden:NO];
 //            [self.avatarImageView setImage:[UIImage imageNamed:_messageModel.from.portrait]];// 应该是URL
-            [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:_messageModel.from.portrait] placeholderImage:[UIImage imageWithColor:[UIColor greenColor]]];
+            [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:_messageModel.from.HRADER_IMG] placeholderImage:[UIImage imageWithColor:[UIColor greenColor]]];
             [self.messageBackgroundImageView setHidden:NO];
             /**
              *  UIImageResizingModeStretch：拉伸模式，通过拉伸UIEdgeInsets指定的矩形区域来填充图片
@@ -76,7 +75,7 @@
              */
             [self.avatarImageView setHidden:NO];
 //            [self.avatarImageView setImage:[UIImage imageNamed:_messageModel.from.avatarURL]];
-            [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:_messageModel.from.portrait] placeholderImage:[UIImage imageWithColor:[UIColor greenColor]]];
+            [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:_messageModel.from.HRADER_IMG] placeholderImage:[UIImage imageWithColor:[UIColor greenColor]]];
             [self.messageBackgroundImageView setHidden:NO];
             [self.messageBackgroundImageView setImage:[[UIImage imageNamed:@"message_receiver_background_normal"] resizableImageWithCapInsets:UIEdgeInsetsMake(28, 20, 15, 20) resizingMode:UIImageResizingModeStretch]];
             self.messageBackgroundImageView.highlightedImage = [[UIImage imageNamed:@"message_receiver_background_highlight"] resizableImageWithCapInsets:UIEdgeInsetsMake(28, 20, 15, 20) resizingMode:UIImageResizingModeStretch];
