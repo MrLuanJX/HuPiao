@@ -63,8 +63,7 @@
 }
 
 #pragma mark - TLChatBoxFaceMenuViewDelegate 三个代理方法
-- (void) chatBoxFaceMenuView:(ZXChatFaceMenuView *)chatBoxFaceMenuView didSelectedFaceMenuIndex:(NSInteger)index
-{
+- (void) chatBoxFaceMenuView:(ZXChatFaceMenuView *)chatBoxFaceMenuView didSelectedFaceMenuIndex:(NSInteger)index {
     
     /**
      *   这个index 就是菜单栏中的表情组的 index ，其实这里是想通过选中的 表情组的index来更新 ScrollView
@@ -97,8 +96,7 @@
 /**
  *  添加表情按钮。方法没有完善好
  */
-- (void) chatBoxFaceMenuViewAddButtonDown
-{
+- (void) chatBoxFaceMenuViewAddButtonDown {
     if (_delegate && [_delegate respondsToSelector:@selector(chatBoxFaceViewSendButtonDown)]) {
         
         [_delegate chatBoxFaceViewSendButtonDown];

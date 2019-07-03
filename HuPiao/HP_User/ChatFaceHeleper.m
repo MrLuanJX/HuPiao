@@ -27,8 +27,7 @@ static ChatFaceHeleper * faceHeleper = nil;
  *   通过这个方法，从  plist 文件中取出来表情
  */
 #pragma mark - Public Methods
-- (NSArray *) getFaceArrayByGroupID:(NSString *)groupID
-{
+- (NSArray *) getFaceArrayByGroupID:(NSString *)groupID {
     NSArray *array = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:groupID ofType:@"plist"]];
     NSMutableArray *data = [[NSMutableArray alloc] initWithCapacity:array.count];
     for (NSDictionary *dic in array) {

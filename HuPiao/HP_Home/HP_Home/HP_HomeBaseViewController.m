@@ -13,8 +13,13 @@
 #import "HP_HomeHandler.h"
 #import "HP_HomeModel.h"
 #import "HP_AnchorOwnModel.h"
+#import "ChatFaceHeleper.h"
+#import "HP_ChatViewController.h"
+#import "ZXChatBoxController.h"
 
 @interface HP_HomeBaseViewController () <UITableViewDelegate , UITableViewDataSource>
+
+@property (nonatomic, strong) ChatFaceGroup *curGroup;
 
 @property (nonatomic , strong) UITableView * tableView;
     
@@ -67,11 +72,14 @@
 
     [self addRefresh];
     // 注册极光用户
-//    [self registJGIMUser];
+    [HP_MemberHandler registJGIMUser];
     // 登录极光用户
-    [self loginJGIMUser];
+    [HP_MemberHandler loginJGIMUser];
     
 //    [self.tableView.mj_header beginRefreshing];
+    
+    // 初始化emoji表情管理
+    [self getFace];
 }
 
 -(void) addRefresh {
@@ -224,27 +232,15 @@
     return _ownModel;
 }
 
-// 极光用户注册
-- (void) registJGIMUser { // [HP_UserTool sharedUserHelper].strUserId @"11111"
-    [JMSGUser registerWithUsername:[HP_UserTool sharedUserHelper].strUserId password:[HP_UserTool sharedUserHelper].strUserId completionHandler:^(id resultObject, NSError *error) {
-        NSLog(@"resultObject --- %@===%@",resultObject,error);
-        if (!HPNULLString(resultObject)) {
-            [self loginJGIMUser];
-        }
-    }];
+- (void) getFace {
+    _curGroup = [[[ChatFaceHeleper sharedFaceHelper] faceGroupArray] objectAtIndex:0];
+    if (_curGroup.facesArray == nil) {
+        /**
+         *   这个groupID 就是该组特有的 ID 例如，系统表情就是 0 自己添加的一组就是 1 等等
+         */
+        _curGroup.facesArray = [[ChatFaceHeleper sharedFaceHelper] getFaceArrayByGroupID:_curGroup.groupID];
+    }
 }
 
-- (void) loginJGIMUser {
-    [JMSGUser loginWithUsername:[HP_UserTool sharedUserHelper].strUserId password:[HP_UserTool sharedUserHelper].strUserId completionHandler:^(id resultObject, NSError *error) {
-        NSLog(@"login --- %@-----%@", resultObject, error);
-        // 查看自己IM的个人信息
-        JMSGUser * jgUser = [JMSGUser myInfo];
-        NSLog(@"jgUser ------ %@",jgUser);
-        if (error != nil) {
-            [self loginJGIMUser];
-        }
-        NSLog(@"loginError = %@",error);
-    }];
-}
 
 @end

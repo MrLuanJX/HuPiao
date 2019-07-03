@@ -32,12 +32,12 @@ static UILabel *label = nil;
     _text = text;
     if (text.length > 0) {
         _attrText = [ZXChatHelper formatMessageString:text];
+    
     }
 }
 
 #pragma mark - Getter
-- (void) setMessageType:(ZXMessageType)messageType
-{
+- (void) setMessageType:(ZXMessageType)messageType{
     
     _messageType = messageType;
     switch (messageType) {

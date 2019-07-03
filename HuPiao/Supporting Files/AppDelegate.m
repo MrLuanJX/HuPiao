@@ -219,10 +219,10 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
-    [JPUSHService setBadge:0];
+//    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+//    [JPUSHService setBadge:0];
     // Required, For systems with less than or equal to iOS 6
-    [JPUSHService handleRemoteNotification:userInfo];
+//    [JPUSHService handleRemoteNotification:userInfo];
 }
 
 // 分享

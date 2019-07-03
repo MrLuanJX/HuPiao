@@ -26,6 +26,8 @@
     [tokenUDF setValue:userInfo.strPhone forKey:@"strPhone"];
     [tokenUDF setValue:userInfo.strHeaderImg forKey:@"strHeaderImg"];
     [tokenUDF setValue:userInfo.strUserId forKey:@"strUserId"];
+    [tokenUDF setValue:userInfo.strDisplayName forKey:@"strDisplayName"];
+    [tokenUDF setValue:userInfo.iFollowCount forKey:@"iFollowCount"];
     [tokenUDF synchronize];
 }
 
@@ -36,6 +38,8 @@
     self.strPhone = [defaults objectForKey:@"strPhone"];
     self.strHeaderImg = [defaults objectForKey:@"strHeaderImg"];
     self.strUserId = [defaults objectForKey:@"strUserId"];
+    self.strDisplayName = [defaults objectForKey:@"strDisplayName"];
+    self.iFollowCount = [defaults objectForKey:@"iFollowCount"];
 }
 
 //- (MUser *) user {

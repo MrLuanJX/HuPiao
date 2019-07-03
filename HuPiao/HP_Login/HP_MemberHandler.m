@@ -104,5 +104,34 @@
         fail(error);
     }];
 }
+// 极光用户登录
++ (void) loginJGIMUser {
+    [JMSGUser loginWithUsername:[HP_UserTool sharedUserHelper].strDisplayName password:[HP_UserTool sharedUserHelper].strDisplayName completionHandler:^(id resultObject, NSError *error) {
+        NSLog(@"login --- %@-----%@", resultObject, error);
+        // 查看自己IM的个人信息
+        JMSGUser * jgUser = [JMSGUser myInfo];
+        NSLog(@"jgUser ------ %@",jgUser);
+        if (error != nil) {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(30 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [HP_MemberHandler loginJGIMUser];
+            });
+        }
+        NSLog(@"loginError = %@",error);
+    }];
+}
+
+// 极光用户注册
+// 极光用户注册
++ (void) registJGIMUser { // [HP_UserTool sharedUserHelper].strDisplayName @"11111"
+    
+    NSLog(@"strDisplayName ----- %@",[HP_UserTool sharedUserHelper].strDisplayName);
+    
+    [JMSGUser registerWithUsername:[HP_UserTool sharedUserHelper].strDisplayName password:[HP_UserTool sharedUserHelper].strDisplayName completionHandler:^(id resultObject, NSError *error) {
+        NSLog(@"resultObject --- %@===%@",resultObject,error);
+        if (!HPNULLString(resultObject)) {
+            [HP_MemberHandler loginJGIMUser];
+        }
+    }];
+}
 
 @end

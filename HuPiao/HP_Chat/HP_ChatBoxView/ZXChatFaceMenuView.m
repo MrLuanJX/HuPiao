@@ -31,8 +31,7 @@
 }
 
 #pragma mark - Public Methods
-- (void) setFaceGroupArray:(NSMutableArray *)faceGroupArray
-{
+- (void) setFaceGroupArray:(NSMutableArray *)faceGroupArray {
     
     _faceGroupArray = faceGroupArray;
     float w = self.frameHeight * 1.25;

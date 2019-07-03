@@ -13,14 +13,10 @@
 
 @implementation ZXChatHelper
 
-
-+ (NSAttributedString *) formatMessageString:(NSString *)text
-{
++ (NSAttributedString *) formatMessageString:(NSString *)text {
     //1、创建一个可变的属性字符串
     NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:text];
     
-    NSLog(@"attributeString ==== %@",attributeString);
-
     //2、通过正则表达式来匹配字符串
     NSString *regex_emoji = @"\\[[a-zA-Z0-9\\/\\u4e00-\\u9fa5]+\\]"; //匹配表情
 
@@ -32,10 +28,11 @@
     }
     
     NSArray *resultArray = [re matchesInString:text options:0 range:NSMakeRange(0, text.length)];
-    //3、获取所有的表情以及位置
-    //用来存放字典，字典中存储的是图片和图片对应的位置
+    
+    // 3、获取所有的表情以及位置
+    // 用来存放字典，字典中存储的是图片和图片对应的位置
     NSMutableArray *imageArray = [NSMutableArray arrayWithCapacity:resultArray.count];
-    //根据匹配范围来用图片进行相应的替换
+    // 根据匹配范围来用图片进行相应的替换
     for(NSTextCheckingResult *match in resultArray) {
         //获取数组元素中得到range
         NSRange range = [match range];
@@ -60,7 +57,6 @@
                 [imageDic setObject:[NSValue valueWithRange:range] forKey:@"range"];
                 //把字典存入数组中
                 [imageArray addObject:imageDic];
-                
             }
         }
     }

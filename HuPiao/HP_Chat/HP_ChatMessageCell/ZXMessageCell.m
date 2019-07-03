@@ -40,7 +40,6 @@
     else if (_messageModel.ownerTyper == ZXMessageOwnerTypeOther) {
         
         [self.avatarImageView setOrigin:CGPointMake(10, 10)];
-        
     }
 }
 
@@ -55,7 +54,7 @@
              */
             [self.avatarImageView setHidden:NO];
 //            [self.avatarImageView setImage:[UIImage imageNamed:_messageModel.from.portrait]];// 应该是URL
-            [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:_messageModel.from.HRADER_IMG] placeholderImage:[UIImage imageWithColor:[UIColor greenColor]]];
+            [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:_messageModel.from.HRADER_IMG] placeholderImage:[UIImage imageWithColor:kSetUpCololor(195, 195, 195, 1.0)]];
             [self.messageBackgroundImageView setHidden:NO];
             /**
              *  UIImageResizingModeStretch：拉伸模式，通过拉伸UIEdgeInsets指定的矩形区域来填充图片

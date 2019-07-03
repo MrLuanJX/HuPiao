@@ -11,6 +11,7 @@
 #import "ZXChatMessageController.h"
 #import "ZXMessageModel.h"
 #import "HP_UserTool.h"
+#import "ChatFaceHeleper.h"
 
 @interface HP_ChatViewController () <JMessageDelegate,ZXChatMessageControllerDelegate,ZXChatBoxViewControllerDelegate>
 
@@ -18,6 +19,7 @@
 @property(nonatomic,strong)ZXChatBoxController * chatBoxVC;
 @property(nonatomic,strong)UIButton * button;
 @property(nonatomic,assign) CGFloat viewHeight;
+@property (nonatomic, strong) ChatFaceGroup *curGroup;
 
 @end
 
@@ -29,9 +31,7 @@
      *  如果状态栏背景为浅色，应选用黑色字样式(UIStatusBarStyleDefault，默认值),如果背景为深色，则选用白色字样式(UIStatusBarStyleLightContent)。
      UIApplication 一个APP只有一个，你在这里可以设置应用级别的设置，就像上面的实例一样，详细见http://www.cnblogs.com/wendingding/p/3766347.html
      */
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-    
-    [self getMessages:@"11111"]; // [HP_UserTool sharedUserHelper].strUserId
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -41,7 +41,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.pageLogStr = @"ChatPage";
     
     self.navigationItem.title = self.navTitle;
@@ -50,6 +50,8 @@
     [JMessage addDelegate:self withConversation:nil];
     
     [self setupBase];
+    
+    [self getMessages:@"11111"]; // [HP_UserTool sharedUserHelper].strDisplayName
 }
 
 /**
@@ -182,10 +184,9 @@
 - (void)onReceiveMessage:(JMSGMessage *)message
                    error:(NSError *)error {
     NSLog(@"onReceivemessage = %@-----error = %@", message, error);
-    
+        
     JMSGTextContent *textContent = (JMSGTextContent *)message.content;
     NSString *msgText = textContent.text;
-    NSLog(@"content = %@----",msgText);
     
     ZXMessageModel *recMessage = [[ZXMessageModel alloc] init];
     recMessage.messageType = ZXMessageTypeText;
@@ -219,30 +220,17 @@
 
 // 极光IM发送消息
 - (void) sendJGSingleMessage:(NSString *)message {
-    [JMSGMessage sendSingleTextMessage:message toUser:@"11111"]; //
+    [JMSGMessage sendSingleTextMessage:message toUser:@"11111"]; // [HP_UserTool sharedUserHelper].strDisplayName
 }
 
-// 极光发送消息
-/*
-- (void) sendMessageJGWithMessage:(NSString *)jgMessage {
-    // 对方的Id
-    NSString *targetId = @"11111";//[HP_UserTool sharedUserHelper].strUserId;//
-    JMSGTextContent *textContent = [[JMSGTextContent alloc] initWithText:jgMessage];
-    JMSGMessage *message = [JMSGMessage createSingleMessageWithContent:textContent username:targetId];
-    [JMSGMessage sendMessage:message];
-}
-*/
 - (void) getMessages:(NSString *)userName {
     
     JMSGConversation * conversation = [JMSGConversation singleConversationWithUsername:userName];
 
     NSArray * array = [conversation messageArrayFromNewestWithOffset:nil limit:nil];
     
-    NSLog(@"array === %@",array);
-    
     // 数组倒序
     NSArray *strRevArray = [[array reverseObjectEnumerator] allObjects];
-
     for (JMSGMessage *message in strRevArray) {
         JMSGTextContent *textContent = (JMSGTextContent *)message.content;
         NSString *msgText = textContent.text;
@@ -251,8 +239,8 @@
         recMessage.text = msgText;
         recMessage.imagePath = recMessage.imagePath;
         recMessage.from = self.user;
-        
-        if ([message.fromUser.username isEqualToString:[HP_UserTool sharedUserHelper].strUserId]) {
+
+        if ([message.fromUser.username isEqualToString:[HP_UserTool sharedUserHelper].strDisplayName]) {
             recMessage.ownerTyper = ZXMessageOwnerTypeSelf;
         } else {
             recMessage.ownerTyper = ZXMessageOwnerTypeOther;
@@ -267,11 +255,6 @@
      *  滚动插入的消息，使他始终处于一个可以看得见的位置
      */
     [self.chatMessageVC scrollToBottom];
-
-}
-
-- (void)allMessages:(JMSGCompletionHandler)handler {
-    NSLog(@"handler ----- %@",handler);
 }
 
 @end

@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HuPiao/HP_Chat/HP_ChatBoxController/HP_ChatViewController.m"
-            timestampString = "583834482.094943"
+            timestampString = "583853084.719725"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
             landmarkName = "-onSyncOfflineMessageConversation:offlineMessages:"
             landmarkType = "7">
          </BreakpointContent>
@@ -36,11 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HuPiao/HP_Chat/HP_ChatBoxController/HP_ChatViewController.m"
-            timestampString = "583834482.095139"
+            timestampString = "583853084.719852"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "217"
-            endingLineNumber = "217"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
             landmarkName = "-onSyncRoamingMessageConversation:"
             landmarkType = "7">
          </BreakpointContent>

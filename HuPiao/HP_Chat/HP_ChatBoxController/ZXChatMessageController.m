@@ -63,7 +63,6 @@
 
 #pragma mark - Public Methods
 - (void) addNewMessage:(ZXMessageModel *)message {
-    
     /**
      *  数据源添加一条消息，刷新数据
      */

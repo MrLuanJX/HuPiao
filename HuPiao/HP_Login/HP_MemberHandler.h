@@ -38,6 +38,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 +(void)executeGetCodeWithReuqestPhoneNum:(NSString *)phoneNum type:(NSString *)type Success:(Success)success Fail:(Failed)fail;
 
+// 极光用户登录
++ (void) loginJGIMUser;
+// 极光用户注册
++ (void) registJGIMUser;
 
 @end
 
