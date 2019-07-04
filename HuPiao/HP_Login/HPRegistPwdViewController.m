@@ -89,7 +89,8 @@
         HP_UserTool * configs = [HP_UserTool sharedUserHelper];
         [configs saveUser];
     } Fail:^(id  _Nonnull obj) {
-        
+        NSString * sign = [NSString md5:[NSString stringWithFormat:@"%@%@%@%@%@%@%@",@"",[self.pwAgainTF.text trim],[self.pwTF.text trim],[self.code trim],[HPDivisableTool getNowTimeTimestamp],[self.phoneNum trim],HPKey]];
+        [self alertShowWithMessage:[NSString stringWithFormat:@"错误原因:%@---参数:1.用户名:%@,2.密码:%@,3.短信验证码:%@,4.昵称:%@,5.t:%@,6.sign:%@",obj[@"errorMessage"],[self.phoneNum trim],[self.pwTF.text trim],[self.code trim],[self.pwAgainTF.text trim],[HPDivisableTool getNowTimeTimestamp],sign]];
     }];
 }
 
@@ -270,6 +271,18 @@
     }
     
     return YES;
+}
+
+- (void) alertShowWithMessage:(NSString *) message {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"点击取消");
+    }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"点击确认");
+    }]];
+    // 由于它是一个控制器 直接modal出来就好了
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 @end

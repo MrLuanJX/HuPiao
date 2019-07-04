@@ -47,11 +47,13 @@
 // 相册
 @property(nonatomic , strong) TZImagePickerController * photoalbum;
 
-
 @property(nonatomic , strong) UIView * navBGView;
 
 @property(nonatomic , strong) SDCycleScrollView * autoScrollView;
 
+@property (nonatomic , assign) CGFloat alphaIsZero;
+
+@property (nonatomic , assign) BOOL isBack;
 
 @end
 
@@ -62,13 +64,25 @@
 
     self.navigationController.navigationBar.hidden = YES;
     
-    self.navBGView.alpha = 0;
+    NSUserDefaults * progressDef = [NSUserDefaults standardUserDefaults];
+    self.alphaIsZero = [progressDef floatForKey:@"progress"];
+    
+    NSLog(@"appear---%ld",(long)self.alphaIsZero);
+    
+    self.navBGView.alpha = self.alphaIsZero;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
     self.navigationController.navigationBar.hidden = NO;
+    
+    NSLog(@"disappear---%ld",(long)self.alphaIsZero);
+
+    NSUserDefaults * progressDef = [NSUserDefaults standardUserDefaults];
+    [progressDef setFloat:self.isBack == YES ? 0 : self.alphaIsZero forKey:@"progress"];
+    [progressDef synchronize];
+    
 }
 
 - (void)viewDidLoad {
@@ -80,6 +94,7 @@
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //        [SVProgressHUD dismiss];
 //    });
+    self.isBack = NO;
     
     self.isCared = NO;
     
@@ -91,7 +106,7 @@
 }
 
 - (void) setupRightNav {
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(giftAction ) image:@"discover_3_0" highImage:@"discover_3_0" isLeftBtn:NO];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(giftAction) image:@"discover_3_0" highImage:@"discover_3_0" isLeftBtn:NO];
 }
 
 #pragma mark - 礼物
@@ -292,6 +307,8 @@
     
     HP_PhotoDetailViewController * photoVC = [[HP_PhotoDetailViewController alloc] init];
     photoVC.user = user;
+    photoVC.ownModel = ownModel;
+    
     HP_DyViewController * dyVC = [[HP_DyViewController alloc] init];
     dyVC.user = user;
     
@@ -341,6 +358,12 @@
         
         self.currentY = contentOffset;
     }
+
+    self.alphaIsZero = progress;
+    
+    NSUserDefaults * progressDef = [NSUserDefaults standardUserDefaults];
+    [progressDef setFloat:self.alphaIsZero forKey:@"progress"];
+    [progressDef synchronize];
     
     self.navBGView.alpha = progress;
 }
@@ -397,6 +420,9 @@
 }
 
 - (void) backAction {
+    
+    self.isBack = YES;
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 

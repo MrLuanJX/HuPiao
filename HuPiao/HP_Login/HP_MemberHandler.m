@@ -62,15 +62,17 @@
                             };
     NSLog(@"param ---- %@---%@",param,[NSString stringWithFormat:@"%@%@%@%@%@%@%@",invitationCode,nickName,password,phoneCode,[HPDivisableTool getNowTimeTimestamp],userName,HPKey]);
     [DJZJ_RequestTool LJX_requestWithType:LJX_POST URL:HP_Regist params:param successBlock:^(id obj) {
-        NSLog(@"registObj = %@",obj);
+        NSLog(@"registObj === %@",obj);
+        
         if ([obj[@"errorCode"] integerValue] == 0) {
             MUser * user = [MUser mj_objectWithKeyValues:obj[@"data"]];
-            NSLog(@"user ------ %@",user);
             success(user);
         } else {
+            NSLog(@"errorMessage === %@",obj[@"errorMessage"]);
             fail(obj);
         }
     } failureBlock:^(NSError *error) {
+        NSLog(@"error --- %@",error);
         fail(error);
     }];
 }
@@ -91,19 +93,21 @@
                             @"sign" : [NSString md5:[NSString stringWithFormat:@"%@%@%@%@%@",@"",[phoneNum trim],[HPDivisableTool currentdateInterval],type,HPKey]],
                             };
     
+    NSLog(@"dict-----%@-----",dict);
     [DJZJ_RequestTool LJX_requestWithType:LJX_POST URL:HP_PhoneCode params:dict successBlock:^(id obj) {
         NSLog(@"obj = %@",obj);
         if ([obj[@"errorCode"] integerValue] == 0) {
             [WHToast showMessage:@"短信验证码已发送" duration:1.5 finishHandler:nil];
             success(obj);
         } else {
-            [WHToast showMessage:@"短信验证码发送失败，请稍后再试" duration:1.5 finishHandler:nil];
-            fail(obj);
+            [WHToast showMessage:obj[@"errorMessage"] duration:1.5 finishHandler:nil];
+            fail(obj); // @"短信验证码发送失败，请稍后再试"
         }
     } failureBlock:^(NSError *error) {
         fail(error);
     }];
 }
+
 // 极光用户登录
 + (void) loginJGIMUser {
     [JMSGUser loginWithUsername:[HP_UserTool sharedUserHelper].strDisplayName password:[HP_UserTool sharedUserHelper].strDisplayName completionHandler:^(id resultObject, NSError *error) {
@@ -133,5 +137,7 @@
         }
     }];
 }
+
+
 
 @end

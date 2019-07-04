@@ -43,7 +43,7 @@
         cell=[[HP_HomeCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] ;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.backgroundColor = kSetUpCololor(242, 242, 242, 1.0);
-    }
+    } 
     return cell;
 }
     
@@ -68,16 +68,14 @@
 - (void)createConstrainte {
     __weak typeof (self) weakSelf = self;
     
-    CGFloat wid = [UIScreen mainScreen].bounds.size.width;
-    
 //    [self.contentView mas_remakeConstraints:^(MASConstraintMaker *make) {
 //        make.top.left.right.mas_equalTo(0);
 //        make.bottom.mas_equalTo(0);
 //    }];
     
     [self.iconImg mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.top.mas_equalTo(0);
-        make.height.mas_equalTo(wid);
+        make.right.left.top.mas_equalTo(weakSelf.contentView);
+        make.height.mas_equalTo(HPScreenW);
         make.bottom.mas_equalTo (weakSelf.contentView.bottom).offset(0);
     }];
    
@@ -172,5 +170,10 @@
     }
     return _starView;
 }
+
+- (void)prepareForReuse {
+    [super prepareForReuse];
     
+}
+
 @end

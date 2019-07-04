@@ -146,10 +146,10 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
         dispatch_async(dispatch_get_main_queue(), ^{
 //            MUser * user = [weakSelf.messageList objectAtIndex:0];
 //            NSLog(@"user = %@",user);
-            HP_HomeDetailNewViewController * detailVC = [HP_HomeDetailNewViewController suspendCenterPageVCWithUser:weakSelf.user IsOwn:@"Own" WithOwnModel:@[]];
-            detailVC.title = weakSelf.user.name;
-            detailVC.hidesBottomBarWhenPushed = YES;
-            [weakSelf.navigationController pushViewController:detailVC animated:YES];
+//            HP_HomeDetailNewViewController * detailVC = [HP_HomeDetailNewViewController suspendCenterPageVCWithUser:weakSelf.user IsOwn:@"Own" WithOwnModel:[HP_AnchorOwnModel new]];
+//            detailVC.title = weakSelf.user.name;
+//            detailVC.hidesBottomBarWhenPushed = YES;
+//            [weakSelf.navigationController pushViewController:detailVC animated:YES];
         });
     };
     // 跳转个人资料页

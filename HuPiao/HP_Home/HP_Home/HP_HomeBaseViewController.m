@@ -33,7 +33,7 @@
 
 @property (nonatomic , strong) HP_AnchorOwnModel * ownModel;
 
-@property (nonatomic , strong) NSMutableDictionary * cellHightDict;
+@property (nonatomic, strong) NSMutableDictionary *heightAtIndexPath;//缓存高度所用字典
 
 @end
 
@@ -113,13 +113,11 @@
         } else {
             [wSelf.tableView.mj_footer endRefreshingWithNoMoreData];
         }
-        
         [wSelf.tableView reloadData];
         wSelf.currentPage += 1;
     } Fail:^(id  _Nonnull obj) {
         [wSelf.tableView.mj_header endRefreshing];
         [wSelf.tableView.mj_footer endRefreshing];
-
     }];
 }
 
@@ -127,7 +125,10 @@
     __weak typeof (self) weakSelf = self;
     [self.view addSubview:self.tableView];
     [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(weakSelf.view);
+//        make.edges.mas_equalTo(weakSelf.view);
+        make.top.mas_equalTo (kStatusBarHeight);
+        make.bottom.mas_equalTo(-k_bar_height);
+        make.left.right.mas_equalTo(0);
     }];
 }
 
@@ -162,10 +163,24 @@
     return  [UIView new];
 }
 
+#pragma mark - UITableViewDelegate
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSNumber *height = [self.heightAtIndexPath objectForKey:indexPath];
+    if(height) {
+        return height.floatValue;
+    } else {
+        return HPFit(200);
+    }
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSNumber *height = @(cell.frame.size.height);
+    [self.heightAtIndexPath setObject:height forKey:indexPath];
+}
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString * cellId = @"homeCell";
-    HP_HomeCell * homeCell = [HP_HomeCell dequeueReusableCellWithTableView:tableView Identifier:cellId];
+    
+    HP_HomeCell * homeCell = [HP_HomeCell dequeueReusableCellWithTableView:tableView Identifier:@"homeCell"];
     if (self.messageList.count > 0) {
         homeCell.homeModel = self.messageList[indexPath.section];
     }
@@ -212,15 +227,9 @@
         _tableView.separatorStyle = UITableViewCellEditingStyleNone;
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        _tableView.estimatedRowHeight = 50;
+        [_tableView registerClass:[HP_HomeCell class] forCellReuseIdentifier:@"homeCell"];
+        _tableView.estimatedRowHeight = HPFit(200);
         _tableView.rowHeight = UITableViewAutomaticDimension;
-        _tableView.estimatedSectionHeaderHeight = 0;
-        _tableView.estimatedSectionFooterHeight = 0;
-        if (@available(iOS 11.0, *)) {
-            _tableView.contentInsetAdjustmentBehavior =UIScrollViewContentInsetAdjustmentNever;
-            _tableView.contentInset =UIEdgeInsetsMake(kStatusBarHeight,0,k_bar_height,0);//64和49自己看效果，是否应该改成0
-            _tableView.scrollIndicatorInsets =_tableView.contentInset;
-        }
     }
     return _tableView;
 }
@@ -241,6 +250,5 @@
         _curGroup.facesArray = [[ChatFaceHeleper sharedFaceHelper] getFaceArrayByGroupID:_curGroup.groupID];
     }
 }
-
 
 @end

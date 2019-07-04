@@ -231,6 +231,7 @@
     [_rightBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     _rightBtn.titleEdgeInsets = UIEdgeInsetsMake(0, HPFit(10), 0, 0);
     _rightBtn.titleLabel.font = _leftBtn.titleLabel.font;
+    [_rightBtn addTarget:self action:@selector(shareAction:) forControlEvents:UIControlEventTouchUpInside];
     [wSelf.btmBtnsView addSubview:_rightBtn];
     
     [@[wSelf.leftBtn, wSelf.midBtn, wSelf.rightBtn] mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:1 leadSpacing:0 tailSpacing:0];
@@ -287,6 +288,13 @@
     } else {
         [sender setImage:[UIImage imageNamed:@"details_like_icon_20x20_"] forState:UIControlStateNormal];
         [sender setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    }
+}
+
+// 分享
+- (void) shareAction:(UIButton *) sender {
+    if (self.shareBlock) {
+        self.shareBlock();
     }
 }
 

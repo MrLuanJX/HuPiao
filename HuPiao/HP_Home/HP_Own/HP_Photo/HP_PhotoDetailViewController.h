@@ -19,7 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
     
 @property (nonatomic, strong) UICollectionView * collectionView;
 
-@property (nonatomic, strong) MUser * user;
+@property (nonatomic, strong) HP_HomeModel * user;
+
+@property (nonatomic , strong) HP_AnchorOwnModel * ownModel;
 
 @end
 

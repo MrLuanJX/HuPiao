@@ -29,6 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic , strong) UIButton * careBtn;      // 关注
 
+@property (nonatomic , copy) void (^shareBlock) (void);
+
 @end
 
 NS_ASSUME_NONNULL_END

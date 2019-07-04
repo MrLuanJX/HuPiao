@@ -101,13 +101,12 @@
     }];
     // 推送别名
     [JPUSHService setAlias:[HP_UserTool sharedUserHelper].strDisplayName completion:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
-        
         NSLog(@"%@",iAlias);
-        
+       
         if (iResCode == 0) {
             NSLog(@"添加别名成功");
         }
-    } seq:1];
+    } seq:0];
     // 分享
     JSHARELaunchConfig *shareConfig = [[JSHARELaunchConfig alloc] init];
     shareConfig.appKey = JGAppKey;
@@ -122,7 +121,7 @@
     shareConfig.WeChatAppId = @"wx7197abfb087c1e3d";
     shareConfig.WeChatAppSecret = @"019747ada948686d406aef9c5dd64835";
     // 极光认证
-    shareConfig.JChatProAuth = @"";
+//    shareConfig.JChatProAuth = @"";
     [JSHAREService setupWithConfig:shareConfig];
     [JSHAREService setDebug:YES];
 }

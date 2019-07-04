@@ -31,6 +31,18 @@
 
 @end
 
+/*
+ 极光分享
+ JSHAREMessage *message = [JSHAREMessage message];
+ message.text = @"JShare SDK 支持主流社交平台、帮助开发者轻松实现社会化功能！";
+ message.platform = JSHAREPlatformQQ;
+ message.mediaType = JSHAREText;
+ [JSHAREService share:message handler:^(JSHAREState state, NSError *error) {
+ NSLog(@"分享回调");
+ }
+ }];
+ */
+
 @implementation HP_DyViewController
 
 - (void)viewDidLoad {
@@ -103,11 +115,45 @@
     dyCell.careBtn.hidden = [self.isOwn isEqualToString:@"Dy"] ? NO : YES;
 
     dyCell.dyModel = self.momentList[indexPath.row];
-
+    // 点击图片
     dyCell.cellImgListBlock = ^(NSInteger index, HP_DyModel * _Nonnull dyModel) {
-        NSLog(@"imgList = %@---%ld",dyModel.pictureList , index);
+        NSLog(@"imgList = %@---%ld",dyModel.pictureList , (long)index);
         [wSelf photoBrowserURLArray:dyModel.pictureList WithIndex:(int)index];
     };
+    // 分享
+    dyCell.shareBlock = ^{
+//        if (![JSHAREService isQQInstalled]) {
+//            [WHToast showErrorWithMessage:@"请先安装QQ客户端" duration:1.0 finishHandler:nil];
+//            return ;
+//        }
+//        if (![JSHAREService isWeChatInstalled]) {
+//            [WHToast showErrorWithMessage:@"请先安装微信客户端" duration:1.0 finishHandler:nil];
+//            return ;
+//        }
+        
+        NSLog(@"分享");
+        dispatch_async(dispatch_get_main_queue(), ^{
+            JSHAREMessage *message = [JSHAREMessage message];
+            message.mediaType = JSHARELink;
+            message.url = @"https://www.jiguang.cn/";
+            message.text = @"JShare SDK支持主流社交平台、帮助开发者轻松实现社会化功能！";
+            message.title = @"欢迎使用极光社会化组件JShare";
+            message.platform = JSHAREPlatformWechatSession;
+            NSString *imageURL = @"http://img2.3lian.com/2014/f5/63/d/23.jpg";
+            NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]];
+            
+            message.image = imageData;
+            
+            [JSHAREService share:message handler:^(JSHAREState state, NSError *error) {
+                if (!error) {
+                    NSLog(@"分享图文成功");
+                }else{
+                    NSLog(@"分享图文失败, error : %@", error);
+                }
+            }];
+        });
+    };
+    
     
     return dyCell;
 }

@@ -59,17 +59,21 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    NSLog(@"photoUser = %@",self.user);
-    
-    [self.imgArr removeAllObjects];
-    [self.imgArr addObjectsFromArray:[MUser findAll]];
-    [self.collectionView reloadData];
+//    NSLog(@"photoUser = %@",self.user);
+//
+//    [self.imgArr removeAllObjects];
+//    [self.imgArr addObjectsFromArray:[MUser findAll]];
+//    [self.collectionView reloadData];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [self.imgArr addObjectsFromArray:self.ownModel.csoImageColl];
+    
     [self addCollectionView];
+    
+//    [self.collectionView reloadData];
 }
 
 - (void) addCollectionView {
@@ -111,16 +115,16 @@
 
     HP_PhotoCollectionCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"photoCell" forIndexPath:indexPath];
     
-    MUser * user = self.imgArr[indexPath.item];
+    HP_CsoImageColl * csoImageColl = self.imgArr[indexPath.item];
     
-    [cell.bgImg sd_setImageWithURL:[NSURL URLWithString:HPNULLString(user.portrait) ? @"" : user.portrait] placeholderImage:[UIImage imageWithColor:[UIColor whiteColor]]];
+    [cell.bgImg sd_setImageWithURL:[NSURL URLWithString:HPNULLString(csoImageColl.strUrl) ? @"" : csoImageColl.strUrl] placeholderImage:[UIImage imageWithColor:kSetUpCololor(195, 195, 195, 1.0)]];
     
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    MUser * user = self.imgArr[indexPath.item];
-    if (!HPNULLString(user.portrait)) {
+    HP_CsoImageColl * csoImageColl = self.imgArr[indexPath.item];
+    if (!HPNULLString(csoImageColl.strUrl)) {
         [self photoBrowserURLArray:self.imgArr WithIndex:(int)indexPath.item ];
     }
 }
@@ -161,9 +165,9 @@
     browser.currentImageIndex = index;
     if (urlArr.count > 0) {
         NSMutableArray * imgArr = @[].mutableCopy;
-        for (MUser * user in urlArr) {
-            if (!HPNULLString(user.portrait)) {
-                [imgArr addObject:user.portrait];
+        for (HP_CsoImageColl * csoImageColl in urlArr) {
+            if (!HPNULLString(csoImageColl.strUrl)) {
+                [imgArr addObject:csoImageColl.strUrl];
             }
         }
         browser.imageArray = imgArr;

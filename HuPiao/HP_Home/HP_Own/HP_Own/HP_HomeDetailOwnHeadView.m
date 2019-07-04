@@ -23,11 +23,11 @@
 @implementation HP_HomeDetailOwnHeadView
 
 - (void)setUser:(HP_HomeModel *)user {
+    _user = user;
     
-    self.nameLabel.text = HPNULLString(user.nickname) ? user.NICKNAME : user.nickname;
-    self.contentLabel.attributedText = [HP_Label setUpFirstStr:@"Ta 说  " FirstColor:HPUIColorWithRGB(0xCD2990, 1.0) FirstFont:HPFontBoldSize(20) SecondStr:user.PROFILE SecondColor:kSetUpCololor(185, 185, 185, 1.0) SecondFont:HPFontSize(14)];
-    [self.likeBtn setTitle:user.FOLLOW_COUNT forState:UIControlStateNormal];
-
+    self.nameLabel.text = HPNULLString(user.nickname) ? !HPNULLString(user.NICKNAME) ? user.NICKNAME : @"" : user.nickname;
+    self.contentLabel.attributedText = [HP_Label setUpFirstStr:@"Ta 说  " FirstColor:HPUIColorWithRGB(0xCD2990, 1.0) FirstFont:HPFontBoldSize(20) SecondStr:!HPNULLString(user.PROFILE) ? user.PROFILE : @"" SecondColor:kSetUpCololor(185, 185, 185, 1.0) SecondFont:HPFontSize(14)];
+    [self.likeBtn setTitle:!HPNULLString(user.FOLLOW_COUNT) ? user.FOLLOW_COUNT : @"" forState:UIControlStateNormal];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
