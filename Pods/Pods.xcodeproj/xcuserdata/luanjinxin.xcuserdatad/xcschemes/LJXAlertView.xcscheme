@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9413BFB8F0FFD74CAA506CA2F06C488C"
-               BuildableName = "libPrintBeautifulLog.a"
-               BlueprintName = "PrintBeautifulLog"
+               BlueprintIdentifier = "6AD2B0C41317890F5C6AF91E636DC706"
+               BuildableName = "LJXAlertView"
+               BlueprintName = "LJXAlertView"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

@@ -80,6 +80,8 @@
     
     // 初始化emoji表情管理
     [self getFace];
+    
+    
 }
 
 -(void) addRefresh {
@@ -88,12 +90,12 @@
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         weakSelf.currentPage = 1;
         [weakSelf.messageList removeAllObjects];
-        [weakSelf requestData];
+//        [weakSelf requestData];
     }];
     
 //    MJRefreshAutoNormalFooter 才可以显示出来 没有更多了
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        [weakSelf requestData];
+//        [weakSelf requestData];
     }];
     [self.tableView.mj_footer beginRefreshing];
 }

@@ -28,5 +28,6 @@
  pod 'JAnalytics'
  pod 'JMessage'
  pod 'JPush'
+pod 'LJXAlertView'
  end
 

@@ -106,13 +106,6 @@ typedef void(^ButtonActionBlock) (UIButton *button);
     }
 }
 
-//-(NSMutableArray *)btnTitleArr{
-//    if (!_btnTitleArr) {
-//        _btnTitleArr = [NSMutableArray array];
-//    }
-//    return _btnTitleArr;
-//}
-
 @end
 
 @interface INMAlertView()
@@ -207,7 +200,7 @@ typedef void(^ButtonActionBlock) (UIButton *button);
     NSString  * nsStringToOpen = [NSString  stringWithFormat: @"itms-apps://itunes.apple.com/app/id%@?action=write-review",@"1470596959"];//替换为对应的APPID
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:nsStringToOpen]];
 }
-
+//  https://itunes.apple.com/app/id1470596959
 /* 显示提示框的动画 */
 - (void)shakeToShow:(UIView*)aView {
     CAKeyframeAnimation* animation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];

@@ -106,7 +106,6 @@
         make.width.mas_equalTo(80);
         make.centerY.mas_equalTo(weakSelf.addressLabel.mas_centerY);
     }];
-    
 }
 
 - (UIImageView *)iconImg {
@@ -115,7 +114,7 @@
         int R = (arc4random() % 256) ;
         int G = (arc4random() % 256) ;
         int B = (arc4random() % 256) ;
-        _iconImg.backgroundColor = [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:1];
+        _iconImg.backgroundColor = kSetUpCololor(195, 195, 195, 1.0);//[UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:1];
         _iconImg.image = [UIImage imageNamed:@"1.jpg"];
     }
     return _iconImg;

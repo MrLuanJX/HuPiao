@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C28C451150F6E072871A2ACF00033E03"
+               BlueprintIdentifier = "4DA1F3D072C5ECB9CB9CC7B599B31D5C"
                BuildableName = "JShare"
                BlueprintName = "JShare"
                ReferencedContainer = "container:Pods.xcodeproj">

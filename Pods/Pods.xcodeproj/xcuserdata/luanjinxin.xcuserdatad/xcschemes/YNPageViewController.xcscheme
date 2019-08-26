@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5486311333A0BD823C96168A4C123937"
+               BlueprintIdentifier = "2345BCA777F04BB509D60D1A5B229876"
                BuildableName = "libYNPageViewController.a"
                BlueprintName = "YNPageViewController"
                ReferencedContainer = "container:Pods.xcodeproj">

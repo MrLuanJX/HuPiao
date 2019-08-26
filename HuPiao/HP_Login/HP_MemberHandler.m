@@ -31,15 +31,19 @@
     [DJZJ_RequestTool LJX_requestWithType:LJX_POST URL:HP_Login params:param successBlock:^(id obj) {
         NSLog(@"loginObj = %@",obj);
 
-        if ([obj[@"errorCode"] integerValue] == 0) {
-            MUser * user = [MUser mj_objectWithKeyValues:obj[@"data"]];
-            NSLog(@"user ------ %@",user);
-            success(user);
-        } else {
-            fail(obj);
-        }
+//        if ([obj[@"errorCode"] integerValue] == 0) {
+//            MUser * user = [MUser mj_objectWithKeyValues:obj[@"data"]];
+//            NSLog(@"user ------ %@",user);
+//            success(user);
+//        } else {
+            success(obj);
+//        }
     } failureBlock:^(NSError *error) {
+        
+        NSLog(@"errorObj = %@",error);
+
         fail(error);
+        
     }];
 }
 

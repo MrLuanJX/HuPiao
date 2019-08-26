@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "205BB39B42CA48A80EC68921B017FD72"
+               BlueprintIdentifier = "41670C4F465001D02F932E5A2CAD83D4"
                BuildableName = "libYYStarView.a"
                BlueprintName = "YYStarView"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -113,35 +113,22 @@
     [SVProgressHUD setBackgroundColor:HPUIColorWithRGB(0x000000, 0.8)];
     [SVProgressHUD setForegroundColor:HPUIColorWithRGB(0xffffff, 1.0)];
     
-    /*
-    if ([self.nameTF.text isEqualToString:@"12345678910"] && [self.pwTF.text isEqualToString:@"111111"]) {
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [SVProgressHUD dismiss];
-            
-            sender.userInteractionEnabled = YES;
-            sender.backgroundColor = HPUIColorWithRGB(0x96CDCD, 1.0);
-            
-            [UIApplication sharedApplication].keyWindow.rootViewController = [HP_TabbarViewController new];
-            
-            [[UIApplication sharedApplication].keyWindow makeKeyAndVisible];
-        });
-    } else {
-         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-             [SVProgressHUD dismiss];
-             sender.userInteractionEnabled = YES;
-             sender.backgroundColor = HPUIColorWithRGB(0x96CDCD, 1.0);
-             
-             [WHToast showErrorWithMessage:@"账号或密码错误，请重新输入" duration:1.5 finishHandler:nil];
-         });
-    }
-     */
-    
     // 用户登录
     [HP_MemberHandler executeLogInWithType:@"user" UserName:[self.nameTF.text trim] Password:[self.pwTF.text trim] loginCode:@"" Success:^(id  _Nonnull obj) {
         [SVProgressHUD dismiss];
+        
+        if ([obj[@"errorCode"] integerValue] != 0) {
+            NSLog(@"-=-=-=-=-=");
+            [WHToast showErrorWithMessage:obj[@"errorMessage"] duration:1.5 finishHandler:^{
+                self.loginBtn.userInteractionEnabled = YES;
+                sender.backgroundColor = HPUIColorWithRGB(0x96CDCD, 1.0);
+            }];
+            return;
+        }
+        
+        MUser * user = [MUser mj_objectWithKeyValues:obj[@"data"]];
         // 存
-        [HP_UserTool saveUserInfo:obj];
+        [HP_UserTool saveUserInfo:user];
         // 给单例赋值属性
         HP_UserTool * configs = [HP_UserTool sharedUserHelper];
         [configs saveUser];
@@ -150,13 +137,13 @@
         zecfappDelegate.window.rootViewController = HP_TabbarViewController.new;
         
     } Fail:^(id  _Nonnull obj) {
+        NSError * error = obj;
+                
         [SVProgressHUD dismiss];
-        if ([obj[@"errorCode"] integerValue] != 0) {
-            [WHToast showErrorWithMessage:obj[@"errorMessage"] duration:1.0 finishHandler:^{
-                self.loginBtn.userInteractionEnabled = YES;
-                sender.backgroundColor = HPUIColorWithRGB(0x96CDCD, 1.0);
-            }];
-        }
+        [WHToast showErrorWithMessage:[NSString stringWithFormat:@"errorCode：%ld",error.code] duration:1.0 finishHandler:^{
+            self.loginBtn.userInteractionEnabled = YES;
+            sender.backgroundColor = HPUIColorWithRGB(0x96CDCD, 1.0);
+        }];
     }];
     
 }

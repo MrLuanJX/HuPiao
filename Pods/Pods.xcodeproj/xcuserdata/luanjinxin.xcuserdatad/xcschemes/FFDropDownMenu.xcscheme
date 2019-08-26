@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "38955B6E35A3F213BE4A9958CCADB0E9"
+               BlueprintIdentifier = "5CE04EEAF8525B8CBAA5A2A3214D9105"
                BuildableName = "libFFDropDownMenu.a"
                BlueprintName = "FFDropDownMenu"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -19,6 +19,7 @@
 #import "HP_AccountSaftyViewController.h"
 #import "HP_UpdatePwdViewController.h"
 #import "HP_IntergralViewController.h"
+#import "HP_HomeHandler.h"
 
 static CGFloat const imageBGHeight = 300; // 背景图片的高度
 
@@ -45,6 +46,10 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
 @property (nonatomic , strong) UIView * navBGView;
 
 @property (nonatomic , strong) UIButton * backBtn;
+
+@property (nonatomic , strong) NSMutableArray * homeArray;
+
+@property (nonatomic , strong) HP_AnchorOwnModel * ownModel;
 
 @end
 
@@ -90,6 +95,45 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
     [self foldFileSize];
     
     [self navBar];
+    
+    [self requestData];
+}
+
+#pragma mark - 请求数据
+- (void) requestData {
+    WS(wSelf);
+    
+    [HP_HomeHandler executeHomeRequestWithIndex:0 CurrentPage:1 MemberNO:[HP_UserTool sharedUserHelper].iMemberNo Success:^(id  _Nonnull obj) {
+
+        NSMutableArray * dataArray = [HP_HomeModel mj_objectArrayWithKeyValuesArray:obj[@"data"]];
+        if (dataArray.count > 0) {
+            [wSelf.homeArray addObjectsFromArray:dataArray];
+        }
+        
+    } Fail:^(id  _Nonnull obj) {
+        [wSelf.tableView.mj_header endRefreshing];
+        [wSelf.tableView.mj_footer endRefreshing];
+    }];
+}
+
+#pragma mark - 请求个人主页
+- (void) requestOwnDataWithUser:(HP_HomeModel *)homeModel {
+    WS(wSelf);
+    
+    [HP_OwnHandler executeAnchorOwnRequestWithIndexNO:homeModel.INDEX_NO Success:^(id  _Nonnull obj) {
+        wSelf.ownModel = [HP_AnchorOwnModel mj_objectWithKeyValues:obj[@"data"]];
+        // 3.GCD
+        dispatch_async(dispatch_get_main_queue(), ^{
+            HP_HomeDetailNewViewController * detailVC = [HP_HomeDetailNewViewController suspendCenterPageVCWithUser:homeModel IsOwn:@"Own" WithOwnModel:wSelf.ownModel];
+            detailVC.title = HPNULLString(homeModel.nickname) ? homeModel.NICKNAME : homeModel.nickname;
+            detailVC.user = homeModel;
+            detailVC.ownModel = wSelf.ownModel;
+            detailVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:detailVC animated:YES];
+        });
+    } Fail:^(id  _Nonnull obj) {
+        
+    }];
 }
 
 #pragma mark -  重点的地方在这里 滚动时候进行计算
@@ -146,10 +190,11 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
         dispatch_async(dispatch_get_main_queue(), ^{
 //            MUser * user = [weakSelf.messageList objectAtIndex:0];
 //            NSLog(@"user = %@",user);
-//            HP_HomeDetailNewViewController * detailVC = [HP_HomeDetailNewViewController suspendCenterPageVCWithUser:weakSelf.user IsOwn:@"Own" WithOwnModel:[HP_AnchorOwnModel new]];
+//            HP_HomeDetailNewViewController * detailVC = [HP_HomeDetailNewViewController suspendCenterPageVCWithUser:weakSelf.user IsOwn:@"Own" WithOwnModel:homeModel];
 //            detailVC.title = weakSelf.user.name;
 //            detailVC.hidesBottomBarWhenPushed = YES;
 //            [weakSelf.navigationController pushViewController:detailVC animated:YES];
+            [weakSelf requestOwnDataWithUser:weakSelf.homeArray.firstObject];
         });
     };
     // 跳转个人资料页
@@ -483,4 +528,19 @@ static CGFloat const imageBGHeight = 300; // 背景图片的高度
     }];
     [self.view addSubview: self.navBGView];
 }
+
+- (NSMutableArray *)homeArray {
+    if (!_homeArray) {
+        _homeArray = @[].mutableCopy;
+    }
+    return _homeArray;
+}
+
+- (HP_AnchorOwnModel *)ownModel {
+    if (!_ownModel) {
+        _ownModel = [HP_AnchorOwnModel new];
+    }
+    return _ownModel;
+}
+
 @end

@@ -134,11 +134,11 @@
         NSLog(@"分享");
         dispatch_async(dispatch_get_main_queue(), ^{
             JSHAREMessage *message = [JSHAREMessage message];
-            message.mediaType = JSHARELink;
+            message.mediaType = JSHAREImage;
             message.url = @"https://www.jiguang.cn/";
             message.text = @"JShare SDK支持主流社交平台、帮助开发者轻松实现社会化功能！";
             message.title = @"欢迎使用极光社会化组件JShare";
-            message.platform = JSHAREPlatformWechatSession;
+            message.platform = JSHAREPlatformSinaWeibo;
             NSString *imageURL = @"http://img2.3lian.com/2014/f5/63/d/23.jpg";
             NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]];
             
@@ -147,13 +147,14 @@
             [JSHAREService share:message handler:^(JSHAREState state, NSError *error) {
                 if (!error) {
                     NSLog(@"分享图文成功");
+                    [WHToast showSuccessWithMessage:@"分享成功" duration:1.5 finishHandler:nil];
                 }else{
                     NSLog(@"分享图文失败, error : %@", error);
+                    [WHToast showSuccessWithMessage:@"分享失败" duration:1.5 finishHandler:nil];
                 }
             }];
         });
     };
-    
     
     return dyCell;
 }

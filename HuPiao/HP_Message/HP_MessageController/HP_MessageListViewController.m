@@ -117,13 +117,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    HP_Message * message = [self.messageList objectAtIndex:indexPath.row];
-    MUser * user = [self.userList objectAtIndex:indexPath.row];
-    
-    HP_ChatViewController * chatVC = [HP_ChatViewController new];
-    chatVC.navTitle = message.userName;
-    chatVC.user = user;
-    [self.navigationController pushViewController:chatVC animated:YES];
+//    HP_Message * message = [self.messageList objectAtIndex:indexPath.row];
+//    MUser * user = [self.userList objectAtIndex:indexPath.row];
+//
+//    HP_ChatViewController * chatVC = [HP_ChatViewController new];
+//    chatVC.navTitle = message.userName;
+//    chatVC.user = user;
+//    [self.navigationController pushViewController:chatVC animated:YES];
 }
 
 #pragma mark -
